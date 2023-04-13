@@ -58,12 +58,12 @@ Infine apri [http://localhost:3000](http://localhost:3000) per visualizzare il r
     </a>
   </li>
   <li>
-    <a href="">
+    <a href="https://www.linkedin.com/in/sonia-grassia/">
       Sonia Grassia
     </a>
   </li>
   <li>
-    <a href="">
+    <a href="https://www.linkedin.com/in/elisabetta-monaco-5869a9109/">
       Elisabetta Monaco
     </a>
   </li>
@@ -73,7 +73,7 @@ Infine apri [http://localhost:3000](http://localhost:3000) per visualizzare il r
     </a>
   </li>
   <li>
-    <a href="">
+    <a href="https://www.linkedin.com/in/fra-coppola-5ab6b4257/">
       Francesco Pio Coppola
     </a>
   </li>
