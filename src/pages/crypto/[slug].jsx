@@ -1,6 +1,7 @@
+
 export default function cryptoId() {
   return (
-    <div className={styles.cryptoId}>
+    <div>
       <h1>cryptoId</h1>
     </div>
   );

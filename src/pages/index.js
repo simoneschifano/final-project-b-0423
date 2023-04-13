@@ -1,15 +1,7 @@
 import Head from "next/head";
-<<<<<<< HEAD
-<<<<<<< HEAD
 import Navbar from "@/components/navbar";
 import styles from "@/styles/Home.module.css";
-=======
-import styles from "@/styles/Home.module.css";
 import Layout from "@/components/layout";
->>>>>>> 7d0bd0b76807e119db40854c04e9db6f6b95b46a
-=======
-import styles from "@/styles/pages/Home.module.scss";
->>>>>>> 22f223ae6fa5d6a18c5ab1a3f013e765fa7b511a
 
 export default function Home() {
   return (
@@ -20,15 +12,14 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-<<<<<<< HEAD
+
       <Navbar />
-=======
+
       <main className={styles.Main}>
         <Layout>
           <h1>Main</h1>
         </Layout>
       </main>
->>>>>>> 7d0bd0b76807e119db40854c04e9db6f6b95b46a
     </>
   );
 }
