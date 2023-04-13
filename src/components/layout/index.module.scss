@@ -5,21 +5,10 @@
   background-color: $background-pages;
   .container {
     background-color: $background-pages;
-<<<<<<< HEAD
     width: calc(100% - 25%);
     float: right;
     min-height: 100vh;
     padding-left: 2em;
     padding-right: 2em;
-=======
-    .container {
-      background-color: $background-pages;
-      width: 100%;
-      float: right;
-      min-height: 100vh;
-      padding-left: 2em;
-      padding-right: 2em;
-    }
->>>>>>> b3a9bcc910ebb091a9f2580ef91e094856bdfce0
   }
 }

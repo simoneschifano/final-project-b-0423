@@ -9,12 +9,11 @@ const Card = (props) => {
     <div className={styles.Card}>
       <div className={styles.details}>
         <div className={styles.actions}>
+          <p className={styles.rank}>{coins.market_cap_rank}.</p>
           <img src={coins.image} alt={coins.id} />
           <div className={styles.icons}>
             <h1 className={styles.symbol}>{coins.symbol.toUpperCase()}</h1>
-            <p className={styles.rank}>
-              {coins.market_cap_rank}.{coins.id}
-            </p>
+            <p className={styles.rank}>{coins.id}</p>
           </div>
         </div>
       </div>
