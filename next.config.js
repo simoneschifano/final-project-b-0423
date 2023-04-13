@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   sassOptions: {
-    includePaths: ["scss"],
+    includePaths: ["src/styles/scss"],
     prependData: `
     @import "/mixins/_flex.scss",
     @import "/mixins/_size.scss",
