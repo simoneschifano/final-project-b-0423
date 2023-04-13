@@ -9,16 +9,17 @@ const Card = (props) => {
     <div className={styles.Card}>
       <div className={styles.details}>
         <div className={styles.actions}>
-          <div className={styles.icons}>
-            <MdStars className={styles.icon} />
             <img src={coins.image} alt={coins.id} />
+          <div className={styles.icons}>
+            <h1 className={styles.symbol}>{coins.symbol.toUpperCase()}</h1>
+            <p className={styles.rank}>{coins.market_cap_rank}.{coins.id}</p>
           </div>
-          <h1 className={styles.symbol}>{coins.symbol.toUpperCase()}</h1>
         </div>
       </div>
       <div className={styles.graph}></div>
       <div className={styles.stat}>
-        <span className={styles.price}>€ {coins.current_price}</span>
+        <MdStars className={styles.icon} />
+        <span className={styles.price}>€{coins.current_price}</span>
         <span className={styles.var}>
           {coins.price_change_percentage_24h.toFixed(2)}%
         </span>
