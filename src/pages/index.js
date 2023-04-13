@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Navbar from "@/components/navbar";
 import styles from "@/styles/Home.module.css";
 import Layout from "@/components/layout";
 
@@ -12,9 +11,6 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <Navbar />
-
       <main className={styles.Main}>
         <Layout>
           <h1>Main</h1>
