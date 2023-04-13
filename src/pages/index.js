@@ -1,8 +1,5 @@
 import Head from "next/head";
-<<<<<<< HEAD
 import styles from "@/styles/Home.module.css";
-=======
->>>>>>> 2e27945cabda3f84af1b0f63d2035f430ddf89cc
 import Layout from "@/components/layout";
 import styles from "@/styles/pages/Home.module.scss";
 
@@ -15,10 +12,6 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-<<<<<<< HEAD
-=======
-
->>>>>>> 2e27945cabda3f84af1b0f63d2035f430ddf89cc
       <main className={styles.Main}>
         <Layout>
           <h1>Main</h1>
