@@ -1,0 +1,15 @@
+.CardsList {
+  @include flex(
+    $direction: column,
+    $justify: center,
+    $align: center,
+    $gap: 10px
+  );
+  width: 100%;
+}
+
+@media screen and (min-width: 800px) {
+  .CardsList {
+    @include flex($direction: row, $wrap: wrap, $justify: center, $gap: 25px);
+  }
+}
