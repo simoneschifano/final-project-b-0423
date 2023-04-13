@@ -3,6 +3,7 @@ import Layout from "@/components/layout";
 import styles from "@/styles/pages/Home.module.scss";
 
 export default function Home() {
+  const mode = "bg_dark";
   return (
     <>
       <Head>
@@ -11,7 +12,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.Main}>
+      <main className={mode}>
         <Layout>
           <h1>Main</h1>
         </Layout>

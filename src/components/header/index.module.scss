@@ -1,23 +1,48 @@
 @import "../../styles/scss/variables/colors.scss";
 @import "../../styles/scss/variables/typography.scss";
-.Header{
-    
-    width: 25%;
-    padding: 2em;
-    color: $first-color;
-    height: 100vh;
-    position: fixed;
-    
-    background-color: $background-pages;
-    box-shadow: $box-shadow;
+.Header {
+  width: 25%;
+  padding: 2em;
+  color: $first-color;
+  height: 100vh;
+  position: fixed;
 
-    .logo{
-        font-family: 'Montserrat', sans-serif;
-        text-transform: uppercase;
-        font-size: 50px;
-        color: $first-color;
+  background-color: $background-pages;
+  box-shadow: $box-shadow;
+
+  .logo {
+    font-family: "Poppins", sans-serif;
+    text-transform: uppercase;
+    font-size: 50px;
+    font-weight: bold;
+    letter-spacing: 4.5px;
+    color: $first-color;
+    text-decoration: unset;
+  }
+  .list {
+    display: block;
+    list-style: none;
+    line-height: 50px;
+    margin-bottom: 5em;
+    margin-top: 3em;
+    a {
+      font-family: "Poppins", sans-serif;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1.68px;
+      color: $first-color;
+      text-decoration: unset;
+      display: flex;
+      align-items: center;
+      span{
+        height: 20px;
+        width: auto;
+        svg{
+            display: block;
+        }
+        margin-right: 20px;
+      }
     }
-    ul{
-        display: block;
-    }
+  }
 }

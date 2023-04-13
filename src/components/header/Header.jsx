@@ -3,10 +3,10 @@ import styles from "./index.module.scss";
 const Header = () => {
   return (
     <div className={styles.Header}>
-      <a className="logo" href="./">
+      <a className={styles.logo} href="./">
         Crypie
       </a>
-      <ul>
+      <ul className={styles.list}>
         <li>
           <a href="../wallet">
             <span>
@@ -26,7 +26,9 @@ const Header = () => {
             </span>
             Wallet
           </a>
-          <a href="../wallet">
+          </li>
+        <li>
+          <a href="../allCrypto">
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +46,9 @@ const Header = () => {
             </span>
             All crypto
           </a>
-          <a href="../wallet">
+          </li>
+        <li>
+          <a href="../watchlist">
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -62,8 +66,8 @@ const Header = () => {
             </span>
             Watchlist
           </a>
-        </li>
-      </ul>
+          </li>
+        </ul>
       <div className="switcher">light - dark</div>
     </div>
   );
