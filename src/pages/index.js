@@ -1,6 +1,10 @@
 import Head from "next/head";
+<<<<<<< HEAD
 import Navbar from "@/components/navbar";
 import styles from "@/styles/Home.module.css";
+=======
+import styles from "@/styles/pages/Home.module.scss";
+>>>>>>> 22f223ae6fa5d6a18c5ab1a3f013e765fa7b511a
 
 export default function Home() {
   return (
