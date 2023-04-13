@@ -8,10 +8,10 @@ export function getAllCrypto() {
   
 //return all slugs
 export function getAllSlugs() {
-    let slug = [];
+    let id = [];
     getAllPosts().map((p) => {
-        slug.push(`/crypto/${p.slug}`);
+        id.push(`/crypto/${p.id}`);
     });
   
-    return slugs;
+    return ids;
 }
