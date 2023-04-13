@@ -26,7 +26,7 @@ const Header = () => {
             </span>
             Wallet
           </a>
-          </li>
+        </li>
         <li>
           <a href="../allCrypto">
             <span>
@@ -46,7 +46,7 @@ const Header = () => {
             </span>
             All crypto
           </a>
-          </li>
+        </li>
         <li>
           <a href="../watchlist">
             <span>
@@ -66,8 +66,8 @@ const Header = () => {
             </span>
             Watchlist
           </a>
-          </li>
-        </ul>
+        </li>
+      </ul>
       <div className="switcher">light - dark</div>
     </div>
   );

@@ -28,7 +28,7 @@ export default function Home({ data }) {
 export async function getStaticProps() {
   const res = await fetch(
     process.env.NEXT_PUBLIC_API_URL +
-      "markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en"
+      "markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en"
   );
   const data = await res.json();
 
