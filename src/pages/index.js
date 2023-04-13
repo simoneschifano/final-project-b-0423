@@ -1,9 +1,4 @@
 import Head from "next/head";
-<<<<<<< HEAD
-import Navbar from "@/components/navbar";
-import styles from "@/styles/pages/Home.module.scss";
-=======
->>>>>>> 59b669d147368c0c9a5e4257a16f7b97b3667b6b
 import Layout from "@/components/layout";
 import styles from "@/styles/pages/Home.module.scss";
 
@@ -17,10 +12,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 59b669d147368c0c9a5e4257a16f7b97b3667b6b
       <main className={styles.Main}>
         <Layout>
           <h1>Main</h1>
