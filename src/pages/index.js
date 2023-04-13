@@ -14,9 +14,9 @@ export default function Home({ data }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={mode}>
-        {/* <Layout> */}
-        <CardsList data={data} />
-        {/* </Layout> */}
+        <Layout>
+          <CardsList data={data} />
+        </Layout>
       </main>
     </>
   );
