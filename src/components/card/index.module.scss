@@ -1,3 +1,29 @@
+@media screen and (max-width: 350px) {
+  .Card {
+    .details {
+      .actions {
+        .icons {
+          .symbol {
+            font-size: 8px;
+          }
+        }
+        img {
+          height: 20px;
+          width: 20px;
+        }
+      }
+    }
+    .graph {
+      width: 45%;
+    }
+
+    .stat {
+      width: 20%;
+      font-size: 9px;
+    }
+  }
+}
+
 .Card {
   height: 80px;
   width: 100%;
