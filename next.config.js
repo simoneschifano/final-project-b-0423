@@ -1,7 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  
+  env: {
+    NEXT_PUBLIC_API_URL: "https://api.coingecko.com/api/v3/coins/",
+  },
   sassOptions: {
     includePaths: ["src/styles"],
     prependData: `

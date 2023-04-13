@@ -1,14 +1,14 @@
 @import "../../styles/scss/variables/colors.scss";
 @import "../../styles/scss/variables/typography.scss";
 
-.Layout{
+.Layout {
+  background-color: $background-pages;
+  .container {
     background-color: $background-pages;
-    .container{
-        background-color: $background-pages;
-        width: calc(100% - 25%);
-        float: right;
-        min-height: 100vh;
-        padding-left: 2em;
-        padding-right: 2em;
-    }
+    width: calc(100% - 25%);
+    float: right;
+    min-height: 100vh;
+    padding-left: 2em;
+    padding-right: 2em;
+  }
 }
