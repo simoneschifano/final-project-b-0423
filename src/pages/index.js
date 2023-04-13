@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Layout from "@/components/layout";
 import styles from "@/styles/pages/Home.module.scss";
-import Card from "@/components/card";
+import CardsList from "@/components/cards_list";
 
 export default function Home({ data }) {
   const mode = "bg_dark";
@@ -15,10 +15,7 @@ export default function Home({ data }) {
       </Head>
       <main className={mode}>
         <Layout>
-          <h1>Main</h1>
-          {data?.map((item) => (
-            <Card props={item} key={item.id} />
-          ))}
+          <CardsList data={data} />
         </Layout>
       </main>
     </>

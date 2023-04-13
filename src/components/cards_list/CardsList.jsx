@@ -1,7 +1,14 @@
 import styles from "./index.module.scss";
+import Card from "../card/Card";
 
-const CardsList = () => {
-  return <div className={styles.CardsList}></div>;
+const CardsList = ({ data }) => {
+  return (
+    <div className={styles.CardsList}>
+      {data?.map((item) => (
+        <Card props={item} key={item.id} />
+      ))}
+    </div>
+  );
 };
 
 export default CardsList;
