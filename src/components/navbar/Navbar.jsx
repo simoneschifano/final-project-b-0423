@@ -3,7 +3,7 @@ import styles from "./index.module.scss";
 const Navbar = () => {
   return (
     <div className={styles.Navbar}>
-      <h1>Navbar</h1>
+      <h2>Navbar</h2>
     </div>
   );
 };
