@@ -1,10 +1,22 @@
 import styles from "./index.module.scss";
 
 import { MdStars } from "react-icons/Md";
+import ChartEl from "../chartEl";
+import { GET } from "@/utils/http";
+import { useState, useEffect } from "react";
 
 const Card = (props) => {
   const data = props;
   const coins = data.props;
+
+  const [cryptoId, setCryptoId] = useState([]);
+  useEffect(() => {
+    GET(`${coins.id}/market_chart?vs_currency=eur&days=7&interval=daily`).then(
+      (data) => setCryptoId(data.prices)
+    );
+  }, []);
+
+  console.log(cryptoId);
   return (
     <div className={styles.Card}>
       <div className={styles.details}>
@@ -17,7 +29,11 @@ const Card = (props) => {
           </div>
         </div>
       </div>
-      <div className={styles.graph}></div>
+      <div className={styles.graph}>
+        <ChartEl prices={cryptoId} />
+      </div>
+      <div className={styles.chart}></div>
+
       <div className={styles.stat}>
         <MdStars className={styles.icon} />
         <span className={styles.price}>€{coins.current_price}</span>
