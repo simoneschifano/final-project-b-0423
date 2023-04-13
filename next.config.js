@@ -5,12 +5,10 @@ const nextConfig = {
   sassOptions: {
     includePaths: ["src/styles"],
     prependData: `
-    @import "/scss/mixins/_flex.scss",
-    @import "/scss/mixins/_size.scss",
-    @import "/scss/variables/_colors.scss",
-    @import "/scss/variables/_typography.scss",
-
-
+      @import "./src/styles/scss/mixins/flex.scss";
+      @import "./src/styles/scss/mixins/size.scss";
+      @import "./src/styles/scss/variables/colors.scss";
+      @import "./src/styles/scss/variables/typography.scss";
     `,
   },
 };
