@@ -1,8 +1,9 @@
+import Layout from "@/components/layout";
 
 export default function cryptoId() {
   return (
-    <div>
-      <h1>cryptoId</h1>
-    </div>
+    <Layout>
+        <h1> io sono la single crypto</h1>
+    </Layout>
   );
 }
