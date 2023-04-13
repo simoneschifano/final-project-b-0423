@@ -1,0 +1,23 @@
+@import "../../styles/scss/variables/colors.scss";
+@import "../../styles/scss/variables/typography.scss";
+.Header{
+    
+    width: 25%;
+    padding: 2em;
+    color: $first-color;
+    height: 100vh;
+    position: fixed;
+    
+    background-color: $background-pages;
+    box-shadow: $box-shadow;
+
+    .logo{
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        font-size: 50px;
+        color: $first-color;
+    }
+    ul{
+        display: block;
+    }
+}
