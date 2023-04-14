@@ -5,6 +5,7 @@ import Layout from "@/components/layout";
 
 export default function allCrypto() {
   const mode = "dark_mode";
+  //manca l'altro useState e il setInterval per il caricamento
   const [allCrypto, setAllCrypto] = useState([]);
   useEffect(() => {
     fetch(
