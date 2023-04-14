@@ -29,7 +29,7 @@ const Card = (props) => {
         </div>
       </div>
       <div className={styles.graph}>
-        <ChartEl prices={cryptoId} />
+       {/*  <ChartEl prices={cryptoId} /> */}
       </div>
       <div className={styles.chart}></div>
 

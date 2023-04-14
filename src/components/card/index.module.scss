@@ -1,41 +1,18 @@
-@media screen and (max-width: 350px) {
-  .Card {
-    
-    @include poppins();
-    .details {
-      .actions {
-        .icons {
-          .symbol {
-            font-size: 8px;
-          }
-        }
-        .image {
-          height: 20px;
-          width: 20px;
-        }
-      }
-    }
-    .graph {
-      width: 45%;
-    }
-
-    .stat {
-      width: 20%;
-      font-size: 9px;
-    }
-  }
-}
-
 .Card {
-  height: 80px;
-  width: 100%;
-  color: $first-color;
+  @include cardSize();
+  @include poppins();
   @include flex($align: center);
   background-color: $background-cards;
   box-shadow: 0px 0px 5px $border-cards;
   border-radius: 10px;
-  padding: 6px;
 
+  @media screen and (min-width: 800px) {
+    border-radius: 30px;
+  }
+  padding: 6px;
+  @media screen and (min-width: 510px) {
+    padding: 12px;
+  }
   .details {
     @include flex($align: center);
     height: 100%;
@@ -63,11 +40,6 @@
       width: 100%;
       height: 100%;
 
-      .image {
-        height: 25px;
-        width: 25px;
-      }
-
       .icons {
         @include flex(
           $direction: column,
@@ -79,12 +51,25 @@
           font-size: 0.6rem;
           color: rgb(163, 163, 163);
         }
+        .symbol {
+          @include flex($direction: column);
+          font-size: 14px;
+          @media screen and (max-width: 350px) {
+            font-size: 8px;
+          }
+        }
       }
-
-      .symbol {
-        @include flex($direction: column);
-        font-size: 14px;
+      .image {
+        @media screen and (max-width: 350px) {
+          height: 20px;
+          width: 20px;
+        }
       }
+    }
+  }
+  .graph {
+    @media screen and (max-width: 350px) {
+      width: 45%;
     }
   }
 
@@ -101,8 +86,11 @@
         color: $graph;
       }
     }
+    @media screen and (max-width: 350px) {
+      width: 20%;
+      font-size: 9px;
+    }
   }
-
   .graph {
     width: 40%;
     height: 40px;
@@ -116,53 +104,7 @@
       font-size: 13px;
       color: $second-color;
     }
-  }
-}
-
-@media screen and (min-width: 510px) {
-  .Card {
-    width: 480px;
-    padding: 12px;
-  }
-}
-
-@media screen and (min-width: 800px) {
-  .Card {
-    height: 200px;
-    width: 400px;
-    border-radius: 30px;
-    @include flex($direction: column, $justify: space-between);
-    position: relative;
-
-    .details {
-      @include flex($direction: row, $align: center);
-      height: 30%;
-      width: 100%;
-
-      .actions {
-        @include flex($direction: row, $gap: 10px, $align: center);
-      }
-
-      .star_desktop {
-        @include flex;
-      }
-    }
-
-    .graph {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-    }
-
-    .stat {
-      display: none;
-    }
-
-    .info {
-      @include flex($direction: column);
-      height: 60%;
-      width: 100%;
-
+    @media screen and (min-width: 800px) {
       .day,
       .week,
       .month {
