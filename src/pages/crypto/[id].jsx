@@ -15,8 +15,8 @@ export default function cryptoId() {
   }, []);
 
   return (
-    <Layout>
-      <h1> {id}</h1>
-    </Layout>
+    <main className={styles.Main}>
+      <Layout></Layout>
+    </main>
   );
 }
