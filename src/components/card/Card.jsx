@@ -45,15 +45,17 @@ const Card = (props) => {
       <div className={styles.info}>
         <div className={styles.day}>
           <span>{coins.symbol.toUpperCase()}-NOW</span>
-          <span>€{coins.current_price}</span>
+          <span className={styles.digits}>€{coins.current_price}</span>
         </div>
         <div className={styles.week}>
           <span>{coins.symbol.toUpperCase()}-CHANGE PERC.</span>
-          <span>{coins.price_change_percentage_24h.toFixed(2)}%</span>
+          <span className={styles.digits}>
+            {coins.price_change_percentage_24h.toFixed(2)}%
+          </span>
         </div>
         <div className={styles.month}>
           <span>{coins.symbol.toUpperCase()}-TODAY</span>
-          <span>€{coins.price_change_24h}</span>
+          <span className={styles.digits}>€{coins.price_change_24h}</span>
         </div>
       </div>
     </div>

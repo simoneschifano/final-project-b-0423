@@ -43,6 +43,7 @@
       height: 20px;
       width: 20px;
       cursor: pointer;
+      border-radius: 100%;
 
       &:hover {
         color: $graph;
@@ -91,6 +92,11 @@
     .icon {
       height: 20px;
       width: 20px;
+      cursor: pointer;
+
+      &:hover {
+        color: $graph;
+      }
     }
   }
 
@@ -102,6 +108,11 @@
   .info {
     height: 70%;
     display: none;
+
+    .digits {
+      font-size: 13px;
+      color: $second-color;
+    }
   }
 }
 
