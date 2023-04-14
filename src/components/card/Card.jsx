@@ -10,7 +10,11 @@ const Card = (props) => {
   const router = useRouter();
 
   const onHandleOpenDetails = () => {
-    router.push(`crypto/${coins.id}`);
+    router.push({
+      pathname: "crypto",
+      query: { name: coins.id },
+    });
+    // `crypto/${coins.id}`);
   };
 
   return (
