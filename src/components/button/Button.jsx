@@ -1,9 +1,9 @@
 import styles from "./index.module.scss";
 
-const Button = () => {
+const Button = (prop) => {
   return (
     <div className={styles.Button}>
-      Accedi ciao
+      {prop.value}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16.588"
