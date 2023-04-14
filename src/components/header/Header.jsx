@@ -6,10 +6,13 @@ const Header = () => {
       <a className={styles.logo} href="./">
         Crypie
       </a>
+      <a className={styles.logo__mobile} href="./">
+        CR
+      </a>
       <ul className={styles.list}>
         <li>
           <a href="../wallet">
-            <span>
+            <span className={styles.svg}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="25.714"
@@ -24,12 +27,13 @@ const Header = () => {
                 />
               </svg>
             </span>
-            Wallet
+            <span className={styles.pageName}>
+            Wallet</span>
           </a>
         </li>
         <li>
           <a href="../allCrypto">
-            <span>
+            <span className={styles.svg}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -44,12 +48,13 @@ const Header = () => {
                 />
               </svg>
             </span>
-            All crypto
+            <span className={styles.pageName}>
+            All crypto</span>
           </a>
         </li>
         <li>
           <a href="../watchlist">
-            <span>
+            <span className={styles.svg}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="23.624"
@@ -64,7 +69,8 @@ const Header = () => {
                 />
               </svg>
             </span>
-            Watchlist
+            <span className={styles.pageName}>
+            Watchlist</span>
           </a>
         </li>
       </ul>
