@@ -10,6 +10,11 @@ $secondary-font: 'Montserrat', sans-serif;
     letter-spacing: 1.68px;
 }
 
-
+@mixin montserrat() {
+    font-family: $secondary-font;
+    letter-spacing: 5.6px;
+    color: $first-color;
+    text-transform: uppercase;
+}
 
 

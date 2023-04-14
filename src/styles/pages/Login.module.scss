@@ -11,11 +11,8 @@
         width: 100%;
         text-align: center;
         h1{
-            color: $first-color;
-            letter-spacing: 4.5px;
-            font-family: $secondary-font;
+            @include montserrat();
             text-transform: uppercase;
-
             margin-bottom: 2em;
         }
     }

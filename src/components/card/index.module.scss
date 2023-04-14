@@ -1,6 +1,7 @@
 @media screen and (max-width: 350px) {
   .Card {
-    font-family: $primary-font;
+    
+    @include poppins();
     .details {
       .actions {
         .icons {
