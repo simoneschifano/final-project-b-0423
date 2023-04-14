@@ -16,7 +16,6 @@ const Card = (props) => {
     );
   }, []);
 
-  console.log(cryptoId);
   return (
     <div className={styles.Card}>
       <div className={styles.details}>
