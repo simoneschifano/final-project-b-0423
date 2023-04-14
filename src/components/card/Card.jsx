@@ -1,22 +1,20 @@
 import styles from "./index.module.scss";
 
 import { MdStars } from "react-icons/md";
-import ChartEl from "../chartEl";
-import { GET } from "@/utils/http";
-import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 
 const Card = (props) => {
   const data = props;
   const coins = data.props;
 
-  const [cryptoId, setCryptoId] = useState([]);
-  useEffect(() => {
-    GET(`${coins.id}/market_chart?vs_currency=eur&days=7&interval=daily`).then(
-      (data) => setCryptoId(data.prices)
-    );
-  }, []);
+  const router = useRouter();
+
+  const onHandleOpenDetails = () => {
+    router.push(`crypto/${coins.id}`);
+  };
+
   return (
-    <div className={styles.Card}>
+    <div className={styles.Card} onClick={onHandleOpenDetails}>
       <div className={styles.details}>
         <div className={styles.actions}>
           <p className={styles.rank}>{coins.market_cap_rank}.</p>
@@ -28,9 +26,7 @@ const Card = (props) => {
           <MdStars className={styles.star_desktop} />
         </div>
       </div>
-      <div className={styles.graph}>
-        <ChartEl prices={cryptoId} />
-      </div>
+      <div className={styles.graph}>{/* <ChartEl prices={cryptoId} /> */}</div>
       <div className={styles.chart}></div>
 
       <div className={styles.stat}>
