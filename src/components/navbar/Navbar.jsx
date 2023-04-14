@@ -1,5 +1,7 @@
 import styles from "./index.module.scss";
 
+import { FiLogOut } from "react-icons/fi";
+
 const Navbar = () => {
   return (
     <div className={styles.Navbar}>
@@ -27,18 +29,7 @@ const Navbar = () => {
         <li>
           <a href="../login">
             <span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="17.5"
-                height="20"
-                viewBox="0 0 17.5 20"
-              >
-                <path
-                  id="unlock"
-                  d="M5.625,5.625a3.126,3.126,0,0,1,5.949-1.34,1.249,1.249,0,1,0,2.258-1.07A5.625,5.625,0,0,0,3.125,5.625V7.5H2.5A2.5,2.5,0,0,0,0,10v7.5A2.5,2.5,0,0,0,2.5,20H15a2.5,2.5,0,0,0,2.5-2.5V10A2.5,2.5,0,0,0,15,7.5H5.625Z"
-                  fill="#f5f5f5"
-                />
-              </svg>
+              <FiLogOut />
             </span>
           </a>
         </li>
