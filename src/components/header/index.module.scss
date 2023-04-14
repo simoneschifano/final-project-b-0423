@@ -2,8 +2,13 @@
 @import "../../styles/scss/variables/typography.scss";
 
 .Header {
-  width: 25%;
-  padding: 2em;
+  
+  width: calc(25% - 1em);
+  padding: 1em;
+  @media screen and (min-width: 992px) {
+    width: calc(25% - 2em);
+    padding: 2em;
+  }
   color: $first-color;
   height: 100vh;
   position: fixed;
@@ -19,6 +24,22 @@
     letter-spacing: 4.5px;
     color: $first-color;
     text-decoration: unset;
+    @media screen and (max-width: 991px) {
+      display: none;
+    }
+    &__mobile{
+      display: none;
+      font-family: "Poppins", sans-serif;
+      text-transform: uppercase;
+      font-size: 30px;
+      font-weight: bold;
+      letter-spacing: 4.5px;
+      color: $first-color;
+      text-decoration: unset;
+      @media screen and (max-width: 991px) {
+        display: block;
+      }
+    }
   }
   .list {
     display: block;
@@ -26,6 +47,7 @@
     line-height: 50px;
     margin-bottom: 5em;
     margin-top: 3em;
+
     a {
       font-family: "Poppins", sans-serif;
       text-transform: uppercase;
@@ -34,15 +56,28 @@
       letter-spacing: 1.68px;
       color: $first-color;
       text-decoration: unset;
-      display: flex;
+
+      @media screen and (min-width: 992px) {
+        display: flex;
+      }
       align-items: center;
-      span {
+      @media screen and (max-width: 991px) {
+        .pageName {
+          display: none !important;
+        }
+      }
+      .svg {
         height: 20px;
         width: auto;
+        margin-right: 20px;
         svg {
           display: block;
+          @media screen and (max-width: 992px) {
+            margin: 0 auto;
+            margin-bottom: 5em;
+          }
         }
-        margin-right: 20px;
+        
       }
     }
   }
