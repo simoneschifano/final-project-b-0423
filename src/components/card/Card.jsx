@@ -21,8 +21,9 @@ const Card = (props) => {
     <div className={styles.Card} onClick={onHandleOpenDetails}>
       <div className={styles.details}>
         <div className={styles.actions}>
-          <p className={styles.rank}>{coins.market_cap_rank}.</p>
+          
           <img className={styles.image} src={coins.image} alt={coins.id} />
+          <p className={styles.rank}>{coins.market_cap_rank}</p>
           <div className={styles.icons}>
             <h1 className={styles.symbol}>{coins.symbol.toUpperCase()}</h1>
             <p className={styles.rank}>{coins.id}</p>
@@ -39,7 +40,7 @@ const Card = (props) => {
           <span>CHANGE PERC.</span>
           <span className={styles.var}>
             {coins.price_change_percentage_24h.toFixed(2)}%
-          </span>
+          </p>
         </div>
         <div className={styles.month}>
           <span>MARKET-CAP</span>

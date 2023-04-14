@@ -1,40 +1,40 @@
-@media screen and (max-width: 350px) {
-  .Card {
-    @include poppins();
-    .details {
-      .actions {
-        .icons {
-          .symbol {
-            font-size: 8px;
-          }
-        }
-        .image {
-          height: 20px;
-          width: 20px;
-        }
-      }
-    }
-  }
-}
-
 .Card {
-  height: 80px;
-  width: 100%;
+  
+  @include cardSize();
   color: $first-color;
-  @include flex($justify: space-between, $align: center, $gap: 10px);
+  @include flex($align: center);
   background-color: $background-cards;
   box-shadow: 0px 0px 5px $border-cards;
-  border-radius: 10px;
-  padding: 6px;
+  letter-spacing: 0px;
+  border-radius: 20px;
+  padding: 12px;
+  @media screen and (max-width: 350px) {
+    height: 80px;
+  }
+  @media screen and (min-width: 510px) {
+    padding: 12px;
+  }
 
+  @media screen and (min-width: 800px) {
+    
+    @include flex($direction: column, $justify: space-between);
+    position: relative;
+  }
   .details {
+    @media screen and (min-width: 800px) {
+      @include flex($direction: row, $align: center);
+      height: 30%;
+      width: 100%;
+    }
     @include flex($align: center);
     height: 100%;
     width: 35%;
-
-    .star {
-      height: 40px;
-      width: 40px;
+    .star_desktop {
+      @media screen and (min-width: 800px) {
+        @include flex;
+      }
+      height: 20px;
+      width: 20px;
       cursor: pointer;
       border-radius: 100%;
       display: none;
@@ -43,8 +43,10 @@
         color: $graph;
       }
     }
-
     .actions {
+      @media screen and (min-width: 800px) {
+        @include flex($direction: row, $gap: 10px, $align: center);
+      }
       @include flex(
         $direction: row,
         $justify: start,
@@ -54,15 +56,6 @@
       width: 100%;
       height: 100%;
 
-      .image {
-        height: 25px;
-        width: 25px;
-      }
-
-      .rank {
-        font-size: 10px;
-      }
-
       .icons {
         @include flex(
           $direction: column,
@@ -71,117 +64,92 @@
           $gap: 3px
         );
         .rank {
-          font-size: 0.4rem;
+          font-size: 0.6rem;
           color: rgb(163, 163, 163);
         }
-      }
 
-      .symbol {
-        @include flex($direction: column);
-        font-size: 14px;
+        .symbol {
+          @include flex($direction: column);
+          font-size: 14px;
+          @media screen and (max-width: 350px) {
+            font-size: 8px;
+          }
+        }
       }
+      .image {
+        @media screen and (max-width: 350px) {
+          height: 20px;
+          width: 20px;
+        }
+        height: 25px;
+        width: 25px;
+      }
+    }
+  }
+  .graph {
+    @media screen and (max-width: 350px) {
+      width: 45%;
+    }
+    @media screen and (min-width: 800px) {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+    }
+    width: 40%;
+    height: 40px;
+  }
+  .stat {
+    @media screen and (max-width: 350px) {
+      width: 20%;
+      font-size: 9px;
+    }
+
+    @include flex($direction: column, $align: flex-end, $gap: 4px);
+    width: 25%;
+    font-size: 14px;
+    .icon {
+      height: 20px;
+      width: 20px;
+      cursor: pointer;
+
+      &:hover {
+        color: $graph;
+      }
+    }
+
+    @media screen and (min-width: 800px) {
+      display: none;
     }
   }
 
   .info {
-    height: 100%;
-    @include flex(
-      $direction: column,
-      $align: center,
-      $justify: center,
-      $gap: 5px
-    );
-    width: 50%;
-    font-size: 7px;
+    height: 70%;
+    margin-top: 20px;
+    @media screen and (max-width: 800px) {
+      display: none;
+    }
+    .digits {
+      font-size: 10px;
+      color: $second-color;
+    }
+
+    @include flex($direction: column);
+    height: 60%;
+    width: 100%;
 
     .day,
     .week,
     .month {
-      @include flex($justify: space-between, $align: center, $gap: 4px);
+      font-size: 10px;
+      color: $light;
+      @include flex($justify: space-between);
       width: 100%;
-      height: 100%;
-    }
-
-    .digits {
-      font-size: 6px;
-    }
-
-    .var {
-      font-size: 6px;
-      color: $second-color;
+      height: 33%;
     }
   }
-}
 
-@media screen and (min-width: 750px) {
-  .Card {
-    height: 200px;
-    width: 400px;
-    border-radius: 30px;
-    @include flex($direction: column, $justify: space-between);
-    position: relative;
-    padding: 8px;
-
-    .details {
-      @include flex($direction: row, $align: center);
-      height: 30%;
-      width: 100%;
-
-      .star {
-        @include flex;
-        position: absolute;
-        top: 15px;
-        right: 8px;
-        cursor: pointer;
-        transition: 0.4s;
-
-        &:hover {
-          color: $graph;
-        }
-      }
-
-      .actions {
-        @include flex($direction: row, $gap: 10px, $align: center);
-        width: 100%;
-
-        .image {
-          height: 30px;
-          width: 30px;
-        }
-
-        .rank {
-          font-size: 18px;
-        }
-
-        .icons {
-          .rank {
-            font-size: 12px;
-          }
-        }
-      }
-    }
-
-    .info {
-      @include flex($direction: column);
-      height: 60%;
-      width: 100%;
-      font-size: 14px;
-
-      .digits {
-        font-size: 13px;
-      }
-
-      .var {
-        font-size: 13px;
-      }
-
-      .day,
-      .week,
-      .month {
-        @include flex($justify: space-between);
-        width: 100%;
-        height: 33%;
-      }
-    }
+  .rank {
+    font-size: 2rem;
+    color: $light;
   }
 }
