@@ -1,7 +1,7 @@
 $full: calc(100% - 17px);
 $half: calc(50% - 17px);
 $three: calc(33.33% - 17px);
-$four: calc(33.33% - 17px);
+$four: calc(25% - 17px);
 
 @mixin flex(
   $direction: row,
@@ -31,6 +31,7 @@ $four: calc(33.33% - 17px);
     -ms-flex: 0 0 $half;
     flex: 0 0 $half;
     max-width: $half;
+    min-width: $half;
   }
     
   @media screen and (min-width: 1024px) {
