@@ -1,6 +1,6 @@
 import styles from "./index.module.scss";
 
-import { CiStar } from "react-icons/ci";
+import { HiStar } from "react-icons/hi";
 import ChartEl from "../chartEl";
 import { GET } from "@/utils/http";
 import { useState, useEffect } from "react";
@@ -27,6 +27,7 @@ const Card = (props) => {
             <h1 className={styles.symbol}>{coins.symbol.toUpperCase()}</h1>
             <p className={styles.rank}>{coins.id}</p>
           </div>
+          <HiStar className={styles.star_desktop} />
         </div>
       </div>
       <div className={styles.graph}>
@@ -35,7 +36,7 @@ const Card = (props) => {
       <div className={styles.chart}></div>
 
       <div className={styles.stat}>
-        <CiStar className={styles.icon} />
+        <HiStar className={styles.icon} />
         <span className={styles.price}>€{coins.current_price}</span>
         <span className={styles.var}>
           {coins.price_change_percentage_24h.toFixed(2)}%
