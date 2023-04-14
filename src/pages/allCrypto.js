@@ -1,9 +1,19 @@
+import { useEffect, useState } from "react";
 import Head from "next/head";
+import CardsList from "@/components/cards_list";
 import Layout from "@/components/layout";
-
 
 export default function allCrypto() {
   const mode = "dark_mode";
+  const [allCrypto, setAllCrypto] = useState([]);
+  useEffect(() => {
+    fetch(
+      process.env.NEXT_PUBLIC_API_URL +
+        "markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en"
+    )
+      .then((res) => res.json())
+      .then(setAllCrypto(allCrypto));
+  }, []);
   return (
     <>
       <Head>
@@ -14,7 +24,8 @@ export default function allCrypto() {
       </Head>
       <main className={mode}>
         <Layout>
-          <h2>  allCrypto </h2>
+          <h2> allCrypto </h2>
+          <CardsList data={allCrypto} />
         </Layout>
       </main>
     </>
