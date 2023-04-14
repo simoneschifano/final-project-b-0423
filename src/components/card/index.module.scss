@@ -1,5 +1,7 @@
 @media screen and (max-width: 350px) {
   .Card {
+    
+    @include poppins();
     .details {
       .actions {
         .icons {
