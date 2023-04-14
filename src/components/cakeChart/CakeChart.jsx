@@ -2,7 +2,7 @@ import styles from "./index.module.scss";
 
 import React from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import { Doughnut } from "react-chartjs-2";
+import { Pie } from "react-chartjs-2";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -36,7 +36,7 @@ const CakeChart = () => {
 
   return (
     <div className={styles.CakeChart}>
-      <Doughnut
+      <Pie
         data={data}
         options={{
           responsive: true,

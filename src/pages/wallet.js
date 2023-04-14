@@ -1,9 +1,10 @@
 import Head from "next/head";
 import Layout from "@/components/layout";
-
+import CakeChart from "@/components/cakeChart";
+import styles from "@/styles/pages/wallet.module.scss";
 
 export default function Wallet() {
-  const mode = 'dark_mode';
+  const mode = "dark_mode";
   return (
     <>
       <Head>
@@ -14,7 +15,14 @@ export default function Wallet() {
       </Head>
       <main className={mode}>
         <Layout>
-          <h1>WAllet page</h1>
+          <div className={styles.Content}>
+            <h3 className={styles.title}> MY WALLET STATUS</h3>
+            <div className={styles.chartArea}>
+              <CakeChart />
+
+              <h2> SALDO: </h2>
+            </div>
+          </div>
         </Layout>
       </main>
     </>
