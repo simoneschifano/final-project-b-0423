@@ -1,6 +1,6 @@
 import styles from "./index.module.scss";
 
-import { MdStars } from "react-icons/Md";
+import { CiStar } from "react-icons/ci";
 import ChartEl from "../chartEl";
 import { GET } from "@/utils/http";
 import { useState, useEffect } from "react";
@@ -35,7 +35,7 @@ const Card = (props) => {
       <div className={styles.chart}></div>
 
       <div className={styles.stat}>
-        <MdStars className={styles.icon} />
+        <CiStar className={styles.icon} />
         <span className={styles.price}>€{coins.current_price}</span>
         <span className={styles.var}>
           {coins.price_change_percentage_24h.toFixed(2)}%
