@@ -13,8 +13,9 @@ export default function allCrypto() {
         "markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en"
     )
       .then((res) => res.json())
-      .then(setAllCrypto(allCrypto));
+      .then((data) => setAllCrypto(data));
   }, []);
+  // console.log(allCrypto);
   return (
     <>
       <Head>
