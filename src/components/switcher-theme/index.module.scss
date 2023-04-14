@@ -1,0 +1,36 @@
+.SwictherTheme {
+  @include flex($align: center, $justify: space-between);
+  background-color: $first-color;
+  width: 100px;
+  padding: 5px;
+  border-radius: 30px;
+  cursor: pointer;
+
+  .dark {
+    @include flex($align: center, $justify: center);
+    background-color: black;
+    border-radius: 10px;
+    width: 50%;
+    padding: 5px;
+    transition: 0.3s;
+  }
+
+  .light {
+    @include flex($align: center, $justify: center);
+    padding: 5px;
+    border-radius: 10px;
+    color: black;
+    width: 50%;
+  }
+
+  .unactive {
+    background-color: $first-color;
+    color: black;
+  }
+
+  .active {
+    background-color: black;
+    color: white;
+    transition: 0.3s;
+  }
+}
