@@ -13,7 +13,6 @@ const Card = (props) => {
       pathname: "crypto",
       query: { name: coins.id },
     });
-    // `crypto/${coins.id}`);
   };
 
   return (
@@ -35,7 +34,13 @@ const Card = (props) => {
         </div>
         <div className={styles.week}>
           <span>CHANGE PERC.</span>
-          <span className={styles.var}>
+          <span
+            className={
+              coins.price_change_percentage_24h > 0
+                ? styles.positiveVar
+                : styles.negativeVar
+            }
+          >
             {coins.price_change_percentage_24h.toFixed(2)}%
           </span>
         </div>

@@ -120,7 +120,6 @@
     }
     .digits {
       font-size: 10px;
-      color: $second-color;
     }
 
     @include flex($direction: column);
@@ -136,6 +135,13 @@
       width: 100%;
       height: 33%;
     }
+  }
+
+  .positiveVar {
+    color: $second-color;
+  }
+  .negativeVar {
+    color: $red;
   }
 
   .star {
