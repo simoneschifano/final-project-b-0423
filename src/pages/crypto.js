@@ -48,7 +48,7 @@ export default function cryptoId() {
         <div className={styles.info}>
           <div className={styles.price}>
             <div className={styles.priceDettails}>
-              <h2> Price: €{cryptoJson.current_price}</h2>
+              <h3> Price: €{cryptoJson.current_price}</h3>
               <h6> %{cryptoJson.price_change_percentage_24h.toFixed(2)}</h6>
             </div>
 

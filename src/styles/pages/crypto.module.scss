@@ -15,9 +15,6 @@
 
 .info {
   .price {
-    h2 {
-      margin-bottom: 0;
-    }
     @include flex($direction: column, $align: center, $gap: 5px);
     border: 1px solid red;
     width: 250px;
