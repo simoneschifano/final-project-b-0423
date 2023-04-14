@@ -40,7 +40,7 @@ const Card = (props) => {
           <span>CHANGE PERC.</span>
           <span className={styles.var}>
             {coins.price_change_percentage_24h.toFixed(2)}%
-          </p>
+          </span>
         </div>
         <div className={styles.month}>
           <span>MARKET-CAP</span>
