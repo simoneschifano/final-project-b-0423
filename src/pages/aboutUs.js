@@ -190,6 +190,41 @@ export default function aboutUs() {
                 </ul>
               </div>
             </div>
+            <div className={styles.aboutCard}>
+              <div className={styles.myImage}>
+                <img src="https://picsum.photos/1080/1080" alt="myImage" />
+              </div>
+              <h3 className={styles.myName}>Gino Giggini</h3>
+              <div className={styles.info}>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod
+                  asperiores enim non id ratione maxime nesciunt. Officia,
+                  sapiente? Nostrum ab at repellendus eos exercitationem veniam.
+                </p>
+              </div>
+              <div className={styles.contacts}>
+                <ul>
+                  <li>
+                    <span>Linkedin</span>
+                    <span className={styles.link}>
+                      <a href="#">LINK</a>
+                    </span>
+                  </li>
+                  <li>
+                    <span>Github</span>
+                    <span className={styles.link}>
+                      <a href="#">LINK</a>
+                    </span>
+                  </li>
+                  <li>
+                    <span>Mail</span>
+                    <span className={styles.link}>
+                      <a href="#">LINK</a>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </Layout>
       </main>
