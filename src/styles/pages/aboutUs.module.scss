@@ -1,0 +1,111 @@
+.Main {
+  .content {
+    @include flex($justify: center, $align: center, $gap: 50px, $wrap: wrap);
+    padding: 40px 20px 40px 20px;
+
+    .aboutCard {
+      width: 300px;
+      @include flex($direction: column, $align: center);
+      background-color: $background-cards;
+      border-radius: 15px;
+      box-shadow: $box-shadow;
+      text-align: center;
+      transition: 0.4s;
+      padding: 5px;
+
+      .myImage {
+        height: 80px;
+        width: 80px;
+        border-radius: 100%;
+        transform: translateY(-20px);
+
+        img {
+          height: 100%;
+          width: 100%;
+          border-radius: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .myName {
+        height: 20%;
+      }
+
+      .info {
+        height: 50%;
+        width: 100%;
+        background-color: $box-shadow;
+        font-size: 10px;
+        padding: 15px 5px 15px 5px;
+
+        p {
+          letter-spacing: 2px;
+        }
+      }
+
+      .contacts {
+        height: 30%;
+        width: 100%;
+        @include flex($justify: center, $align: center);
+        ul {
+          @include flex($justify: center, $align: center, $gap: 20px);
+          list-style: none;
+          padding: 0px 5px 0px 5px;
+
+          .link {
+            font-size: 10px;
+
+            a {
+              display: inline-block;
+              text-decoration: none;
+              color: rgb(0, 128, 255);
+              transition: 0.3s;
+
+              &:hover {
+                filter: brightness(1.2);
+                text-shadow: 0px 0px 1px rgb(0, 128, 255);
+                transform: scale(1.1);
+              }
+
+              &:active {
+                filter: brightness(1.2);
+                text-shadow: 0px 0px 1px rgb(0, 128, 255);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .Main {
+    .content {
+      @include flex(
+        $justify: space-evenly,
+        $align: center,
+        $gap: 50px,
+        $wrap: wrap
+      );
+      .aboutCard {
+        padding: 10px;
+
+        &:hover {
+          transform: scale(1.1);
+          padding: 15px;
+
+          .myImage {
+            transition: all 0.4s;
+            transform: translateY(-30px);
+          }
+        }
+
+        .myImage {
+          height: 100px;
+          width: 100px;
+        }
+      }
+    }
+  }
+}

@@ -10,7 +10,11 @@ const Card = (props) => {
   const router = useRouter();
 
   const onHandleOpenDetails = () => {
-    router.push(`crypto/${coins.id}`);
+    router.push({
+      pathname: "crypto",
+      query: { name: coins.id },
+    });
+    // `crypto/${coins.id}`);
   };
 
   return (
@@ -24,33 +28,23 @@ const Card = (props) => {
             <h1 className={styles.symbol}>{coins.symbol.toUpperCase()}</h1>
             <p className={styles.rank}>{coins.id}</p>
           </div>
-          <MdStars className={styles.star_desktop} />
         </div>
-      </div>
-      <div className={styles.graph}>{/* <ChartEl prices={cryptoId} /> */}</div>
-      <div className={styles.chart}></div>
-
-      <div className={styles.stat}>
-        <MdStars className={styles.icon} />
-        <p className={styles.price}>€{coins.current_price}</p>
-        <p className={styles.var}>
-          {coins.price_change_percentage_24h.toFixed(2)}%
-        </p>
+        <MdStars className={styles.star} />
       </div>
       <div className={styles.info}>
         <div className={styles.day}>
-          <p>{coins.symbol.toUpperCase()}-NOW</p>
-          <p className={styles.digits}>€{coins.current_price}</p>
+          <span>PRICE</span>
+          <span className={styles.digits}>€{coins.current_price}</span>
         </div>
         <div className={styles.week}>
-          <p>{coins.symbol.toUpperCase()}-CHANGE PERC.</p>
-          <p className={styles.digits}>
+          <span>CHANGE PERC.</span>
+          <span className={styles.var}>
             {coins.price_change_percentage_24h.toFixed(2)}%
-          </p>
+          </span>
         </div>
         <div className={styles.month}>
-          <p>{coins.symbol.toUpperCase()}-TODAY</p>
-          <p className={styles.digits}>€{coins.price_change_24h}</p>
+          <span>MARKET-CAP</span>
+          <span className={styles.digits}>€{coins.market_cap}</span>
         </div>
       </div>
     </div>

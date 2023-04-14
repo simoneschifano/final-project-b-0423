@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Layout from "@/components/layout";
 import styles from "@/styles/pages/Home.module.scss";
-import CardsList from "@/components/cards_list";
 
 export default function Home() {
   const mode = "bg_dark";

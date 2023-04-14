@@ -1,5 +1,7 @@
 import styles from "./index.module.scss";
 
+import { FaUsers } from "react-icons/fa";
+
 const Header = () => {
   return (
     <div className={styles.Header}>
@@ -90,6 +92,14 @@ const Header = () => {
               </svg>
             </span>
             <span className={styles.pageName}>Watchlist</span>
+          </a>
+        </li>
+        <li>
+          <a href="../aboutUs">
+            <span className={styles.svg}>
+              <FaUsers className={styles.aboutIcon} />
+            </span>
+            <span className={styles.pageName}>About us</span>
           </a>
         </li>
       </ul>
