@@ -1,1 +1,8 @@
-.Main{}
+.Main {
+  .container {
+    @include flex($direction: column, $gap: 250px);
+    .section {
+      @include space-around($all: 12px);
+    }
+  }
+}
