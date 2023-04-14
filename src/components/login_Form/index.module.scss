@@ -6,11 +6,8 @@
     max-width: 400px;
     margin: 0 auto;
     h2{
-        font-family: 'Montserrat', sans-serif;
+        @include montserrat();
         font-size: 40px;
-        letter-spacing: 5.6px;
-        color: #FFFFFF;
-        text-transform: uppercase;
         margin-bottom: 20px;
     }
     label{

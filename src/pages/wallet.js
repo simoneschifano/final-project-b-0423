@@ -16,7 +16,7 @@ export default function Wallet() {
       <main className={mode}>
         <Layout>
           <div className={styles.Content}>
-            <h3 className={styles.title}> MY WALLET STATUS</h3>
+            <h2 className={styles.title}> MY WALLET STATUS</h2>
             <div className={styles.chartArea}>
               <CakeChart />
 
