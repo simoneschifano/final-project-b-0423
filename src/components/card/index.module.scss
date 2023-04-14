@@ -28,7 +28,8 @@
     }
     @include flex($align: center);
     height: 100%;
-    width: 35%;
+    width: 100%;
+    
     .star_desktop {
       @media screen and (min-width: 800px) {
         @include flex;
@@ -146,6 +147,11 @@
       width: 100%;
       height: 33%;
     }
+  }
+
+  .star{
+    width: 30px;
+    height: 30px;
   }
 
   .rank {
