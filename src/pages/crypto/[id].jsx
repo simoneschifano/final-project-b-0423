@@ -8,15 +8,16 @@ export default function cryptoId() {
   const { id } = router.query;
 
   const [singleCryptoData, setSingleCryptoData] = useState([]);
+
   useEffect(() => {
     GET(`${id}/market_chart?vs_currency=eur&days=7&interval=daily`).then(
       (data) => setSingleCryptoData(data.prices)
     );
   }, []);
-
+  console.log(singleCryptoData);
   return (
     <Layout>
-      <h1> {id}</h1>
+      <h2> {id}</h2>
     </Layout>
   );
 }
