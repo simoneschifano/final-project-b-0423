@@ -1,3 +1,6 @@
 .CakeChart {
-  width: 100%;
+  width: 45%;
+  @media screen and (max-width: 800px) {
+    width: 100%;
+  }
 }

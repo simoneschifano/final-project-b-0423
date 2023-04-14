@@ -91,7 +91,6 @@
     }
     .var {
       font-size: 10px;
-      color: $second-color;
     }
 
     @include flex($direction: column);
@@ -106,6 +105,18 @@
       @include flex($justify: space-between);
       width: 100%;
       height: 33%;
+    }
+
+    .positiveVar {
+      color: $second-color;
+    }
+    .negativeVar {
+      color: $red;
+    }
+
+    .star {
+      width: 30px;
+      height: 30px;
     }
 
     .day,
