@@ -1,6 +1,6 @@
 .Navbar {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   ul {
     list-style: none;
     line-height: 50px;
@@ -10,12 +10,9 @@
     li {
       padding-left: 20px;
       a {
-        font-family: "Poppins", sans-serif;
-        text-transform: uppercase;
+        @include poppins();
         font-size: 12px;
-        font-weight: 500;
-        letter-spacing: 1.68px;
-        color: $first-color;
+
         text-decoration: unset;
         display: flex;
         align-items: center;
