@@ -1,10 +1,11 @@
 .Card {
+  
   @include cardSize();
   color: $first-color;
   @include flex($align: center);
   background-color: $background-cards;
   box-shadow: 0px 0px 5px $border-cards;
-  
+  letter-spacing: 0px;
   border-radius: 20px;
   padding: 12px;
   @media screen and (max-width: 350px) {

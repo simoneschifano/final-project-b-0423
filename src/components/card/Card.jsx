@@ -17,8 +17,9 @@ const Card = (props) => {
     <div className={styles.Card} onClick={onHandleOpenDetails}>
       <div className={styles.details}>
         <div className={styles.actions}>
-          <p className={styles.rank}>{coins.market_cap_rank}</p>
+          
           <img className={styles.image} src={coins.image} alt={coins.id} />
+          <p className={styles.rank}>{coins.market_cap_rank}</p>
           <div className={styles.icons}>
             <h1 className={styles.symbol}>{coins.symbol.toUpperCase()}</h1>
             <p className={styles.rank}>{coins.id}</p>
