@@ -17,6 +17,9 @@
     
     @include poppins();
 
-
+    h2{
+      font-size: 14px;
+      margin-bottom: 2em;
+    }
   }
 }

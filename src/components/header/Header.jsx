@@ -5,10 +5,10 @@ import { FaUsers } from "react-icons/fa";
 const Header = () => {
   return (
     <div className={styles.Header}>
-      <a className={styles.logo} href="./">
+      <a className={styles.logo} href="/">
         Crypie
       </a>
-      <a className={styles.logo__mobile} href="./">
+      <a className={styles.logo__mobile} href="/">
         <svg
           id="logo-86"
           width="40"
