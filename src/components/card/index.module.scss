@@ -49,7 +49,7 @@
       }
       @include flex(
         $direction: row,
-        $justify: start,
+        $justify: flex-start,
         $gap: 8px,
         $align: center
       );
