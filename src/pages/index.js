@@ -3,7 +3,7 @@ import Layout from "@/components/layout";
 import styles from "@/styles/pages/Home.module.scss";
 import CardsList from "@/components/cards_list";
 
-export default function Home({ data }) {
+export default function Home() {
   const mode = "bg_dark";
   return (
     <>
@@ -13,25 +13,14 @@ export default function Home({ data }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={mode}>
+      <main className={styles.Main}>
         <Layout>
-          <CardsList data={data} />
+          <div className={styles.container}>
+            <div className={styles.section}>All crypto</div>
+            <div className={styles.section}>Tranding</div>
+          </div>
         </Layout>
       </main>
     </>
   );
-}
-
-export async function getStaticProps() {
-  const res = await fetch(
-    process.env.NEXT_PUBLIC_API_URL +
-      "markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en"
-  );
-  const data = await res.json();
-
-  return {
-    props: {
-      data,
-    },
-  };
 }

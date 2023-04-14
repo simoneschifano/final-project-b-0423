@@ -15,7 +15,6 @@ const Card = (props) => {
       (data) => setCryptoId(data.prices)
     );
   }, []);
-
   return (
     <div className={styles.Card}>
       <div className={styles.details}>
