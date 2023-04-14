@@ -1,3 +1,8 @@
+$full: calc(100% - 17px);
+$half: calc(50% - 17px);
+$three: calc(33.33% - 17px);
+$four: calc(33.33% - 17px);
+
 @mixin flex(
   $direction: row,
   $justify: flex-start,
@@ -16,21 +21,22 @@
 @mixin cardSize() {
   /* MOBILE */
   @media screen and (max-width: 768px) {
-    -ms-flex: 0 0 100%;
-    flex: 0 0 100%;
-    max-width: 100%;
+    -ms-flex: 0 0 $full;
+    flex: 0 0 $full;
+    max-width: $full;
+    min-width: $full;
   }
   /* IPAD TABLET */
-  @media only screen and (max-width: 769px) and (min-width: 1023px)  {
-    -ms-flex: 0 0 50%;
-    flex: 0 0 50%;
-    max-width: 50%;
+  @media only screen and (min-width: 769px) and (max-width: 1023px)  {
+    -ms-flex: 0 0 $half;
+    flex: 0 0 $half;
+    max-width: $half;
   }
     
   @media screen and (min-width: 1024px) {
-    -ms-flex: 0 0 33.33%;
-    flex: 0 0 33.33%;
-    max-width: 33.33%;
+    -ms-flex: 0 0 $three;
+    flex: 0 0 $three;
+    max-width: $three;
   }
   
 }

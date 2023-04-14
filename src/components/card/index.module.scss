@@ -5,14 +5,15 @@
   background-color: $background-cards;
   box-shadow: 0px 0px 5px $border-cards;
   border-radius: 10px;
-
+  padding: 6px;
   @media screen and (min-width: 800px) {
     border-radius: 30px;
   }
-  padding: 6px;
   @media screen and (min-width: 510px) {
     padding: 12px;
   }
+
+
   .details {
     @include flex($align: center);
     height: 100%;
@@ -39,7 +40,14 @@
       );
       width: 100%;
       height: 100%;
-
+      .image {
+        height: 25px;
+        width: 25px;
+        @media screen and (max-width: 350px) {
+          height: 20px;
+          width: 20px;
+        }
+      }
       .icons {
         @include flex(
           $direction: column,
@@ -59,12 +67,7 @@
           }
         }
       }
-      .image {
-        @media screen and (max-width: 350px) {
-          height: 20px;
-          width: 20px;
-        }
-      }
+      
     }
   }
   .graph {
