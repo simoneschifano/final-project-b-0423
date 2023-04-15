@@ -3,6 +3,8 @@ import Head from "next/head";
 import CardsList from "@/components/cards_list";
 import Layout from "@/components/layout";
 import Loading from "@/components/loading";
+import BtnFilter from "@/components/btnFilter";
+import styles from "../styles/pages/allCrypto.module.scss";
 
 export default function allCrypto() {
   const mode = "dark_mode";
@@ -18,7 +20,11 @@ export default function allCrypto() {
       .then((data) => setAllCrypto(data));
     setLoading(false);
   }, []);
-  // console.log(allCrypto);
+
+  //non funziona
+  const onHandleSorting = () => {
+    console.log("allCrypto");
+  };
   return (
     <>
       <Head>
@@ -30,6 +36,10 @@ export default function allCrypto() {
       <main className={mode}>
         <Layout>
           <h2> allCrypto </h2>
+          <div className={styles.container}>
+            <BtnFilter value="Ordina per Rank " onClick={onHandleSorting} />
+            <BtnFilter value="% / 24H " />
+          </div>
           {loading ? <Loading /> : <CardsList data={allCrypto} />}
         </Layout>
       </main>
