@@ -57,6 +57,10 @@
     margin-bottom: 5em;
     margin-top: 3em;
 
+    @media screen and (min-height: 550px) {
+      line-height: 1px;
+    }
+
     @media screen and (min-width: 580px) {
       line-height: 20px;
     }
