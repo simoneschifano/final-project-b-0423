@@ -11,6 +11,7 @@ export default function allCrypto() {
   //manca l'altro useState e il setInterval per il caricamento
   const [allCrypto, setAllCrypto] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [filter, setFilter] = useState(false);
   useEffect(() => {
     fetch(
       process.env.NEXT_PUBLIC_API_URL +
@@ -21,10 +22,6 @@ export default function allCrypto() {
     setLoading(false);
   }, []);
 
-  //non funziona
-  const onHandleSorting = () => {
-    console.log("allCrypto");
-  };
   return (
     <>
       <Head>
@@ -37,10 +34,28 @@ export default function allCrypto() {
         <Layout>
           <h2> allCrypto </h2>
           <div className={styles.container}>
-            <BtnFilter value="Ordina per Rank " onClick={onHandleSorting} />
-            <BtnFilter value="% / 24H " />
+            <BtnFilter value="Ordina per Rank " setFilter={setFilter} />
           </div>
-          {loading ? <Loading /> : <CardsList data={allCrypto} />}
+          {/* {loading ? <Loading /> : <CardsList data={allCrypto} />} */}
+          {filter ? (
+            loading ? (
+              <Loading />
+            ) : (
+              <CardsList
+                data={allCrypto.sort(
+                  (a, b) => b.market_cap_rank - a.market_cap_rank
+                )}
+              />
+            )
+          ) : loading ? (
+            <Loading />
+          ) : (
+            <CardsList
+              data={allCrypto.sort(
+                (a, b) => a.market_cap_rank - b.market_cap_rank
+              )}
+            />
+          )}
         </Layout>
       </main>
     </>
