@@ -1,58 +1,71 @@
-.userSettings {
-  transform: translateY(30px);
-  background-color: $background-cards;
-  border: 1px solid $second-color;
-  box-shadow: 0 0 6px 1px $second-color;
-  border-radius: 20px;
-  @include space-around($top-bot: 10px, $left-right: 10px);
-  @include flex($direction: column, $align: center);
-  .userPhoto {
-    transform: translateY(-50px);
-    border: 1px solid $border-cards;
-    border-radius: 100px;
+.settingList {
+  @include flex($direction: column, $align: center, $gap: 30px);
+  .userSettings,
+  .cardSettings {
+    width: 100%;
+    transform: translateY(50px);
     background-color: $background-cards;
+    border: 1px solid $border-cards;
     box-shadow: 0 0 6px 1px $border-cards;
-    object-fit: fill;
-    @include size($width: 90px);
-    @include space-around($top-bot: 6px, $left-right: 6px);
-  }
-  .userData {
-    transform: translateY(-30px);
-    font-size: 10px;
-    @include size($width: 100%);
-    @include flex($direction: column, $gap: 10px);
-    @include space-around($left-right: 16px);
-  }
-  .editBtn {
-    @include size($width: 70px, $height: 30px);
-    background-color: $second-color;
-    box-shadow: 0 0 15px 2px $border-cards;
-    border-radius: 24px;
-    border: 0;
-    cursor: pointer;
-    font-size: 12px;
-    &:hover {
-      color: $second-color;
-      background-color: $background-btn;
+    border-radius: 20px;
+    @include space-around($top-bot: 10px, $left-right: 10px);
+    @include flex($direction: column, $align: center);
+
+    .userPhoto {
+      transform: translateY(-50px);
+      border: 1px solid $second-color;
+      border-radius: 100px;
+      background-color: $background-cards;
+      box-shadow: 0 0 6px 1px $second-color;
+      object-fit: fill;
+      @include size($width: 90px);
+      @include space-around($top-bot: 6px, $left-right: 6px);
+    }
+    .userSettingsTitle,
+    .cardSettingsTitle {
+      text-decoration: underline $second-color;
+    }
+    .userData {
+      transform: translateY(-30px);
+      font-size: 12px;
+      @include size($width: 100%);
+      @include flex($direction: column, $gap: 10px);
+      @include space-around($left-right: 16px);
+    }
+    .editBtn {
+      background-color: $second-color;
+      box-shadow: 0 0 15px 2px $border-cards;
+      border-radius: 24px;
+      border: 0;
+      cursor: pointer;
+      font-size: 12px;
+      @include size($width: 70px, $height: 30px);
+      @include space-around($all: 6px);
+      &:hover {
+        color: $second-color;
+        background-color: $background-btn;
+      }
     }
   }
 }
 
 @media screen and (min-width: 769px) {
-  .userSettings {
-    transform: translateY(0);
-    @include flex($align: center, $gap: 10px);
-    @include space-around($top-bot: 30px, $left-right: 20px);
-    .userPhoto {
-      transform: translateY(0);
-      @include size($width: 120px);
-    }
-    .userData {
-      transform: translateY(0);
-      font-size: 14px;
-    }
-    .editBtn {
-      transform: translateY(60px);
+  .settingList {
+    .userSettings {
+      transform: translateY(10px);
+      @include flex($align: center, $gap: 10px);
+      @include space-around($top-bot: 30px, $left-right: 20px);
+      .userPhoto {
+        transform: translateY(0);
+        @include size($width: 120px);
+      }
+      .userData {
+        transform: translateY(0);
+        font-size: 14px;
+      }
+      .editBtn {
+        transform: translateY(60px);
+      }
     }
   }
 }
