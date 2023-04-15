@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Layout from "@/components/layout";
-
+import styles from "../styles/pages/account.module.scss";
 
 export default function account() {
   const mode = "dark_mode";
@@ -14,7 +14,19 @@ export default function account() {
       </Head>
       <main className={mode}>
         <Layout>
-          <h2>  account </h2>
+          <h2>Hi, username</h2>
+          <div className={styles.userSettings}>
+            <img
+              className={styles.userPhoto}
+              src="https://robohash.org/user?set=set4"
+            />
+            <div className={styles.userData}>
+              <p>Username:</p>
+              <p>Email:</p>
+              <p>Password:</p>
+            </div>
+            <button className={styles.editBtn}>Edit</button>
+          </div>
         </Layout>
       </main>
     </>
