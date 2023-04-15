@@ -6,13 +6,13 @@ import ChartEl from "@/components/chartEl";
 import styles from "@/styles/pages/crypto.module.scss";
 import { cryptoJson } from "./api/crypto";
 import Button from "@/components/button";
+import GlobalModal from "@/components/global_modal";
 
 export default function cryptoId() {
   const router = useRouter();
   const { name } = router.query;
-
   const [singleCryptoData, setSingleCryptoData] = useState([]);
-
+  const [isGlobalModal, setIsGlobalModal] = useState(false);
   useEffect(() => {
     GET(
       `${JSON.parse(
@@ -20,6 +20,10 @@ export default function cryptoId() {
       )}/market_chart?vs_currency=eur&days=7&interval=daily`
     ).then((data) => setSingleCryptoData(data.prices));
   }, []);
+
+  const onHandleOpenModal = () => {
+    setIsGlobalModal((prev) => !prev);
+  };
 
   return (
     <>
@@ -32,7 +36,7 @@ export default function cryptoId() {
             src={cryptoJson.image}
             alt={cryptoJson.id}
           />
-          <Button value="buy" className={styles.btn} />
+          <Button text="buy" className={styles.btn} func={onHandleOpenModal} />
         </div>
         <div className={styles.chartArea}>
           <ChartEl prices={singleCryptoData} />
@@ -71,6 +75,8 @@ export default function cryptoId() {
             <h6> Market Cap: €{cryptoJson.market_cap}</h6>
           </div>
         </div>
+
+        {isGlobalModal && <GlobalModal />}
       </Layout>
     </>
   );
