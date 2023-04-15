@@ -125,24 +125,26 @@
       height: 30px;
     }
 
-    .day,
+    .week,
     .month {
       @media screen and (max-width: 800px) {
         display: none;
       }
     }
 
-    .week {
+    .day {
+      color: $light;
+      .digits {
+        color: $light;
+      }
       @media screen and (max-width: 350px) {
         position: absolute;
         top: 0px;
         right: 0px;
-        .changePercText {
-          display: none;
-        }
       }
       @media screen and (max-width: 800px) {
         @include flex($direction: column, $align: center);
+        color: #72a66a;
       }
     }
   }

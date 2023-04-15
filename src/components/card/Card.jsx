@@ -34,7 +34,7 @@ const Card = (props) => {
           <span className={styles.digits}>€{coins.current_price}</span>
         </div>
         <div className={styles.week}>
-          <span className={styles.changePercText}>CHANGE PERC.</span>
+          <span>CHANGE PERC.</span>
           <span
             className={
               coins.price_change_percentage_24h > 0

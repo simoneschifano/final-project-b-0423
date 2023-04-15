@@ -34,7 +34,7 @@ export default function allCrypto() {
         <Layout>
           <h2> allCrypto </h2>
           <div className={styles.container}>
-            <BtnFilter value="Ordina per Rank! " setFilter={setFilter} />
+            <BtnFilter value="Sorting by Rank " setFilter={setFilter} />
           </div>
           {/* {loading ? <Loading /> : <CardsList data={allCrypto} />} */}
           {filter ? (

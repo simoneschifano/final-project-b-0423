@@ -19,7 +19,7 @@ export default function aboutUs() {
               <div className={styles.myImage}>
                 <img src="https://picsum.photos/1080/1080" alt="myImage" />
               </div>
-              <h3 className={styles.myName}>Gino Giggini</h3>
+              <h3 className={styles.myName}>Pippo De Pippis</h3>
               <div className={styles.info}>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod
@@ -54,7 +54,7 @@ export default function aboutUs() {
               <div className={styles.myImage}>
                 <img src="https://picsum.photos/1080/1080" alt="myImage" />
               </div>
-              <h3 className={styles.myName}>Gino Giggini</h3>
+              <h3 className={styles.myName}>Pippo De Pippis</h3>
               <div className={styles.info}>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod
@@ -89,7 +89,7 @@ export default function aboutUs() {
               <div className={styles.myImage}>
                 <img src="https://picsum.photos/1080/1080" alt="myImage" />
               </div>
-              <h3 className={styles.myName}>Gino Giggini</h3>
+              <h3 className={styles.myName}>Pippo De Pippis</h3>
               <div className={styles.info}>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod
@@ -124,7 +124,7 @@ export default function aboutUs() {
               <div className={styles.myImage}>
                 <img src="https://picsum.photos/1080/1080" alt="myImage" />
               </div>
-              <h3 className={styles.myName}>Gino Giggini</h3>
+              <h3 className={styles.myName}>Pippo De Pippis</h3>
               <div className={styles.info}>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod
@@ -159,7 +159,7 @@ export default function aboutUs() {
               <div className={styles.myImage}>
                 <img src="https://picsum.photos/1080/1080" alt="myImage" />
               </div>
-              <h3 className={styles.myName}>Gino Giggini</h3>
+              <h3 className={styles.myName}>Pippo De Pippis</h3>
               <div className={styles.info}>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod
@@ -194,7 +194,7 @@ export default function aboutUs() {
               <div className={styles.myImage}>
                 <img src="https://picsum.photos/1080/1080" alt="myImage" />
               </div>
-              <h3 className={styles.myName}>Gino Giggini</h3>
+              <h3 className={styles.myName}>Pippo De Pippis</h3>
               <div className={styles.info}>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod
