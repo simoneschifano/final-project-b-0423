@@ -3,12 +3,15 @@ import Head from "next/head";
 import CardsList from "@/components/cards_list";
 import Layout from "@/components/layout";
 import Loading from "@/components/loading";
+import BtnFilter from "@/components/btnFilter";
+import styles from "../styles/pages/allCrypto.module.scss";
 
 export default function allCrypto() {
   const mode = "dark_mode";
   //manca l'altro useState e il setInterval per il caricamento
   const [allCrypto, setAllCrypto] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [filter, setFilter] = useState(false);
   useEffect(() => {
     fetch(
       process.env.NEXT_PUBLIC_API_URL +
@@ -18,7 +21,7 @@ export default function allCrypto() {
       .then((data) => setAllCrypto(data));
     setLoading(false);
   }, []);
-  // console.log(allCrypto);
+
   return (
     <>
       <Head>
@@ -30,7 +33,29 @@ export default function allCrypto() {
       <main className={mode}>
         <Layout>
           <h2> allCrypto </h2>
-          {loading ? <Loading /> : <CardsList data={allCrypto} />}
+          <div className={styles.container}>
+            <BtnFilter value="Sorting by Rank " setFilter={setFilter} />
+          </div>
+          {/* {loading ? <Loading /> : <CardsList data={allCrypto} />} */}
+          {filter ? (
+            loading ? (
+              <Loading />
+            ) : (
+              <CardsList
+                data={allCrypto.sort(
+                  (a, b) => b.market_cap_rank - a.market_cap_rank
+                )}
+              />
+            )
+          ) : loading ? (
+            <Loading />
+          ) : (
+            <CardsList
+              data={allCrypto.sort(
+                (a, b) => a.market_cap_rank - b.market_cap_rank
+              )}
+            />
+          )}
         </Layout>
       </main>
     </>

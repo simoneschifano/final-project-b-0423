@@ -1,0 +1,20 @@
+@import "../../styles/scss/variables/colors.scss";
+@import "../../styles/scss/variables/typography.scss";
+
+.BtnFilter {
+  background-color: $second-color;
+  box-shadow: 0 0 15px 2px $border-cards;
+  border-radius: 24px;
+  cursor: pointer;
+  font-size: 10px;
+  width: fit-content;
+  @include space-around($top-bot: 8px, $left-right: 12px);
+  @include flex($justify: center, $align: center, $gap: 4px);
+  &:hover {
+    color: $second-color;
+    background-color: $background-btn;
+  }
+  .icon {
+    @include size($width: 14px);
+  }
+}

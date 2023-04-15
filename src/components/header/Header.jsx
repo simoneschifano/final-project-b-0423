@@ -1,3 +1,4 @@
+import SwitcherTheme from "../switcher-Theme";
 import styles from "./index.module.scss";
 
 import { FaUsers } from "react-icons/fa";
@@ -103,7 +104,8 @@ const Header = () => {
           </a>
         </li>
       </ul>
-      <div className="switcher">light - dark</div>
+      {/* <div className="switcher">light - dark</div> */}
+      <SwitcherTheme />
     </div>
   );
 };

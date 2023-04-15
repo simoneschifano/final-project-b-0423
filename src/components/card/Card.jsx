@@ -1,6 +1,5 @@
 import styles from "./index.module.scss";
 
-import { MdStars } from "react-icons/md";
 import { useRouter } from "next/router";
 
 const Card = (props) => {
@@ -10,18 +9,17 @@ const Card = (props) => {
   const router = useRouter();
 
   const onHandleOpenDetails = () => {
+    localStorage.setItem("crytoID", JSON.stringify(coins.id));
     router.push({
       pathname: "crypto",
       query: { name: coins.id },
     });
-    // `crypto/${coins.id}`);
   };
 
   return (
     <div className={styles.Card} onClick={onHandleOpenDetails}>
       <div className={styles.details}>
         <div className={styles.actions}>
-          
           <img className={styles.image} src={coins.image} alt={coins.id} />
           <p className={styles.rank}>{coins.market_cap_rank}</p>
           <div className={styles.icons}>
@@ -29,7 +27,6 @@ const Card = (props) => {
             <p className={styles.rank}>{coins.id}</p>
           </div>
         </div>
-        <MdStars className={styles.star} />
       </div>
       <div className={styles.info}>
         <div className={styles.day}>
@@ -38,7 +35,13 @@ const Card = (props) => {
         </div>
         <div className={styles.week}>
           <span>CHANGE PERC.</span>
-          <span className={styles.var}>
+          <span
+            className={
+              coins.price_change_percentage_24h > 0
+                ? styles.positiveVar
+                : styles.negativeVar
+            }
+          >
             {coins.price_change_percentage_24h.toFixed(2)}%
           </span>
         </div>
