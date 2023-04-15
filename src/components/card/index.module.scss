@@ -13,6 +13,7 @@
   }
   @media screen and (max-width: 350px) {
     height: 80px;
+    position: relative;
   }
   @media screen and (min-width: 510px) {
     padding: 12px;
@@ -82,6 +83,11 @@
   .info {
     height: 70%;
     margin-top: 20px;
+    @media screen and (max-width: 350px) {
+      position: absolute;
+      top: -4px;
+      right: -6px;
+    }
     @media screen and (max-width: 800px) {
       height: 100%;
       width: 40%;
@@ -127,6 +133,14 @@
     }
 
     .week {
+      @media screen and (max-width: 350px) {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        .changePercText {
+          display: none;
+        }
+      }
       @media screen and (max-width: 800px) {
         @include flex($direction: column, $align: center);
       }
