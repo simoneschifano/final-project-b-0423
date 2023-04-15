@@ -9,6 +9,7 @@ const Card = (props) => {
   const router = useRouter();
 
   const onHandleOpenDetails = () => {
+    localStorage.setItem("crytoID", JSON.stringify(coins.id));
     router.push({
       pathname: "crypto",
       query: { name: coins.id },
