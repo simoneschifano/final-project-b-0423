@@ -46,6 +46,7 @@
       .contacts {
         height: 30%;
         width: 100%;
+        padding: 0px 5px 0px 5px;
         @include flex($justify: center, $align: center);
         ul {
           @include flex($justify: center, $align: center, $gap: 20px);
