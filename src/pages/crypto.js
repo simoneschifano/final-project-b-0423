@@ -12,6 +12,7 @@ export default function cryptoId() {
 
   const [singleCryptoData, setSingleCryptoData] = useState([]);
 
+<<<<<<< HEAD
   localStorage.setItem("cryptoID", JSON.stringify(name));
   useEffect(() => {
     GET(`${name}/market_chart?vs_currency=eur&days=7&interval=daily`).then(
@@ -31,6 +32,16 @@ export default function cryptoId() {
   // ];
 
   // console.log(singleCryptoData);
+=======
+  useEffect(() => {
+    GET(
+      `${JSON.parse(
+        localStorage.getItem("crytoID")
+      )}/market_chart?vs_currency=eur&days=7&interval=daily`
+    ).then((data) => setSingleCryptoData(data.prices));
+  }, []);
+
+>>>>>>> 1fca77747bac275e6eb1e28968bfd34509cf9f98
   return (
     <>
       <Layout>
@@ -43,7 +54,7 @@ export default function cryptoId() {
           />
         </div>
         <div className={styles.chartArea}>
-          <ChartEl prices={prices} />
+          <ChartEl prices={singleCryptoData} />
         </div>
 
         <div className={styles.info}>
