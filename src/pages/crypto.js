@@ -5,6 +5,7 @@ import { GET } from "@/utils/http";
 import ChartEl from "@/components/chartEl";
 import styles from "@/styles/pages/crypto.module.scss";
 import { cryptoJson } from "./api/crypto";
+import Button from "@/components/button";
 
 export default function cryptoId() {
   const router = useRouter();
@@ -23,13 +24,15 @@ export default function cryptoId() {
   return (
     <>
       <Layout>
-        <div className={styles.title}>
+        <div className={styles.header}>
+          <h2> {cryptoJson.market_cap_rank}</h2>
           <h2> {name}</h2>
           <img
             className={styles.image}
             src={cryptoJson.image}
             alt={cryptoJson.id}
           />
+          <Button value="buy" className={styles.btn} />
         </div>
         <div className={styles.chartArea}>
           <ChartEl prices={singleCryptoData} />
@@ -38,14 +41,34 @@ export default function cryptoId() {
         <div className={styles.info}>
           <div className={styles.price}>
             <div className={styles.priceDettails}>
-              <h3> Price: €{cryptoJson.current_price}</h3>
-              <h6> %{cryptoJson.price_change_percentage_24h.toFixed(2)}</h6>
+              <h3 className={styles.priceValue}>
+                <span>Price: </span> €{cryptoJson.current_price}
+              </h3>
+              <h6
+                className={
+                  cryptoJson.price_change_percentage_24h > 0
+                    ? styles.positiveVar
+                    : styles.negativeVar
+                }
+              >
+                {" "}
+                %{cryptoJson.price_change_percentage_24h.toFixed(2)}
+              </h6>
             </div>
 
             <div className={styles.HLprice}>
               <h6>Low: €{cryptoJson.low_24h}</h6>
               <h6>Hight: €{cryptoJson.high_24h}</h6>
             </div>
+          </div>
+
+          <div className={styles.supply}>
+            <h6> Circulating supply: {cryptoJson.circulating_supply}</h6>
+            <h6> Total supply: {cryptoJson.total_supply}</h6>
+          </div>
+
+          <div className={styles.marketCap}>
+            <h6> Market Cap: €{cryptoJson.market_cap}</h6>
           </div>
         </div>
       </Layout>
