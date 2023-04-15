@@ -14,4 +14,7 @@
     color: $second-color;
     background-color: $background-btn;
   }
+  .icon {
+    @include size($width: 14px);
+  }
 }
