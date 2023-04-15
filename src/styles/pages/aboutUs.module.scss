@@ -1,4 +1,6 @@
 .Main {
+  font-family: $primary-font;
+  @include poppins();
   .content {
     @include flex($justify: center, $align: center, $gap: 50px, $wrap: wrap);
     padding: 40px 20px 40px 20px;
