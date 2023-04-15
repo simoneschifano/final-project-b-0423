@@ -1,79 +1,69 @@
-.Main {
-  font-family: $primary-font;
-  @include poppins();
-  .title {
-    @include flex($align: center, $gap: 10px);
+.header {
+  @include flex($justify: space-between, $align: baseline, $gap: 10px);
 
-    .image {
-      width: 40px;
-      height: 40px;
-      background-color: $background-cards;
-      border-radius: 20px;
-      padding: 6px;
+  .image {
+    width: 30px;
+  }
+}
 
-      img {
-        height: 100%;
-        width: 100%;
-        object-fit: contain;
-      }
-    }
+.chartArea {
+  background-color: $background-cards;
+  box-shadow: 0px 0px 5px $border-cards;
+  border-radius: 10px;
+  padding: 30px;
+  margin-bottom: 60px;
+}
+
+.info {
+  @include flex(
+    $direction: row,
+    $justify: space-between,
+    $align: baseline,
+    $gap: 15px
+  );
+  box-shadow: 0px 0px 5px $border-cards;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+
+  @media screen and (max-width: 800px) {
+    @include flex(
+      $direction: column,
+      $justify: space-between,
+      $align: baseline,
+      $gap: 15px
+    );
   }
 
-  .chartArea {
-    margin: 20px 0px 0px 0px;
-    background-color: $background-cards;
-    box-shadow: 0px 0px 5px $border-cards;
-    border-radius: 10px;
-    padding: 30px;
-  }
+  .price {
+    @include flex($direction: column, $align: center, $gap: 5px);
 
-  .details {
-    width: 100%;
-    margin: 20px 0px 0px 0px;
-    padding: 30px;
-    @include flex($direction: column);
+    .priceDettails {
+      @include flex($align: center, $gap: 5px);
 
-    @media screen and (min-width: 700px) {
-      @include flex($direction: row);
-    }
-
-    .info {
-      @include flex($direction: column, $justify: center);
-      border-radius: 10px;
-      background-color: $background-cards;
-      padding: 10px;
-      width: 100%;
-
-      @media screen and (min-width: 700px) {
-        width: 50%;
+      .negativeVar {
+        padding-left: 10px;
+        border-radius: 6px;
+        padding: 5px;
+        background-color: $red;
       }
-
-      .pricesInfo {
-        @include flex($direction: column, $gap: 25px);
-
-        .singlePrice {
-          @include flex($justify: space-between, $align: center, $gap: 25px);
-          width: 100%;
-
-          .infoDigitPos {
-            color: $second-color;
-          }
-
-          .infoDigitNeg {
-            color: $red;
-          }
+      .positiveVar {
+        padding-left: 10px;
+        border-radius: 6px;
+        padding: 5px;
+        background-color: $graph;
+      }
+      .priceValue {
+        font-size: 2.2rem;
+        span {
+          font-size: 1rem;
         }
       }
     }
 
-    .cryptoActions {
-      width: 100%;
-      border: 1px solid red;
-      @include flex($direction: column);
-
-      @media screen and (min-width: 700px) {
-        width: 50%;
-      }
+    .HLprice {
+      @include flex($align: baseline, $gap: 10px);
+      text-transform: lowercase;
     }
   }
 }
