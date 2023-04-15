@@ -6,12 +6,12 @@
   .container {
     background-color: $background-pages;
     width: calc((100% - 25%) + 1.75em);
-    
+    height: calc(100vh - 82px);
+    overflow-y: scroll;
     @media screen and (min-width: 992px) {
       width: calc((100% - 25%) + 2em);      
     }
     float: right;
-    min-height: 100vh;
     padding: 2em;
    
     
@@ -22,4 +22,16 @@
       margin-bottom: 2em;
     }
   }
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: #ffffff00;
+    box-shadow: 3px 3px 3px  rgba(0, 0, 0, 0.679);
+  } 
+  
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.748); 
+    border-radius: 50px;
+  } 
 }
