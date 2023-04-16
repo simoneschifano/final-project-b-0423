@@ -3,19 +3,9 @@
 
 .Button {
   @include flex($align: center);
-  background-color: $background-btn;
-  box-shadow: $box-shadow;
-  border-radius: 24px;
-  text-align: left;
   @include poppins();
-
+  @include btn();
+  background-color: $background-btn;
   color: #000000;
-  text-transform: uppercase;
-  padding: 15px 30px;
-  width: fit-content;
-  margin: 0 auto;
   margin-top: 40px;
-  svg {
-    margin-left: 30px;
-  }
 }

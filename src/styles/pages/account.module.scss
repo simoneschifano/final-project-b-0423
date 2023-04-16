@@ -32,15 +32,28 @@
       @include flex($direction: column, $gap: 10px);
       @include space-around($left-right: 16px);
     }
+
+
+    .Button {
+      @include flex($align: center);
+      @include poppins();
+      @include btn();
+      background-color: $background-btn;
+      color: #000000;
+      margin-top: 40px;
+    }
+    
+
+
+
     .editBtn {
+      @include flex($align: center);
+      @include poppins();
+      @include btn();
       background-color: $second-color;
-      box-shadow: 0 0 15px 2px $border-cards;
-      border-radius: 24px;
-      border: 0;
-      cursor: pointer;
-      font-size: 12px;
-      @include size($width: 70px, $height: 30px);
-      @include space-around($all: 6px);
+      color: $first-color;
+      
+
       &:hover {
         color: $second-color;
         background-color: $background-btn;

@@ -19,6 +19,7 @@ $four: calc(25% - 17px);
 }
 
 @mixin cardSize() {
+  
   /* MOBILE */
   @media screen and (max-width: 700px) {
     -ms-flex: 0 0 $full;
@@ -40,3 +41,91 @@ $four: calc(25% - 17px);
     max-width: $three;
   }
 }
+
+
+//SIDEBAR
+
+@mixin sideBar() {
+  /* SMALL MOBILE */
+  @media screen and (max-width: 500px) {
+    -ms-flex: 0 0 calc(25% - 17px);
+    flex: 0 0 calc(25% - 17px);
+    max-width: calc(25% - 17px);
+    min-width: calc(25% - 17px);
+  }
+  /* MIDI SCREEN */
+  @media only screen and (min-width: 501px) and (max-width: 700px) {
+    -ms-flex: 0 0 calc(15% - 17px);
+    flex: 0 0 calc(15% - 17px);
+    max-width: calc(15% - 17px);
+    min-width: calc(15% - 17px);
+  }
+
+  @media only screen and (min-width: 701px) and (max-width: 991px) {
+    -ms-flex: 0 0 calc(13% - 17px);
+    flex: 0 0 calc(13% - 17px);
+    max-width: calc(13% - 17px);
+    min-width: calc(13% - 17px);
+  }
+
+  @media screen and (min-width: 992px) {
+    -ms-flex: 0 0 calc(25% - 17px);
+    flex: 0 0 calc(25% - 17px);
+    max-width: calc(25% - 17px);
+    min-width: calc(25% - 17px);
+    padding: 2em;
+  }
+}
+
+@mixin btn() {
+  box-shadow: $box-shadow;
+  border-radius: 24px;
+  text-align: left;
+  text-transform: uppercase;
+  padding: 15px 30px;
+  width: fit-content;
+  margin: 0 auto;
+  border: unset;
+  
+  svg {
+    margin-left: 30px;
+  }
+
+  h3{
+    
+    font-size: 12px;
+  }
+}
+
+@mixin container() {
+  /* SMALL MOBILE */
+  @media screen and (max-width: 500px) {
+    -ms-flex: 0 0 calc(100% - 25% + 17px);
+    flex: 0 0 calc(100% - 25% + 17px);
+    max-width: calc(100% - 25% + 17px);
+    min-width: calc(100% - 25% + 17px);
+  }
+  /* MIDI SCREEN */
+  @media only screen and (min-width: 501px) and (max-width: 700px) {
+    -ms-flex: 0 0 calc(100% - 15% + 17px);
+    flex: 0 0 calc(100% - 15% + 17px);
+    max-width: calc(100% - 15% + 17px);
+    min-width: calc(100% - 15% + 17px);
+  }
+
+  @media only screen and (min-width: 701px) and (max-width: 991px) {
+    -ms-flex: 0 0 calc(100% - 13% + 17px);
+    flex: 0 0 calc(100% - 13% + 17px);
+    max-width: calc(100% - 13% + 17px);
+    min-width: calc(100% - 13% + 17px);
+  }
+
+  @media screen and (min-width: 992px) {
+    -ms-flex: 0 0 calc(100% - 25% + 17px);
+    flex: 0 0 calc(100% - 25% + 17px);
+    max-width: calc(100% - 25% + 17px);
+    min-width: calc(100% - 25% + 17px);
+    padding: 2em;
+  }
+}
+
