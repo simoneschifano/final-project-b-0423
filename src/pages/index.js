@@ -8,9 +8,13 @@ import Button from "@/components/button";
 export default function Home() {
   const mode = "bg_dark";
   const [sectionCrypto, setSectionCrypto] = useState(false);
+  const [sectionWallet, setSectionWallet] = useState(false);
+  const [sectionWatchlist, setSectionWatchlist] = useState(false);
   const [allCrypto, setAllCrypto] = useState([]);
 
   const onHandleCrypto = () => setSectionCrypto((prev) => !prev);
+  const onHandleWallet = () => setSectionWallet((prev) => !prev);
+  const onHandleWatchlist = () => setSectionWatchlist((prev) => !prev);
 
   useEffect(() => {
     fetch(
@@ -54,11 +58,62 @@ export default function Home() {
               </div>
               <div className={styles.sectionButton}>
                 <a href="../allCrypto">
-                  <Button text={"see all"} />
+                  <Button text={"See all"} />
                 </a>
               </div>
             </div>
-            <div className={styles.section}>Tranding</div>
+            <div
+              className={`${styles.section} ${
+                sectionWallet && styles.sectionActive
+              }`}
+            >
+              <label
+                className={`${styles.sectionTitle} ${
+                  sectionWallet && styles.sectionTitleActive
+                }`}
+                onClick={onHandleWallet}
+              >
+                Wallet
+              </label>
+              <div
+                className={`${styles.sectionCont} ${
+                  sectionWallet && styles.sectionContActive
+                }`}
+              >
+                {/* <CardsList data={} inHomeActive={true} /> */}
+              </div>
+              <div className={styles.sectionButton}>
+                <a href="../wallet">
+                  <Button text={"Go to wallet"} />
+                </a>
+              </div>
+            </div>
+            <div
+              className={`${styles.section} ${
+                sectionWatchlist && styles.sectionActive
+              }`}
+            >
+              <label
+                className={`${styles.sectionTitle} ${
+                  sectionWatchlist && styles.sectionTitleActive
+                }`}
+                onClick={onHandleWatchlist}
+              >
+                Watchlist
+              </label>
+              <div
+                className={`${styles.sectionCont} ${
+                  sectionWatchlist && styles.sectionContActive
+                }`}
+              >
+                {/* <CardsList data={} inHomeActive={true} /> */}
+              </div>
+              <div className={styles.sectionButton}>
+                <a href="../watchlist">
+                  <Button text={"Go to watchlist"} />
+                </a>
+              </div>
+            </div>
           </div>
         </Layout>
       </main>
