@@ -56,7 +56,9 @@ export default function Home() {
               >
                 <CardsList data={allCrypto} inHomeActive={true} />
               </div>
-              <Button text={"see all crypto"} />
+              <div className={styles.sectionButton}>
+                <Button text={"see all"} />
+              </div>
             </div>
             <div className={styles.section}>Tranding</div>
           </div>
