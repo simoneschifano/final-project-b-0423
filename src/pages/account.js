@@ -18,7 +18,7 @@ export default function account() {
       </Head>
       <main className={mode}>
         <Layout>
-          <h1>Hi, {username}!</h1>
+          <h2>Hi, {username}!</h2>
           <div className={styles.settingList}>
             <div className={styles.userSettings}>
               <img
@@ -31,7 +31,7 @@ export default function account() {
                 <p>Email: {email}</p>
                 <p>Password: {password}</p>
               </div>
-              <button className={styles.editBtn}>Edit</button>
+              <button className={styles.editBtn}><h3>Edit</h3></button>
             </div>
             <div className={styles.cardSettings}>
               <h2 className={styles.cardSettingsTitle}>Your cards</h2>

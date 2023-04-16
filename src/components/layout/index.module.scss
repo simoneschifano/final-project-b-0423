@@ -5,12 +5,14 @@
   background-color: $background-pages;
   .container {
     background-color: $background-pages;
-    width: calc((100% - 25%) + 1.75em);
+    
+
+    @include container();
+
+
     height: calc(100vh - 82px);
     overflow-y: scroll;
-    @media screen and (min-width: 992px) {
-      width: calc((100% - 25%) + 2em);      
-    }
+  
     float: right;
     padding: 2em;
    
