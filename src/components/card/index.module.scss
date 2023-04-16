@@ -12,7 +12,7 @@
     @include flex($justify: space-between);
     position: relative;
   }
-  @media screen and (max-width: 340px) {
+  @media screen and (max-width: 360px) {
     height: 80px;
     position: relative;
     overflow: hidden;
@@ -73,7 +73,7 @@
         }
       }
       .image {
-        @media screen and (max-width: 330px) {
+        @media screen and (max-width: 360px) {
           height: 20px;
           width: 20px;
         }
@@ -85,7 +85,7 @@
   .info {
     height: 70%;
     margin-top: 20px;
-    @media screen and (max-width: 340px) {
+    @media screen and (max-width: 360px) {
       position: absolute;
       top: -4px;
       right: -6px;
@@ -139,7 +139,7 @@
       .digits {
         color: $light;
       }
-      @media screen and (max-width: 340px) {
+      @media screen and (max-width: 360px) {
         @include flex($direction: column, $align: center !important);
         transform: translateY(0px) !important;
         position: absolute;
