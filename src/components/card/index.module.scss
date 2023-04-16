@@ -10,10 +10,12 @@
   cursor: pointer;
   @media screen and (max-width: 700px) {
     @include flex($justify: space-between);
+    position: relative;
   }
   @media screen and (max-width: 350px) {
     height: 80px;
     position: relative;
+    overflow: hidden;
   }
   @media screen and (min-width: 510px) {
     padding: 12px;
@@ -138,13 +140,17 @@
         color: $light;
       }
       @media screen and (max-width: 350px) {
+        @include flex($direction: column, $align: center !important);
+        transform: translateY(0px) !important;
         position: absolute;
         top: 0px;
         right: 0px;
+        font-size: 7px;
       }
       @media screen and (max-width: 700px) {
-        @include flex($direction: column, $align: center);
+        @include flex($direction: column, $align: flex-end);
         color: #72a66a;
+        transform: translateY(-6px);
       }
     }
   }
