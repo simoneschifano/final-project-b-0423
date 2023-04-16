@@ -8,7 +8,7 @@
   border-radius: 20px;
   padding: 12px;
   cursor: pointer;
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 700px) {
     @include flex($justify: space-between);
   }
   @media screen and (max-width: 350px) {
@@ -19,7 +19,7 @@
     padding: 12px;
   }
 
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 700px) {
     @include flex($direction: column, $justify: space-between);
     position: relative;
     transition: 0.4s;
@@ -29,7 +29,7 @@
     }
   }
   .details {
-    @media screen and (min-width: 800px) {
+    @media screen and (min-width: 700px) {
       @include flex($direction: row, $align: center);
       height: 30%;
       width: 100%;
@@ -38,7 +38,7 @@
     height: 100%;
     width: 35%;
     .actions {
-      @media screen and (min-width: 800px) {
+      @media screen and (min-width: 700px) {
         @include flex($direction: row, $gap: 10px, $align: center);
       }
       @include flex(
@@ -88,7 +88,7 @@
       top: -4px;
       right: -6px;
     }
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 700px) {
       height: 100%;
       width: 40%;
       @include flex($align: center, $justify: center);
@@ -127,7 +127,7 @@
 
     .week,
     .month {
-      @media screen and (max-width: 800px) {
+      @media screen and (max-width: 700px) {
         display: none;
       }
     }
@@ -142,7 +142,7 @@
         top: 0px;
         right: 0px;
       }
-      @media screen and (max-width: 800px) {
+      @media screen and (max-width: 700px) {
         @include flex($direction: column, $align: center);
         color: #72a66a;
       }
