@@ -32,30 +32,36 @@ export default function allCrypto() {
       </Head>
       <main className={mode}>
         <Layout>
-          <h2> allCrypto </h2>
-          <div className={styles.container}>
-            <BtnFilter value="Sorting by Rank " setFilter={setFilter} />
+          <div className={styles.allCryptoHead}>
+            <h2> allCrypto </h2>
+            <div className={styles.container}>
+              <BtnFilter value="Sorting by Rank " setFilter={setFilter} />
+            </div>
           </div>
           {/* {loading ? <Loading /> : <CardsList data={allCrypto} />} */}
-          {filter ? (
-            loading ? (
+          <div className={styles.AllCriptoCard}>
+            {filter ? (
+              loading ? (
+                <Loading />
+              ) : (
+                <CardsList
+                  data={allCrypto.sort(
+                    (a, b) => b.market_cap_rank - a.market_cap_rank
+                  )}
+                  inHomeActive={false}
+                />
+              )
+            ) : loading ? (
               <Loading />
             ) : (
               <CardsList
                 data={allCrypto.sort(
-                  (a, b) => b.market_cap_rank - a.market_cap_rank
+                  (a, b) => a.market_cap_rank - b.market_cap_rank
                 )}
+                inHomeActive={false}
               />
-            )
-          ) : loading ? (
-            <Loading />
-          ) : (
-            <CardsList
-              data={allCrypto.sort(
-                (a, b) => a.market_cap_rank - b.market_cap_rank
-              )}
-            />
-          )}
+            )}
+          </div>
         </Layout>
       </main>
     </>

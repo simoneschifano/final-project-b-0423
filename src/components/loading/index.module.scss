@@ -1,6 +1,6 @@
 .loaderCont {
   @include flex($justify: center, $align: center);
-  height: 100%;
+  height:calc(100vh - 500px) ;
   width: 100%;
 
   .loader {

@@ -20,24 +20,23 @@ $four: calc(25% - 17px);
 
 @mixin cardSize() {
   /* MOBILE */
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 700px) {
     -ms-flex: 0 0 $full;
     flex: 0 0 $full;
     max-width: $full;
     min-width: $full;
   }
   /* IPAD TABLET */
-  @media only screen and (min-width: 769px) and (max-width: 1023px)  {
+  @media only screen and (min-width: 700px) and (max-width: 1023px) {
     -ms-flex: 0 0 $half;
     flex: 0 0 $half;
     max-width: $half;
     min-width: $half;
   }
-    
+
   @media screen and (min-width: 1024px) {
     -ms-flex: 0 0 $three;
     flex: 0 0 $three;
     max-width: $three;
   }
-  
 }

@@ -1,9 +1,13 @@
+import { useState } from "react";
 import Head from "next/head";
 import Layout from "@/components/layout";
-
+import { mockUser } from "./api/mockUser";
+import styles from "../styles/pages/account.module.scss";
 
 export default function account() {
   const mode = "dark_mode";
+  const { username, email, password } = mockUser;
+
   return (
     <>
       <Head>
@@ -14,7 +18,25 @@ export default function account() {
       </Head>
       <main className={mode}>
         <Layout>
-          <h2>  account </h2>
+          <h1>Hi, {username}!</h1>
+          <div className={styles.settingList}>
+            <div className={styles.userSettings}>
+              <img
+                className={styles.userPhoto}
+                src="https://robohash.org/user?set=set4"
+              />
+              <div className={styles.userData}>
+                <h2 className={styles.userSettingsTitle}>Your info</h2>
+                <p>Username: {username}</p>
+                <p>Email: {email}</p>
+                <p>Password: {password}</p>
+              </div>
+              <button className={styles.editBtn}>Edit</button>
+            </div>
+            <div className={styles.cardSettings}>
+              <h2 className={styles.cardSettingsTitle}>Your cards</h2>
+            </div>
+          </div>
         </Layout>
       </main>
     </>

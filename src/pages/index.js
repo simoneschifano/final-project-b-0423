@@ -1,9 +1,30 @@
 import Head from "next/head";
 import Layout from "@/components/layout";
 import styles from "@/styles/pages/Home.module.scss";
+import CardsList from "@/components/cards_list";
+import { useEffect, useState } from "react";
+import Button from "@/components/button";
 
 export default function Home() {
   const mode = "bg_dark";
+  const [sectionCrypto, setSectionCrypto] = useState(false);
+  const [sectionWallet, setSectionWallet] = useState(false);
+  const [sectionWatchlist, setSectionWatchlist] = useState(false);
+  const [allCrypto, setAllCrypto] = useState([]);
+
+  const onHandleCrypto = () => setSectionCrypto((prev) => !prev);
+  const onHandleWallet = () => setSectionWallet((prev) => !prev);
+  const onHandleWatchlist = () => setSectionWatchlist((prev) => !prev);
+
+  useEffect(() => {
+    fetch(
+      process.env.NEXT_PUBLIC_API_URL +
+        "markets?vs_currency=eur&order=market_cap_desc&per_page=10&page=1&sparkline=false&locale=en"
+    )
+      .then((res) => res.json())
+      .then((data) => setAllCrypto(data));
+  }, []);
+
   return (
     <>
       <Head>
@@ -15,8 +36,84 @@ export default function Home() {
       <main className={styles.Main}>
         <Layout>
           <div className={styles.container}>
-            <div className={styles.section}>All crypto</div>
-            <div className={styles.section}>Tranding</div>
+            <div
+              className={`${styles.section} ${
+                sectionCrypto && styles.sectionActive
+              }`}
+            >
+              <label
+                className={`${styles.sectionTitle} ${
+                  sectionCrypto && styles.sectionTitleActive
+                }`}
+                onClick={onHandleCrypto}
+              >
+                All crypto
+              </label>
+              <div
+                className={`${styles.sectionCont} ${
+                  sectionCrypto && styles.sectionContActive
+                }`}
+              >
+                <CardsList data={allCrypto} inHomeActive={true} />
+              </div>
+              <div className={styles.sectionButton}>
+                <a href="../allCrypto">
+                  <Button text={"See all"} />
+                </a>
+              </div>
+            </div>
+            <div
+              className={`${styles.section} ${
+                sectionWallet && styles.sectionActive
+              }`}
+            >
+              <label
+                className={`${styles.sectionTitle} ${
+                  sectionWallet && styles.sectionTitleActive
+                }`}
+                onClick={onHandleWallet}
+              >
+                Wallet
+              </label>
+              <div
+                className={`${styles.sectionCont} ${
+                  sectionWallet && styles.sectionContActive
+                }`}
+              >
+                {/* <CardsList data={} inHomeActive={true} /> */}
+              </div>
+              <div className={styles.sectionButton}>
+                <a href="../wallet">
+                  <Button text={"Go to wallet"} />
+                </a>
+              </div>
+            </div>
+            <div
+              className={`${styles.section} ${
+                sectionWatchlist && styles.sectionActive
+              }`}
+            >
+              <label
+                className={`${styles.sectionTitle} ${
+                  sectionWatchlist && styles.sectionTitleActive
+                }`}
+                onClick={onHandleWatchlist}
+              >
+                Watchlist
+              </label>
+              <div
+                className={`${styles.sectionCont} ${
+                  sectionWatchlist && styles.sectionContActive
+                }`}
+              >
+                {/* <CardsList data={} inHomeActive={true} /> */}
+              </div>
+              <div className={styles.sectionButton}>
+                <a href="../watchlist">
+                  <Button text={"Go to watchlist"} />
+                </a>
+              </div>
+            </div>
           </div>
         </Layout>
       </main>

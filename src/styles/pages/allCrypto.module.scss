@@ -1,4 +1,20 @@
-.container {
-  margin-bottom: 28px;
-  @include flex($justify: flex-end, $gap: 16px);
+.allCryptoHead {
+  width: 80%;
+  height: 100px;
+  position: fixed;
+  top: 81px;
+  right: 10px;
+  z-index: 1;
+  padding-left: 6%;
+  background: $background-pages;
+
+  .container {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+  }
+}
+.AllCriptoCard {
+  height: 100%;
+  padding-top: 80px;
 }
