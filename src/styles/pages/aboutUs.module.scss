@@ -2,11 +2,12 @@
   font-family: $primary-font;
   @include poppins();
   .content {
-    @include flex($justify: center, $align: center, $gap: 50px, $wrap: wrap);
+    @include flex($justify: center, $align: center, $gap: 25px, $wrap: wrap);
     padding: 40px 20px 40px 20px;
 
     .aboutCard {
-      width: 300px;
+      //width: 300px;
+      @include cardSize();
       @include flex($direction: column, $align: center);
       background-color: $background-cards;
       border-radius: 15px;
@@ -41,7 +42,9 @@
         padding: 15px 5px 15px 5px;
 
         p {
-          letter-spacing: 2px;
+          text-transform: initial;
+          font-weight: 300;
+         // letter-spacing: 2px;
         }
       }
 
@@ -88,7 +91,7 @@
       @include flex(
         $justify: space-evenly,
         $align: center,
-        $gap: 50px,
+        $gap: 25px,
         $wrap: wrap
       );
       .aboutCard {

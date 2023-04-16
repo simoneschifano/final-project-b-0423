@@ -2,18 +2,11 @@
 @import "../../styles/scss/variables/typography.scss";
 
 .Header {
-  width: calc(20% - 0.5em);
-  padding: 0.5em;
+  @include sideBar();
+  
+  
   z-index: 2;
 
-  @media screen and (min-width: 400px) {
-    width: calc(25% - 1rem);
-  }
-
-  @media screen and (min-width: 992px) {
-    width: calc(25% - 2em);
-    padding: 2em;
-  }
   color: $first-color;
   height: 100vh;
   position: fixed;
@@ -44,6 +37,7 @@
         width: 60%;
         margin: 0 auto;
         margin-top: 2em;
+        max-width: 45px;
         svg {
           width: 100%;
           height: auto;
