@@ -55,6 +55,13 @@
       .sectionContActive {
         transform: translateY(0px);
       }
+
+      .sectionButton {
+        align-self: center;
+        @media screen and (min-width: 700px) {
+          align-self: flex-end;
+        }
+      }
     }
 
     .sectionActive {

@@ -2,19 +2,20 @@
 @import "../../styles/scss/variables/typography.scss";
 
 .Button {
-    background-color: $background-btn;
-    box-shadow: $box-shadow;
-    border-radius: 24px;
-    text-align: left;
-    @include poppins();
-    
-    color: #000000;
-    text-transform: uppercase;
-    padding: 15px 30px;
-    width: fit-content;
-    margin: 0 auto;
-    margin-top: 40px;
-    svg{
-        margin-left: 30px;
-    }
+  @include flex($align: center);
+  background-color: $background-btn;
+  box-shadow: $box-shadow;
+  border-radius: 24px;
+  text-align: left;
+  @include poppins();
+
+  color: #000000;
+  text-transform: uppercase;
+  padding: 15px 30px;
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 40px;
+  svg {
+    margin-left: 30px;
+  }
 }
