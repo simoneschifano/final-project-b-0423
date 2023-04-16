@@ -15,14 +15,10 @@ export default function Home() {
   useEffect(() => {
     fetch(
       process.env.NEXT_PUBLIC_API_URL +
-        "markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en"
+        "markets?vs_currency=eur&order=market_cap_desc&per_page=10&page=1&sparkline=false&locale=en"
     )
       .then((res) => res.json())
-      .then((data) =>
-        setAllCrypto(
-          data.filter((singleData) => singleData.market_cap_rank <= 10)
-        )
-      );
+      .then((data) => setAllCrypto(data));
   }, []);
 
   return (
