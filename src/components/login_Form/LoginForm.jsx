@@ -10,7 +10,7 @@ const LoginForm = () => {
       <input type="text" />
       <label htmlFor="password">password </label>
       <input type="password" />
-      <Button value="Accedi" />
+      <Button text="Accedi" />
     </div>
   );
 };
