@@ -1,6 +1,10 @@
 .Main {
   .container {
-    @include flex($direction: column, $gap: 250px);
+    @include flex($direction: column, $gap: 20px);
+    @media screen and (min-width: 700px) {
+      @include flex($direction: column, $gap: 40px);
+    }
+
     .section {
       @include space-around($all: 10px);
       @include flex($direction: column);
@@ -54,6 +58,10 @@
 
       .sectionContActive {
         transform: translateY(0px);
+      }
+
+      a {
+        text-decoration: none;
       }
 
       .sectionButton {
