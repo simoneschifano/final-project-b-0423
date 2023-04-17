@@ -1,9 +1,8 @@
 .settingList {
   @include flex($direction: column, $align: center, $gap: 30px);
-  .userSettings,
-  .cardSettings {
+  .userSettings {
     width: 100%;
-    transform: translateY(50px);
+    transform: translateY(30px);
     background-color: $background-cards;
     border: 1px solid $border-cards;
     box-shadow: 0 0 6px 1px $border-cards;
@@ -21,8 +20,7 @@
       @include size($width: 90px);
       @include space-around($top-bot: 6px, $left-right: 6px);
     }
-    .userSettingsTitle,
-    .cardSettingsTitle {
+    .userSettingsTitle {
       text-decoration: underline $second-color;
     }
     .userData {
@@ -33,18 +31,13 @@
       @include space-around($left-right: 16px);
     }
 
-
     .Button {
       @include flex($align: center);
       @include poppins();
       @include btn($margin-top: 40px);
       background-color: $background-btn;
       color: #000000;
-      
     }
-    
-
-
 
     .editBtn {
       @include flex($align: center);
@@ -52,12 +45,128 @@
       @include btn();
       background-color: $second-color;
       color: $first-color;
-      
+      cursor: pointer;
 
       &:hover {
         color: $second-color;
         background-color: $background-btn;
       }
+    }
+  }
+  // CARD
+  .cardSettings {
+    width: 100%;
+    transform: translateY(20px);
+    background-color: transparent;
+    border-radius: 20px;
+    @include space-around($top-bot: 10px, $left-right: 10px);
+    @include flex($direction: column, $align: center);
+    .cardSettingsTitle {
+      text-decoration: underline $second-color;
+    }
+    .card {
+      @include size($width: 260px, $height: 150px);
+      perspective: 600px;
+      .cardFront {
+        @include space-around($top-bot: 18px, $left-right: 18px);
+        transform: rotateY(0);
+        .logo {
+          @include size($width: 15px);
+        }
+        .cardNum {
+          display: block;
+          width: 100%;
+          word-spacing: 4px;
+          font-size: 10px;
+          letter-spacing: 2px;
+          color: $first-color;
+          text-align: center;
+          margin-bottom: 20px;
+          margin-top: 2px;
+        }
+        .userName {
+          width: 75%;
+          float: left;
+        }
+        .cardExpiration {
+          width: 25%;
+          float: left;
+        }
+      }
+      .cardBack {
+        @include space-around($top-bot: 18px, $left-right: 0);
+        transform: rotateY(-180deg);
+        .blackLine {
+          margin-top: 5px;
+          height: 28px;
+          background-color: $background-cards;
+        }
+        .content {
+          padding: 15px 15px 0;
+          .cardSecret {
+            @include space-around($top-bot: 5px, $left-right: 12px);
+            background-color: $background-btn;
+            position: relative;
+            .secretNum {
+              color: $background-cards;
+              text-align: right;
+              @include space-around();
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+
+    .cardPart {
+      box-shadow: 1px 1px $light;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: inline-block;
+      @include size($width: 260px, $height: 150px);
+      background: linear-gradient(
+        to right bottom,
+        $background-cards,
+        $background-pages,
+        #252525,
+        #304a31,
+        $graph,
+        $second-color
+      );
+
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      border-radius: 8px;
+
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+    }
+
+    .cardLabel {
+      font-size: 6px;
+      text-transform: uppercase;
+      color: $first-color;
+      letter-spacing: 1px;
+    }
+    .cardInfo {
+      margin-bottom: 0;
+      margin-top: 5px;
+      font-size: 12px;
+      line-height: 18px;
+      color: $first-color;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .card:hover .cardFront {
+      transform: rotateY(180deg);
+    }
+
+    .card:hover .cardBack {
+      transform: rotateY(0deg);
     }
   }
 }
@@ -78,6 +187,52 @@
       }
       .editBtn {
         transform: translateY(60px);
+      }
+    }
+    .cardSettings {
+      .card {
+        @include size($width: 320px, $height: 190px);
+        .cardFront {
+          .logo {
+            @include size($width: 20px);
+          }
+          .cardNum {
+            font-size: 20px;
+            margin-bottom: 40px;
+            margin-top: 10px;
+          }
+        }
+        .cardBack {
+          .blackLine {
+            height: 38px;
+          }
+          .content {
+            .cardSecret {
+              .secretNum {
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+
+      .cardPart {
+        @include size($width: 320px, $height: 190px);
+      }
+
+      .cardLabel {
+        font-size: 10px;
+      }
+      .cardInfo {
+        font-size: 16px;
+      }
+
+      .card:hover .cardFront {
+        transform: rotateY(180deg);
+      }
+
+      .card:hover .cardBack {
+        transform: rotateY(0deg);
       }
     }
   }

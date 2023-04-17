@@ -3,11 +3,13 @@
   @include poppins();
   .content {
     @include flex($justify: center, $align: center, $gap: 25px, $wrap: wrap);
-    padding: 40px 20px 40px 20px;
+    padding: 40px 0px 40px 0px;
+    @media screen and (min-width: 1080px) {
+      padding: 40px 20px 40px 20px;
+    }
 
     .aboutCard {
-      //width: 300px;
-      @include cardSize();
+      max-width: 300px;
       @include flex($direction: column, $align: center);
       background-color: $background-cards;
       border-radius: 15px;
@@ -44,7 +46,6 @@
         p {
           text-transform: initial;
           font-weight: 300;
-         // letter-spacing: 2px;
         }
       }
 
@@ -54,12 +55,23 @@
         padding: 0px 5px 0px 5px;
         @include flex($justify: center, $align: center);
         ul {
+          width: 100%;
           @include flex($justify: center, $align: center, $gap: 20px);
           list-style: none;
           padding: 0px 5px 0px 5px;
+          @media screen and (max-width: 1080px) {
+            font-size: 10px;
+          }
+
+          li {
+            @include flex($direction: column, $align: center);
+          }
 
           .link {
             font-size: 10px;
+            @media screen and (max-width: 700px) {
+              font-size: 8px;
+            }
 
             a {
               display: inline-block;
@@ -85,13 +97,13 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 700px) {
   .Main {
     .content {
       @include flex(
         $justify: space-evenly,
         $align: center,
-        $gap: 25px,
+        $gap: 30px,
         $wrap: wrap
       );
       .aboutCard {
@@ -100,6 +112,7 @@
         &:hover {
           transform: scale(1.1);
           padding: 15px;
+          margin: 10px;
 
           .myImage {
             transition: all 0.4s;
