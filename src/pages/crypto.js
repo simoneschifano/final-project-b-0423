@@ -44,8 +44,15 @@ export default function cryptoId() {
 
   const onHandleStar = () => {
     if (typeof window !== "undefined") {
-      !!watchlist.find((item) => item.id === name)
-        ? null
+      watchlist
+        ? !!watchlist.find((item) => item.id === name)
+          ? null
+          : watchlist
+          ? localStorage.setItem(
+              "watchlist",
+              JSON.stringify([...watchlist, name])
+            )
+          : localStorage.setItem("watchlist", JSON.stringify([name]))
         : watchlist
         ? localStorage.setItem(
             "watchlist",
