@@ -6,10 +6,6 @@ import { useEffect, useState } from "react";
 import Button from "@/components/button";
 
 export default function Home() {
-  if (typeof window !== "undefined") {
-    const item = localStorage.getItem("key");
-  }
-
   const mode = "bg_dark";
   const [sectionCrypto, setSectionCrypto] = useState(false);
   const [sectionWallet, setSectionWallet] = useState(false);
@@ -28,6 +24,19 @@ export default function Home() {
       .then((res) => res.json())
       .then((data) => setAllCrypto(data));
   }, []);
+
+  if (typeof window !== "undefined") {
+    const wallet = localStorage.getItem("wallet");
+    const watchlist = localStorage.getItem("watchlist");
+  }
+
+  const [wallet, setWallet] = useState(
+    typeof window !== "undefined" ? localStorage.getItem("wallet") : null
+  );
+
+  const [watchlist, setWatchlist] = useState(
+    typeof window !== "undefined" ? localStorage.getItem("watchlist") : null
+  );
 
   return (
     <>
@@ -84,11 +93,8 @@ export default function Home() {
                   sectionWallet && styles.sectionContActive
                 }`}
               >
-                {localStorage.getItem("wallet") ? (
-                  <CardsList
-                    data={localStorage.getItem("wallet")}
-                    inHomeActive={true}
-                  />
+                {wallet ? (
+                  <CardsList data={wallet} inHomeActive={true} />
                 ) : (
                   <h2>You don't have any elements in your wallet.</h2>
                 )}
@@ -117,11 +123,8 @@ export default function Home() {
                   sectionWatchlist && styles.sectionContActive
                 }`}
               >
-                {localStorage.getItem("watchlist") ? (
-                  <CardsList
-                    data={localStorage.getItem("watchlist")}
-                    inHomeActive={true}
-                  />
+                {watchlist ? (
+                  <CardsList data={watchlist} inHomeActive={true} />
                 ) : (
                   <h2>You don't have any elements in your watchlist.</h2>
                 )}
