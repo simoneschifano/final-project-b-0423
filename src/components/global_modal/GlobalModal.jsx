@@ -1,4 +1,5 @@
 import { AiFillEuroCircle } from "react-icons/ai";
+
 import styles from "./index.module.scss";
 
 import { useState } from "react";
@@ -9,12 +10,20 @@ const GlobalModal = ({ icon, price, id }) => {
   const onHandleInput = (e) => setInputValue(e.target.value);
   console.log(inputValue);
 
+  const walletInLocalStorage = JSON.parse(localStorage.getItem("wallet")) || [];
+
   const onHandleSubmit = (e) => {
     e.preventDefault();
-    if (!JSON.parse(localStorage.getItem("wallet"))) {
+
+    const isCryptoInWallet = walletInLocalStorage.find(
+      (crypto) => crypto.id === id
+    );
+
+    if (isCryptoInWallet) {
+      const updateQty = {};
       localStorage.setItem("wallet", JSON.stringify({ id: id, qty: qty }));
     } else {
-      alert("a");
+      localStorage.setItem("wallet", JSON.stringify({ id: id, qty: qty }));
     }
   };
 
