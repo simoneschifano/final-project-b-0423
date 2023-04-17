@@ -12,15 +12,15 @@ export default function allCrypto() {
   const [allCrypto, setAllCrypto] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState(false);
-  useEffect(() => {
-    fetch(
-      process.env.NEXT_PUBLIC_API_URL +
-        "markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en"
-    )
-      .then((res) => res.json())
-      .then((data) => setAllCrypto(data));
-    setLoading(false);
-  }, []);
+  // useEffect(() => {
+  //   fetch(
+  //     process.env.NEXT_PUBLIC_API_URL +
+  //       "markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en"
+  //   )
+  //     .then((res) => res.json())
+  //     .then((data) => setAllCrypto(data));
+  //   setLoading(false);
+  // }, []);
 
   return (
     <>
@@ -35,30 +35,29 @@ export default function allCrypto() {
           <div className={styles.allCryptoHead}>
             <h2> allCrypto </h2>
             <div className={styles.container}>
-            <BtnFilter value="Sorting by Rank " setFilter={setFilter} />
+              <BtnFilter value="Sorting by Rank " setFilter={setFilter} />
             </div>
           </div>
-          {/* {loading ? <Loading /> : <CardsList data={allCrypto} />} */}
           <div className={styles.AllCriptoCard}>
             {filter ? (
               loading ? (
                 <Loading />
-                ) : (
-                  <CardsList
+              ) : (
+                <CardsList
                   data={allCrypto.sort(
                     (a, b) => b.market_cap_rank - a.market_cap_rank
-                    )}
-                    />
-                    )
-                    ) : loading ? (
-                      <Loading />
-                      ) : (
-                        <CardsList
-                        data={allCrypto.sort(
-                          (a, b) => a.market_cap_rank - b.market_cap_rank
-                          )}
-                          />
-                          )}
+                  )}
+                />
+              )
+            ) : loading ? (
+              <Loading />
+            ) : (
+              <CardsList
+                data={allCrypto.sort(
+                  (a, b) => a.market_cap_rank - b.market_cap_rank
+                )}
+              />
+            )}
           </div>
         </Layout>
       </main>

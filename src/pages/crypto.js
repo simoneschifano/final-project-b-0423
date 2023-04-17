@@ -13,6 +13,7 @@ export default function cryptoId() {
   const { name } = router.query;
   const [singleCryptoData, setSingleCryptoData] = useState([]);
   const [isGlobalModal, setIsGlobalModal] = useState(false);
+  
   useEffect(() => {
     GET(
       `${JSON.parse(

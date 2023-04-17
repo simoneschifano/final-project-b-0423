@@ -1,9 +1,29 @@
 import Head from "next/head";
 import Layout from "@/components/layout";
 import styles from "@/styles/pages/Home.module.scss";
+import { useReducer } from "react";
+import { Context } from "@/store";
+import { initialState } from "@/store/state";
+import { mainReducer } from "@/store/reducers";
+import { useState, useEffect } from "react";
 
 export default function Home() {
+  // const [state, dispatch] = useReducer(mainReducer, initialState);
+  // const [allCrypto, setAllCrypto] = useState([]);
+
+  // useEffect(() => {
+  //   fetch(
+  //     process.env.NEXT_PUBLIC_API_URL +
+  //       "markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en"
+  //   )
+  //     .then((res) => res.json())
+  //     .then((data) => setAllCrypto(data));
+
+  //   dispatch({ type: "SET_CRYPTO_LIST", payload: allCrypto });
+  // }, []);
+
   const mode = "bg_dark";
+
   return (
     <>
       <Head>
