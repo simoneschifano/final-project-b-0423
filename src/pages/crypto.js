@@ -13,7 +13,7 @@ export default function cryptoId() {
   const { name } = router.query;
   const [singleCryptoData, setSingleCryptoData] = useState([]);
   const [isGlobalModal, setIsGlobalModal] = useState(false);
-  
+
   useEffect(() => {
     GET(
       `${JSON.parse(
@@ -39,15 +39,15 @@ export default function cryptoId() {
                 alt={cryptoJson.id}
               />
               <h2> {name}</h2>
-              
             </div>
             <div className={styles.col}>
-              <Button text="buy" className={styles.btn} func={onHandleOpenModal} />
+              <Button
+                text="buy"
+                className={styles.btn}
+                func={onHandleOpenModal}
+              />
             </div>
           </div>
-          
-         
-          
         </div>
         <div className={styles.chartArea}>
           <ChartEl prices={singleCryptoData} />
@@ -87,7 +87,13 @@ export default function cryptoId() {
           </div>
         </div>
 
-        {isGlobalModal && <GlobalModal />}
+        {isGlobalModal && (
+          <GlobalModal
+            icon={cryptoJson.image}
+            price={cryptoJson.current_price}
+            id={cryptoJson.id}
+          />
+        )}
       </Layout>
     </>
   );

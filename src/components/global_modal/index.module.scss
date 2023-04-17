@@ -45,12 +45,20 @@
           @include size(25px);
         }
       }
+      .secondInput {
+        display: flex;
+        align-items: center;
+
+        .icon {
+          @include size(25px);
+        }
+      }
       .btn {
         @include btn($margin-top: 40px);
         border: none;
         color: $graph;
         background-color: $first-color;
-        
+
         cursor: pointer;
         &:hover {
           background-color: $graph;
