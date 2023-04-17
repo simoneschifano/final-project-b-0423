@@ -75,7 +75,6 @@ export default function cryptoId() {
                 alt={cryptoJson.id}
               />
               <h2> {name}</h2>
-              <MdStars onClick={onHandleStar} className={styles.star} />
             </div>
             <div className={styles.col}>
               <Button
@@ -124,7 +123,13 @@ export default function cryptoId() {
           </div>
         </div>
 
-        {isGlobalModal && <GlobalModal />}
+        {isGlobalModal && (
+          <GlobalModal
+            icon={cryptoJson.image}
+            price={cryptoJson.current_price}
+            id={cryptoJson.id}
+          />
+        )}
       </Layout>
     </>
   );
