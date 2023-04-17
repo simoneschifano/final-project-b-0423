@@ -47,6 +47,7 @@ export default function allCrypto() {
                   data={allCrypto.sort(
                     (a, b) => b.market_cap_rank - a.market_cap_rank
                   )}
+                  inHomeActive={false}
                 />
               )
             ) : loading ? (
@@ -56,6 +57,7 @@ export default function allCrypto() {
                 data={allCrypto.sort(
                   (a, b) => a.market_cap_rank - b.market_cap_rank
                 )}
+                inHomeActive={false}
               />
             )}
           </div>

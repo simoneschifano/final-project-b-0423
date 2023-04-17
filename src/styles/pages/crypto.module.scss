@@ -67,3 +67,22 @@
     }
   }
 }
+
+.row{
+  @include flex($align: center);
+  width: 100%;
+  .col{
+    @include col($gap: 10px, $sizeMd: 30%);
+    @include flex($justify: space-around, $align: center);
+    padding-bottom: 2em;
+    h2{
+      margin-bottom: 0px;
+    }
+    &:last-child{
+      @include col($gap: 10px, $sizeMd: 70%);
+      @include flex($justify: flex-end);
+      //padding-bottom: 2em;
+    }
+  
+  }
+}
