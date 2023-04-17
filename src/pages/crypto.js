@@ -29,14 +29,24 @@ export default function cryptoId() {
     <>
       <Layout>
         <div className={styles.header}>
-          <h2> {cryptoJson.market_cap_rank}</h2>
-          <h2> {name}</h2>
-          <img
-            className={styles.image}
-            src={cryptoJson.image}
-            alt={cryptoJson.id}
-          />
-          <Button text="buy" className={styles.btn} func={onHandleOpenModal} />
+          <div className={styles.row}>
+            <div className={styles.col}>
+              <h2> {cryptoJson.market_cap_rank}</h2>
+              <img
+                className={styles.image}
+                src={cryptoJson.image}
+                alt={cryptoJson.id}
+              />
+              <h2> {name}</h2>
+              
+            </div>
+            <div className={styles.col}>
+              <Button text="buy" className={styles.btn} func={onHandleOpenModal} />
+            </div>
+          </div>
+          
+         
+          
         </div>
         <div className={styles.chartArea}>
           <ChartEl prices={singleCryptoData} />

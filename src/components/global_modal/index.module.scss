@@ -21,7 +21,7 @@
     background-color: $background-btn;
     color: $second-color;
     box-shadow: 0px 0px 15px 2px $graph;
-    padding: 20px;
+    padding: 20px 40px 40px;
     .title {
       @include space-around($all: 20px);
     }
@@ -46,13 +46,15 @@
         }
       }
       .btn {
+        @include btn($margin-top: 40px);
         border: none;
-        border-radius: 5px;
-        background-color: $background-pages;
-        padding: 6px;
+        color: $graph;
+        background-color: $first-color;
+        
         cursor: pointer;
         &:hover {
           background-color: $graph;
+          color: $first-color;
         }
       }
     }

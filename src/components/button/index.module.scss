@@ -4,8 +4,8 @@
 .Button {
   @include flex($align: center);
   @include poppins();
-  @include btn();
+  @include btn($margin-top: 0px, $margin: initial);
   background-color: $background-btn;
   color: #000000;
-  margin-top: 40px;
+  
 }
