@@ -65,7 +65,7 @@
       text-decoration: underline $second-color;
     }
     .card {
-      @include size($width: 240px, $height: 130px);
+      @include size($width: 260px, $height: 150px);
       perspective: 600px;
       .cardFront {
         @include space-around($top-bot: 18px, $left-right: 18px);
@@ -81,7 +81,7 @@
           letter-spacing: 2px;
           color: $first-color;
           text-align: center;
-          margin-bottom: 10px;
+          margin-bottom: 20px;
           margin-top: 2px;
         }
         .userName {
@@ -124,7 +124,7 @@
       top: 0;
       left: 0;
       display: inline-block;
-      @include size($width: 240px, $height: 130px);
+      @include size($width: 260px, $height: 150px);
       background: linear-gradient(
         to right bottom,
         $background-cards,
