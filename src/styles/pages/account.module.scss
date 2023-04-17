@@ -2,7 +2,7 @@
   @include flex($direction: column, $align: center, $gap: 30px);
   .userSettings {
     width: 100%;
-    transform: translateY(50px);
+    transform: translateY(30px);
     background-color: $background-cards;
     border: 1px solid $border-cards;
     box-shadow: 0 0 6px 1px $border-cards;
@@ -56,7 +56,7 @@
   // CARD
   .cardSettings {
     width: 100%;
-    transform: translateY(50px);
+    transform: translateY(20px);
     background-color: transparent;
     border-radius: 20px;
     @include space-around($top-bot: 10px, $left-right: 10px);
