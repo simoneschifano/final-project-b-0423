@@ -6,6 +6,10 @@ import { useEffect, useState } from "react";
 import Button from "@/components/button";
 
 export default function Home() {
+  if (typeof window !== "undefined") {
+    const item = localStorage.getItem("key");
+  }
+
   const mode = "bg_dark";
   const [sectionCrypto, setSectionCrypto] = useState(false);
   const [sectionWallet, setSectionWallet] = useState(false);
@@ -80,7 +84,14 @@ export default function Home() {
                   sectionWallet && styles.sectionContActive
                 }`}
               >
-                {/* <CardsList data={} inHomeActive={true} /> */}
+                {localStorage.getItem("wallet") ? (
+                  <CardsList
+                    data={localStorage.getItem("wallet")}
+                    inHomeActive={true}
+                  />
+                ) : (
+                  <h2>You don't have any elements in your wallet.</h2>
+                )}
               </div>
               <div className={styles.sectionButton}>
                 <a href="../wallet">
@@ -106,7 +117,14 @@ export default function Home() {
                   sectionWatchlist && styles.sectionContActive
                 }`}
               >
-                {/* <CardsList data={} inHomeActive={true} /> */}
+                {localStorage.getItem("watchlist") ? (
+                  <CardsList
+                    data={localStorage.getItem("watchlist")}
+                    inHomeActive={true}
+                  />
+                ) : (
+                  <h2>You don't have any elements in your watchlist.</h2>
+                )}
               </div>
               <div className={styles.sectionButton}>
                 <a href="../watchlist">

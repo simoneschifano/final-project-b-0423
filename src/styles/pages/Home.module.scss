@@ -16,6 +16,12 @@
         max-height: inherit;
       }
 
+      h2 {
+        text-align: center;
+        transform: translateY(20px);
+        color: $light;
+      }
+
       .sectionTitle {
         position: relative;
         width: 100%;
@@ -66,7 +72,7 @@
 
       .sectionButton {
         align-self: center;
-        margin: 0px 5px 5px 0px;
+        margin: 0px 0px 5px 0px;
         @media screen and (min-width: 700px) {
           align-self: flex-end;
           margin: 0px 10px 5px 0px;
