@@ -19,8 +19,8 @@
       padding: 5px;
 
       .myImage {
-        height: 80px;
-        width: 80px;
+        height: 100px;
+        width: 100px;
         border-radius: 100%;
         transform: translateY(-20px);
 
@@ -111,7 +111,7 @@
 
         &:hover {
           transform: scale(1.1);
-          padding: 15px;
+          // padding: 15px;
           margin: 10px 0px 10px 0px;
 
           .myImage {
@@ -121,8 +121,8 @@
         }
 
         .myImage {
-          height: 100px;
-          width: 100px;
+          height: 130px;
+          width: 130px;
         }
       }
     }
