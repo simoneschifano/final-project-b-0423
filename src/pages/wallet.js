@@ -3,8 +3,13 @@ import Layout from "@/components/layout";
 import CakeChart from "@/components/cakeChart";
 import styles from "@/styles/pages/wallet.module.scss";
 
+import { useContext } from "react";
+import { Context } from "@/store";
+
 export default function Wallet() {
   const mode = "dark_mode";
+  const { state, dispatch } = useContext(Context);
+
   return (
     <>
       <Head>

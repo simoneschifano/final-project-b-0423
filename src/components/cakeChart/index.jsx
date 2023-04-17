@@ -1,2 +1,2 @@
-import CakeChart from "./cakeChart";
+import CakeChart from "./CakeChart";
 export default CakeChart;
