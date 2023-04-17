@@ -81,8 +81,16 @@
           letter-spacing: 2px;
           color: $first-color;
           text-align: center;
-          margin-bottom: 20px;
+          margin-bottom: 5px;
           margin-top: 2px;
+        }
+        .icon {
+          height: 15px;
+          margin-bottom: 5px;
+
+          .chipIcon {
+            @include size($width: 15px);
+          }
         }
         .userName {
           width: 75%;
@@ -198,8 +206,16 @@
           }
           .cardNum {
             font-size: 20px;
-            margin-bottom: 40px;
+            margin-bottom: 5px;
             margin-top: 10px;
+          }
+          .icon {
+            height: 30px;
+            margin-bottom: 5px;
+
+            .chipIcon {
+              @include size($width: 30px);
+            }
           }
         }
         .cardBack {
