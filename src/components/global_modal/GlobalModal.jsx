@@ -20,10 +20,28 @@ const GlobalModal = ({ icon, price, id }) => {
     );
 
     if (isCryptoInWallet) {
-      const updateQty = {};
-      localStorage.setItem("wallet", JSON.stringify({ id: id, qty: qty }));
+      const prevQty = walletInLocalStorage.find(
+        (quantity) => quantity.id === id
+      );
+
+      const updatedQty = {
+        id: id,
+        qty: qty + prevQty,
+      };
+
+      const finalAddWallet = walletInLocalStorage.filter(
+        (wallet) => wallet.id !== id
+      );
+
+      localStorage.setItem(
+        "wallet",
+        JSON.stringify([finalAddWallet, updatedQty])
+      );
     } else {
-      localStorage.setItem("wallet", JSON.stringify({ id: id, qty: qty }));
+      localStorage.setItem(
+        "wallet",
+        JSON.stringify([...walletInLocalStorage, { id: id, qty: qty }])
+      );
     }
   };
 

@@ -1,14 +1,35 @@
 import Head from "next/head";
 import Layout from "@/components/layout";
 import CakeChart from "@/components/cakeChart";
+import WalletList from "@/components/walletList";
 import styles from "@/styles/pages/wallet.module.scss";
 
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Context } from "@/store";
 
 export default function Wallet() {
   const mode = "dark_mode";
+
+  const [walletData, setWalletData] = useState([]);
+  const [walletCrypto, setWalletCrypto] = useState([]);
+
   const { state, dispatch } = useContext(Context);
+
+  const walletInLocalStorage = JSON.parse(localStorage.getItem("wallet")) || [];
+
+  useEffect(() => {
+    fetch(
+      process.env.NEXT_PUBLIC_API_URL +
+        "markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en"
+    )
+      .then((res) => res.json())
+      .then((data) => setWalletData(data));
+    // setLoading(false);
+
+    const finalWallet = walletData.filter((crypto) =>
+      walletInLocalStorage.includes(crypto)
+    );
+  }, []);
 
   return (
     <>
@@ -24,9 +45,10 @@ export default function Wallet() {
             <h2 className={styles.title}> MY WALLET STATUS</h2>
             <div className={styles.chartArea}>
               <CakeChart />
-
-              <h2> SALDO: </h2>
+              <h3> SALDO: </h3>
             </div>
+            <h2> Crypto </h2>
+            <div className="">{/* <WalletList data={finalWallet} /> */}</div>
           </div>
         </Layout>
       </main>
