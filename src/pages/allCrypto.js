@@ -33,7 +33,7 @@ export default function allCrypto() {
       <main className={mode}>
         <Layout>
           <div className={styles.allCryptoHead}>
-            <h2> allCrypto </h2>
+            <h2> all Crypto </h2>
             <div className={styles.container}>
               <BtnFilter value="Sorting by Rank " setFilter={setFilter} />
             </div>

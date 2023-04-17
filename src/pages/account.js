@@ -31,10 +31,38 @@ export default function account() {
                 <p>Email: {email}</p>
                 <p>Password: {password}</p>
               </div>
-              <button className={styles.editBtn}><h3>Edit</h3></button>
+              <button className={styles.editBtn}>
+                <h3>Edit</h3>
+              </button>
             </div>
             <div className={styles.cardSettings}>
               <h2 className={styles.cardSettingsTitle}>Your cards</h2>
+
+              {/* credit card */}
+
+              <div className={styles.card}>
+                <div className={`${styles.cardFront} ${styles.cardPart}`}>
+                  <p className={styles.cardNum}>**** **** **** 6258</p>
+                  <div className={styles.userName}>
+                    <span className={styles.cardLabel}>Card holder</span>
+                    <p className={styles.cardInfo}>John Doe</p>
+                  </div>
+                  <div className={styles.cardExpiration}>
+                    <span className={styles.cardLabel}>Expires</span>
+                    <p className={styles.cardInfo}>10/25</p>
+                  </div>
+                </div>
+
+                <div className={`${styles.cardBack} ${styles.cardPart}`}>
+                  <div className={styles.blackLine}></div>
+                  <div className={styles.Content}>
+                    <div className={styles.cardSecret}>
+                      <p className={styles.secretNum}>420</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* end card */}
             </div>
           </div>
         </Layout>
