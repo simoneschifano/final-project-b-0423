@@ -29,6 +29,7 @@
       @include flex(column, center, center, 20px, nowrap);
       .input {
         background-color: $background-btn;
+        color: $background-pages;
         @include size(260px, 30px);
         border: 0;
         border-bottom: 1px solid $border-btn;
@@ -50,7 +51,7 @@
         border: none;
         color: $graph;
         background-color: $first-color;
-        
+
         cursor: pointer;
         &:hover {
           background-color: $graph;
