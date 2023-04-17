@@ -77,16 +77,16 @@ $four: calc(25% - 17px);
   }
 }
 
-@mixin btn() {
+@mixin btn($margin-top: 0, $margin: 0 auto) {
   box-shadow: $box-shadow;
   border-radius: 24px;
   text-align: left;
   text-transform: uppercase;
   padding: 15px 30px;
   width: fit-content;
-  margin: 0 auto;
+  margin: $margin;
   border: unset;
-  
+  margin-top: $margin-top;
   svg {
     margin-left: 30px;
   }
@@ -129,3 +129,21 @@ $four: calc(25% - 17px);
   }
 }
 
+
+
+@mixin col($gap: 0px, $sizeMd: 50%) {
+  /* SMALL MOBILE */
+  @media screen and (max-width: 991px) {
+    -ms-flex: 0 0 calc(100% - $gap);
+    flex: 0 0 calc(100% - $gap);
+    max-width: calc(100% - $gap);
+    min-width: calc(100% - $gap);
+  }
+
+  @media screen and (min-width: 992px) {
+    -ms-flex: 0 0 calc($sizeMd - $gap);
+    flex: 0 0 calc($sizeMd - $gap);
+    max-width: calc($sizeMd - $gap);
+    min-width: calc($sizeMd - $gap);
+  }
+}
