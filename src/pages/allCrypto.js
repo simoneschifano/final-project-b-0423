@@ -12,15 +12,15 @@ export default function allCrypto() {
   const [allCrypto, setAllCrypto] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState(false);
-  // useEffect(() => {
-  //   fetch(
-  //     process.env.NEXT_PUBLIC_API_URL +
-  //       "markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en"
-  //   )
-  //     .then((res) => res.json())
-  //     .then((data) => setAllCrypto(data));
-  //   setLoading(false);
-  // }, []);
+  useEffect(() => {
+    fetch(
+      process.env.NEXT_PUBLIC_API_URL +
+        "markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en"
+    )
+      .then((res) => res.json())
+      .then((data) => setAllCrypto(data));
+    setLoading(false);
+  }, []);
 
   return (
     <>
