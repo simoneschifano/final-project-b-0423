@@ -14,7 +14,7 @@
     background-color: rgba(0, 0, 0, 0.8);
   }
   .content {
-    // @include size(90%, 50vh);
+    @include size(90%, auto);
     text-align: center;
     position: fixed;
     border-radius: 20px;
@@ -22,6 +22,23 @@
     color: $second-color;
     box-shadow: 0px 0px 15px 2px $graph;
     padding: 20px 40px 40px;
+    margin-left: 30%;
+    max-width: calc(800px - 30%);
+
+    @media screen and (max-width: 900px) {
+      max-width: calc(600px - 30%);
+      margin-left: 25%;
+    }
+    @media screen and (max-width: 700px) {
+      max-width: calc(400px - 10%);
+      margin-left: 25%;
+    }
+
+    @media screen and (max-width: 300px) {
+      max-width: calc(300px - 30%);
+      margin-left: 25%;
+    }
+    
     .title {
       @include space-around($all: 20px);
     }
@@ -29,7 +46,7 @@
       @include flex(column, center, center, 20px, nowrap);
       .input {
         background-color: $background-btn;
-        @include size(260px, 30px);
+        @include size(100%, 30px);
         border: 0;
         border-bottom: 1px solid $border-btn;
         outline: none;
