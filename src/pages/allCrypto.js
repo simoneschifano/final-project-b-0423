@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Head from "next/head";
 import CardsList from "@/components/cards_list";
 import Layout from "@/components/layout";
@@ -6,7 +6,11 @@ import Loading from "@/components/loading";
 import BtnFilter from "@/components/btnFilter";
 import styles from "../styles/pages/allCrypto.module.scss";
 
+import { Context } from "@/store";
+
 export default function allCrypto() {
+  const { state, dispatch } = useContext(Context);
+
   const mode = "dark_mode";
   //manca l'altro useState e il setInterval per il caricamento
   const [allCrypto, setAllCrypto] = useState([]);
