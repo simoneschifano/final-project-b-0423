@@ -38,7 +38,6 @@ export default function allCrypto() {
               <BtnFilter value="Sorting by Rank " setFilter={setFilter} />
             </div>
           </div>
-          {/* {loading ? <Loading /> : <CardsList data={allCrypto} />} */}
           <div className={styles.AllCriptoCard}>
             {filter ? (
               loading ? (
