@@ -45,6 +45,7 @@
       @include btn();
       background-color: $second-color;
       color: $first-color;
+      cursor: pointer;
 
       &:hover {
         color: $second-color;
@@ -64,25 +65,24 @@
       text-decoration: underline $second-color;
     }
     .card {
-      width: 320px;
-      height: 190px;
-      -webkit-perspective: 600px;
-      -moz-perspective: 600px;
+      @include size($width: 240px, $height: 130px);
       perspective: 600px;
       .cardFront {
-        padding: 18px;
-        -webkit-transform: rotateY(0);
-        -moz-transform: rotateY(0);
+        @include space-around($top-bot: 18px, $left-right: 18px);
+        transform: rotateY(0);
+        .logo {
+          @include size($width: 15px);
+        }
         .cardNum {
           display: block;
           width: 100%;
           word-spacing: 4px;
-          font-size: 20px;
+          font-size: 10px;
           letter-spacing: 2px;
-          color: #fff;
+          color: $first-color;
           text-align: center;
-          margin-bottom: 20px;
-          margin-top: 20px;
+          margin-bottom: 10px;
+          margin-top: 2px;
         }
         .userName {
           width: 75%;
@@ -94,25 +94,24 @@
         }
       }
       .cardBack {
-        padding: 18px 0;
-        -webkit-transform: rotateY(-180deg);
-        -moz-transform: rotateY(-180deg);
+        @include space-around($top-bot: 18px, $left-right: 0);
+        transform: rotateY(-180deg);
         .blackLine {
           margin-top: 5px;
-          height: 38px;
-          background-color: #303030;
+          height: 28px;
+          background-color: $background-cards;
         }
-        .Content {
+        .content {
           padding: 15px 15px 0;
           .cardSecret {
-            padding: 5px 12px;
-            background-color: #fff;
+            @include space-around($top-bot: 5px, $left-right: 12px);
+            background-color: $background-btn;
             position: relative;
             .secretNum {
-              color: #303030;
+              color: $background-cards;
               text-align: right;
-              margin: 0;
-              font-size: 14px;
+              @include space-around();
+              font-size: 12px;
             }
           }
         }
@@ -120,21 +119,20 @@
     }
 
     .cardPart {
-      box-shadow: 1px 1px #aaa3a3;
-      top: 0;
+      box-shadow: 1px 1px $light;
       position: absolute;
+      top: 0;
       left: 0;
       display: inline-block;
-      width: 320px;
-      height: 190px;
+      @include size($width: 240px, $height: 130px);
       background: linear-gradient(
         to right bottom,
-        #140f0f,
-        #262626,
+        $background-cards,
+        $background-pages,
         #252525,
         #304a31,
-        #61a963,
-        #72a66a
+        $graph,
+        $second-color
       );
 
       background-repeat: no-repeat;
@@ -142,41 +140,33 @@
       background-size: cover;
       border-radius: 8px;
 
-      -webkit-transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      -moz-transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      -ms-transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      -o-transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      -webkit-transform-style: preserve-3d;
-      -moz-transform-style: preserve-3d;
-      -webkit-backface-visibility: hidden;
-      -moz-backface-visibility: hidden;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
     }
 
     .cardLabel {
-      font-size: 10px;
+      font-size: 6px;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.8);
+      color: $first-color;
       letter-spacing: 1px;
     }
     .cardInfo {
       margin-bottom: 0;
       margin-top: 5px;
-      font-size: 16px;
+      font-size: 12px;
       line-height: 18px;
-      color: #fff;
+      color: $first-color;
       letter-spacing: 1px;
       text-transform: uppercase;
     }
 
     .card:hover .cardFront {
-      -webkit-transform: rotateY(180deg);
-      -moz-transform: rotateY(180deg);
+      transform: rotateY(180deg);
     }
 
     .card:hover .cardBack {
-      -webkit-transform: rotateY(0deg);
-      -moz-transform: rotateY(0deg);
+      transform: rotateY(0deg);
     }
   }
 }
@@ -200,7 +190,50 @@
       }
     }
     .cardSettings {
-      border: 1px solid red;
+      .card {
+        @include size($width: 320px, $height: 190px);
+        .cardFront {
+          .logo {
+            @include size($width: 20px);
+          }
+          .cardNum {
+            font-size: 20px;
+            margin-bottom: 40px;
+            margin-top: 10px;
+          }
+        }
+        .cardBack {
+          .blackLine {
+            height: 38px;
+          }
+          .content {
+            .cardSecret {
+              .secretNum {
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+
+      .cardPart {
+        @include size($width: 320px, $height: 190px);
+      }
+
+      .cardLabel {
+        font-size: 10px;
+      }
+      .cardInfo {
+        font-size: 16px;
+      }
+
+      .card:hover .cardFront {
+        transform: rotateY(180deg);
+      }
+
+      .card:hover .cardBack {
+        transform: rotateY(0deg);
+      }
     }
   }
 }
