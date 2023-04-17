@@ -10,16 +10,16 @@ export default function App({ Component, pageProps }) {
   const [state, dispatch] = useReducer(mainReducer, initialState);
   const [allCrypto, setAllCrypto] = useState([]);
 
-  useEffect(() => {
-    fetch(
-      process.env.NEXT_PUBLIC_API_URL +
-        "markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en"
-    )
-      .then((res) => res.json())
-      .then((data) => localStorage.setItem("cryptos", JSON.stringify(data)));
+  // useEffect(() => {
+  //   fetch(
+  //     process.env.NEXT_PUBLIC_API_URL +
+  //       "markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en"
+  //   )
+  //     .then((res) => res.json())
+  //     .then((data) => localStorage.setItem("cryptos", JSON.stringify(data)));
 
-    dispatch({ type: "SET_CRYPTO_LIST", payload: allCrypto });
-  }, []);
+  //   dispatch({ type: "SET_CRYPTO_LIST", payload: allCrypto });
+  // }, []);
 
   return (
     // <AppWrapper>
