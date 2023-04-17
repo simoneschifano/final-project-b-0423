@@ -22,8 +22,9 @@ export default function App({ Component, pageProps }) {
   }, []);
 
   return (
-    <AppWrapper>
-      <Component {...pageProps} />
-    </AppWrapper>
+    // <AppWrapper>
+    //   <Component {...pageProps} />
+    // </AppWrapper>
+    <Component {...pageProps} />
   );
 }
