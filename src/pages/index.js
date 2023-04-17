@@ -25,11 +25,6 @@ export default function Home() {
       .then((data) => setAllCrypto(data));
   }, []);
 
-  if (typeof window !== "undefined") {
-    const wallet = localStorage.getItem("wallet");
-    const watchlist = localStorage.getItem("watchlist");
-  }
-
   const [wallet, setWallet] = useState(
     typeof window !== "undefined" ? localStorage.getItem("wallet") : null
   );
@@ -93,7 +88,7 @@ export default function Home() {
                   sectionWallet && styles.sectionContActive
                 }`}
               >
-                {wallet ? (
+                {wallet === true ? (
                   <CardsList data={wallet} inHomeActive={true} />
                 ) : (
                   <h2>You don't have any elements in your wallet.</h2>
@@ -123,7 +118,7 @@ export default function Home() {
                   sectionWatchlist && styles.sectionContActive
                 }`}
               >
-                {watchlist ? (
+                {watchlist === true ? (
                   <CardsList data={watchlist} inHomeActive={true} />
                 ) : (
                   <h2>You don't have any elements in your watchlist.</h2>
