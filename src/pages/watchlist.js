@@ -7,33 +7,36 @@ import { cryptoJson } from "./api/crypto";
 
 export default function watchlist() {
   const mode = "dark_mode";
-  const [coin, setCoin] = useState("");
-  const [allCrypto, setAllCrypto] = useState([]);
-  console.log(allCrypto)
-  useEffect(() => {
-    const storedName = JSON.parse(localStorage.getItem("watchlist"));
-    if (storedName) {
-      setCoin(storedName);
-    }
-  }, []);
-  useEffect(() => {
-    fetch(
-      process.env.NEXT_PUBLIC_API_URL +
-        "markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en"
-    )
-      .then((res) => res.json())
-      .then((data) => setAllCrypto(data));
-  }, []);
-  const GetCoins=() => {
-    const stars=[];
-    if (coin && allCrypto){coin.forEach(item => {
-      console.log(allCrypto.includes(e=>e.id===item))  
+  // const [coin, setCoin] = useState("");
+  // const [allCrypto, setAllCrypto] = useState([]);
+
+  // useEffect(() => {
+  //   const storedName = JSON.parse(localStorage.getItem("watchlist"));
+  //   if (storedName) {
+  //     setCoin(storedName);
+  //   }
+  // }, []);
+
+  // useEffect(() => {
+  //   fetch(
+  //     process.env.NEXT_PUBLIC_API_URL +
+  //       "markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en"
+  //   )
+  //     .then((res) => res.json())
+  //     .then((data) => setAllCrypto(data));
+  // }, []);
+
+  // let stars=[];
+  // const GetCoins=() => {
+  //   const stars=[];
+  //   if (coin && allCrypto){coin.forEach(item => {
+  //     console.log(allCrypto.includes(e=>e.id===item))  
       
-    })}
-    return(
-      <div>pippo</div>
-    )
-  }
+  //   })}
+  //   return(
+  //     <div>pippo</div>
+  //   )
+  // }
   
 
   return (
@@ -47,10 +50,10 @@ export default function watchlist() {
       <main className={mode}>
         <Layout>
           <h2>  watchlist </h2>
-          <div>
+          {/* <div>
             {GetCoins()}
-            <CardsList data={allCrypto} />
-         </div>
+            <CardsList data={stars} />
+         </div> */}
         </Layout>
       </main>
     </>
