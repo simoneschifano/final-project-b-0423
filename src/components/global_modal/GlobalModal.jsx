@@ -10,16 +10,44 @@ const GlobalModal = ({ icon, price, id }) => {
   const onHandleInput = (e) => setInputValue(e.target.value);
   console.log(inputValue);
 
+  const walletInLocalStorage = JSON.parse(localStorage.getItem("wallet")) || [];
+
   const onHandleSubmit = (e) => {
     e.preventDefault();
-    if (!JSON.parse(localStorage.getItem("wallet"))) {
-      localStorage.setItem("wallet", JSON.stringify({ id: id, qty: qty }));
+
+    const isCryptoInWallet = walletInLocalStorage.find(
+      (crypto) => crypto.id === id
+    );
+
+    if (isCryptoInWallet) {
+      const prevQty = walletInLocalStorage.find(
+        (quantity) => quantity.id === id
+      );
+
+      const updatedQty = {
+        id: id,
+        qty: qty + prevQty.qty,
+      };
+
+      const finalAddWallet = walletInLocalStorage.filter(
+        (wallet) => wallet.id === id
+      );
+
+      finalAddWallet.length > 1
+        ? localStorage.setItem(
+            "wallet",
+            JSON.stringify([finalAddWallet, updatedQty])
+          )
+        : localStorage.setItem("wallet", JSON.stringify([updatedQty]));
     } else {
-      alert("a");
+      localStorage.setItem(
+        "wallet",
+        JSON.stringify([...walletInLocalStorage, { id: id, qty: qty }])
+      );
     }
   };
 
-  const qty = (inputValue / price).toFixed(6);
+  const qty = inputValue / price;
 
   return (
     <div className={styles.GlobalModal}>
