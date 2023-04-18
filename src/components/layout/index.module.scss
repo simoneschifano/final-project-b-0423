@@ -5,21 +5,18 @@
   background-color: $background-pages;
   .container {
     background-color: $background-pages;
-    
 
     @include container();
 
-
     height: calc(100vh - 82px);
     overflow-y: scroll;
-  
+
     float: right;
     padding: 2em;
-   
-    
+
     @include poppins();
 
-    h2{
+    h2 {
       font-size: 14px;
       margin-bottom: 2em;
     }
@@ -29,14 +26,12 @@
     }
     &::-webkit-scrollbar-track {
       background-color: #ffffff00;
-      box-shadow: 3px 3px 3px  rgba(0, 0, 0, 0.679);
-    } 
-    
-    &::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, 0.748); 
-      border-radius: 50px;
-    } 
+      box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.679);
+    }
 
+    &::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.748);
+      border-radius: 50px;
+    }
   }
-  
 }
