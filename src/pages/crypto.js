@@ -7,6 +7,7 @@ import styles from "@/styles/pages/crypto.module.scss";
 import { cryptoJson } from "./api/crypto";
 import Button from "@/components/button";
 import GlobalModal from "@/components/global_modal";
+import React from "react";
 
 import { MdStars } from "react-icons/md";
 
@@ -22,13 +23,13 @@ export default function cryptoId() {
       : []
   );
 
-  useEffect(() => {
-    GET(
-      `${JSON.parse(
-        localStorage.getItem("crytoID")
-      )}/market_chart?vs_currency=eur&days=7&interval=daily`
-    ).then((data) => setSingleCryptoData(data.prices));
-  }, []);
+  React.useEffect(() => {
+    if (router.isReady) {
+      GET(`${name}/market_chart?vs_currency=eur&days=7&interval=daily`).then(
+        (data) => setSingleCryptoData(data.prices)
+      );
+    }
+  }, [router.isReady]);
 
   const onHandleOpenModal = () => {
     setIsGlobalModal((prev) => !prev);
