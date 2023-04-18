@@ -37,7 +37,7 @@ export default function Wallet() {
       walletInLocalStorage.includes(crypto)
     );
   } else {
-    alert("array vuoto");
+    console.log("array vuoto");
   }
   return (
     <>
