@@ -17,7 +17,11 @@ export default function Wallet() {
   const { state, dispatch } = useContext(Context);
 
   // const walletInLocalStorage = JSON.parse(localStorage.getItem("wallet")) || [];
-
+  const [walletInLocalStorage, setWalletInLocalStorage] = useState(
+    typeof window !== "undefined"
+      ? JSON.parse(localStorage.getItem("wallet")) || []
+      : []
+  );
   useEffect(() => {
     fetch(
       process.env.NEXT_PUBLIC_API_URL +
@@ -28,9 +32,9 @@ export default function Wallet() {
     // setLoading(false);
   }, []);
 
-  // const finalWallet = walletData.filter((crypto) =>
-  //   walletInLocalStorage.includes(crypto)
-  // );
+  const finalWallet = walletData.filter((crypto) =>
+    walletInLocalStorage.includes(crypto)
+  );
   return (
     <>
       <Head>
