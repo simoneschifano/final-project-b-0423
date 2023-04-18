@@ -32,9 +32,13 @@ export default function Wallet() {
     // setLoading(false);
   }, []);
 
-  const finalWallet = walletData.filter((crypto) =>
-    walletInLocalStorage.includes(crypto)
-  );
+  if (walletInLocalStorage.length > 0) {
+    const finalWallet = walletData.filter((crypto) =>
+      walletInLocalStorage.includes(crypto)
+    );
+  } else {
+    console.log("array vuoto");
+  }
   return (
     <>
       <Head>
