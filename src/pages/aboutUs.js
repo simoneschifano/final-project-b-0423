@@ -155,7 +155,7 @@ export default function aboutUs() {
             <div className={styles.aboutCard}>
               <div className={styles.myImage}>
                 <Image
-                  src="/../public/aboutusPhoto/ElisabettaMonaco.jpg"
+                  src="/../public/aboutusPhoto/VincenzoCostantino.jpg"
                   alt="Elisabetta Monaco"
                   width={100}
                   height={100}
@@ -172,13 +172,15 @@ export default function aboutUs() {
               <div className={styles.contacts}>
                 <ul>
                   <li>
-                    <a href="#">Linkedin</a>
+                    <a href="https://www.linkedin.com/mwlite/in/vincenzo-costantino-67b624257">
+                      Linkedin
+                    </a>
                   </li>
                   <li>
-                    <a href="#">Github</a>
+                    <a href="https://github.com/Vinci97">Github</a>
                   </li>
                   <li>
-                    <a href="mailto:#">Email</a>
+                    <a href="mailto:vincenzo.costantino04@gmail.com">Email</a>
                   </li>
                 </ul>
               </div>
