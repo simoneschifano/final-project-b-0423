@@ -26,17 +26,19 @@ const GlobalModal = ({ icon, price, id }) => {
 
       const updatedQty = {
         id: id,
-        qty: qty + prevQty,
+        qty: qty + prevQty.qty,
       };
 
       const finalAddWallet = walletInLocalStorage.filter(
-        (wallet) => wallet.id !== id
+        (wallet) => wallet.id === id
       );
 
-      localStorage.setItem(
-        "wallet",
-        JSON.stringify([finalAddWallet, updatedQty])
-      );
+      finalAddWallet.length > 1
+        ? localStorage.setItem(
+            "wallet",
+            JSON.stringify([finalAddWallet, updatedQty])
+          )
+        : localStorage.setItem("wallet", JSON.stringify([updatedQty]));
     } else {
       localStorage.setItem(
         "wallet",
@@ -45,7 +47,7 @@ const GlobalModal = ({ icon, price, id }) => {
     }
   };
 
-  const qty = (inputValue / price).toFixed(6);
+  const qty = inputValue / price;
 
   return (
     <div className={styles.GlobalModal}>
