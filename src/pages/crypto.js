@@ -16,18 +16,10 @@ export default function cryptoId() {
   const [singleCryptoData, setSingleCryptoData] = useState([]);
   const [isGlobalModal, setIsGlobalModal] = useState(false);
 
-  // useEffect(() => {
-  //   if (typeof window !== "undefined") {
-  //     wallet
-  //       ? localStorage.setItem("wallet", JSON.stringify([...wallet, name]))
-  //       : localStorage.setItem("wallet", JSON.stringify([name]));
-  //   }
-  // }, []);
-
   const [watchlist, setWatchlist] = useState(
     typeof window !== "undefined"
       ? JSON.parse(localStorage.getItem("watchlist"))
-      : [name]
+      : []
   );
 
   useEffect(() => {
@@ -44,22 +36,33 @@ export default function cryptoId() {
 
   const onHandleStar = () => {
     if (typeof window !== "undefined") {
-      watchlist
-        ? !!watchlist.find((item) => item.id === name)
-          ? null
-          : watchlist
-          ? localStorage.setItem(
-              "watchlist",
-              JSON.stringify([...watchlist, name])
-            )
-          : localStorage.setItem("watchlist", JSON.stringify([name]))
-        : watchlist
-        ? localStorage.setItem(
-            "watchlist",
-            JSON.stringify([...watchlist, name])
-          )
-        : localStorage.setItem("watchlist", JSON.stringify([name]));
+      if (watchlist === true) {
+        console.log(localStorage.getItem("watchlist"));
+        if (!watchlist.find((item) => item.id === name)) {
+          localStorage.setItem("watchlist", [...watchlist, name]);
+        }
+      } else {
+        localStorage.setItem("watchlist", [...watchlist, name]);
+      }
     }
+    // if (typeof window !== "undefined") {
+    //   watchlist
+    //     ? !!watchlist.find((item) => item.id === name)
+    //       ? null
+    //       : watchlist
+    //       ? localStorage.setItem(
+    //           "watchlist",
+    //           JSON.stringify([...watchlist, name])
+    //         )
+    //       : localStorage.setItem("watchlist", JSON.stringify([name]))
+    //     : watchlist
+    //     ? localStorage.setItem(
+    //         "watchlist",
+    //         JSON.stringify([...watchlist, name])
+    //       )
+    //     : localStorage.setItem("watchlist", JSON.stringify([name]));
+    //   console.log(localStorage.getItem("watchlist"));
+    // }
   };
 
   return (
@@ -75,7 +78,7 @@ export default function cryptoId() {
                 alt={cryptoJson.id}
               />
               <h2> {name}</h2>
-              <MdStars className={styles.star} />
+              <MdStars onClick={onHandleStar} className={styles.star} />
             </div>
             <div className={styles.col}>
               <Button
