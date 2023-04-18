@@ -6,6 +6,7 @@ import styles from "@/styles/pages/wallet.module.scss";
 
 import { useContext, useState, useEffect } from "react";
 import { Context } from "@/store";
+import { cryptoJson } from "./api/crypto";
 
 export default function Wallet() {
   const mode = "dark_mode";
@@ -15,7 +16,7 @@ export default function Wallet() {
 
   const { state, dispatch } = useContext(Context);
 
-  const walletInLocalStorage = JSON.parse(localStorage.getItem("wallet")) || [];
+  // const walletInLocalStorage = JSON.parse(localStorage.getItem("wallet")) || [];
 
   useEffect(() => {
     fetch(
@@ -25,12 +26,11 @@ export default function Wallet() {
       .then((res) => res.json())
       .then((data) => setWalletData(data));
     // setLoading(false);
-
-    const finalWallet = walletData.filter((crypto) =>
-      walletInLocalStorage.includes(crypto)
-    );
   }, []);
 
+  // const finalWallet = walletData.filter((crypto) =>
+  //   walletInLocalStorage.includes(crypto)
+  // );
   return (
     <>
       <Head>
@@ -48,7 +48,9 @@ export default function Wallet() {
               <h3> SALDO: </h3>
             </div>
             <h2> Crypto </h2>
-            <div className="">{/* <WalletList data={finalWallet} /> */}</div>
+            <div className="">
+              <WalletList data={[cryptoJson]} />
+            </div>
           </div>
         </Layout>
       </main>

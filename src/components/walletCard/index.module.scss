@@ -1,13 +1,22 @@
 .WalletCard {
   @include cardSize();
   color: $first-color;
-  @include flex($justify: space-between, $align: center);
+  @include flex($direction: column, $justify: space-between, $align: baseline);
   background-color: $background-cards;
   box-shadow: 0px 0px 5px $border-cards;
   letter-spacing: 0px;
   border-radius: 20px;
   padding: 12px;
+  font-size: 0.8rem;
   cursor: pointer;
+
+  .info {
+    @include flex($gap: 10px);
+
+    .image {
+      width: 40px;
+    }
+  }
   @media screen and (max-width: 700px) {
     @include flex($justify: space-between);
     position: relative;
