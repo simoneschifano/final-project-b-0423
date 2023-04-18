@@ -4,12 +4,11 @@ import { useEffect, useState } from "react";
 import CardsList from "@/components/cards_list";
 import { cryptoJson } from "./api/crypto";
 
-
 export default function watchlist() {
   const mode = "dark_mode";
   const [coin, setCoin] = useState("");
   const [allCrypto, setAllCrypto] = useState([]);
-  console.log(allCrypto)
+  console.log(allCrypto);
   useEffect(() => {
     const storedName = JSON.parse(localStorage.getItem("watchlist"));
     if (storedName) {
@@ -24,17 +23,15 @@ export default function watchlist() {
       .then((res) => res.json())
       .then((data) => setAllCrypto(data));
   }, []);
-  const GetCoins=() => {
-    const stars=[];
-    if (coin && allCrypto){coin.forEach(item => {
-      console.log(allCrypto.includes(e=>e.id===item))  
-      
-    })}
-    return(
-      <div>pippo</div>
-    )
-  }
-  
+  const GetCoins = () => {
+    const stars = [];
+    if (coin && allCrypto) {
+      coin.forEach((item) => {
+        console.log(allCrypto.includes((e) => e.id === item));
+      });
+    }
+    return <div>pippo</div>;
+  };
 
   return (
     <>
@@ -46,11 +43,11 @@ export default function watchlist() {
       </Head>
       <main className={mode}>
         <Layout>
-          <h2>  watchlist </h2>
+          <h2> watchlist </h2>
           <div>
             {GetCoins()}
             <CardsList data={allCrypto} />
-         </div>
+          </div>
         </Layout>
       </main>
     </>
