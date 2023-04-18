@@ -75,6 +75,7 @@ export default function cryptoId() {
                 alt={cryptoJson.id}
               />
               <h2> {name}</h2>
+              <MdStars className={styles.star} />
             </div>
             <div className={styles.col}>
               <Button
