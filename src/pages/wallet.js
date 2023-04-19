@@ -31,6 +31,10 @@ export default function Wallet() {
   } else {
     console.log("array vuoto");
   }
+
+  useEffect(() => {
+    localStorage.setItem("walletHome", [...finalWallet]);
+  }, [finalWallet]);
   return (
     <>
       <Head>

@@ -21,12 +21,16 @@ export default function watchlist() {
       .then((data) => setAllCrypto(data));
   }, []);
 
-    let stars=[];
-    if (coin.length > 0) {
-      stars = allCrypto.filter((crypto) =>
-      coin.includes(crypto.id)
-      );
+  let stars = [];
+  if (coin.length > 0) {
+    stars = allCrypto.filter((crypto) => coin.includes(crypto.id));
+  }
+
+  useEffect(() => {
+    if (typeof windo != "undefined") {
+      localStorage.setItem("watchlistHome", [...stars]);
     }
+  }, [stars]);
 
   return (
     <>
@@ -38,10 +42,10 @@ export default function watchlist() {
       </Head>
       <main className={mode}>
         <Layout>
-          <h2>  watchlist </h2>
+          <h2> watchlist </h2>
           <div>
             <CardsList data={stars} />
-         </div>
+          </div>
         </Layout>
       </main>
     </>
