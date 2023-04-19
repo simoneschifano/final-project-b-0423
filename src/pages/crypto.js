@@ -105,14 +105,18 @@ export default function cryptoId() {
                 className={
                   cryptoInfo.market_data &&
                   cryptoInfo.market_data.current_price
-                    .price_change_percentage_24h > 0
+                    .price_change_percentage_24h_in_currency &&
+                  cryptoInfo.market_data.current_price
+                    .price_change_percentage_24h_in_currency.eur > 0
                     ? styles.positiveVar
                     : styles.negativeVar
                 }
               >
                 {cryptoInfo.market_data &&
                   cryptoInfo.market_data.current_price
-                    .price_change_percentage_24h}
+                    .price_change_percentage_24h_in_currency &&
+                  cryptoInfo.market_data.current_price
+                    .price_change_percentage_24h_in_currency.eur}
               </h6>
             </div>
 
@@ -120,12 +124,14 @@ export default function cryptoId() {
               <h6>
                 Lowest: €
                 {cryptoInfo.market_data &&
-                  cryptoInfo.market_data.current_price.low_24h}
+                  cryptoInfo.market_data.current_price.low_24h &&
+                  cryptoInfo.market_data.current_price.low_24h.eur}
               </h6>
               <h6>
                 Hightest: €
                 {cryptoInfo.market_data &&
-                  cryptoInfo.market_data.current_price.high_24h}
+                  cryptoInfo.market_data.current_price.high_24h &&
+                  cryptoInfo.market_data.current_price.high_24h.eur}
               </h6>
             </div>
           </div>
