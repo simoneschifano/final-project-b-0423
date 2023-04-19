@@ -4,9 +4,10 @@ import styles from "@/styles/pages/Home.module.scss";
 import CardsList from "@/components/cards_list";
 import { useEffect, useState } from "react";
 import Button from "@/components/button";
+import SwitcherTheme from "@/components/switcher-theme";
 
 export default function Home() {
-  const mode = "bg_dark";
+  //const mode = "bg_dark";
   const [sectionCrypto, setSectionCrypto] = useState(false);
   const [sectionWallet, setSectionWallet] = useState(false);
   const [sectionWatchlist, setSectionWatchlist] = useState(false);
@@ -16,13 +17,22 @@ export default function Home() {
   const onHandleWallet = () => setSectionWallet((prev) => !prev);
   const onHandleWatchlist = () => setSectionWatchlist((prev) => !prev);
 
+  const [isSwitcherTheme, setIsSwitcherTheme] = useState(false);
+
+  const onHandleChangeTheme = () => {
+    setIsSwitcherTheme((prev) => !prev);
+    console.log(isSwitcherTheme)
+  };
+
   useEffect(() => {
+    /*
     fetch(
       process.env.NEXT_PUBLIC_API_URL +
         "markets?vs_currency=eur&order=market_cap_desc&per_page=10&page=1&sparkline=false&locale=en"
     )
       .then((res) => res.json())
       .then((data) => setAllCrypto(data));
+      */
   }, []);
 
   const [wallet, setWallet] = useState(
@@ -32,7 +42,8 @@ export default function Home() {
   const [watchlist, setWatchlist] = useState(
     typeof window !== "undefined" ? localStorage.getItem("watchlist") : null
   );
-
+  
+  
   return (
     <>
       <Head>
@@ -42,7 +53,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.Main}>
-        <Layout>
+        <Layout theme={isSwitcherTheme}>
+          <Button text="buy" className={styles.btn} func={onHandleChangeTheme} />
           <div className={styles.container}>
             <div
               className={`${styles.section} ${

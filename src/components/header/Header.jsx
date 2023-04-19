@@ -105,7 +105,7 @@ const Header = () => {
         </li>
       </ul>
       {/* <div className="switcher">light - dark</div> */}
-      <SwitcherTheme />
+      {/* <SwitcherTheme /> */}
     </div>
   );
 };
