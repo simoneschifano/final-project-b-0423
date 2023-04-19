@@ -8,7 +8,6 @@ const GlobalModal = ({ icon, price, id }) => {
   const [inputValue, setInputValue] = useState("");
 
   const onHandleInput = (e) => setInputValue(e.target.value);
-  console.log(inputValue);
 
   const walletInLocalStorage = JSON.parse(localStorage.getItem("wallet")) || [];
 
