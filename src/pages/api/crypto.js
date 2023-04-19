@@ -1,4 +1,4 @@
-export const cryptoJson = {
+export const cryptoJson = [{
   id: "bitcoin",
   symbol: "btc",
   name: "Bitcoin",
@@ -26,4 +26,4 @@ export const cryptoJson = {
   atl_date: "2013-07-06T00:00:00.000Z",
   roi: null,
   last_updated: "2023-04-13T10:19:39.589Z",
-};
+}];

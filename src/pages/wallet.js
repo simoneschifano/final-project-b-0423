@@ -13,13 +13,14 @@ export default function Wallet() {
 
   const [walletData, setWalletData] = useState([]);
   const [walletCrypto, setWalletCrypto] = useState([]);
+  let finalWallet = [];
 
   const { state, dispatch } = useContext(Context);
 
   // const walletInLocalStorage = JSON.parse(localStorage.getItem("wallet")) || [];
   const [walletInLocalStorage, setWalletInLocalStorage] = useState(
     typeof window !== "undefined"
-      ? JSON.parse(localStorage.getItem("wallet")) || []
+      ? JSON.parse(localStorage.getItem("wallet"))
       : []
   );
   useEffect(() => {
@@ -33,7 +34,7 @@ export default function Wallet() {
   }, []);
 
   if (walletInLocalStorage.length > 0) {
-    const finalWallet = walletData.filter((crypto) =>
+    finalWallet = walletData.filter((crypto) =>
       walletInLocalStorage.includes(crypto)
     );
   } else {
