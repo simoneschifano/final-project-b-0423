@@ -1,13 +1,13 @@
 import Layout from "@/components/layout";
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { GET } from "@/utils/http";
 import ChartEl from "@/components/chartEl";
 import styles from "@/styles/pages/crypto.module.scss";
-import { cryptoJson } from "./api/crypto";
 import Button from "@/components/button";
 import GlobalModal from "@/components/global_modal";
 import React from "react";
+import { Context } from "@/store";
 
 import { MdStars } from "react-icons/md";
 
@@ -17,6 +17,9 @@ export default function cryptoId() {
   const [singleCryptoData, setSingleCryptoData] = useState([]);
   const [isGlobalModal, setIsGlobalModal] = useState(false);
   const [cryptoInfo, setCryptoInfo] = useState([]);
+  const { state, dispatch } = useContext(Context);
+
+  // const cryptoInfo = state.cryptoListData;
 
   if (typeof window !== "undefined") {
     if (localStorage.getItem("watchlist")) {
@@ -39,14 +42,15 @@ export default function cryptoId() {
       );
     }
   }, [router.isReady]);
-  console.log(cryptoJson);
+
   const onHandleOpenModal = () => {
     setIsGlobalModal((prev) => !prev);
   };
 
   useEffect(() => {
-    GET(`${name}`).then((data) => setCryptoInfo(() => data));
-  });
+    // GET(`${name}`).then((data) => setCryptoInfo(() => data));
+    setCryptoInfo(state.cryptoListData.filter((crypto) => crypto.id === name));
+  }, []);
 
   const onHandleStar = () => {
     if (typeof window !== "undefined") {
@@ -161,9 +165,9 @@ export default function cryptoId() {
 
         {isGlobalModal && (
           <GlobalModal
-            icon={cryptoJson.image}
-            price={cryptoJson.current_price}
-            id={cryptoJson.id}
+            icon={cryptoInfo.image}
+            price={cryptoInfo.current_price}
+            id={cryptoInfo.id}
           />
         )}
       </Layout>
