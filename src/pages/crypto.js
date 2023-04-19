@@ -50,18 +50,20 @@ export default function cryptoId() {
   const onHandleStar = () => {
     if (typeof window !== "undefined") {
       if (watchlist) {
-        console.log(localStorage.getItem("watchlist"));
         if (!!watchlist.find((item) => item === name)) {
+          alert("Crypto rimossa dalla watchlist");
           localStorage.setItem(
             "watchlist",
             JSON.stringify([...watchlist.filter((item) => item !== name)])
           );
+          setWatchlist((prev) => [...prev.filter((item) => item !== name)]);
         } else {
           alert("Crypto aggiunta alla watchlist con successo!");
           localStorage.setItem(
             "watchlist",
             JSON.stringify([...watchlist, name])
           );
+          setWatchlist((prev) => [...prev, name]);
         }
       }
     }
