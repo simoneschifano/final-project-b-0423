@@ -31,14 +31,6 @@
       @include space-around($left-right: 16px);
     }
 
-    .Button {
-      @include flex($align: center);
-      @include poppins();
-      @include btn($margin-top: 40px);
-      background-color: $background-btn;
-      color: #000000;
-    }
-
     .editBtn {
       @include flex($align: center);
       @include poppins();
@@ -46,6 +38,7 @@
       background-color: $second-color;
       color: $first-color;
       cursor: pointer;
+      transition: all 0.55s;
 
       &:hover {
         color: $second-color;
