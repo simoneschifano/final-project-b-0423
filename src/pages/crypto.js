@@ -45,35 +45,20 @@ export default function cryptoId() {
 
   const onHandleStar = () => {
     if (typeof window !== "undefined") {
-      if (watchlist === true) {
+      if (watchlist) {
         console.log(localStorage.getItem("watchlist"));
-        !watchlist.find((item) => item.id === name)
-          ? localStorage.setItem(
-              "watchlist",
-              JSON.stringify([...watchlist, name])
-            )
-          : localStorage.setItem("watchlist", JSON.stringify([...watchlist]));
+        if (!!watchlist.find((item) => item === name)) {
+          alert("Questa crypto è già presente nella watchlist.");
+          return;
+        } else {
+          alert("Crypto aggiunta alla watchlist con successo!");
+          localStorage.setItem(
+            "watchlist",
+            JSON.stringify([...watchlist, name])
+          );
+        }
       }
     }
-
-    // if (typeof window !== "undefined") {
-    //   watchlist
-    //     ? !!watchlist.find((item) => item.id === name)
-    //       ? null
-    //       : watchlist
-    //       ? localStorage.setItem(
-    //           "watchlist",
-    //           JSON.stringify([...watchlist, name])
-    //         )
-    //       : localStorage.setItem("watchlist", JSON.stringify([name]))
-    //     : watchlist
-    //     ? localStorage.setItem(
-    //         "watchlist",
-    //         JSON.stringify([...watchlist, name])
-    //       )
-    //     : localStorage.setItem("watchlist", JSON.stringify([name]));
-    //   console.log(localStorage.getItem("watchlist"));
-    // }
   };
 
   return (
@@ -88,15 +73,18 @@ export default function cryptoId() {
                 src={cryptoJson.image}
                 alt={cryptoJson.id}
               />
-              <h2>{name}</h2>
+              <h2> {name}</h2>
               <MdStars onClick={onHandleStar} className={styles.star} />
             </div>
-            <div className={styles.btn}>
-              <Button text="buy" func={onHandleOpenModal} />
+            <div className={styles.col}>
+              <Button
+                text="buy"
+                className={styles.btn}
+                func={onHandleOpenModal}
+              />
             </div>
           </div>
         </div>
-
         <div className={styles.chartArea}>
           <ChartEl prices={singleCryptoData} />
         </div>
