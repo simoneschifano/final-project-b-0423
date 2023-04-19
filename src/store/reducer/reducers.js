@@ -5,5 +5,7 @@ export const mainReducer = (state, action) => {
         ...state,
         cryptoListData: action.payload,
       };
+    default:
+      return state;
   }
 };
