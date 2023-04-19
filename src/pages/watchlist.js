@@ -27,12 +27,6 @@ export default function watchlist() {
     stars = allCrypto.filter((crypto) => coin.includes(crypto.id));
   }
 
-  useEffect(() => {
-    if (typeof windo !== "undefined") {
-      localStorage.setItem("watchlistHome", [...stars]);
-    }
-  }, [stars]);
-
   return (
     <>
       <Head>
