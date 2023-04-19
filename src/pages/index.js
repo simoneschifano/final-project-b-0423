@@ -18,7 +18,7 @@ export default function Home() {
 
   const { state, dispatch } = useContext(Context);
 
-  const allCryptoData = state.cryptoListData.slice(0, 10);
+  const allCryptoData = state.cryptoListData;
 
   const [wallet, setWallet] = useState(
     typeof window !== "undefined" ? localStorage.getItem("walletHome") : null
@@ -57,7 +57,10 @@ export default function Home() {
                   sectionCrypto && styles.sectionContActive
                 }`}
               >
-                <CardsList data={allCryptoData} inHomeActive={true} />
+                <CardsList
+                  data={allCryptoData.slice(0, 10)}
+                  inHomeActive={true}
+                />
               </div>
               <div className={styles.sectionButton}>
                 <a href="../allCrypto">
