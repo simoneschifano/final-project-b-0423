@@ -17,8 +17,6 @@ export default function allCrypto() {
   const [loading, setLoading] = useState(false);
   const [filter, setFilter] = useState(false);
 
-  console.log(state.cryptoListData);
-
   return (
     <>
       <Head>
