@@ -5,6 +5,8 @@
   background-color: $background-btn;
   color: #000000;
   cursor: pointer;
+  transition: all 0.55s;
+
   &:hover {
     box-shadow: 0 0 4px 2px $graph;
     transition: all 0.55s;
