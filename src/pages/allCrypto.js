@@ -14,7 +14,7 @@ export default function allCrypto() {
   const mode = "dark_mode";
   //manca l'altro useState e il setInterval per il caricamento
   // const [allCrypto, setAllCrypto] = useState(state.cryptoListData);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [filter, setFilter] = useState(false);
 
   console.log(state.cryptoListData);
