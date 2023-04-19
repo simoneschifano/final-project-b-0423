@@ -2,28 +2,23 @@ import Head from "next/head";
 import Layout from "@/components/layout";
 import styles from "@/styles/pages/Home.module.scss";
 import CardsList from "@/components/cards_list";
-import { useEffect, useState } from "react";
+import { useState, useContext } from "react";
 import Button from "@/components/button";
+import { Context } from "@/store";
 
 export default function Home() {
   const mode = "bg_dark";
-  const [sectionCrypto, setSectionCrypto] = useState(false);
+  const [sectionCrypto, setSectionCrypto] = useState(true);
   const [sectionWallet, setSectionWallet] = useState(false);
   const [sectionWatchlist, setSectionWatchlist] = useState(false);
-  const [allCrypto, setAllCrypto] = useState([]);
 
   const onHandleCrypto = () => setSectionCrypto((prev) => !prev);
   const onHandleWallet = () => setSectionWallet((prev) => !prev);
   const onHandleWatchlist = () => setSectionWatchlist((prev) => !prev);
 
-  useEffect(() => {
-    fetch(
-      process.env.NEXT_PUBLIC_API_URL +
-        "markets?vs_currency=eur&order=market_cap_desc&per_page=10&page=1&sparkline=false&locale=en"
-    )
-      .then((res) => res.json())
-      .then((data) => setAllCrypto(data));
-  }, []);
+  const { state, dispatch } = useContext(Context);
+
+  const allCryptoData = state.cryptoListData.slice(0, 10);
 
   const [wallet, setWallet] = useState(
     typeof window !== "undefined" ? localStorage.getItem("wallet") : null
@@ -62,7 +57,7 @@ export default function Home() {
                   sectionCrypto && styles.sectionContActive
                 }`}
               >
-                <CardsList data={allCrypto} inHomeActive={true} />
+                <CardsList data={allCryptoData} inHomeActive={true} />
               </div>
               <div className={styles.sectionButton}>
                 <a href="../allCrypto">
