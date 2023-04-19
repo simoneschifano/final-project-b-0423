@@ -2,13 +2,10 @@
   @include flex($justify: space-between, $align: baseline, $gap: 10px);
 
   .row {
-    // border: 1px solid red;
     @include flex($direction: column, $align: flex-start);
     width: 100%;
     .col {
       width: 100%;
-      // border: 1px solid blue;
-      // @include col($gap: 10px, $sizeMd: 30%);
       @include flex($gap: 10px);
       padding-bottom: 2em;
       .image {
@@ -32,13 +29,7 @@
       }
       &:last-child {
         @include col($gap: 10px, $sizeMd: 70%);
-        @include flex($justify: flex-end);
-        //padding-bottom: 2em;
       }
-    }
-    .btn {
-      // border: 1px solid green;
-      margin-bottom: 25px;
     }
   }
 }
