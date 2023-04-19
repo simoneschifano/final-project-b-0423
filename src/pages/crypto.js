@@ -17,6 +17,7 @@ export default function cryptoId() {
   const [singleCryptoData, setSingleCryptoData] = useState([]);
   const [isGlobalModal, setIsGlobalModal] = useState(false);
   const [cryptoInfo, setCryptoInfo] = useState([]);
+
   const { state, dispatch } = useContext(Context);
 
   // const cryptoInfo = state.cryptoListData;
@@ -40,16 +41,19 @@ export default function cryptoId() {
       GET(`${name}/market_chart?vs_currency=eur&days=7&interval=daily`).then(
         (data) => setSingleCryptoData(data.prices)
       );
+
+      GET(`${name}`).then((data) => setCryptoInfo(() => data));
+      // setCryptoInfo(
+      //   state.cryptoListData.filter((crypto) => crypto.id === name)
+      // );
     }
   }, [router.isReady]);
+
   const onHandleOpenModal = () => {
     setIsGlobalModal((prev) => !prev);
   };
 
-  useEffect(() => {
-    // GET(`${name}`).then((data) => setCryptoInfo(() => data));
-    setCryptoInfo(state.cryptoListData.filter((crypto) => crypto.id === name));
-  }, []);
+  console.log(cryptoInfo);
 
   const onHandleStar = () => {
     if (typeof window !== "undefined") {
@@ -172,8 +176,8 @@ export default function cryptoId() {
 
         {isGlobalModal && (
           <GlobalModal
-            icon={cryptoInfo.image}
-            price={cryptoInfo.current_price}
+            icon={cryptoInfo.image.large}
+            price={cryptoInfo.market_data.current_price.eur}
             id={cryptoInfo.id}
           />
         )}
