@@ -12,7 +12,6 @@ export default function watchlist() {
       ? JSON.parse(localStorage.getItem("watchlist"))
       : []
   );
-  console.log(coin)
   useEffect(() => {
     fetch(
       process.env.NEXT_PUBLIC_API_URL +
