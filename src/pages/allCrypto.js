@@ -13,18 +13,9 @@ export default function allCrypto() {
 
   const mode = "dark_mode";
   //manca l'altro useState e il setInterval per il caricamento
-  const [allCrypto, setAllCrypto] = useState([]);
-  const [loading, setLoading] = useState(true);
+  // const [allCrypto, setAllCrypto] = useState(state.cryptoListData);
+  const [loading, setLoading] = useState(false);
   const [filter, setFilter] = useState(false);
-  useEffect(() => {
-    fetch(
-      process.env.NEXT_PUBLIC_API_URL +
-        "markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en"
-    )
-      .then((res) => res.json())
-      .then((data) => setAllCrypto(data));
-    setLoading(false);
-  }, []);
 
   return (
     <>
@@ -48,7 +39,7 @@ export default function allCrypto() {
                 <Loading />
               ) : (
                 <CardsList
-                  data={allCrypto.sort(
+                  data={state.cryptoListData.sort(
                     (a, b) => b.market_cap_rank - a.market_cap_rank
                   )}
                   inHomeActive={false}
@@ -58,7 +49,7 @@ export default function allCrypto() {
               <Loading />
             ) : (
               <CardsList
-                data={allCrypto.sort(
+                data={state.cryptoListData.sort(
                   (a, b) => a.market_cap_rank - b.market_cap_rank
                 )}
                 inHomeActive={false}

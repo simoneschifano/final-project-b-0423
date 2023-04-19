@@ -23,23 +23,18 @@ export default function Wallet() {
       ? JSON.parse(localStorage.getItem("wallet"))
       : []
   );
-  useEffect(() => {
-    fetch(
-      process.env.NEXT_PUBLIC_API_URL +
-        "markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en"
-    )
-      .then((res) => res.json())
-      .then((data) => setWalletData(data));
-    // setLoading(false);
-  }, []);
 
   if (walletInLocalStorage.length > 0) {
-    finalWallet = walletData.filter((crypto) =>
+    finalWallet = state.cryptoListData.filter((crypto) =>
       walletInLocalStorage.includes(crypto)
     );
   } else {
     console.log("array vuoto");
   }
+
+  useEffect(() => {
+    localStorage.setItem("walletHome", [...finalWallet]);
+  }, [finalWallet]);
   return (
     <>
       <Head>
