@@ -19,7 +19,6 @@ $four: calc(25% - 17px);
 }
 
 @mixin cardSize() {
-  
   /* MOBILE */
   @media screen and (max-width: 700px) {
     -ms-flex: 0 0 $full;
@@ -41,7 +40,6 @@ $four: calc(25% - 17px);
     max-width: $three;
   }
 }
-
 
 //SIDEBAR
 
@@ -91,7 +89,7 @@ $four: calc(25% - 17px);
     margin-left: 30px;
   }
 
-  h3{
+  h3 {
     font-weight: 300;
     font-size: 12px;
   }
@@ -128,8 +126,6 @@ $four: calc(25% - 17px);
     padding: 2em;
   }
 }
-
-
 
 @mixin col($gap: 0px, $sizeMd: 50%) {
   /* SMALL MOBILE */
