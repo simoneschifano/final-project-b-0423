@@ -2,6 +2,7 @@ import { useState } from "react";
 import Head from "next/head";
 import Layout from "@/components/layout";
 import { mockUser } from "./api/mockUser";
+import { FcSimCardChip } from "react-icons/fc";
 import styles from "../styles/pages/account.module.scss";
 import Button from "@/components/button";
 
@@ -84,6 +85,9 @@ export default function account() {
                   <p className={styles.cardNum}>
                     **** **** **** {cardNum.slice(8)}
                   </p>
+                  <div className={styles.icon}>
+                    <FcSimCardChip className={styles.chipIcon} />
+                  </div>
                   <div className={styles.userName}>
                     <span className={styles.cardLabel}>Card holder</span>
                     <p className={styles.cardInfo}>

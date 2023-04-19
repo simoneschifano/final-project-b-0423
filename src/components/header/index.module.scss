@@ -1,10 +1,6 @@
-@import "../../styles/scss/variables/colors.scss";
-@import "../../styles/scss/variables/typography.scss";
-
 .Header {
   @include sideBar();
-  
-  
+
   z-index: 2;
 
   color: var(--text);
@@ -22,6 +18,7 @@
     letter-spacing: 4.5px;
 
     text-decoration: unset;
+    transition: all 0.55s;
 
     @media screen and (max-width: 1050px) {
       font-size: 40px;
@@ -31,6 +28,7 @@
     }
     &__mobile {
       display: none;
+      transition: all 0.55s;
 
       @media screen and (max-width: 991px) {
         display: block;
@@ -43,6 +41,11 @@
           height: auto;
         }
       }
+    }
+    &:hover {
+      color: $graph;
+      transition: all 0.55s;
+      text-shadow: 2px 2px 2px var(--card-border);
     }
   }
   .list {
@@ -63,42 +66,81 @@
     @media screen and (min-width: 992px) {
       line-height: 50px;
     }
+    li {
+      a {
+        font-size: 12px;
+        font-weight: 500;
+        margin-bottom: 2em;
+        @include poppins();
+        color: var(--text);
+        text-decoration: unset;
 
-    a {
-      font-size: 12px;
-      font-weight: 500;
-      @include poppins();
-      text-decoration: unset;
-
-      @media screen and (min-width: 992px) {
-        display: flex;
-      }
-      align-items: center;
-      @media screen and (max-width: 991px) {
-        .pageName {
-          display: none !important;
+        @media screen and (min-width: 992px) {
+          display: flex;
         }
-      }
-      .svg {
-        height: 20px;
-        width: auto;
-        margin-right: 20px;
-        svg,
-        .aboutIcon {
-          fill: var(--text);
-          display: block;
-          @media screen and (max-width: 992px) {
-            margin: 0 auto;
-            margin-bottom: 5em;
+        align-items: center;
+        @media screen and (max-width: 991px) {
+          .pageName {
+            display: none !important;
           }
         }
 
-        .aboutIcon {
-          height: 25px;
-          width: 25px;
-          color: var(--text);
+        .svg {
+          height: 20px;
+          width: auto;
+          margin-right: 20px;
+          &:hover {
+            .home,
+            .wallet,
+            .allCrypto,
+            .watchList,
+            .aboutIcon {
+              color: $graph;
+              transition: all 0.55s;
+              // animation: spinAround 2s linear;
+            }
+          }
+          .home,
+          .wallet,
+          .allCrypto,
+          .watchList,
+          .aboutIcon {
+            display: block;
+            height: 25px;
+            width: 25px;
+            color: $first-color;
+            @media screen and (max-width: 992px) {
+              margin: 0 auto;
+              margin-bottom: 5em;
+            }
+          }
+        }
+        &:hover {
+          color: $graph;
+          transition: all 0.55s;
+          text-shadow: 2px 2px 2px var(--card-border);
+          .svg {
+            .home,
+            .wallet,
+            .allCrypto,
+            .watchList,
+            .aboutIcon {
+              color: $graph;
+              transition: all 0.55s;
+              animation: spinAround 2s ease infinite;
+            }
+          }
         }
       }
     }
+  }
+}
+
+@keyframes spinAround {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
   }
 }

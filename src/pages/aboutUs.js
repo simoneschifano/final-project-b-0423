@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Layout from "@/components/layout";
+import Image from "next/image";
 import styles from "../styles/pages/aboutUs.module.scss";
 import { useState } from "react";
 import Button from "@/components/button";
@@ -26,210 +27,169 @@ export default function aboutUs() {
           <div className={styles.content}>
             <div className={styles.aboutCard}>
               <div className={styles.myImage}>
-                <img src="https://picsum.photos/1080/1080" alt="myImage" />
+                <Image
+                  src="/../public/aboutusPhoto/SalvoBisconti.png"
+                  alt="myImage"
+                  width={100}
+                  height={100}
+                />
               </div>
-              <h3 className={styles.myName}>Pippo De Pippis</h3>
+              <h3 className={styles.myName}>
+                Salvo
+                <br />
+                Bisconti
+              </h3>
               <div className={styles.info}>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod
-                  asperiores enim non id ratione maxime nesciunt. Officia,
-                  sapiente? Nostrum ab at repellendus eos exercitationem veniam.
-                </p>
+                <p>FRONT-END DEVELOPER</p>
               </div>
               <div className={styles.contacts}>
                 <ul>
                   <li>
-                    <span>Linkedin</span>
-                    <span className={styles.link}>
-                      <a href="#">LINK</a>
-                    </span>
+                    <a href="https://www.linkedin.com/in/salvatore-bisconti/ ">
+                      Linkedin
+                    </a>
                   </li>
                   <li>
-                    <span>Github</span>
-                    <span className={styles.link}>
-                      <a href="#">LINK</a>
-                    </span>
+                    <a href="https://github.com/SalvoBisconti">Github</a>
                   </li>
                   <li>
-                    <span>Mail</span>
-                    <span className={styles.link}>
-                      <a href="#">LINK</a>
-                    </span>
+                    <a href="mailto:sabisco@live.it">Email</a>
                   </li>
                 </ul>
               </div>
             </div>
+            {/*  */}
             <div className={styles.aboutCard}>
               <div className={styles.myImage}>
-                <img src="https://picsum.photos/1080/1080" alt="myImage" />
+                <Image
+                  src="/../public/aboutusPhoto/SoniaGrassia2.jpg"
+                  alt="Sonia-Grassia"
+                  width={100}
+                  height={100}
+                />
               </div>
-              <h3 className={styles.myName}>Pippo De Pippis</h3>
+              <h3 className={styles.myName}>
+                Sonia
+                <br />
+                Grassia
+              </h3>
               <div className={styles.info}>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod
-                  asperiores enim non id ratione maxime nesciunt. Officia,
-                  sapiente? Nostrum ab at repellendus eos exercitationem veniam.
-                </p>
+                <p>FRONT-END DEVELOPER</p>
               </div>
               <div className={styles.contacts}>
                 <ul>
                   <li>
-                    <span>Linkedin</span>
-                    <span className={styles.link}>
-                      <a href="#">LINK</a>
-                    </span>
+                    <a href="https://www.linkedin.com/in/sonia-grassia/">
+                      Linkedin
+                    </a>
                   </li>
                   <li>
-                    <span>Github</span>
-                    <span className={styles.link}>
-                      <a href="#">LINK</a>
-                    </span>
+                    <a href="https://github.com/SoniaGrassia">Github</a>
                   </li>
                   <li>
-                    <span>Mail</span>
-                    <span className={styles.link}>
-                      <a href="#">LINK</a>
-                    </span>
+                    <a href="mailto:grassiasonia@gmail.com">Email</a>
                   </li>
                 </ul>
               </div>
             </div>
+            {/*  */}
             <div className={styles.aboutCard}>
               <div className={styles.myImage}>
-                <img src="https://picsum.photos/1080/1080" alt="myImage" />
+                <Image
+                  src="/../public/aboutusPhoto/FrancescoPioCoppola2.jpg"
+                  alt="Francesco-Pio-Coppola"
+                  width={100}
+                  height={100}
+                />
               </div>
-              <h3 className={styles.myName}>Pippo De Pippis</h3>
+              <h3 className={styles.myName}>
+                Francesco Pio
+                <br />
+                Coppola
+              </h3>
               <div className={styles.info}>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod
-                  asperiores enim non id ratione maxime nesciunt. Officia,
-                  sapiente? Nostrum ab at repellendus eos exercitationem veniam.
-                </p>
+                <p>FRONT-END DEVELOPER</p>
               </div>
               <div className={styles.contacts}>
                 <ul>
                   <li>
-                    <span>Linkedin</span>
-                    <span className={styles.link}>
-                      <a href="#">LINK</a>
-                    </span>
+                    <a href="http://linkedin.com/in/fra-coppola-5ab6b4257">
+                      Linkedin
+                    </a>
                   </li>
                   <li>
-                    <span>Github</span>
-                    <span className={styles.link}>
-                      <a href="#">LINK</a>
-                    </span>
+                    <a href="https://github.com/Franceschio">Github</a>
                   </li>
                   <li>
-                    <span>Mail</span>
-                    <span className={styles.link}>
-                      <a href="#">LINK</a>
-                    </span>
+                    <a href="mailto:coppolaciccio1@gmail.com">Email</a>
                   </li>
                 </ul>
               </div>
             </div>
+            {/*  */}
             <div className={styles.aboutCard}>
               <div className={styles.myImage}>
-                <img src="https://picsum.photos/1080/1080" alt="myImage" />
+                <Image
+                  src="/../public/aboutusPhoto/ElisabettaMonaco.jpg"
+                  alt="Elisabetta Monaco"
+                  width={100}
+                  height={100}
+                />
               </div>
-              <h3 className={styles.myName}>Pippo De Pippis</h3>
+              <h3 className={styles.myName}>
+                Elisabetta
+                <br />
+                Monaco
+              </h3>
               <div className={styles.info}>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod
-                  asperiores enim non id ratione maxime nesciunt. Officia,
-                  sapiente? Nostrum ab at repellendus eos exercitationem veniam.
-                </p>
+                <p>FRONT-END DEVELOPER</p>
               </div>
               <div className={styles.contacts}>
                 <ul>
                   <li>
-                    <span>Linkedin</span>
-                    <span className={styles.link}>
-                      <a href="#">LINK</a>
-                    </span>
+                    <a href="https://www.linkedin.com/in/elisabetta-monaco-5869a9109">
+                      Linkedin
+                    </a>
                   </li>
                   <li>
-                    <span>Github</span>
-                    <span className={styles.link}>
-                      <a href="#">LINK</a>
-                    </span>
+                    <a href="https://github.com/bennina">Github</a>
                   </li>
                   <li>
-                    <span>Mail</span>
-                    <span className={styles.link}>
-                      <a href="#">LINK</a>
-                    </span>
+                    <a href="mailto:info@elisabettamonaco.it">Email</a>
                   </li>
                 </ul>
               </div>
             </div>
+            {/*  */}
             <div className={styles.aboutCard}>
               <div className={styles.myImage}>
-                <img src="https://picsum.photos/1080/1080" alt="myImage" />
+                <Image
+                  src="/../public/aboutusPhoto/VincenzoCostantino.jpg"
+                  alt="Elisabetta Monaco"
+                  width={100}
+                  height={100}
+                />
               </div>
-              <h3 className={styles.myName}>Pippo De Pippis</h3>
+              <h3 className={styles.myName}>
+                Vincenzo
+                <br />
+                Costantino
+              </h3>
               <div className={styles.info}>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod
-                  asperiores enim non id ratione maxime nesciunt. Officia,
-                  sapiente? Nostrum ab at repellendus eos exercitationem veniam.
-                </p>
+                <p>FRONT-END DEVELOPER</p>
               </div>
               <div className={styles.contacts}>
                 <ul>
                   <li>
-                    <span>Linkedin</span>
-                    <span className={styles.link}>
-                      <a href="#">LINK</a>
-                    </span>
+                    <a href="https://www.linkedin.com/mwlite/in/vincenzo-costantino-67b624257">
+                      Linkedin
+                    </a>
                   </li>
                   <li>
-                    <span>Github</span>
-                    <span className={styles.link}>
-                      <a href="#">LINK</a>
-                    </span>
+                    <a href="https://github.com/Vinci97">Github</a>
                   </li>
                   <li>
-                    <span>Mail</span>
-                    <span className={styles.link}>
-                      <a href="#">LINK</a>
-                    </span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className={styles.aboutCard}>
-              <div className={styles.myImage}>
-                <img src="https://picsum.photos/1080/1080" alt="myImage" />
-              </div>
-              <h3 className={styles.myName}>Pippo De Pippis</h3>
-              <div className={styles.info}>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod
-                  asperiores enim non id ratione maxime nesciunt. Officia,
-                  sapiente? Nostrum ab at repellendus eos exercitationem veniam.
-                </p>
-              </div>
-              <div className={styles.contacts}>
-                <ul>
-                  <li>
-                    <span>Linkedin</span>
-                    <span className={styles.link}>
-                      <a href="#">LINK</a>
-                    </span>
-                  </li>
-                  <li>
-                    <span>Github</span>
-                    <span className={styles.link}>
-                      <a href="#">LINK</a>
-                    </span>
-                  </li>
-                  <li>
-                    <span>Mail</span>
-                    <span className={styles.link}>
-                      <a href="#">LINK</a>
-                    </span>
+                    <a href="mailto:vincenzo.costantino04@gmail.com">Email</a>
                   </li>
                 </ul>
               </div>

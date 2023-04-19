@@ -7,52 +7,95 @@ import styles from "@/styles/pages/crypto.module.scss";
 import { cryptoJson } from "./api/crypto";
 import Button from "@/components/button";
 import GlobalModal from "@/components/global_modal";
+import React from "react";
+
+import { MdStars } from "react-icons/md";
 
 export default function cryptoId() {
   const router = useRouter();
   const { name } = router.query;
   const [singleCryptoData, setSingleCryptoData] = useState([]);
   const [isGlobalModal, setIsGlobalModal] = useState(false);
-  
-  useEffect(() => {
-    GET(
-      `${JSON.parse(
-        localStorage.getItem("crytoID")
-      )}/market_chart?vs_currency=eur&days=7&interval=daily`
-    ).then((data) => setSingleCryptoData(data.prices));
-  }, []);
+  const [cryptoInfo, setCryptoInfo] = useState([]);
 
+  if (typeof window !== "undefined") {
+    if (localStorage.getItem("watchlist")) {
+      null;
+    } else {
+      localStorage.setItem("watchlist", "[]");
+    }
+  }
+
+  const [watchlist, setWatchlist] = useState(
+    typeof window !== "undefined"
+      ? JSON.parse(localStorage.getItem("watchlist"))
+      : []
+  );
+
+  React.useEffect(() => {
+    if (router.isReady) {
+      GET(`${name}/market_chart?vs_currency=eur&days=7&interval=daily`).then(
+        (data) => setSingleCryptoData(data.prices)
+      );
+    }
+  }, [router.isReady]);
   const onHandleOpenModal = () => {
     setIsGlobalModal((prev) => !prev);
   };
   const [isSwitcherTheme, setIsSwitcherTheme] = useState(false);
 
+  useEffect(() => {
+    GET(`${name}`).then((data) => setCryptoInfo(() => data));
+  });
+
+  const onHandleStar = () => {
+    if (typeof window !== "undefined") {
+      if (watchlist) {
+        if (!!watchlist.find((item) => item === name)) {
+          alert("Crypto rimossa dalla watchlist");
+          localStorage.setItem(
+            "watchlist",
+            JSON.stringify([...watchlist.filter((item) => item !== name)])
+          );
+          setWatchlist((prev) => [...prev.filter((item) => item !== name)]);
+        } else {
+          alert("Crypto aggiunta alla watchlist con successo!");
+          localStorage.setItem(
+            "watchlist",
+            JSON.stringify([...watchlist, name])
+          );
+          setWatchlist((prev) => [...prev, name]);
+        }
+      }
+    }
+  };
   const onHandleChangeTheme = () => {
     setIsSwitcherTheme((prev) => !prev);
   };
   return (
-    <>
+    <div className={styles.Main}>
       <Layout theme={isSwitcherTheme}>
         <Button text="THEME" className={styles.btn} func={onHandleChangeTheme} />
         <div className={styles.header}>
           <div className={styles.row}>
             <div className={styles.col}>
-              <h2> {cryptoJson.market_cap_rank}</h2>
+              <h2> {cryptoInfo.market_cap_rank}</h2>
               <img
                 className={styles.image}
-                src={cryptoJson.image}
-                alt={cryptoJson.id}
+                src={cryptoInfo.image && cryptoInfo.image.large}
+                alt={cryptoInfo.name}
               />
-              <h2> {name}</h2>
-              
+              <h2>{name}</h2>
+              <MdStars onClick={onHandleStar} className={styles.star} />
             </div>
             <div className={styles.col}>
-              <Button text="buy" className={styles.btn} func={onHandleOpenModal} />
+              <Button
+                text="buy"
+                className={styles.btn}
+                func={onHandleOpenModal}
+              />
             </div>
           </div>
-          
-         
-          
         </div>
         <div className={styles.chartArea}>
           <ChartEl prices={singleCryptoData} />
@@ -61,39 +104,80 @@ export default function cryptoId() {
         <div className={styles.info}>
           <div className={styles.price}>
             <div className={styles.priceDettails}>
-              <h3 className={styles.priceValue}>
-                <span>Price: </span> €{cryptoJson.current_price}
-              </h3>
+              <h5 className={styles.priceValue}>
+                <span>Price: </span> €
+                {cryptoInfo.market_data &&
+                  cryptoInfo.market_data.current_price.eur}
+              </h5>
               <h6
                 className={
-                  cryptoJson.price_change_percentage_24h > 0
+                  cryptoInfo.market_data &&
+                  cryptoInfo.market_data.current_price
+                    .price_change_percentage_24h_in_currency &&
+                  cryptoInfo.market_data.current_price
+                    .price_change_percentage_24h_in_currency.eur > 0
                     ? styles.positiveVar
                     : styles.negativeVar
                 }
               >
-                {" "}
-                %{cryptoJson.price_change_percentage_24h.toFixed(2)}
+                {cryptoInfo.market_data &&
+                  cryptoInfo.market_data.current_price
+                    .price_change_percentage_24h_in_currency &&
+                  cryptoInfo.market_data.current_price
+                    .price_change_percentage_24h_in_currency.eur}
               </h6>
             </div>
 
             <div className={styles.HLprice}>
-              <h6>Low: €{cryptoJson.low_24h}</h6>
-              <h6>Hight: €{cryptoJson.high_24h}</h6>
+              <h6>
+                Lowest:
+                {cryptoInfo.market_data &&
+                  cryptoInfo.market_data.current_price.low_24h &&
+                  cryptoInfo.market_data.current_price.low_24h.eur}
+                €
+              </h6>
+              <h6>
+                Hightest:
+                {cryptoInfo.market_data &&
+                  cryptoInfo.market_data.current_price.high_24h &&
+                  cryptoInfo.market_data.current_price.high_24h.eur}
+                €
+              </h6>
             </div>
           </div>
 
           <div className={styles.supply}>
-            <h6> Circulating supply: {cryptoJson.circulating_supply}</h6>
-            <h6> Total supply: {cryptoJson.total_supply}</h6>
+            <h6>
+              Circulating supply:
+              {cryptoInfo.market_data &&
+                cryptoInfo.market_data.current_price.circulating_supply}
+            </h6>
+            <h6>
+              Total supply:
+              {cryptoInfo.market_data &&
+                cryptoInfo.market_data.current_price.total_supply}
+            </h6>
           </div>
 
           <div className={styles.marketCap}>
-            <h6> Market Cap: €{cryptoJson.market_cap}</h6>
+            <h6>
+              Market Cap: €
+              {cryptoInfo.market_data &&
+                cryptoInfo.market_data.current_price.market_cap &&
+                cryptoInfo.market_data.current_price.market_cap &&
+                `${cryptoInfo.market_data.current_price.market_cap.eur}`}
+            </h6>
           </div>
         </div>
 
-        {isGlobalModal && <GlobalModal />}
+        {isGlobalModal && (
+          <GlobalModal
+            icon={cryptoJson.image}
+            price={cryptoJson.current_price}
+            id={cryptoJson.id}
+          />
+        )}
       </Layout>
-    </>
+    </div>
   );
 }

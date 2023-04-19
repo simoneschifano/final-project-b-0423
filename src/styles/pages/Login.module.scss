@@ -7,7 +7,7 @@
     //CARD
     --card--background: #{$background-cards-dark};
     --card--text: #{$first-color};
-    --card-border: #{$border-cards-dark};
+    --card-border: #{var(--card-border)-dark};
     //BTN
     --btn-text: #{$background-cards-dark};
     --btn-background: #{$background-btn-light};

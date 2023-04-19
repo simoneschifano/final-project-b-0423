@@ -1,20 +1,46 @@
 import Head from "next/head";
 import Layout from "@/components/layout";
 import CakeChart from "@/components/cakeChart";
+import WalletList from "@/components/walletList";
 import styles from "@/styles/pages/wallet.module.scss";
 
-import { useContext, useState } from "react";
+import { useContext, useState,  useEffect } from "react";
 import { Context } from "@/store";
 import Button from "@/components/button";
+import { Context } from "@/store";
+import { cryptoJson } from "./api/crypto";
 
 export default function Wallet() {
   const mode = "dark_mode";
+
+  const [walletData, setWalletData] = useState([]);
+  const [walletCrypto, setWalletCrypto] = useState([]);
+  let finalWallet = [];
+
   const { state, dispatch } = useContext(Context);
   const [isSwitcherTheme, setIsSwitcherTheme] = useState(false);
 
   const onHandleChangeTheme = () => {
     setIsSwitcherTheme((prev) => !prev);
   };
+  
+  const [walletInLocalStorage, setWalletInLocalStorage] = useState(
+    typeof window !== "undefined"
+      ? JSON.parse(localStorage.getItem("wallet"))
+      : []
+  );
+
+  if (walletInLocalStorage.length > 0) {
+    finalWallet = state.cryptoListData.filter((crypto) =>
+      walletInLocalStorage.includes(crypto)
+    );
+  } else {
+    console.log("array vuoto");
+  }
+
+  useEffect(() => {
+    localStorage.setItem("walletHome", [...finalWallet]);
+  }, [finalWallet]);
   return (
     <>
       <Head>
@@ -30,8 +56,11 @@ export default function Wallet() {
             <h2 className={styles.title}> MY WALLET STATUS</h2>
             <div className={styles.chartArea}>
               <CakeChart />
-
-              <h2> SALDO: </h2>
+              <h3> SALDO: </h3>
+            </div>
+            <h2> Crypto </h2>
+            <div className="">
+              <WalletList data={[cryptoJson]} />
             </div>
           </div>
         </Layout>

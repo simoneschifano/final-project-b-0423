@@ -1,28 +1,21 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Head from "next/head";
 import CardsList from "@/components/cards_list";
 import Layout from "@/components/layout";
 import Loading from "@/components/loading";
 import BtnFilter from "@/components/btnFilter";
-import styles from "../styles/pages/allCrypto.module.scss";
-import Button from "@/components/button";
+import styles from "../styles/pages/allCrypto.module.scss";import Button from "@/components/button";
+
+import { Context } from "@/store";
 
 export default function allCrypto() {
-  const mode = "dark_mode";
-  //manca l'altro useState e il setInterval per il caricamento
-  const [allCrypto, setAllCrypto] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const { state, dispatch } = useContext(Context);
+
+
+  const [loading, setLoading] = useState(false);
   const [filter, setFilter] = useState(false);
-  useEffect(() => {
-    fetch(
-      process.env.NEXT_PUBLIC_API_URL +
-        "markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en"
-    )
-      .then((res) => res.json())
-      .then((data) => setAllCrypto(data));
-    setLoading(false);
-  }, []);
   const [isSwitcherTheme, setIsSwitcherTheme] = useState(false);
+  
 
   const onHandleChangeTheme = () => {
     setIsSwitcherTheme((prev) => !prev);
@@ -35,9 +28,8 @@ export default function allCrypto() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={mode}>
+      <main>
         <Layout theme={isSwitcherTheme}>
-          
           <div className={styles.allCryptoHead}>
             <h2> all Crypto </h2>
             <Button text="THEME" className={styles.btn} func={onHandleChangeTheme} />  
@@ -51,7 +43,7 @@ export default function allCrypto() {
                 <Loading />
               ) : (
                 <CardsList
-                  data={allCrypto.sort(
+                  data={state.cryptoListData.sort(
                     (a, b) => b.market_cap_rank - a.market_cap_rank
                   )}
                   inHomeActive={false}
@@ -61,7 +53,7 @@ export default function allCrypto() {
               <Loading />
             ) : (
               <CardsList
-                data={allCrypto.sort(
+                data={state.cryptoListData.sort(
                   (a, b) => a.market_cap_rank - b.market_cap_rank
                 )}
                 inHomeActive={false}

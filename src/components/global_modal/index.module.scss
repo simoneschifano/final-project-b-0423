@@ -38,7 +38,7 @@
       max-width: calc(300px - 30%);
       margin-left: 25%;
     }
-    
+
     .title {
       @include space-around($all: 20px);
     }
@@ -48,13 +48,21 @@
         background-color: var(--btn-background);
         @include size(100%, 30px);
         border: 0;
-        border-bottom: 1px solid $border-btn;
+        border-bottom: 1px solid var(--btn-border);
         outline: none;
-        // border-radius: 10px;
+        color: var(--card--background);
         @include space-around(0, 0, 6px);
         cursor: pointer;
       }
       .firstInput {
+        display: flex;
+        align-items: center;
+
+        .icon {
+          @include size(25px);
+        }
+      }
+      .secondInput {
         display: flex;
         align-items: center;
 

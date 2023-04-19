@@ -2,17 +2,16 @@ import Head from "next/head";
 import Layout from "@/components/layout";
 import styles from "@/styles/pages/Home.module.scss";
 import CardsList from "@/components/cards_list";
-import { useEffect, useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import Button from "@/components/button";
 import SwitcherTheme from "@/components/switcher-theme";
+import { Context } from "@/store";
 
 export default function Home() {
-  //const mode = "bg_dark";
-  const [sectionCrypto, setSectionCrypto] = useState(false);
+  
+  const [sectionCrypto, setSectionCrypto] = useState(true);
   const [sectionWallet, setSectionWallet] = useState(false);
   const [sectionWatchlist, setSectionWatchlist] = useState(false);
-  const [allCrypto, setAllCrypto] = useState([]);
-
   const onHandleCrypto = () => setSectionCrypto((prev) => !prev);
   const onHandleWallet = () => setSectionWallet((prev) => !prev);
   const onHandleWatchlist = () => setSectionWatchlist((prev) => !prev);
@@ -22,27 +21,18 @@ export default function Home() {
   const onHandleChangeTheme = () => {
     setIsSwitcherTheme((prev) => !prev);
   };
+  const { state, dispatch } = useContext(Context);
 
-  useEffect(() => {
-    
-    fetch(
-      process.env.NEXT_PUBLIC_API_URL +
-        "markets?vs_currency=eur&order=market_cap_desc&per_page=10&page=1&sparkline=false&locale=en"
-    )
-      .then((res) => res.json())
-      .then((data) => setAllCrypto(data));
-      
-  }, []);
+  const allCryptoData = state.cryptoListData;
 
   const [wallet, setWallet] = useState(
-    typeof window !== "undefined" ? localStorage.getItem("wallet") : null
+    typeof window !== "undefined" ? localStorage.getItem("walletHome") : null
   );
 
   const [watchlist, setWatchlist] = useState(
-    typeof window !== "undefined" ? localStorage.getItem("watchlist") : null
+    typeof window !== "undefined" ? localStorage.getItem("watchlistHome") : null
   );
-  
-  
+
   return (
     <>
       <Head>
@@ -73,7 +63,10 @@ export default function Home() {
                   sectionCrypto && styles.sectionContActive
                 }`}
               >
-                <CardsList data={allCrypto} inHomeActive={true} />
+                <CardsList
+                  data={allCryptoData.slice(0, 10)}
+                  inHomeActive={true}
+                />
               </div>
               <div className={styles.sectionButton}>
                 <a href="../allCrypto">
@@ -99,7 +92,7 @@ export default function Home() {
                   sectionWallet && styles.sectionContActive
                 }`}
               >
-                {wallet === true ? (
+                {wallet ? (
                   <CardsList data={wallet} inHomeActive={true} />
                 ) : (
                   <h2>You don't have any elements in your wallet.</h2>
@@ -129,7 +122,7 @@ export default function Home() {
                   sectionWatchlist && styles.sectionContActive
                 }`}
               >
-                {watchlist === true ? (
+                {watchlist ? (
                   <CardsList data={watchlist} inHomeActive={true} />
                 ) : (
                   <h2>You don't have any elements in your watchlist.</h2>

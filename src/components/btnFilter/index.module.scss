@@ -5,11 +5,14 @@
   cursor: pointer;
   font-size: 10px;
   width: fit-content;
+  transition: all 0.55s;
+
   @include space-around($top-bot: 8px, $left-right: 12px);
   @include flex($justify: center, $align: center, $gap: 4px);
   &:hover {
     color: $second-color;
     background-color: var(--btn-background);
+    transition: all 0.55s;
   }
   .icon {
     @include size($width: 14px);

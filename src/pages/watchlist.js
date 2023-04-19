@@ -1,8 +1,9 @@
 import Head from "next/head";
 import Layout from "@/components/layout";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import CardsList from "@/components/cards_list";
+import styles from "../styles/pages/wallet.module.scss";
 import Button from "@/components/button";
-import styles from "@/styles/pages/wallet.module.scss";
 
 export default function watchlist() {
   const [isSwitcherTheme, setIsSwitcherTheme] = useState(false);
@@ -10,6 +11,30 @@ export default function watchlist() {
   const onHandleChangeTheme = () => {
     setIsSwitcherTheme((prev) => !prev);
   };
+
+  const [allCrypto, setAllCrypto] = useState([]);
+
+  const [coin, setCoin] = useState(
+    typeof window !== "undefined"
+      ? localStorage.getItem("watchlist")
+        ? JSON.parse(localStorage.getItem("watchlist"))
+        : []
+      : []
+  );
+  useEffect(() => {
+    fetch(
+      process.env.NEXT_PUBLIC_API_URL +
+        "markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en"
+    )
+      .then((res) => res.json())
+      .then((data) => setAllCrypto(data));
+  }, []);
+
+  let stars = [];
+  if (coin.length > 0) {
+    stars = allCrypto.filter((crypto) => coin.includes(crypto.id));
+  }
+
   return (
     <>
       <Head>
@@ -21,7 +46,14 @@ export default function watchlist() {
       <main>
         <Layout theme={isSwitcherTheme}>
           <Button text="THEME" className={styles.btn} func={onHandleChangeTheme} />
-          <h2>  watchlist </h2>
+          <h2> watchlist </h2>
+          <div className={styles.watchlist}>
+            {stars.length > 0 ? (
+              <CardsList data={stars} />
+            ) : (
+              <h5>Add an element in your watchlist, it will be showed here.</h5>
+            )}
+          </div>
         </Layout>
       </main>
     </>

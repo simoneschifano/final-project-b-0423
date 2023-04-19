@@ -7,7 +7,16 @@
   @include btn($margin-top: 0px, $margin: initial);
   background-color: var(--btn-background);
   color: var(--btn-text);
-  svg{
+  cursor: pointer;
+  transition: all 0.55s;
+
+  &:hover {
+    box-shadow: 0 0 4px 2px $graph;
+    transition: all 0.55s;
+  }
+  
+  svg {
     fill: var(--btn-text);
   }
+
 }
