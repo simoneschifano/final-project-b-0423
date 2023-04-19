@@ -48,9 +48,7 @@ export default function watchlist() {
             {stars.length > 0 ? (
               <CardsList data={stars} />
             ) : (
-              <h5>
-                Add an element in your watchlist and it will be showed here.
-              </h5>
+              <h5>Add an element in your watchlist, it will be showed here.</h5>
             )}
           </div>
         </Layout>
