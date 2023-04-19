@@ -17,6 +17,14 @@ export default function cryptoId() {
   const [singleCryptoData, setSingleCryptoData] = useState([]);
   const [isGlobalModal, setIsGlobalModal] = useState(false);
 
+  if (typeof window !== "undefined") {
+    if (localStorage.getItem("watchlist")) {
+      null;
+    } else {
+      localStorage.setItem("watchlist", "[]");
+    }
+  }
+
   const [watchlist, setWatchlist] = useState(
     typeof window !== "undefined"
       ? JSON.parse(localStorage.getItem("watchlist"))
@@ -39,13 +47,15 @@ export default function cryptoId() {
     if (typeof window !== "undefined") {
       if (watchlist === true) {
         console.log(localStorage.getItem("watchlist"));
-        if (!watchlist.find((item) => item.id === name)) {
-          localStorage.setItem("watchlist", [...watchlist, name]);
-        }
-      } else {
-        localStorage.setItem("watchlist", [...watchlist, name]);
+        !watchlist.find((item) => item.id === name)
+          ? localStorage.setItem(
+              "watchlist",
+              JSON.stringify([...watchlist, name])
+            )
+          : localStorage.setItem("watchlist", JSON.stringify([...watchlist]));
       }
     }
+
     // if (typeof window !== "undefined") {
     //   watchlist
     //     ? !!watchlist.find((item) => item.id === name)
