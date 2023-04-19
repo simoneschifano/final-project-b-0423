@@ -16,6 +16,7 @@ export default function cryptoId() {
   const { name } = router.query;
   const [singleCryptoData, setSingleCryptoData] = useState([]);
   const [isGlobalModal, setIsGlobalModal] = useState(false);
+  const [cryptoInfo, setCryptoInfo] = useState([]);
 
   if (typeof window !== "undefined") {
     if (localStorage.getItem("watchlist")) {
@@ -43,6 +44,10 @@ export default function cryptoId() {
     setIsGlobalModal((prev) => !prev);
   };
 
+  useEffect(() => {
+    GET(`${name}`).then((data) => setCryptoInfo(() => data));
+  });
+
   const onHandleStar = () => {
     if (typeof window !== "undefined") {
       if (watchlist) {
@@ -61,16 +66,16 @@ export default function cryptoId() {
   };
 
   return (
-    <>
+    <div className={styles.Main}>
       <Layout>
         <div className={styles.header}>
           <div className={styles.row}>
             <div className={styles.col}>
-              <h2> {cryptoJson.market_cap_rank}</h2>
+              <h2> {cryptoInfo.market_cap_rank}</h2>
               <img
                 className={styles.image}
-                src={cryptoJson.image}
-                alt={cryptoJson.id}
+                src={cryptoInfo.image && cryptoInfo.image.large}
+                alt={cryptoInfo.name}
               />
               <h2> {name}</h2>
               <MdStars onClick={onHandleStar} className={styles.star} />
@@ -92,32 +97,65 @@ export default function cryptoId() {
           <div className={styles.price}>
             <div className={styles.priceDettails}>
               <h3 className={styles.priceValue}>
-                <span>Price: </span> €{cryptoJson.current_price}
+                <span>Price: </span> €
+                {cryptoInfo.market_data &&
+                  cryptoInfo.market_data.current_price.eur}
               </h3>
               <h6
                 className={
-                  cryptoJson.price_change_percentage_24h > 0
+                  cryptoInfo.market_data &&
+                  cryptoInfo.market_data.current_price
+                    .price_change_percentage_24h_in_currency &&
+                  cryptoInfo.market_data.current_price
+                    .price_change_percentage_24h_in_currency.eur > 0
                     ? styles.positiveVar
                     : styles.negativeVar
                 }
               >
-                {cryptoJson.price_change_percentage_24h}
+                {cryptoInfo.market_data &&
+                  cryptoInfo.market_data.current_price
+                    .price_change_percentage_24h_in_currency &&
+                  cryptoInfo.market_data.current_price
+                    .price_change_percentage_24h_in_currency.eur}
               </h6>
             </div>
 
             <div className={styles.HLprice}>
-              <h6>Low: €{cryptoJson.low_24h}</h6>
-              <h6>Hight: €{cryptoJson.high_24h}</h6>
+              <h6>
+                Lowest: €
+                {cryptoInfo.market_data &&
+                  cryptoInfo.market_data.current_price.low_24h &&
+                  cryptoInfo.market_data.current_price.low_24h.eur}
+              </h6>
+              <h6>
+                Hightest: €
+                {cryptoInfo.market_data &&
+                  cryptoInfo.market_data.current_price.high_24h &&
+                  cryptoInfo.market_data.current_price.high_24h.eur}
+              </h6>
             </div>
           </div>
 
           <div className={styles.supply}>
-            <h6> Circulating supply: {cryptoJson.circulating_supply}</h6>
-            <h6> Total supply: {cryptoJson.total_supply}</h6>
+            <h6>
+              Circulating supply:
+              {cryptoInfo.market_data &&
+                cryptoInfo.market_data.current_price.circulating_supply}
+            </h6>
+            <h6>
+              Total supply:
+              {cryptoInfo.market_data &&
+                cryptoInfo.market_data.current_price.total_supply}
+            </h6>
           </div>
 
           <div className={styles.marketCap}>
-            <h6> Market Cap: €{cryptoJson.market_cap}</h6>
+            <h6>
+              Market Cap: €
+              {cryptoInfo.market_data &&
+                cryptoInfo.market_data.current_price.market_cap &&
+                cryptoInfo.market_data.current_price.market_cap.eur}
+            </h6>
           </div>
         </div>
 
@@ -129,6 +167,6 @@ export default function cryptoId() {
           />
         )}
       </Layout>
-    </>
+    </div>
   );
 }
