@@ -1,18 +1,18 @@
 import styles from "./index.module.scss";
-
 import React from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const CakeChart = () => {
+const CakeChart = ({ chartData, cakePercentualArray }) => {
   const data = {
-    labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+    labels: chartData.map((item) => item.id.toUpperCase()),
+
     datasets: [
       {
-        label: "# of Votes",
-        data: [12, 19, 3, 5, 2, 3],
+        label: "Value €",
+        data: cakePercentualArray.map((item) => item),
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
           "rgba(54, 162, 235, 0.2)",
