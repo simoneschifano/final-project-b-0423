@@ -66,12 +66,12 @@
         @include btn($margin-top: 40px);
         border: none;
         color: $graph;
-        background-color: $first-color;
+        background-color: var(--text);
 
         cursor: pointer;
         &:hover {
           background-color: $graph;
-          color: $first-color;
+          color: var(--text);
         }
       }
     }

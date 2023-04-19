@@ -24,14 +24,14 @@ export default function Home() {
   };
 
   useEffect(() => {
-    /*
+    
     fetch(
       process.env.NEXT_PUBLIC_API_URL +
         "markets?vs_currency=eur&order=market_cap_desc&per_page=10&page=1&sparkline=false&locale=en"
     )
       .then((res) => res.json())
       .then((data) => setAllCrypto(data));
-      */
+      
   }, []);
 
   const [wallet, setWallet] = useState(
@@ -53,7 +53,7 @@ export default function Home() {
       </Head>
       <main className={styles.Main}>
         <Layout theme={isSwitcherTheme}>
-          <Button text="buy" className={styles.btn} func={onHandleChangeTheme} />
+          <Button text="THEME" className={styles.btn} func={onHandleChangeTheme} />
           <div className={styles.container}>
             <div
               className={`${styles.section} ${

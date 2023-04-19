@@ -7,7 +7,7 @@
   
   z-index: 2;
 
-  color: $first-color;
+  color: var(--text);
   height: 100vh;
   position: fixed;
 
@@ -85,6 +85,7 @@
         margin-right: 20px;
         svg,
         .aboutIcon {
+          fill: var(--text);
           display: block;
           @media screen and (max-width: 992px) {
             margin: 0 auto;
@@ -95,7 +96,7 @@
         .aboutIcon {
           height: 25px;
           width: 25px;
-          color: $first-color;
+          color: var(--text);
         }
       }
     }
