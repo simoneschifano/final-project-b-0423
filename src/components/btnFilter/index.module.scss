@@ -10,6 +10,7 @@
   &:hover {
     color: $second-color;
     background-color: $background-btn;
+    transition: all 0.55s;
   }
   .icon {
     @include size($width: 14px);

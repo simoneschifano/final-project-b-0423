@@ -17,10 +17,13 @@
       .star {
         height: 25px;
         width: 25px;
+        border-radius: 100%;
         cursor: pointer;
 
         &:hover {
           color: $graph;
+          box-shadow: 0 0 10px 1px $graph;
+          transition: all 0.55s;
         }
       }
 
