@@ -3,6 +3,7 @@ import Head from "next/head";
 import Layout from "@/components/layout";
 import { mockUser } from "./api/mockUser";
 import styles from "../styles/pages/account.module.scss";
+import Button from "@/components/button";
 
 export default function account() {
   const mode = "dark_mode";
@@ -16,7 +17,11 @@ export default function account() {
     name,
     surname,
   } = mockUser;
+  const [isSwitcherTheme, setIsSwitcherTheme] = useState(false);
 
+  const onHandleChangeTheme = () => {
+    setIsSwitcherTheme((prev) => !prev);
+  };
   return (
     <>
       <Head>
@@ -26,7 +31,8 @@ export default function account() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={mode}>
-        <Layout>
+        <Layout theme={isSwitcherTheme}>
+          <Button text="THEME" className={styles.btn} func={onHandleChangeTheme} />
           <h2>Hi, {username}!</h2>
           <div className={styles.settingList}>
             <div className={styles.userSettings}>

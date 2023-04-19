@@ -1,8 +1,16 @@
 import Head from "next/head";
 import Layout from "@/components/layout";
 import styles from "../styles/pages/aboutUs.module.scss";
+import { useState } from "react";
+import Button from "@/components/button";
 
 export default function aboutUs() {
+  const [isSwitcherTheme, setIsSwitcherTheme] = useState(false);
+
+  const onHandleChangeTheme = () => {
+    setIsSwitcherTheme((prev) => !prev);
+  };
+
   return (
     <>
       <Head>
@@ -12,7 +20,8 @@ export default function aboutUs() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.Main}>
-        <Layout>
+        <Layout theme={isSwitcherTheme}>
+          <Button text="THEME" className={styles.btn} func={onHandleChangeTheme} />
           <h1>About us</h1>
           <div className={styles.content}>
             <div className={styles.aboutCard}>

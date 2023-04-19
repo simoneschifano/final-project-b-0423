@@ -9,7 +9,7 @@
   @include flex($justify: center, $align: center, $gap: 4px);
   &:hover {
     color: $second-color;
-    background-color: $background-btn;
+    background-color: var(--btn-background);
   }
   .icon {
     @include size($width: 14px);

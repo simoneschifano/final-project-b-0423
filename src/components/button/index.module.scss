@@ -5,7 +5,9 @@
   @include flex($align: center);
   @include poppins();
   @include btn($margin-top: 0px, $margin: initial);
-  background-color: $background-btn;
-  color: #000000;
-  
+  background-color: var(--btn-background);
+  color: var(--btn-text);
+  svg{
+    fill: var(--btn-text);
+  }
 }

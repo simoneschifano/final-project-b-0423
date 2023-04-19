@@ -25,10 +25,15 @@ export default function cryptoId() {
   const onHandleOpenModal = () => {
     setIsGlobalModal((prev) => !prev);
   };
+  const [isSwitcherTheme, setIsSwitcherTheme] = useState(false);
 
+  const onHandleChangeTheme = () => {
+    setIsSwitcherTheme((prev) => !prev);
+  };
   return (
     <>
-      <Layout>
+      <Layout theme={isSwitcherTheme}>
+        <Button text="THEME" className={styles.btn} func={onHandleChangeTheme} />
         <div className={styles.header}>
           <div className={styles.row}>
             <div className={styles.col}>

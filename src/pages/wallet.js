@@ -3,13 +3,18 @@ import Layout from "@/components/layout";
 import CakeChart from "@/components/cakeChart";
 import styles from "@/styles/pages/wallet.module.scss";
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Context } from "@/store";
+import Button from "@/components/button";
 
 export default function Wallet() {
   const mode = "dark_mode";
   const { state, dispatch } = useContext(Context);
+  const [isSwitcherTheme, setIsSwitcherTheme] = useState(false);
 
+  const onHandleChangeTheme = () => {
+    setIsSwitcherTheme((prev) => !prev);
+  };
   return (
     <>
       <Head>
@@ -19,7 +24,8 @@ export default function Wallet() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={mode}>
-        <Layout>
+        <Layout theme={isSwitcherTheme}>
+          <Button text="THEME" className={styles.btn} func={onHandleChangeTheme} />
           <div className={styles.Content}>
             <h2 className={styles.title}> MY WALLET STATUS</h2>
             <div className={styles.chartArea}>

@@ -1,9 +1,15 @@
 import Head from "next/head";
 import Layout from "@/components/layout";
-
+import { useState } from "react";
+import Button from "@/components/button";
+import styles from "@/styles/pages/wallet.module.scss";
 
 export default function watchlist() {
-  const mode = "dark_mode";
+  const [isSwitcherTheme, setIsSwitcherTheme] = useState(false);
+
+  const onHandleChangeTheme = () => {
+    setIsSwitcherTheme((prev) => !prev);
+  };
   return (
     <>
       <Head>
@@ -12,8 +18,9 @@ export default function watchlist() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={mode}>
-        <Layout>
+      <main>
+        <Layout theme={isSwitcherTheme}>
+          <Button text="THEME" className={styles.btn} func={onHandleChangeTheme} />
           <h2>  watchlist </h2>
         </Layout>
       </main>

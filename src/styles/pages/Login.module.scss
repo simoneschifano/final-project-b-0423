@@ -2,6 +2,19 @@
 @import "../../styles/scss/variables/typography.scss";
 
 .Main{
+    --background: #{$background-pages};
+    --text: #{$first-color};
+    //CARD
+    --card--background: #{$background-cards-dark};
+    --card--text: #{$first-color};
+    --card-border: #{$border-cards-dark};
+    //BTN
+    --btn-text: #{$background-cards-dark};
+    --btn-background: #{$background-btn-light};
+    --btn-border: #{$border-btn-dark};
+    //scrollbar
+    --scrollbar-bg: #{$background-cards-dark};
+    
     background-color: var(--background);
     min-height: 100vh;
     display: flex;
