@@ -88,18 +88,15 @@ export default function cryptoId() {
                 src={cryptoJson.image}
                 alt={cryptoJson.id}
               />
-              <h2> {name}</h2>
+              <h2>{name}</h2>
               <MdStars onClick={onHandleStar} className={styles.star} />
             </div>
-            <div className={styles.col}>
-              <Button
-                text="buy"
-                className={styles.btn}
-                func={onHandleOpenModal}
-              />
+            <div className={styles.btn}>
+              <Button text="buy" func={onHandleOpenModal} />
             </div>
           </div>
         </div>
+
         <div className={styles.chartArea}>
           <ChartEl prices={singleCryptoData} />
         </div>
