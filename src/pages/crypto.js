@@ -45,9 +45,7 @@ export default function cryptoId() {
   };
 
   useEffect(() => {
-    GET(` https://api.coingecko.com/api/v3/coins/${name}`).then((data) =>
-      setCryptoInfo(() => data)
-    );
+    GET(`${name}`).then((data) => setCryptoInfo(() => data));
   });
 
   const onHandleStar = () => {
@@ -76,7 +74,7 @@ export default function cryptoId() {
               <h2> {cryptoInfo.market_cap_rank}</h2>
               <img
                 className={styles.image}
-                src={cryptoInfo.image && cryptoInfo.image.thumb}
+                src={cryptoInfo.image && cryptoInfo.image.large}
                 alt={cryptoInfo.name}
               />
               <h2> {name}</h2>
@@ -107,14 +105,18 @@ export default function cryptoId() {
                 className={
                   cryptoInfo.market_data &&
                   cryptoInfo.market_data.current_price
-                    .price_change_percentage_24h > 0
+                    .price_change_percentage_24h_in_currency &&
+                  cryptoInfo.market_data.current_price
+                    .price_change_percentage_24h_in_currency.eur > 0
                     ? styles.positiveVar
                     : styles.negativeVar
                 }
               >
                 {cryptoInfo.market_data &&
                   cryptoInfo.market_data.current_price
-                    .price_change_percentage_24h}
+                    .price_change_percentage_24h_in_currency &&
+                  cryptoInfo.market_data.current_price
+                    .price_change_percentage_24h_in_currency.eur}
               </h6>
             </div>
 
@@ -122,12 +124,14 @@ export default function cryptoId() {
               <h6>
                 Lowest: €
                 {cryptoInfo.market_data &&
-                  cryptoInfo.market_data.current_price.low_24h}
+                  cryptoInfo.market_data.current_price.low_24h &&
+                  cryptoInfo.market_data.current_price.low_24h.eur}
               </h6>
               <h6>
                 Hightest: €
                 {cryptoInfo.market_data &&
-                  cryptoInfo.market_data.current_price.high_24h}
+                  cryptoInfo.market_data.current_price.high_24h &&
+                  cryptoInfo.market_data.current_price.high_24h.eur}
               </h6>
             </div>
           </div>
@@ -149,6 +153,7 @@ export default function cryptoId() {
             <h6>
               Market Cap: €
               {cryptoInfo.market_data &&
+                cryptoInfo.market_data.current_price.market_cap &&
                 cryptoInfo.market_data.current_price.market_cap.eur}
             </h6>
           </div>
