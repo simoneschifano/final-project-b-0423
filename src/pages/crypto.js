@@ -42,7 +42,10 @@ export default function cryptoId() {
       );
     }
   }, [router.isReady]);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 017eb46938e216c08b6ddd752abe5dda0a121859
   const onHandleOpenModal = () => {
     setIsGlobalModal((prev) => !prev);
   };
@@ -55,15 +58,20 @@ export default function cryptoId() {
   const onHandleStar = () => {
     if (typeof window !== "undefined") {
       if (watchlist) {
-        console.log(localStorage.getItem("watchlist"));
         if (!!watchlist.find((item) => item === name)) {
-          return alert("Questa crypto è già presente nella watchlist.");
+          alert("Crypto rimossa dalla watchlist");
+          localStorage.setItem(
+            "watchlist",
+            JSON.stringify([...watchlist.filter((item) => item !== name)])
+          );
+          setWatchlist((prev) => [...prev.filter((item) => item !== name)]);
         } else {
           alert("Crypto aggiunta alla watchlist con successo!");
           localStorage.setItem(
             "watchlist",
             JSON.stringify([...watchlist, name])
           );
+          setWatchlist((prev) => [...prev, name]);
         }
       }
     }
@@ -81,7 +89,7 @@ export default function cryptoId() {
                 src={cryptoInfo.image && cryptoInfo.image.large}
                 alt={cryptoInfo.name}
               />
-              <h2> {name}</h2>
+              <h2>{name}</h2>
               <MdStars onClick={onHandleStar} className={styles.star} />
             </div>
             <div className={styles.col}>
@@ -100,11 +108,11 @@ export default function cryptoId() {
         <div className={styles.info}>
           <div className={styles.price}>
             <div className={styles.priceDettails}>
-              <h3 className={styles.priceValue}>
+              <h5 className={styles.priceValue}>
                 <span>Price: </span> €
                 {cryptoInfo.market_data &&
                   cryptoInfo.market_data.current_price.eur}
-              </h3>
+              </h5>
               <h6
                 className={
                   cryptoInfo.market_data &&
@@ -126,16 +134,18 @@ export default function cryptoId() {
 
             <div className={styles.HLprice}>
               <h6>
-                Lowest: €
+                Lowest:
                 {cryptoInfo.market_data &&
                   cryptoInfo.market_data.current_price.low_24h &&
                   cryptoInfo.market_data.current_price.low_24h.eur}
+                €
               </h6>
               <h6>
-                Hightest: €
+                Hightest:
                 {cryptoInfo.market_data &&
                   cryptoInfo.market_data.current_price.high_24h &&
                   cryptoInfo.market_data.current_price.high_24h.eur}
+                €
               </h6>
             </div>
           </div>
@@ -158,7 +168,8 @@ export default function cryptoId() {
               Market Cap: €
               {cryptoInfo.market_data &&
                 cryptoInfo.market_data.current_price.market_cap &&
-                cryptoInfo.market_data.current_price.market_cap.eur}
+                cryptoInfo.market_data.current_price.market_cap &&
+                `${cryptoInfo.market_data.current_price.market_cap.eur}`}
             </h6>
           </div>
         </div>

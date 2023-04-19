@@ -12,6 +12,7 @@
       a {
         @include poppins();
         font-size: 12px;
+        transition: all 0.55s;
 
         text-decoration: unset;
         display: flex;
