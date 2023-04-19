@@ -3,14 +3,19 @@
 
 .Layout {
  // background-color: $background-pages;
+  
+  
+
   .dark{
-    $background-pages: #ffffff00;
+    --background: #{$first-color};
+    background-color: var(--background);    
   }
   .unactive{
-    $background-pages: aliceblue;
+    --background: #{$background-pages};
+    background-color: var(--background);
   }
   .container {
-    background-color: $background-pages;
+    background-color: var(--background);
     
 
     @include container();

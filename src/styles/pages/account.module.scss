@@ -128,7 +128,7 @@
       background: linear-gradient(
         to right bottom,
         $background-cards,
-        $background-pages,
+        var(--background),
         #252525,
         #304a31,
         $graph,

@@ -21,7 +21,6 @@ export default function Home() {
 
   const onHandleChangeTheme = () => {
     setIsSwitcherTheme((prev) => !prev);
-    console.log(isSwitcherTheme)
   };
 
   useEffect(() => {

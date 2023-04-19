@@ -2,7 +2,7 @@
 @import "../../styles/scss/variables/typography.scss";
 
 .Main{
-    background-color: $background-pages;
+    background-color: var(--background);
     min-height: 100vh;
     display: flex;
     align-items: center;
