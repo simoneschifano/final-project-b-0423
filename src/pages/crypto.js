@@ -30,7 +30,7 @@ export default function cryptoId() {
       );
     }
   }, [router.isReady]);
-
+  console.log(cryptoJson);
   const onHandleOpenModal = () => {
     setIsGlobalModal((prev) => !prev);
   };
@@ -107,8 +107,7 @@ export default function cryptoId() {
                     : styles.negativeVar
                 }
               >
-                {" "}
-                %{cryptoJson.price_change_percentage_24h.toFixed(2)}
+                {cryptoJson.price_change_percentage_24h}
               </h6>
             </div>
 
