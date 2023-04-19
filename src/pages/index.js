@@ -21,9 +21,7 @@ export default function Home() {
   const allCryptoData = state.cryptoListData;
 
   const [wallet, setWallet] = useState(
-    typeof window !== "undefined"
-      ? JSON.parse(localStorage.getItem("walletHome"))
-      : null
+    typeof window !== "undefined" ? localStorage.getItem("walletHome") : null
   );
 
   const [watchlist, setWatchlist] = useState(
@@ -91,12 +89,7 @@ export default function Home() {
                 }`}
               >
                 {wallet ? (
-                  <CardsList
-                    data={allCryptoData.filter((crypto) =>
-                      wallet.includes(crypto.id)
-                    )}
-                    inHomeActive={true}
-                  />
+                  <CardsList data={wallet} inHomeActive={true} />
                 ) : (
                   <h2>You don't have any elements in your wallet.</h2>
                 )}
