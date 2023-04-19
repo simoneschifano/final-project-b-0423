@@ -38,7 +38,7 @@
       max-width: calc(300px - 30%);
       margin-left: 25%;
     }
-    
+
     .title {
       @include space-around($all: 20px);
     }
@@ -50,7 +50,7 @@
         border: 0;
         border-bottom: 1px solid $border-btn;
         outline: none;
-        // border-radius: 10px;
+        color: $background-cards;
         @include space-around(0, 0, 6px);
         cursor: pointer;
       }
