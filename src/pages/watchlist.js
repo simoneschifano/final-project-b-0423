@@ -27,7 +27,7 @@ export default function watchlist() {
   }
 
   useEffect(() => {
-    if (typeof windo != "undefined") {
+    if (typeof windo !== "undefined") {
       localStorage.setItem("watchlistHome", [...stars]);
     }
   }, [stars]);

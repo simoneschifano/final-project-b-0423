@@ -52,7 +52,10 @@ export default function cryptoId() {
       if (watchlist) {
         console.log(localStorage.getItem("watchlist"));
         if (!!watchlist.find((item) => item === name)) {
-          return alert("Questa crypto è già presente nella watchlist.");
+          localStorage.setItem(
+            "watchlist",
+            JSON.stringify([...watchlist.filter((item) => item !== name)])
+          );
         } else {
           alert("Crypto aggiunta alla watchlist con successo!");
           localStorage.setItem(
