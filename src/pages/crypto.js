@@ -45,9 +45,7 @@ export default function cryptoId() {
   };
 
   useEffect(() => {
-    GET(` https://api.coingecko.com/api/v3/coins/${name}`).then((data) =>
-      setCryptoInfo(() => data)
-    );
+    GET(`${name}`).then((data) => setCryptoInfo(() => data));
   });
 
   const onHandleStar = () => {
@@ -76,7 +74,7 @@ export default function cryptoId() {
               <h2> {cryptoInfo.market_cap_rank}</h2>
               <img
                 className={styles.image}
-                src={cryptoInfo.image && cryptoInfo.image.thumb}
+                src={cryptoInfo.image && cryptoInfo.image.large}
                 alt={cryptoInfo.name}
               />
               <h2> {name}</h2>
@@ -149,6 +147,7 @@ export default function cryptoId() {
             <h6>
               Market Cap: €
               {cryptoInfo.market_data &&
+                cryptoInfo.market_data.current_price.market_cap &&
                 cryptoInfo.market_data.current_price.market_cap.eur}
             </h6>
           </div>
