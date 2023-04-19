@@ -96,6 +96,7 @@
             .aboutIcon {
               color: $graph;
               transition: all 0.55s;
+              // animation: spinAround 2s linear;
             }
           }
           .home,
@@ -125,10 +126,20 @@
             .aboutIcon {
               color: $graph;
               transition: all 0.55s;
+              animation: spinAround 2s ease infinite;
             }
           }
         }
       }
     }
+  }
+}
+
+@keyframes spinAround {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
   }
 }
