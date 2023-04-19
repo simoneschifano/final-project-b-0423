@@ -42,10 +42,6 @@ export default function cryptoId() {
       );
     }
   }, [router.isReady]);
-<<<<<<< HEAD
-
-=======
->>>>>>> 017eb46938e216c08b6ddd752abe5dda0a121859
   const onHandleOpenModal = () => {
     setIsGlobalModal((prev) => !prev);
   };
