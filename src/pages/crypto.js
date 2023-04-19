@@ -61,7 +61,7 @@ export default function cryptoId() {
   };
 
   return (
-    <>
+    <div className={styles.Main}>
       <Layout>
         <div className={styles.header}>
           <div className={styles.row}>
@@ -129,6 +129,6 @@ export default function cryptoId() {
           />
         )}
       </Layout>
-    </>
+    </div>
   );
 }
