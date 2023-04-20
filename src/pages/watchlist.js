@@ -2,8 +2,7 @@ import Head from "next/head";
 import Layout from "@/components/layout";
 import { useEffect, useState } from "react";
 import CardsList from "@/components/cards_list";
-import styles from "../styles/pages/wallet.module.scss";
-import Button from "@/components/button";
+import styles from "../styles/pages/watchlist.module.scss";
 
 export default function watchlist() {
   const [isSwitcherTheme, setIsSwitcherTheme] = useState(false);

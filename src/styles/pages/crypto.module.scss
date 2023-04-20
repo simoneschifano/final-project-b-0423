@@ -37,6 +37,7 @@
     }
   }
 
+<<<<<<< HEAD
 .chartArea {
   background-color: var(--card--background);
   box-shadow: 0px 0px 5px var(--card-border);
@@ -44,6 +45,25 @@
   padding: 30px;
   margin-bottom: 60px;
 }
+=======
+  .starActive {
+    color: $graph;
+    box-shadow: 0 0 10px 1px $graph;
+    transition: all 0.55s;
+
+    &:hover {
+      color: $background-cards;
+    }
+  }
+
+  .chartArea {
+    background-color: $background-cards;
+    box-shadow: 0px 0px 5px $border-cards;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 60px;
+  }
+>>>>>>> origin/homeSections
 
 .info {
   background-color: var(--card--background);

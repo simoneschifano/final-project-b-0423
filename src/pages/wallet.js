@@ -3,19 +3,12 @@ import Layout from "@/components/layout";
 import CakeChart from "@/components/cakeChart";
 import WalletList from "@/components/walletList";
 import styles from "@/styles/pages/wallet.module.scss";
-
-import { useContext, useState,  useEffect } from "react";
+import { summArrayValues } from "@/utils/func";
+import { useContext, useState, useEffect } from "react";
 import { Context } from "@/store";
-import Button from "@/components/button";
-import { Context } from "@/store";
-import { cryptoJson } from "./api/crypto";
 
 export default function Wallet() {
   const mode = "dark_mode";
-
-  const [walletData, setWalletData] = useState([]);
-  const [walletCrypto, setWalletCrypto] = useState([]);
-  let finalWallet = [];
 
   const { state, dispatch } = useContext(Context);
   const [isSwitcherTheme, setIsSwitcherTheme] = useState(false);
@@ -29,18 +22,22 @@ export default function Wallet() {
       ? JSON.parse(localStorage.getItem("wallet"))
       : []
   );
+  let value = 0;
+  const cakePercentualArray = walletInLocalStorage.map(
+    (item) => (value = item.qty * item.price)
+  );
 
-  if (walletInLocalStorage.length > 0) {
-    finalWallet = state.cryptoListData.filter((crypto) =>
-      walletInLocalStorage.includes(crypto)
-    );
-  } else {
-    console.log("array vuoto");
-  }
+  // if (walletInLocalStorage.length > 0) {
+  //   finalWallet = state.cryptoListData.filter((crypto) =>
+  //     walletInLocalStorage.includes(crypto)
+  //   );
+  // } else {
+  //   console.log("array vuoto");
+  // }
 
-  useEffect(() => {
-    localStorage.setItem("walletHome", [...finalWallet]);
-  }, [finalWallet]);
+  // useEffect(() => {
+  //   localStorage.setItem("walletHome", [...finalWallet]);
+  // }, [finalWallet]);
   return (
     <>
       <Head>
@@ -55,12 +52,17 @@ export default function Wallet() {
           <div className={styles.Content}>
             <h2 className={styles.title}> MY WALLET STATUS</h2>
             <div className={styles.chartArea}>
-              <CakeChart />
-              <h3> SALDO: </h3>
+              <CakeChart
+                cakePercentualArray={cakePercentualArray}
+                chartData={walletInLocalStorage}
+              />
+              <h3 className={styles.walletValue}>
+                WALLET VALUE: € {summArrayValues(cakePercentualArray)}{" "}
+              </h3>
             </div>
             <h2> Crypto </h2>
             <div className="">
-              <WalletList data={[cryptoJson]} />
+              <WalletList data={walletInLocalStorage} />
             </div>
           </div>
         </Layout>
