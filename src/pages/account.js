@@ -5,9 +5,10 @@ import { mockUser } from "./api/mockUser";
 import { FcSimCardChip } from "react-icons/fc";
 import styles from "../styles/pages/account.module.scss";
 import Button from "@/components/button";
+import SwitcherTheme from "@/components/switcher-theme";
 
 export default function account() {
-  const mode = "dark_mode";
+  
   const {
     username,
     email,
@@ -18,7 +19,9 @@ export default function account() {
     name,
     surname,
   } = mockUser;
-  const [isSwitcherTheme, setIsSwitcherTheme] = useState(false);
+  
+  const [isSwitcherTheme, setIsSwitcherTheme] = useState(true);
+  const [isLightActive, setLightActive] = useState(true);
 
   const onHandleChangeTheme = () => {
     setIsSwitcherTheme((prev) => !prev);
@@ -31,9 +34,9 @@ export default function account() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={mode}>
+      <main className={styles.Main}>
         <Layout theme={isSwitcherTheme}>
-          <Button text="THEME" className={styles.btn} func={onHandleChangeTheme} />
+          
           <h2>Hi, {username}!</h2>
           <div className={styles.settingList}>
             <div className={styles.userSettings}>
@@ -112,6 +115,7 @@ export default function account() {
               {/* end card */}
             </div>
           </div>
+          <SwitcherTheme status={isLightActive} func={onHandleChangeTheme} />
         </Layout>
       </main>
     </>
