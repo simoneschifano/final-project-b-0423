@@ -6,7 +6,7 @@ import { BsMoon, BsSun } from "react-icons/bs";
 const SwictherTheme = ({ status, func }) => {
   
   const state = status;
-  console.log(state);
+  
   return (
     
     <div className={styles.SwictherTheme} onClick={func}>
