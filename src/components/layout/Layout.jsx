@@ -10,7 +10,7 @@ const Layout = ({ children, theme }) => {
     <div className={styles.Layout}>
       <div className={theme ? styles.dark : styles.unactive}>
       
-      <Header />
+      <Header/>
       <Navbar />
         <div className={styles.container}>{children}</div>
       </div>
