@@ -4,12 +4,11 @@ import CakeChart from "@/components/cakeChart";
 import WalletList from "@/components/walletList";
 import styles from "@/styles/pages/wallet.module.scss";
 import { summArrayValues } from "@/utils/func";
-import { useState, useEffect } from "react";
-import Button from "@/components/button";
-import SwitcherTheme from "@/components/switcherTheme";
+import { useState, useEffect, useContext } from "react";
+import { Context } from "@/store";
 
 export default function Wallet() {
-  const mode = "dark_mode";
+  
   const [walletInLocalStorage, setWalletInLocalStorage] = useState();
 
   useEffect(() => {
@@ -24,11 +23,9 @@ export default function Wallet() {
   const cakePercentualArray = walletInLocalStorage?.map(
     (item) => (value = item.qty * item.price)
   );
-  const [isSwitcherTheme, setIsSwitcherTheme] = useState(true);
-  const [isLightActive, setLightActive] = useState(true);
-  const onHandleChangeTheme = () => {
-    setIsSwitcherTheme((prev) => !prev);
-  };
+  
+  const { state, dispatch } = useContext(Context);
+
   return (
     <>
       <Head>
@@ -37,8 +34,8 @@ export default function Wallet() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={mode}>
-        <Layout theme={isSwitcherTheme}>
+      <main className={styles.Main}>
+        <Layout theme={state.modeData}>
           <div className={styles.Content}>
             <h2 className={styles.title}> MY WALLET STATUS</h2>
 
@@ -63,7 +60,7 @@ export default function Wallet() {
               <h5>Buy a crypto, it will be showed here</h5>
             )}
           </div>
-          <SwitcherTheme status={isLightActive} func={onHandleChangeTheme} />
+          
         </Layout>
       </main>
     </>

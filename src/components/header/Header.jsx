@@ -4,9 +4,21 @@ import { GiTwoCoins } from "react-icons/gi";
 import { FaUsers } from "react-icons/fa";
 import { AiFillHome } from "react-icons/ai";
 import styles from "./index.module.scss";
+import { useContext } from "react";
+import { Context } from "@/store";
 import SwitcherTheme from "../switcherTheme";
 
 const Header = () => {
+  // SWITCHER
+   
+  const { state, dispatch } = useContext(Context);
+  const onHandleChangeTheme = () => {
+    !state.modeData ? localStorage.setItem('theme',  'DARK') : localStorage.setItem('theme',  'LIGHT');
+    dispatch({
+      type: "SET_THEME",
+      payload: !state.modeData,
+    });
+   };
   return (
     <div className={styles.Header}>
       <a className={styles.logo} href="/">
@@ -79,6 +91,7 @@ const Header = () => {
           </a>
         </li>
       </ul>
+      <SwitcherTheme status={state.modeData} func={onHandleChangeTheme} /> 
     </div>
   );
 };

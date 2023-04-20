@@ -8,6 +8,11 @@ export const mainReducer = (state, action) => {
     //stato Globale per le icone
     // case "SET_ICON_SELECTED":
     //   return {};
+    case "SET_THEME":
+      return {
+        ...state,
+        modeData: action.payload,
+      };
     default:
       return state;
   }
