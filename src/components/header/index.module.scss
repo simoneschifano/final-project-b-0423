@@ -108,7 +108,7 @@
             display: block;
             height: 25px;
             width: 25px;
-            color: $first-color;
+            color: var(--text);
             @media screen and (max-width: 992px) {
               margin: 0 auto;
               margin-bottom: 5em;
