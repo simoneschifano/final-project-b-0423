@@ -29,8 +29,8 @@ $four: calc(25% - 17px);
 
   @media screen and (min-width: 500px) and (max-width: 700px) {
     flex: 0 0 $four;
-    max-width: 330px;
-    min-width: 330px;
+    max-width: 300px;
+    min-width: 300px;
   }
   /* IPAD TABLET */
   @media only screen and (min-width: 700px) and (max-width: 1023px) {
