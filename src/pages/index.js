@@ -30,28 +30,30 @@ export default function Home() {
 
   const [wallet, setWallet] = useState(
     typeof window !== "undefined" ? localStorage.getItem("wallet") : null
+  );
+
+  const [watchlist, setWatchlist] = useState(
+    typeof window !== "undefined" ? localStorage.getItem("watchlist") : null
+  );
+
+  let walletHome = [];
+  if (wallet) {
+    walletHome = allCryptoData.filter((crypto) => wallet.includes(crypto.id));
+  }
+
+  let watchlistHome = [];
+  if (watchlist) {
+    watchlistHome = allCryptoData.filter((crypto) =>
+      watchlist.includes(crypto.id)
     );
-    
-    const [watchlist, setWatchlist] = useState(
-      typeof window !== "undefined" ? localStorage.getItem("watchlist") : null
-      );
+  }
 
-    let walletHome = [];
-    if (wallet) {
-      walletHome = allCryptoData.filter((crypto) => wallet.includes(crypto.id));
-    }
-  
-    let watchlistHome = [];
-    if (watchlist) {
-      watchlistHome = allCryptoData.filter((crypto) => watchlist.includes(crypto.id));
-    }
+  //SWITCHER
+  const [isSwitcherTheme, setIsSwitcherTheme] = useState(false);
 
-    //SWITCHER
-    const [isSwitcherTheme, setIsSwitcherTheme] = useState(false);
-
-    const onHandleChangeTheme = () => {
-      setIsSwitcherTheme((prev) => !prev);
-    };
+  const onHandleChangeTheme = () => {
+    setIsSwitcherTheme((prev) => !prev);
+  };
   return (
     <>
       <Head>
@@ -62,7 +64,11 @@ export default function Home() {
       </Head>
       <main className={styles.Main}>
         <Layout theme={isSwitcherTheme}>
-          <Button text="THEME" className={styles.btn} func={onHandleChangeTheme} />
+          <Button
+            text="THEME"
+            className={styles.btn}
+            func={onHandleChangeTheme}
+          />
           <div className={styles.container}>
             <div
               className={`${styles.section} ${
@@ -106,19 +112,22 @@ export default function Home() {
               >
                 Wallet
               </label>
-              
+
               <div
                 className={`${styles.sectionCont} ${
                   sectionWallet && styles.sectionContActive
                 }`}
               >
-                {walletHome.length >0 ? (
-                  <CardsList data={walletHome} inHomeActive={true} />
+                {walletHome.length > 0 ? (
+                  <CardsList
+                    data={walletHome.slice(0, 10)}
+                    inHomeActive={true}
+                  />
                 ) : (
                   <h2>You don't have any elements in your wallet.</h2>
                 )}
               </div>
-             
+
               <div className={styles.sectionButton}>
                 <a href="../wallet">
                   <Button text={"Go to wallet"} />
@@ -143,8 +152,11 @@ export default function Home() {
                   sectionWatchlist && styles.sectionContActive
                 }`}
               >
-                {watchlistHome.length >0 ? (
-                  <CardsList data={watchlistHome} inHomeActive={true} />
+                {watchlistHome.length > 0 ? (
+                  <CardsList
+                    data={watchlistHome.slice(0, 10)}
+                    inHomeActive={true}
+                  />
                 ) : (
                   <h2>You don't have any elements in your watchlist.</h2>
                 )}
