@@ -47,8 +47,10 @@ export default function Home() {
   }
 
   //SWITCHER
-  const [isSwitcherTheme, setIsSwitcherTheme] = useState(true);
   const [isLightActive, setLightActive] = useState(true);
+  const [isSwitcherTheme, setIsSwitcherTheme] = useState(true);
+  
+
   const onHandleChangeTheme = () => {
     setIsSwitcherTheme((prev) => !prev);
   };

@@ -4,6 +4,7 @@ import { mainReducer } from "./reducer/reducers";
 // initial state
 const initialState = {
   cryptoListData: [],
+  modeData: true,
 };
 
 // create context
