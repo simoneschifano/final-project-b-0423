@@ -143,3 +143,42 @@ $four: calc(25% - 17px);
     min-width: calc($sizeMd - $gap);
   }
 }
+
+
+@mixin containerLayout() {
+  .container {
+    background-color: var(--background);
+    
+
+    @include container();
+
+
+    height: calc(100vh - 82px);
+    overflow-y: scroll;
+  
+    float: right;
+    padding: 2em;
+   
+    
+    @include poppins();
+
+    h2{
+      font-size: 14px;
+      margin-bottom: 2em;
+    }
+
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+    &::-webkit-scrollbar-track {
+      background-color: var(--scrollbar-bg);
+      box-shadow: 3px 3px 3px var(--scrollbar-bg);
+    } 
+    
+    &::-webkit-scrollbar-thumb {
+      background: var(--text); 
+      border-radius: 50px;
+    } 
+
+  }
+}

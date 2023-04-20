@@ -6,7 +6,7 @@
   right: 10px;
   z-index: 1;
   padding-left: 6%;
-  background: $background-pages;
+  background: var(--background);
   @media screen and (min-width: 505px) and (max-width: 990px) {
     width: 90%;
   }

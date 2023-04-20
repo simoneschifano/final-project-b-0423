@@ -1,13 +1,12 @@
 import Layout from "@/components/layout";
 import { useRouter } from "next/router";
-import { useState, useEffect, useContext } from "react";
+import { useState } from "react";
 import { GET } from "@/utils/http";
 import ChartEl from "@/components/chartEl";
 import styles from "@/styles/pages/crypto.module.scss";
 import Button from "@/components/button";
 import GlobalModal from "@/components/global_modal";
 import React from "react";
-import { Context } from "@/store";
 
 import { MdStars } from "react-icons/md";
 
@@ -18,10 +17,6 @@ export default function cryptoId() {
   const [isGlobalModal, setIsGlobalModal] = useState(false);
   const [cryptoInfo, setCryptoInfo] = useState([]);
 
-  const { state, dispatch } = useContext(Context);
-
-  // const cryptoInfo = state.cryptoListData;
-
   if (typeof window !== "undefined") {
     if (localStorage.getItem("watchlist")) {
       null;
@@ -29,6 +24,7 @@ export default function cryptoId() {
       localStorage.setItem("watchlist", "[]");
     }
   }
+  console;
 
   const [watchlist, setWatchlist] = useState(
     typeof window !== "undefined"
@@ -43,17 +39,14 @@ export default function cryptoId() {
       GET(`${name}/market_chart?vs_currency=eur&days=7&interval=daily`).then(
         (data) => setSingleCryptoData(data.prices)
       );
-
       GET(`${name}`).then((data) => setCryptoInfo(() => data));
-      // setCryptoInfo(
-      //   state.cryptoListData.filter((crypto) => crypto.id === name)
-      // );
     }
   }, [router.isReady]);
 
   const onHandleOpenModal = () => {
     setIsGlobalModal((prev) => !prev);
   };
+  const [isSwitcherTheme, setIsSwitcherTheme] = useState(false);
 
   console.log(cryptoInfo);
 
@@ -80,10 +73,17 @@ export default function cryptoId() {
       }
     }
   };
-
+  const onHandleChangeTheme = () => {
+    setIsSwitcherTheme((prev) => !prev);
+  };
   return (
     <div className={styles.Main}>
-      <Layout>
+      <Layout theme={isSwitcherTheme}>
+        <Button
+          text="THEME"
+          className={styles.btn}
+          func={onHandleChangeTheme}
+        />
         <div className={styles.header}>
           <div className={styles.row}>
             <div className={styles.col}>
@@ -101,7 +101,7 @@ export default function cryptoId() {
                 }`}
               />
             </div>
-            <div className={styles.col}>
+            <div className={styles.btn}>
               <Button
                 text="buy"
                 className={styles.btn}
@@ -175,12 +175,16 @@ export default function cryptoId() {
           <div className={styles.marketCap}>
             <h6>
               Market Cap: €
-              {cryptoInfo.market_data &&
+              {/* {cryptoInfo.market_data &&
                 cryptoInfo.market_data.current_price.market_cap &&
                 cryptoInfo.market_data.current_price.market_cap &&
-                `${cryptoInfo.market_data.current_price.market_cap.eur}`}
+                `${cryptoInfo.market_data.current_price.market_cap.eur}`} */}
+              {cryptoInfo.market_data?.current_price?.market_cap?.eur}
             </h6>
           </div>
+        </div>
+        <div className={styles.description}>
+          <h5> {cryptoInfo.description?.en}</h5>
         </div>
 
         {isGlobalModal && (
@@ -188,6 +192,7 @@ export default function cryptoId() {
             icon={cryptoInfo.image.large}
             price={cryptoInfo.market_data.current_price.eur}
             id={cryptoInfo.id}
+            setIsGlobalModal={setIsGlobalModal}
           />
         )}
       </Layout>

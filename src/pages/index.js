@@ -2,16 +2,15 @@ import Head from "next/head";
 import Layout from "@/components/layout";
 import styles from "@/styles/pages/Home.module.scss";
 import CardsList from "@/components/cards_list";
-import { useState, useContext } from "react";
+import WalletList from "@/components/walletList";
+import { useState, useEffect, useContext } from "react";
 import Button from "@/components/button";
 import { Context } from "@/store";
 
 export default function Home() {
-  const mode = "bg_dark";
   const [sectionCrypto, setSectionCrypto] = useState(true);
   const [sectionWallet, setSectionWallet] = useState(false);
   const [sectionWatchlist, setSectionWatchlist] = useState(false);
-
   const onHandleCrypto = () => setSectionCrypto((prev) => !prev);
   const onHandleWallet = () => setSectionWallet((prev) => !prev);
   const onHandleWatchlist = () => setSectionWatchlist((prev) => !prev);
@@ -24,21 +23,35 @@ export default function Home() {
     localStorage.getItem("watchlist")
       ? null
       : localStorage.setItem("watchlist", "[]");
-    localStorage.getItem("walletHome")
+    localStorage.getItem("wallet")
       ? null
-      : localStorage.setItem("walletHome", "[]");
+      : localStorage.setItem("wallet", "[]");
   }
 
   const [wallet, setWallet] = useState(
-    typeof window !== "undefined" &&
-      JSON.parse(localStorage.getItem("walletHome"))
-  );
+    typeof window !== "undefined" ? localStorage.getItem("wallet") : null
+    );
+    
+    const [watchlist, setWatchlist] = useState(
+      typeof window !== "undefined" ? localStorage.getItem("watchlist") : null
+      );
 
-  const [watchlist, setWatchlist] = useState(
-    typeof window !== "undefined" &&
-      JSON.parse(localStorage.getItem("watchlist"))
-  );
+    let walletHome = [];
+    if (wallet) {
+      walletHome = allCryptoData.filter((crypto) => wallet.includes(crypto.id));
+    }
+  
+    let watchlistHome = [];
+    if (watchlist) {
+      watchlistHome = allCryptoData.filter((crypto) => watchlist.includes(crypto.id));
+    }
 
+    //SWITCHER
+    const [isSwitcherTheme, setIsSwitcherTheme] = useState(false);
+
+    const onHandleChangeTheme = () => {
+      setIsSwitcherTheme((prev) => !prev);
+    };
   return (
     <>
       <Head>
@@ -48,7 +61,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.Main}>
-        <Layout>
+        <Layout theme={isSwitcherTheme}>
+          <Button text="THEME" className={styles.btn} func={onHandleChangeTheme} />
           <div className={styles.container}>
             <div
               className={`${styles.section} ${
@@ -92,17 +106,19 @@ export default function Home() {
               >
                 Wallet
               </label>
+              
               <div
                 className={`${styles.sectionCont} ${
                   sectionWallet && styles.sectionContActive
                 }`}
               >
-                {wallet.length > 0 ? (
-                  <CardsList data={wallet} inHomeActive={true} />
+                {walletHome.length >0 ? (
+                  <CardsList data={walletHome} inHomeActive={true} />
                 ) : (
                   <h2>You don't have any elements in your wallet.</h2>
                 )}
               </div>
+             
               <div className={styles.sectionButton}>
                 <a href="../wallet">
                   <Button text={"Go to wallet"} />
@@ -127,13 +143,8 @@ export default function Home() {
                   sectionWatchlist && styles.sectionContActive
                 }`}
               >
-                {watchlist.length > 0 ? (
-                  <CardsList
-                    data={allCryptoData.filter((crypto) =>
-                      watchlist.includes(crypto.id)
-                    )}
-                    inHomeActive={true}
-                  />
+                {watchlistHome.length >0 ? (
+                  <CardsList data={watchlistHome} inHomeActive={true} />
                 ) : (
                   <h2>You don't have any elements in your watchlist.</h2>
                 )}
