@@ -34,7 +34,9 @@ export default function cryptoId() {
       : []
   );
 
-  const [starStatus, setStarStatus] = useState(false);
+  const [starStatus, setStarStatus] = useState(
+    !!watchlist.find((item) => item === name) ? true : null
+  );
 
   React.useEffect(() => {
     if (router.isReady) {
@@ -92,9 +94,7 @@ export default function cryptoId() {
               <h2>{name}</h2>
               <MdStars
                 onClick={onHandleStar}
-                className={`${styles.star} ${
-                  starStatus === true && styles.starActive
-                }`}
+                className={`${styles.star} ${starStatus && styles.starActive}`}
               />
             </div>
             <div className={styles.btn}>
