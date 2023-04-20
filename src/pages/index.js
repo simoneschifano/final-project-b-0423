@@ -6,6 +6,7 @@ import WalletList from "@/components/walletList";
 import { useState, useEffect, useContext } from "react";
 import Button from "@/components/button";
 import { Context } from "@/store";
+import SwitcherTheme from "@/components/switcher-theme";
 
 export default function Home() {
   const [sectionCrypto, setSectionCrypto] = useState(true);
@@ -48,7 +49,7 @@ export default function Home() {
 
     //SWITCHER
     const [isSwitcherTheme, setIsSwitcherTheme] = useState(false);
-
+    const [isLightActive, setLightActive] = useState(false);
     const onHandleChangeTheme = () => {
       setIsSwitcherTheme((prev) => !prev);
     };
@@ -62,7 +63,7 @@ export default function Home() {
       </Head>
       <main className={styles.Main}>
         <Layout theme={isSwitcherTheme}>
-          <Button text="THEME" className={styles.btn} func={onHandleChangeTheme} />
+          <SwitcherTheme status={isLightActive} func={onHandleChangeTheme} />
           <div className={styles.container}>
             <div
               className={`${styles.section} ${

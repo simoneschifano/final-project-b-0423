@@ -15,7 +15,15 @@
     --btn-border: #{$border-btn-dark};
     //scrollbar
     --scrollbar-bg: #{$background-cards-dark};
+    //switcher
+    --status-active: #{$background-cards-dark};
+    --status-unactive: #{$first-color};
+
+    --text-active: #{$first-color};
+    --text-unactive: #{$background-pages};
+
     background-color: var(--background);    
+    
   }
   .unactive{
     --background: #{$first-color};
@@ -31,6 +39,13 @@
     //scrollbar
     --scrollbar-bg: #{$background-cards-light};
     background-color: var(--background);
+
+    //switcher
+    --status-active: #{$background-pages};
+    --status-unactive: #{$first-color};
+
+    --text-unactive: #{$background-pages};
+    --text-active: #{$first-color};
   }
   background-color: var(--background);    
   @include containerLayout();
