@@ -4,18 +4,16 @@ import Image from "next/image";
 import styles from "../styles/pages/aboutUs.module.scss";
 import { useState } from "react";
 import Button from "@/components/button";
-import SwitcherTheme from "@/components/switcher-theme";
+import SwitcherTheme from "@/components/switcherTheme";
 
 export default function aboutUs() {
-  
   const [isSwitcherTheme, setIsSwitcherTheme] = useState(true);
   const [isLightActive, setLightActive] = useState(true);
-  
+
   const onHandleChangeTheme = () => {
     setIsSwitcherTheme((prev) => !prev);
   };
 
-  
   return (
     <>
       <Head>
@@ -26,13 +24,12 @@ export default function aboutUs() {
       </Head>
       <main className={styles.Main}>
         <Layout theme={isSwitcherTheme}>
-          
           <h1>About us</h1>
           <div className={styles.content}>
             <div className={styles.aboutCard}>
               <div className={styles.myImage}>
                 <Image
-                  src="/../public/aboutusPhoto/Salvo_Bisconti.png"
+                  src="/aboutusPhoto/Salvo_Bisconti.png"
                   alt="myImage"
                   width={100}
                   height={100}
@@ -66,7 +63,7 @@ export default function aboutUs() {
             <div className={styles.aboutCard}>
               <div className={styles.myImage}>
                 <Image
-                  src="/../public/aboutusPhoto/SoniaGrassia2.jpg"
+                  src="/aboutusPhoto/SoniaGrassia2.jpg"
                   alt="Sonia-Grassia"
                   width={100}
                   height={100}
@@ -100,7 +97,7 @@ export default function aboutUs() {
             <div className={styles.aboutCard}>
               <div className={styles.myImage}>
                 <Image
-                  src="/../public/aboutusPhoto/FrancescoPioCoppola2.jpg"
+                  src="/aboutusPhoto/FrancescoPioCoppola2.jpg"
                   alt="Francesco-Pio-Coppola"
                   width={100}
                   height={100}
@@ -134,7 +131,7 @@ export default function aboutUs() {
             <div className={styles.aboutCard}>
               <div className={styles.myImage}>
                 <Image
-                  src="/../public/aboutusPhoto/ElisabettaMonaco.jpg"
+                  src="/aboutusPhoto/ElisabettaMonaco.jpg"
                   alt="Elisabetta Monaco"
                   width={100}
                   height={100}
@@ -168,7 +165,7 @@ export default function aboutUs() {
             <div className={styles.aboutCard}>
               <div className={styles.myImage}>
                 <Image
-                  src="/../public/aboutusPhoto/VincenzoCostantino.jpg"
+                  src="/aboutusPhoto/VincenzoCostantino.jpg"
                   alt="Elisabetta Monaco"
                   width={100}
                   height={100}

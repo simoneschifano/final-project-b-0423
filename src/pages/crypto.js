@@ -9,7 +9,7 @@ import GlobalModal from "@/components/global_modal";
 import React from "react";
 
 import { MdStars } from "react-icons/md";
-import SwitcherTheme from "@/components/switcher-theme";
+import SwitcherTheme from "@/components/switcherTheme";
 
 export default function cryptoId() {
   const router = useRouter();
@@ -47,7 +47,7 @@ export default function cryptoId() {
   const onHandleOpenModal = () => {
     setIsGlobalModal((prev) => !prev);
   };
-  
+
   console.log(cryptoInfo);
 
   const onHandleStar = () => {
@@ -73,7 +73,7 @@ export default function cryptoId() {
       }
     }
   };
-  
+
   const [isSwitcherTheme, setIsSwitcherTheme] = useState(true);
   const [isLightActive, setLightActive] = useState(true);
   const onHandleChangeTheme = () => {
@@ -82,7 +82,6 @@ export default function cryptoId() {
   return (
     <div className={styles.Main}>
       <Layout theme={isSwitcherTheme}>
-        
         <div className={styles.header}>
           <div className={styles.row}>
             <div className={styles.col}>
@@ -188,6 +187,7 @@ export default function cryptoId() {
 
         {isGlobalModal && (
           <GlobalModal
+            setIsGlobalModal={setIsGlobalModal}
             icon={cryptoInfo.image.large}
             price={cryptoInfo.market_data.current_price.eur}
             id={cryptoInfo.id}

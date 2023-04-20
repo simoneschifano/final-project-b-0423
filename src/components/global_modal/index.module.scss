@@ -1,7 +1,6 @@
 .GlobalModal {
   @include flex($justify: center, $align: center);
   position: fixed;
-  z-index: 1;
   top: 0;
   left: 0;
   @include size(100%);
@@ -12,6 +11,7 @@
     left: 0;
     @include size(100%);
     background-color: rgba(0, 0, 0, 0.8);
+    z-index: 2;
   }
   .content {
     @include size(90%, auto);
@@ -24,6 +24,7 @@
     padding: 20px 40px 40px;
     margin-left: 30%;
     max-width: calc(800px - 30%);
+    z-index: 3;
 
     @media screen and (max-width: 900px) {
       max-width: calc(600px - 30%);

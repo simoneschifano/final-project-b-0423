@@ -6,12 +6,13 @@ import WalletList from "@/components/walletList";
 import { useState, useEffect, useContext } from "react";
 import Button from "@/components/button";
 import { Context } from "@/store";
-import SwitcherTheme from "@/components/switcher-theme";
+import SwitcherTheme from "@/components/switcherTheme";
 
 export default function Home() {
   const [sectionCrypto, setSectionCrypto] = useState(true);
   const [sectionWallet, setSectionWallet] = useState(false);
   const [sectionWatchlist, setSectionWatchlist] = useState(false);
+  const [wallet, setWallet] = useState();
   const onHandleCrypto = () => setSectionCrypto((prev) => !prev);
   const onHandleWallet = () => setSectionWallet((prev) => !prev);
   const onHandleWatchlist = () => setSectionWatchlist((prev) => !prev);
@@ -24,36 +25,34 @@ export default function Home() {
     localStorage.getItem("watchlist")
       ? null
       : localStorage.setItem("watchlist", "[]");
-    localStorage.getItem("wallet")
-      ? null
-      : localStorage.setItem("wallet", "[]");
   }
 
-  const [wallet, setWallet] = useState(
-    typeof window !== "undefined" ? localStorage.getItem("wallet") : null
+  useEffect(() => {
+    setWallet(
+      typeof window !== "undefined"
+        ? JSON.parse(localStorage.getItem("wallet"))
+        : []
     );
-    
-    const [watchlist, setWatchlist] = useState(
-      typeof window !== "undefined" ? localStorage.getItem("watchlist") : null
-      );
+  }, []);
 
-    let walletHome = [];
-    if (wallet) {
-      walletHome = allCryptoData.filter((crypto) => wallet.includes(crypto.id));
-    }
-  
-    let watchlistHome = [];
-    if (watchlist) {
-      watchlistHome = allCryptoData.filter((crypto) => watchlist.includes(crypto.id));
-    }
+  const [watchlist, setWatchlist] = useState(
+    typeof window !== "undefined" ? localStorage.getItem("watchlist") : null
+  );
 
-    //SWITCHER
-    const [isSwitcherTheme, setIsSwitcherTheme] = useState(true);
-    const [isLightActive, setLightActive] = useState(true);
-    const onHandleChangeTheme = () => {
-      setIsSwitcherTheme((prev) => !prev);
+  let watchlistHome = [];
+  if (watchlist) {
+    watchlistHome = allCryptoData.filter((crypto) =>
+      watchlist.includes(crypto.id)
+    );
+  }
+
+  //SWITCHER
+  const [isSwitcherTheme, setIsSwitcherTheme] = useState(true);
+  const [isLightActive, setLightActive] = useState(true);
+  const onHandleChangeTheme = () => {
+    setIsSwitcherTheme((prev) => !prev);
   };
-  console.log()
+
   return (
     <>
       <Head>
@@ -107,19 +106,19 @@ export default function Home() {
               >
                 Wallet
               </label>
-              
+
               <div
                 className={`${styles.sectionCont} ${
                   sectionWallet && styles.sectionContActive
                 }`}
               >
-                {walletHome>0 ? (
-                  <CardsList data={walletHome} inHomeActive={true} />
+                {wallet ? (
+                  <WalletList data={wallet.slice(0, 10)} inHomeActive={true} />
                 ) : (
                   <h2>You don't have any elements in your wallet.</h2>
                 )}
               </div>
-             
+
               <div className={styles.sectionButton}>
                 <a href="../wallet">
                   <Button text={"Go to wallet"} />
@@ -144,8 +143,11 @@ export default function Home() {
                   sectionWatchlist && styles.sectionContActive
                 }`}
               >
-                {watchlistHome>0 ? (
-                  <CardsList data={watchlistHome} inHomeActive={true} />
+                {watchlistHome.length > 0 ? (
+                  <CardsList
+                    data={watchlistHome.slice(0, 10)}
+                    inHomeActive={true}
+                  />
                 ) : (
                   <h2>You don't have any elements in your watchlist.</h2>
                 )}
