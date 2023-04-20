@@ -1,10 +1,9 @@
 import Layout from "@/components/layout";
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { GET } from "@/utils/http";
 import ChartEl from "@/components/chartEl";
 import styles from "@/styles/pages/crypto.module.scss";
-import { cryptoJson } from "./api/crypto";
 import Button from "@/components/button";
 import GlobalModal from "@/components/global_modal";
 import React from "react";
@@ -25,6 +24,7 @@ export default function cryptoId() {
       localStorage.setItem("watchlist", "[]");
     }
   }
+  console;
 
   const [watchlist, setWatchlist] = useState(
     typeof window !== "undefined"
@@ -32,36 +32,42 @@ export default function cryptoId() {
       : []
   );
 
+  const [starStatus, setStarStatus] = useState(false);
+
   React.useEffect(() => {
     if (router.isReady) {
       GET(`${name}/market_chart?vs_currency=eur&days=7&interval=daily`).then(
         (data) => setSingleCryptoData(data.prices)
       );
+      GET(`${name}`).then((data) => setCryptoInfo(() => data));
     }
   }, [router.isReady]);
+
   const onHandleOpenModal = () => {
     setIsGlobalModal((prev) => !prev);
   };
 
-  useEffect(() => {
-    GET(`${name}`).then((data) => setCryptoInfo(() => data));
-  });
+  console.log(cryptoInfo);
 
   const onHandleStar = () => {
     if (typeof window !== "undefined") {
       if (watchlist) {
-        console.log(localStorage.getItem("watchlist"));
         if (!!watchlist.find((item) => item === name)) {
+          alert("Crypto rimossa dalla watchlist");
           localStorage.setItem(
             "watchlist",
             JSON.stringify([...watchlist.filter((item) => item !== name)])
           );
+          setWatchlist((prev) => [...prev.filter((item) => item !== name)]);
+          setStarStatus(() => false);
         } else {
           alert("Crypto aggiunta alla watchlist con successo!");
           localStorage.setItem(
             "watchlist",
             JSON.stringify([...watchlist, name])
           );
+          setWatchlist((prev) => [...prev, name]);
+          setStarStatus(() => true);
         }
       }
     }
@@ -80,9 +86,14 @@ export default function cryptoId() {
                 alt={cryptoInfo.name}
               />
               <h2>{name}</h2>
-              <MdStars onClick={onHandleStar} className={styles.star} />
+              <MdStars
+                onClick={onHandleStar}
+                className={`${styles.star} ${
+                  starStatus === true && styles.starActive
+                }`}
+              />
             </div>
-            <div className={styles.col}>
+            <div className={styles.btn}>
               <Button
                 text="buy"
                 className={styles.btn}
@@ -156,19 +167,23 @@ export default function cryptoId() {
           <div className={styles.marketCap}>
             <h6>
               Market Cap: €
-              {cryptoInfo.market_data &&
+              {/* {cryptoInfo.market_data &&
                 cryptoInfo.market_data.current_price.market_cap &&
                 cryptoInfo.market_data.current_price.market_cap &&
-                `${cryptoInfo.market_data.current_price.market_cap.eur}`}
+                `${cryptoInfo.market_data.current_price.market_cap.eur}`} */}
+              {cryptoInfo.market_data?.current_price?.market_cap?.eur}
             </h6>
           </div>
+        </div>
+        <div className={styles.description}>
+          <h5> {cryptoInfo.description?.en}</h5>
         </div>
 
         {isGlobalModal && (
           <GlobalModal
-            icon={cryptoJson.image}
-            price={cryptoJson.current_price}
-            id={cryptoJson.id}
+            icon={cryptoInfo.image.large}
+            price={cryptoInfo.market_data.current_price.eur}
+            id={cryptoInfo.id}
           />
         )}
       </Layout>

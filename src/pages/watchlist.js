@@ -2,6 +2,7 @@ import Head from "next/head";
 import Layout from "@/components/layout";
 import { useEffect, useState } from "react";
 import CardsList from "@/components/cards_list";
+import styles from "../styles/pages/watchlist.module.scss";
 
 export default function watchlist() {
   const mode = "dark_mode";
@@ -9,7 +10,9 @@ export default function watchlist() {
 
   const [coin, setCoin] = useState(
     typeof window !== "undefined"
-      ? JSON.parse(localStorage.getItem("watchlist"))
+      ? localStorage.getItem("watchlist")
+        ? JSON.parse(localStorage.getItem("watchlist"))
+        : []
       : []
   );
   useEffect(() => {
@@ -26,12 +29,6 @@ export default function watchlist() {
     stars = allCrypto.filter((crypto) => coin.includes(crypto.id));
   }
 
-  useEffect(() => {
-    if (typeof windo !== "undefined") {
-      localStorage.setItem("watchlistHome", [...stars]);
-    }
-  }, [stars]);
-
   return (
     <>
       <Head>
@@ -43,8 +40,12 @@ export default function watchlist() {
       <main className={mode}>
         <Layout>
           <h2> watchlist </h2>
-          <div>
-            <CardsList data={stars} />
+          <div className={styles.watchlist}>
+            {stars.length > 0 ? (
+              <CardsList data={stars} />
+            ) : (
+              <h5>Add an element in your watchlist, it will be showed here.</h5>
+            )}
           </div>
         </Layout>
       </main>
