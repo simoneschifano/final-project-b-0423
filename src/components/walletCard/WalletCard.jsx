@@ -6,17 +6,28 @@ const WalletCard = (props) => {
   const data = props;
   const coins = data.props;
 
+  const router = useRouter();
+
+  const onHandleOpenDetails = () => {
+    localStorage.setItem("crytoID", JSON.stringify(coins.id));
+    router.push({
+      pathname: "crypto",
+      query: { name: coins.id },
+    });
+  };
+
   return (
-    <div className={styles.WalletCard}>
+    <div onClick={onHandleOpenDetails} className={styles.WalletCard}>
+      <span className={styles.inWallet}>In the wallet</span>
       <div className={styles.info}>
         <div className={styles.coin}>
           <img className={styles.image} src={coins.icon} alt={coins.id} />
-          <h1 className={styles.id}>
+          <h2 className={styles.id}>
             {coins.id ? coins.id.toUpperCase() : null}
-          </h1>
+          </h2>
         </div>
         <div className={styles.qty}>
-          <h3> Quantity: {coins.qty}</h3>
+          <span>Quantity:</span> <span>{coins.qty}</span>
         </div>
       </div>
       {/* <h3> Quantity: {coins.qty.toFixed(4)}</h3> */}
