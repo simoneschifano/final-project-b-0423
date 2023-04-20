@@ -12,6 +12,7 @@ export default function Home() {
   const [sectionCrypto, setSectionCrypto] = useState(true);
   const [sectionWallet, setSectionWallet] = useState(false);
   const [sectionWatchlist, setSectionWatchlist] = useState(false);
+  const [wallet, setWallet] = useState();
   const onHandleCrypto = () => setSectionCrypto((prev) => !prev);
   const onHandleWallet = () => setSectionWallet((prev) => !prev);
   const onHandleWatchlist = () => setSectionWatchlist((prev) => !prev);
@@ -24,23 +25,19 @@ export default function Home() {
     localStorage.getItem("watchlist")
       ? null
       : localStorage.setItem("watchlist", "[]");
-    localStorage.getItem("wallet")
-      ? null
-      : localStorage.setItem("wallet", "[]");
   }
 
-  const [wallet, setWallet] = useState(
-    typeof window !== "undefined" ? localStorage.getItem("wallet") : null
-  );
+  useEffect(() => {
+    setWallet(
+      typeof window !== "undefined"
+        ? JSON.parse(localStorage.getItem("wallet"))
+        : []
+    );
+  }, []);
 
   const [watchlist, setWatchlist] = useState(
     typeof window !== "undefined" ? localStorage.getItem("watchlist") : null
   );
-
-  let walletHome = [];
-  if (wallet) {
-    walletHome = allCryptoData.filter((crypto) => wallet.includes(crypto.id));
-  }
 
   let watchlistHome = [];
   if (watchlist) {
@@ -49,13 +46,13 @@ export default function Home() {
     );
   }
 
-    //SWITCHER
-    const [isSwitcherTheme, setIsSwitcherTheme] = useState(true);
-    const [isLightActive, setLightActive] = useState(true);
-    const onHandleChangeTheme = () => {
-      setIsSwitcherTheme((prev) => !prev);
+  //SWITCHER
+  const [isSwitcherTheme, setIsSwitcherTheme] = useState(true);
+  const [isLightActive, setLightActive] = useState(true);
+  const onHandleChangeTheme = () => {
+    setIsSwitcherTheme((prev) => !prev);
   };
-  
+
   return (
     <>
       <Head>
@@ -115,11 +112,8 @@ export default function Home() {
                   sectionWallet && styles.sectionContActive
                 }`}
               >
-                {walletHome.length > 0 ? (
-                  <CardsList
-                    data={walletHome.slice(0, 10)}
-                    inHomeActive={true}
-                  />
+                {wallet ? (
+                  <WalletList data={wallet.slice(0, 10)} inHomeActive={true} />
                 ) : (
                   <h2>You don't have any elements in your wallet.</h2>
                 )}
