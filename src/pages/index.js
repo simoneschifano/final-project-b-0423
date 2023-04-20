@@ -12,7 +12,7 @@ export default function Home() {
   const [sectionCrypto, setSectionCrypto] = useState(true);
   const [sectionWallet, setSectionWallet] = useState(false);
   const [sectionWatchlist, setSectionWatchlist] = useState(false);
-  const [wallet, setWallet] = useState();
+  // const [wallet, setWallet] = useState();
   const onHandleCrypto = () => setSectionCrypto((prev) => !prev);
   const onHandleWallet = () => setSectionWallet((prev) => !prev);
   const onHandleWatchlist = () => setSectionWatchlist((prev) => !prev);
@@ -32,12 +32,13 @@ export default function Home() {
 
   const [wallet, setWallet] = useState(
     typeof window !== "undefined" ? localStorage.getItem("walletHome") : null
-  );
-
-  const [watchlist, setWatchlist] = useState(
-    typeof window !== "undefined" ? localStorage.getItem("watchlistHome") : null
-  );
-  const allCrypto = state.cryptoListData.slice(0, 100);
+    );
+    
+    const [watchlist, setWatchlist] = useState(
+      typeof window !== "undefined" ? localStorage.getItem("watchlistHome") : null
+      );
+  const allCrypto = state.cryptoListData;
+  console.log(allCrypto);
   let walletHome = [];
   if (wallet) {
     walletHome = allCrypto.filter((crypto) => wallet.includes(crypto.id));
@@ -105,7 +106,7 @@ export default function Home() {
                 }`}
               >
                 {wallet ? (
-                  <CardsList data={wallet} inHomeActive={true} />
+                  <CardsList data={walletHome} inHomeActive={true} />
                 ) : (
                   <h2>You don't have any elements in your wallet.</h2>
                 )}
@@ -135,7 +136,7 @@ export default function Home() {
                 }`}
               >
                 {watchlist ? (
-                  <CardsList data={watchlist} inHomeActive={true} />
+                  <CardsList data={watchlistHome} inHomeActive={true} />
                 ) : (
                   <h2>You don't have any elements in your watchlist.</h2>
                 )}
