@@ -172,6 +172,7 @@ export default function cryptoId() {
 
         {isGlobalModal && (
           <GlobalModal
+            setIsGlobalModal={setIsGlobalModal}
             icon={cryptoInfo.image}
             price={cryptoInfo.current_price}
             id={cryptoInfo.id}
