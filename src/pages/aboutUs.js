@@ -2,13 +2,10 @@ import Head from "next/head";
 import Layout from "@/components/layout";
 import Image from "next/image";
 import styles from "../styles/pages/aboutUs.module.scss";
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 import { Context } from "@/store";
-import Button from "@/components/button";
-import SwitcherTheme from "@/components/switcherTheme";
 
 export default function aboutUs() {
-  
   const { state, dispatch } = useContext(Context);
 
   return (

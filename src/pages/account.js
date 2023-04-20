@@ -1,12 +1,10 @@
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 import { Context } from "@/store";
 import Head from "next/head";
 import Layout from "@/components/layout";
 import { mockUser } from "./api/mockUser";
 import { FcSimCardChip } from "react-icons/fc";
 import styles from "../styles/pages/account.module.scss";
-import Button from "@/components/button";
-import SwitcherTheme from "@/components/switcherTheme";
 
 export default function account() {
   const {
@@ -21,7 +19,7 @@ export default function account() {
   } = mockUser;
 
   const { state, dispatch } = useContext(Context);
-  
+
   return (
     <>
       <Head>

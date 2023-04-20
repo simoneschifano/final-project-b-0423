@@ -2,11 +2,7 @@ import LoginForm from "@/components/login_Form";
 import Head from "next/head";
 import styles from "@/styles/pages/Login.module.scss";
 
-
-
-
 export default function login() {
-
   return (
     <>
       <Head>
@@ -17,9 +13,7 @@ export default function login() {
       </Head>
       <main className={styles.Main}>
         <div className={styles.container}>
-          <h1>
-            Crypie
-          </h1>
+          <h1>Crypie</h1>
           <LoginForm />
         </div>
       </main>

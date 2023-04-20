@@ -3,13 +3,9 @@ import Layout from "@/components/layout";
 import { useContext, useState } from "react";
 import CardsList from "@/components/cards_list";
 import styles from "../styles/pages/watchlist.module.scss";
-import Button from "@/components/button";
-import SwitcherTheme from "@/components/switcherTheme";
 import { Context } from "@/store";
 
 export default function watchlist() {
- 
-
   const { state, dispatch } = useContext(Context);
 
   const [coin, setCoin] = useState(
@@ -42,7 +38,6 @@ export default function watchlist() {
               <h5>Add an element in your watchlist, it will be showed here.</h5>
             )}
           </div>
-          
         </Layout>
       </main>
     </>

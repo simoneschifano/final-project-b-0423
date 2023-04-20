@@ -1,15 +1,11 @@
-import { useState, useEffect, useContext } from "react";
-import { Context } from "@/store";
+import { useState, useContext } from "react";
 import Head from "next/head";
 import CardsList from "@/components/cards_list";
 import Layout from "@/components/layout";
 import Loading from "@/components/loading";
 import BtnFilter from "@/components/btnFilter";
 import styles from "../styles/pages/allCrypto.module.scss";
-import Button from "@/components/button";
-
 import { Context } from "@/store";
-import SwitcherTheme from "@/components/switcherTheme";
 
 export default function allCrypto() {
   const { state, dispatch } = useContext(Context);
@@ -17,7 +13,6 @@ export default function allCrypto() {
   const [loading, setLoading] = useState(false);
   const [filter, setFilter] = useState(false);
 
-  
   return (
     <>
       <Head>
