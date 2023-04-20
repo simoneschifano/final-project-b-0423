@@ -20,11 +20,17 @@ $four: calc(25% - 17px);
 
 @mixin cardSize() {
   /* MOBILE */
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 500px) {
     -ms-flex: 0 0 $full;
     flex: 0 0 $full;
     max-width: $full;
     min-width: $full;
+  }
+
+  @media screen and (min-width: 500px) and (max-width: 700px) {
+    flex: 0 0 $four;
+    max-width: 330px;
+    min-width: 330px;
   }
   /* IPAD TABLET */
   @media only screen and (min-width: 700px) and (max-width: 1023px) {
@@ -144,25 +150,21 @@ $four: calc(25% - 17px);
   }
 }
 
-
 @mixin containerLayout() {
   .container {
     background-color: var(--background);
-    
 
     @include container();
 
-
     height: calc(100vh - 82px);
     overflow-y: scroll;
-  
+
     float: right;
     padding: 2em;
-   
-    
+
     @include poppins();
 
-    h2{
+    h2 {
       font-size: 14px;
       margin-bottom: 2em;
     }
@@ -173,12 +175,11 @@ $four: calc(25% - 17px);
     &::-webkit-scrollbar-track {
       background-color: var(--scrollbar-bg);
       box-shadow: 3px 3px 3px var(--scrollbar-bg);
-    } 
-    
-    &::-webkit-scrollbar-thumb {
-      background: var(--text); 
-      border-radius: 50px;
-    } 
+    }
 
+    &::-webkit-scrollbar-thumb {
+      background: var(--text);
+      border-radius: 50px;
+    }
   }
 }
