@@ -6,7 +6,7 @@ import styles from "@/styles/pages/wallet.module.scss";
 import { summArrayValues } from "@/utils/func";
 import { useState, useEffect } from "react";
 import Button from "@/components/button";
-import SwitcherTheme from "@/components/switcher-theme";
+import SwitcherTheme from "@/components/switcherTheme";
 
 export default function Wallet() {
   const mode = "dark_mode";

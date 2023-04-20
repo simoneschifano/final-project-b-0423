@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import CardsList from "@/components/cards_list";
 import styles from "../styles/pages/watchlist.module.scss";
 import Button from "@/components/button";
-import SwitcherTheme from "@/components/switcher-theme";
+import SwitcherTheme from "@/components/switcherTheme";
 
 export default function watchlist() {
   const [isSwitcherTheme, setIsSwitcherTheme] = useState(true);
@@ -46,7 +46,6 @@ export default function watchlist() {
       </Head>
       <main>
         <Layout theme={isSwitcherTheme}>
-          
           <h2> watchlist </h2>
           <div className={styles.watchlist}>
             {stars.length > 0 ? (
