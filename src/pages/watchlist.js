@@ -1,10 +1,11 @@
 import Head from "next/head";
 import Layout from "@/components/layout";
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import CardsList from "@/components/cards_list";
 import styles from "../styles/pages/watchlist.module.scss";
 import Button from "@/components/button";
 import SwitcherTheme from "@/components/switcherTheme";
+import { Context } from "@/store";
 
 export default function watchlist() {
   const [isSwitcherTheme, setIsSwitcherTheme] = useState(true);
@@ -13,7 +14,7 @@ export default function watchlist() {
     setIsSwitcherTheme((prev) => !prev);
   };
 
-  const [allCrypto, setAllCrypto] = useState([]);
+  const { state, dispatch } = useContext(Context);
 
   const [coin, setCoin] = useState(
     typeof window !== "undefined"
@@ -22,18 +23,9 @@ export default function watchlist() {
         : []
       : []
   );
-  useEffect(() => {
-    fetch(
-      process.env.NEXT_PUBLIC_API_URL +
-        "markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en"
-    )
-      .then((res) => res.json())
-      .then((data) => setAllCrypto(data));
-  }, []);
-
   let stars = [];
   if (coin) {
-    stars = allCrypto.filter((crypto) => coin.includes(crypto.id));
+    stars = state.cryptoListData.filter((crypto) => coin.includes(crypto.id));
   }
 
   return (
