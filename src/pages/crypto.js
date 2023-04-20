@@ -1,6 +1,6 @@
 import Layout from "@/components/layout";
 import { useRouter } from "next/router";
-import { useState, useEffect, useEffect, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Context } from "@/store";
 import { GET } from "@/utils/http";
 import ChartEl from "@/components/chartEl";
