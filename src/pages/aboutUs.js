@@ -4,18 +4,16 @@ import Image from "next/image";
 import styles from "../styles/pages/aboutUs.module.scss";
 import { useState } from "react";
 import Button from "@/components/button";
-import SwitcherTheme from "@/components/switcher-theme";
+import SwitcherTheme from "@/components/switcherTheme";
 
 export default function aboutUs() {
-  
   const [isSwitcherTheme, setIsSwitcherTheme] = useState(true);
   const [isLightActive, setLightActive] = useState(true);
-  
+
   const onHandleChangeTheme = () => {
     setIsSwitcherTheme((prev) => !prev);
   };
 
-  
   return (
     <>
       <Head>
@@ -26,7 +24,6 @@ export default function aboutUs() {
       </Head>
       <main className={styles.Main}>
         <Layout theme={isSwitcherTheme}>
-          
           <h1>About us</h1>
           <div className={styles.content}>
             <div className={styles.aboutCard}>

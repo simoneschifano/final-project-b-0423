@@ -4,10 +4,9 @@ import { GiTwoCoins } from "react-icons/gi";
 import { FaUsers } from "react-icons/fa";
 import { AiFillHome } from "react-icons/ai";
 import styles from "./index.module.scss";
-import SwitcherTheme from "../switcher-theme";
+import SwitcherTheme from "../switcherTheme";
 
 const Header = () => {
-  
   return (
     <div className={styles.Header}>
       <a className={styles.logo} href="/">

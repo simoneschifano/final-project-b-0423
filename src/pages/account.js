@@ -5,10 +5,9 @@ import { mockUser } from "./api/mockUser";
 import { FcSimCardChip } from "react-icons/fc";
 import styles from "../styles/pages/account.module.scss";
 import Button from "@/components/button";
-import SwitcherTheme from "@/components/switcher-theme";
+import SwitcherTheme from "@/components/switcherTheme";
 
 export default function account() {
-  
   const {
     username,
     email,
@@ -19,7 +18,7 @@ export default function account() {
     name,
     surname,
   } = mockUser;
-  
+
   const [isSwitcherTheme, setIsSwitcherTheme] = useState(true);
   const [isLightActive, setLightActive] = useState(true);
 
@@ -36,7 +35,6 @@ export default function account() {
       </Head>
       <main className={styles.Main}>
         <Layout theme={isSwitcherTheme}>
-          
           <h2>Hi, {username}!</h2>
           <div className={styles.settingList}>
             <div className={styles.userSettings}>
