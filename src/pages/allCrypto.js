@@ -1,4 +1,5 @@
-import { useEffect, useState, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
+import { Context } from "@/store";
 import Head from "next/head";
 import CardsList from "@/components/cards_list";
 import Layout from "@/components/layout";
@@ -16,12 +17,7 @@ export default function allCrypto() {
   const [loading, setLoading] = useState(false);
   const [filter, setFilter] = useState(false);
 
-  const [isSwitcherTheme, setIsSwitcherTheme] = useState(true);
-  const [isLightActive, setLightActive] = useState(true);
-
-  const onHandleChangeTheme = () => {
-    setIsSwitcherTheme((prev) => !prev);
-  };
+  
   return (
     <>
       <Head>
@@ -30,8 +26,8 @@ export default function allCrypto() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <Layout theme={isSwitcherTheme}>
+      <main className={styles.Main}>
+        <Layout theme={state.modeData}>
           <div className={styles.allCryptoHead}>
             <h2> all Crypto </h2>
 
@@ -62,7 +58,6 @@ export default function allCrypto() {
               />
             )}
           </div>
-          <SwitcherTheme status={isLightActive} func={onHandleChangeTheme} />
         </Layout>
       </main>
     </>
