@@ -37,15 +37,14 @@ export default function Home() {
     const [watchlist, setWatchlist] = useState(
       typeof window !== "undefined" ? localStorage.getItem("watchlistHome") : null
       );
-  const allCrypto = state.cryptoListData;
-  console.log(allCrypto);
+
   let walletHome = [];
   if (wallet) {
-    walletHome = allCrypto.filter((crypto) => wallet.includes(crypto.id));
+    walletHome = allCryptoData.filter((crypto) => wallet.includes(crypto.id));
   };
   let watchlistHome = [];
   if (watchlist) {
-    watchlistHome = allCrypto.filter((crypto) => watchlist.includes(crypto.id));
+    watchlistHome = allCryptoData.filter((crypto) => watchlist.includes(crypto.id));
   };
   return (
     <>
