@@ -27,7 +27,7 @@
         width: 100%;
         cursor: pointer;
         z-index: 2;
-        background-color: $background-pages;
+        background-color: var(--background);
         @media screen and (min-width: 700px) {
           pointer-events: none;
         }

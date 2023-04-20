@@ -45,6 +45,13 @@ export default function Home() {
     if (watchlist) {
       watchlistHome = allCryptoData.filter((crypto) => watchlist.includes(crypto.id));
     }
+
+    //SWITCHER
+    const [isSwitcherTheme, setIsSwitcherTheme] = useState(false);
+
+    const onHandleChangeTheme = () => {
+      setIsSwitcherTheme((prev) => !prev);
+    };
   return (
     <>
       <Head>
@@ -54,7 +61,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.Main}>
-        <Layout>
+        <Layout theme={isSwitcherTheme}>
+          <Button text="THEME" className={styles.btn} func={onHandleChangeTheme} />
           <div className={styles.container}>
             <div
               className={`${styles.section} ${

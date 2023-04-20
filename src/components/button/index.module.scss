@@ -1,9 +1,12 @@
+@import "../../styles/scss/variables/colors.scss";
+@import "../../styles/scss/variables/typography.scss";
+
 .Button {
   @include flex($align: center);
   @include poppins();
   @include btn($margin-top: 0px, $margin: initial);
-  background-color: $background-btn;
-  color: #000000;
+  background-color: var(--btn-background);
+  color: var(--btn-text);
   cursor: pointer;
   transition: all 0.55s;
 
@@ -11,4 +14,9 @@
     box-shadow: 0 0 4px 2px $graph;
     transition: all 0.55s;
   }
+  
+  svg {
+    fill: var(--btn-text);
+  }
+
 }

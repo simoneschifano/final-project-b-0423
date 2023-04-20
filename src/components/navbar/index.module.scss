@@ -18,7 +18,10 @@
         display: flex;
         align-items: center;
         span {
-          .icon {
+          height: 20px;
+          width: 20px;
+          svg {
+            fill: var(--text);
             display: block;
             height: 20px;
             width: 20px;
@@ -28,7 +31,7 @@
         &:hover {
           color: $graph;
           transition: all 0.55s;
-          text-shadow: 2px 2px 2px $border-cards;
+          text-shadow: 2px 2px 2px var(--card-border);
           transform: scale(0.9);
         }
       }
