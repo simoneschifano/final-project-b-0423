@@ -29,12 +29,12 @@
       height: 7px;
     }
     &::-webkit-scrollbar-track {
-      background-color: rgba(0, 0, 0, 0.679);
-      box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.679);
+      background-color: var(--scrollbar-bg);
+      box-shadow: 3px 3px 3px var(--scrollbar-bg);
     }
 
     &::-webkit-scrollbar-thumb {
-      background: $first-color;
+      background: var(--text);
       height: 2px;
       border-radius: 50px;
     }

@@ -1,6 +1,6 @@
 .SwictherTheme {
   @include flex($direction: column, $align: center, $justify: space-between);
-  background-color: $first-color;
+  background-color: var(--text);
   height: 80px;
   padding: 3px;
   border-radius: 20px;
@@ -36,7 +36,7 @@
   }
 
   .unactive {
-    background-color: $first-color;
+    background-color: var(--text);
     color: black;
   }
 

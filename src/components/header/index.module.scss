@@ -3,11 +3,11 @@
 
   z-index: 2;
 
-  color: $first-color;
+  color: var(--text);
   height: 100vh;
   position: fixed;
 
-  background-color: $background-pages;
+  background-color: var(--background);
   box-shadow: $box-shadow;
 
   .logo {
@@ -45,7 +45,7 @@
     &:hover {
       color: $graph;
       transition: all 0.55s;
-      text-shadow: 2px 2px 2px $border-cards;
+      text-shadow: 2px 2px 2px var(--card-border);
     }
   }
   .list {
@@ -72,6 +72,7 @@
         font-weight: 500;
         margin-bottom: 2em;
         @include poppins();
+        color: var(--text);
         text-decoration: unset;
 
         @media screen and (min-width: 992px) {
@@ -117,7 +118,7 @@
         &:hover {
           color: $graph;
           transition: all 0.55s;
-          text-shadow: 2px 2px 2px $border-cards;
+          text-shadow: 2px 2px 2px var(--card-border);
           .svg {
             .home,
             .wallet,

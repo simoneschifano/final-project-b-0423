@@ -2,7 +2,20 @@
 @import "../../styles/scss/variables/typography.scss";
 
 .Main{
-    background-color: $background-pages;
+    --background: #{$background-pages};
+    --text: #{$first-color};
+    //CARD
+    --card--background: #{$background-cards-dark};
+    --card--text: #{$first-color};
+    --card-border: #{var(--card-border)-dark};
+    //BTN
+    --btn-text: #{$background-cards-dark};
+    --btn-background: #{$background-btn-light};
+    --btn-border: #{$border-btn-dark};
+    //scrollbar
+    --scrollbar-bg: #{$background-cards-dark};
+    
+    background-color: var(--background);
     min-height: 100vh;
     display: flex;
     align-items: center;

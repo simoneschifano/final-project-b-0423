@@ -5,6 +5,7 @@ import WalletList from "@/components/walletList";
 import styles from "@/styles/pages/wallet.module.scss";
 import { summArrayValues } from "@/utils/func";
 import { useState, useEffect } from "react";
+import Button from "@/components/button";
 
 export default function Wallet() {
   const mode = "dark_mode";
@@ -22,7 +23,11 @@ export default function Wallet() {
   const cakePercentualArray = walletInLocalStorage?.map(
     (item) => (value = item.qty * item.price)
   );
+  const [isSwitcherTheme, setIsSwitcherTheme] = useState(false);
 
+  const onHandleChangeTheme = () => {
+    setIsSwitcherTheme((prev) => !prev);
+  };
   return (
     <>
       <Head>
@@ -32,7 +37,8 @@ export default function Wallet() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={mode}>
-        <Layout>
+        <Layout theme={isSwitcherTheme}>
+          <Button text="THEME" className={styles.btn} func={onHandleChangeTheme} />
           <div className={styles.Content}>
             <h2 className={styles.title}> MY WALLET STATUS</h2>
 

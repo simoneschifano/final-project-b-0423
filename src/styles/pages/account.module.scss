@@ -3,9 +3,9 @@
   .userSettings {
     width: 100%;
     transform: translateY(30px);
-    background-color: $background-cards;
-    border: 1px solid $border-cards;
-    box-shadow: 0 0 6px 1px $border-cards;
+    background-color: var(--card--background);
+    border: 1px solid var(--card-border);
+    box-shadow: 0 0 6px 1px var(--card-border);
     border-radius: 20px;
     @include space-around($top-bot: 10px, $left-right: 10px);
     @include flex($direction: column, $align: center);
@@ -14,7 +14,7 @@
       transform: translateY(-50px);
       border: 1px solid $second-color;
       border-radius: 100px;
-      background-color: $background-cards;
+      background-color: var(--card--background);
       box-shadow: 0 0 6px 1px $second-color;
       object-fit: fill;
       @include size($width: 90px);
@@ -31,19 +31,27 @@
       @include space-around($left-right: 16px);
     }
 
+    .Button {
+      @include flex($align: center);
+      @include poppins();
+      @include btn($margin-top: 40px);
+      background-color: var(--btn-background);
+      color: #000000;
+      transition: all 0.55s;
+    }
+
     .editBtn {
       @include flex($align: center);
       @include poppins();
       @include btn();
       background-color: $second-color;
-      color: $first-color;
+      color: var(--text);
       cursor: pointer;
       transition: all 0.55s;
 
       &:hover {
         color: $second-color;
-        background-color: $background-btn;
-        transition: all 0.55s;
+        background-color: var(--btn-background);
       }
     }
   }
@@ -73,7 +81,7 @@
           word-spacing: 4px;
           font-size: 10px;
           letter-spacing: 2px;
-          color: $first-color;
+          color: var(--text);
           text-align: center;
           margin-bottom: 5px;
           margin-top: 2px;
@@ -101,16 +109,16 @@
         .blackLine {
           margin-top: 5px;
           height: 28px;
-          background-color: $background-cards;
+          background-color: var(--card--background);
         }
         .content {
           padding: 15px 15px 0;
           .cardSecret {
             @include space-around($top-bot: 5px, $left-right: 12px);
-            background-color: $background-btn;
+            background-color: var(--btn-background);
             position: relative;
             .secretNum {
-              color: $background-cards;
+              color: var(--card--background);
               text-align: right;
               @include space-around();
               font-size: 12px;
@@ -129,8 +137,8 @@
       @include size($width: 260px, $height: 150px);
       background: linear-gradient(
         to right bottom,
-        $background-cards,
-        $background-pages,
+        var(--card--background),
+        var(--background),
         #252525,
         #304a31,
         $graph,
@@ -150,7 +158,7 @@
     .cardLabel {
       font-size: 6px;
       text-transform: uppercase;
-      color: $first-color;
+      color: var(--text);
       letter-spacing: 1px;
     }
     .cardInfo {
@@ -158,7 +166,7 @@
       margin-top: 5px;
       font-size: 12px;
       line-height: 18px;
-      color: $first-color;
+      color: var(--text);
       letter-spacing: 1px;
       text-transform: uppercase;
     }
