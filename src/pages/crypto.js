@@ -79,7 +79,11 @@ export default function cryptoId() {
   return (
     <div className={styles.Main}>
       <Layout theme={isSwitcherTheme}>
-        <Button text="THEME" className={styles.btn} func={onHandleChangeTheme} />
+        <Button
+          text="THEME"
+          className={styles.btn}
+          func={onHandleChangeTheme}
+        />
         <div className={styles.header}>
           <div className={styles.row}>
             <div className={styles.col}>
@@ -188,6 +192,7 @@ export default function cryptoId() {
             icon={cryptoInfo.image.large}
             price={cryptoInfo.market_data.current_price.eur}
             id={cryptoInfo.id}
+            setIsGlobalModal={setIsGlobalModal}
           />
         )}
       </Layout>

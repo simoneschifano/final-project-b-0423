@@ -2,7 +2,7 @@ import { AiFillEuroCircle } from "react-icons/ai";
 import styles from "./index.module.scss";
 import { useState } from "react";
 
-const GlobalModal = ({ icon, price, id }) => {
+const GlobalModal = ({ icon, price, id, setIsGlobalModal }) => {
   const [inputValue, setInputValue] = useState("");
 
   const onHandleInput = (e) => setInputValue(e.target.value);
@@ -51,9 +51,11 @@ const GlobalModal = ({ icon, price, id }) => {
 
   const qty = inputValue / price;
 
+  const closeModal = () => setIsGlobalModal(() => false);
+
   return (
     <div className={styles.GlobalModal}>
-      <div className={styles.overlay}></div>
+      <div onClick={closeModal} className={styles.overlay}></div>
       <div className={styles.content}>
         <h3 className={styles.title}>Definisci il tuo acquisto</h3>
         <form className={styles.form} onSubmit={onHandleSubmit}>
