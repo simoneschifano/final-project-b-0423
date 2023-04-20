@@ -9,12 +9,12 @@
 ## Tecnologie utilizzate
 
   <ul>
+    <li>Chart.js</li>
+    <li>CoinGecko API</li>
+    <li>Css modules</li>
     <li>HTML</li>
     <li>Sass</li>
-    <li>Css modules</li>
     <li>Next.js</li>
-    <li>CoinGecko API</li>
-
   </ul>
 <hr>
 
@@ -36,7 +36,7 @@
 
 ## Come avviare l'app!
 
-Per prima cosa installa il pacchetto npm:
+Inizia installando il pacchetto npm:
 
 ```bash
 npm install
