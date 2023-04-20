@@ -6,7 +6,7 @@ import WalletList from "@/components/walletList";
 import { useState, useEffect, useContext } from "react";
 import Button from "@/components/button";
 import { Context } from "@/store";
-import SwitcherTheme from "@/components/switcher-theme";
+import SwitcherTheme from "@/components/switcherTheme";
 
 export default function Home() {
   const [sectionCrypto, setSectionCrypto] = useState(true);
