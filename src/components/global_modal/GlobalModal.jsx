@@ -52,11 +52,13 @@ const GlobalModal = ({ icon, price, id, setIsGlobalModal }) => {
 
   const qty = inputValue / price;
 
-  const closeModal = () => setIsGlobalModal(() => false);
+  const onHandleCloseModal = () => {
+    setIsGlobalModal((prev) => !prev);
+  };
 
   return (
     <div className={styles.GlobalModal}>
-      <div onClick={closeModal} className={styles.overlay}></div>
+      <div className={styles.overlay} onClick={onHandleCloseModal}></div>
       <div className={styles.content}>
         <h3 className={styles.title}>Definisci il tuo acquisto</h3>
         <form className={styles.form} onSubmit={onHandleSubmit}>
