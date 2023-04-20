@@ -2,7 +2,8 @@ import Head from "next/head";
 import Layout from "@/components/layout";
 import styles from "@/styles/pages/Home.module.scss";
 import CardsList from "@/components/cards_list";
-import { useState, useContext } from "react";
+import WalletList from "@/components/walletList";
+import { useState, useEffect, useContext } from "react";
 import Button from "@/components/button";
 import { Context } from "@/store";
 
@@ -11,7 +12,7 @@ export default function Home() {
   const [sectionCrypto, setSectionCrypto] = useState(true);
   const [sectionWallet, setSectionWallet] = useState(false);
   const [sectionWatchlist, setSectionWatchlist] = useState(false);
-
+  const [wallet, setWallet] = useState();
   const onHandleCrypto = () => setSectionCrypto((prev) => !prev);
   const onHandleWallet = () => setSectionWallet((prev) => !prev);
   const onHandleWatchlist = () => setSectionWatchlist((prev) => !prev);
@@ -20,9 +21,13 @@ export default function Home() {
 
   const allCryptoData = state.cryptoListData.slice(0, 10);
 
-  const [wallet, setWallet] = useState(
-    typeof window !== "undefined" ? localStorage.getItem("walletHome") : null
-  );
+  useEffect(() => {
+    setWallet(
+      typeof window !== "undefined"
+        ? JSON.parse(localStorage.getItem("wallet"))
+        : []
+    );
+  }, []);
 
   const [watchlist, setWatchlist] = useState(
     typeof window !== "undefined" ? localStorage.getItem("watchlistHome") : null
@@ -84,7 +89,7 @@ export default function Home() {
                 }`}
               >
                 {wallet ? (
-                  <CardsList data={wallet} inHomeActive={true} />
+                  <WalletList data={wallet} inHomeActive={true} />
                 ) : (
                   <h2>You don't have any elements in your wallet.</h2>
                 )}
