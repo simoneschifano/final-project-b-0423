@@ -38,7 +38,11 @@ export default function Wallet() {
       </Head>
       <main className={mode}>
         <Layout theme={isSwitcherTheme}>
-          <Button text="THEME" className={styles.btn} func={onHandleChangeTheme} />
+          <Button
+            text="THEME"
+            className={styles.btn}
+            func={onHandleChangeTheme}
+          />
           <div className={styles.Content}>
             <h2 className={styles.title}> MY WALLET STATUS</h2>
 

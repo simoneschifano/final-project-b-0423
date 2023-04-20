@@ -47,6 +47,7 @@ const GlobalModal = ({ icon, price, id, setIsGlobalModal }) => {
         ])
       );
     }
+    closeModal();
   };
 
   const qty = inputValue / price;
