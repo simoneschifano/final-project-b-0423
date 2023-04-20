@@ -5,12 +5,20 @@
     @include flex($justify: space-between, $align: baseline, $gap: 10px);
 
     .row {
-      @include flex($direction: column, $align: flex-start);
+      @include flex($direction: row, $align: flex-start);
       width: 100%;
       .col {
         width: 100%;
         @include flex($gap: 10px);
         padding-bottom: 2em;
+        align-self: flex-end;
+
+        .btn {
+          width: 100%;
+          @include flex($gap: 10px);
+          padding-bottom: 2em;
+          align-self: flex-end;
+        }
         .image {
           width: 30px;
         }
@@ -57,6 +65,7 @@
   }
 
   .chartArea {
+    height: 40vh;
     background-color: $background-cards;
     box-shadow: 0px 0px 5px $border-cards;
     border-radius: 10px;
@@ -118,5 +127,12 @@
         text-transform: lowercase;
       }
     }
+  }
+  .description {
+    padding: 10px;
+    padding-top: 30px;
+    font-size: 0.8rem;
+    text-transform: none;
+    overflow-y: scroll;
   }
 }

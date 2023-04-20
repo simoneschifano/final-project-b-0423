@@ -28,7 +28,7 @@ export default function aboutUs() {
             <div className={styles.aboutCard}>
               <div className={styles.myImage}>
                 <Image
-                  src="/../public/aboutusPhoto/SalvoBisconti.png"
+                  src="/../public/aboutusPhoto/Salvo_Bisconti.png"
                   alt="myImage"
                   width={100}
                   height={100}
