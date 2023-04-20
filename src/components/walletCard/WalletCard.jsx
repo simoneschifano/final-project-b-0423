@@ -10,9 +10,9 @@ const WalletCard = (props) => {
     <div className={styles.WalletCard}>
       <div className={styles.info}>
         <div className={styles.coin}>
-          <img className={styles.image} src={coins.image} alt={coins.id} />
-          <h1 className={styles.symbol}>
-            {coins.symbol ? coins.symbol.toUpperCase() : null}
+          <img className={styles.image} src={coins.icon} alt={coins.id} />
+          <h1 className={styles.id}>
+            {coins.id ? coins.id.toUpperCase() : null}
           </h1>
         </div>
         <div className={styles.qty}>
