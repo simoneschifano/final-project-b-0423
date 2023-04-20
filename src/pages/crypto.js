@@ -1,6 +1,7 @@
 import Layout from "@/components/layout";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
+import { Context } from "@/store";
 import { GET } from "@/utils/http";
 import ChartEl from "@/components/chartEl";
 import styles from "@/styles/pages/crypto.module.scss";
@@ -9,7 +10,7 @@ import GlobalModal from "@/components/global_modal";
 import React from "react";
 
 import { MdStars } from "react-icons/md";
-import SwitcherTheme from "@/components/switcherTheme";
+
 
 export default function cryptoId() {
   const router = useRouter();
@@ -74,14 +75,11 @@ export default function cryptoId() {
     }
   };
 
-  const [isSwitcherTheme, setIsSwitcherTheme] = useState(true);
-  const [isLightActive, setLightActive] = useState(true);
-  const onHandleChangeTheme = () => {
-    setIsSwitcherTheme((prev) => !prev);
-  };
+  const { state, dispatch } = useContext(Context);
+
   return (
-    <div className={styles.Main}>
-      <Layout theme={isSwitcherTheme}>
+    <main className={styles.Main}>
+      <Layout theme={state.modeData}>
         <div className={styles.header}>
           <div className={styles.row}>
             <div className={styles.col}>
@@ -193,8 +191,7 @@ export default function cryptoId() {
             id={cryptoInfo.id}
           />
         )}
-        <SwitcherTheme status={isLightActive} func={onHandleChangeTheme} />
       </Layout>
-    </div>
+    </main>
   );
 }
