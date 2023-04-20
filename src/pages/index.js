@@ -21,13 +21,21 @@ export default function Home() {
   const allCryptoData = state.cryptoListData.slice(0, 10);
 
   const [wallet, setWallet] = useState(
-    typeof window !== "undefined" ? localStorage.getItem("walletHome") : null
+    typeof window !== "undefined" ? localStorage.getItem("wallet") : null
   );
 
   const [watchlist, setWatchlist] = useState(
-    typeof window !== "undefined" ? localStorage.getItem("watchlistHome") : null
+    typeof window !== "undefined" ? localStorage.getItem("watchlist") : null
   );
-
+  const allCrypto = state.cryptoListData.slice(0, 100);
+  let walletHome = [];
+  if (wallet) {
+    walletHome = allCrypto.filter((crypto) => wallet.includes(crypto.id));
+  };
+  let watchlistHome = [];
+  if (watchlist) {
+    watchlistHome = allCrypto.filter((crypto) => watchlist.includes(crypto.id));
+  };
   return (
     <>
       <Head>
@@ -84,7 +92,7 @@ export default function Home() {
                 }`}
               >
                 {wallet ? (
-                  <CardsList data={wallet} inHomeActive={true} />
+                  <CardsList data={walletHome} inHomeActive={true} />
                 ) : (
                   <h2>You don't have any elements in your wallet.</h2>
                 )}
@@ -114,7 +122,7 @@ export default function Home() {
                 }`}
               >
                 {watchlist ? (
-                  <CardsList data={watchlist} inHomeActive={true} />
+                  <CardsList data={watchlistHome} inHomeActive={true} />
                 ) : (
                   <h2>You don't have any elements in your watchlist.</h2>
                 )}

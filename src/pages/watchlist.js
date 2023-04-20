@@ -22,7 +22,7 @@ export default function watchlist() {
   }, []);
 
   let stars = [];
-  if (coin.length > 0) {
+  if (coin) {
     stars = allCrypto.filter((crypto) => coin.includes(crypto.id));
   }
 
