@@ -32,6 +32,8 @@ export default function cryptoId() {
       : []
   );
 
+  const [starStatus, setStarStatus] = useState(false);
+
   React.useEffect(() => {
     if (router.isReady) {
       GET(`${name}/market_chart?vs_currency=eur&days=7&interval=daily`).then(
@@ -57,6 +59,7 @@ export default function cryptoId() {
             JSON.stringify([...watchlist.filter((item) => item !== name)])
           );
           setWatchlist((prev) => [...prev.filter((item) => item !== name)]);
+          setStarStatus(() => false);
         } else {
           alert("Crypto aggiunta alla watchlist con successo!");
           localStorage.setItem(
@@ -64,6 +67,7 @@ export default function cryptoId() {
             JSON.stringify([...watchlist, name])
           );
           setWatchlist((prev) => [...prev, name]);
+          setStarStatus(() => true);
         }
       }
     }
@@ -82,7 +86,12 @@ export default function cryptoId() {
                 alt={cryptoInfo.name}
               />
               <h2>{name}</h2>
-              <MdStars onClick={onHandleStar} className={styles.star} />
+              <MdStars
+                onClick={onHandleStar}
+                className={`${styles.star} ${
+                  starStatus === true && styles.starActive
+                }`}
+              />
             </div>
             <div className={styles.btn}>
               <Button

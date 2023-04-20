@@ -10,7 +10,9 @@ export default function watchlist() {
 
   const [coin, setCoin] = useState(
     typeof window !== "undefined"
-      ? JSON.parse(localStorage.getItem("watchlist"))
+      ? localStorage.getItem("watchlist")
+        ? JSON.parse(localStorage.getItem("watchlist"))
+        : []
       : []
   );
   useEffect(() => {

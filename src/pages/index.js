@@ -19,7 +19,16 @@ export default function Home() {
 
   const { state, dispatch } = useContext(Context);
 
-  const allCryptoData = state.cryptoListData.slice(0, 10);
+  const allCryptoData = state.cryptoListData;
+
+  if (typeof window !== "undefined") {
+    localStorage.getItem("watchlist")
+      ? null
+      : localStorage.setItem("watchlist", "[]");
+    localStorage.getItem("walletHome")
+      ? null
+      : localStorage.setItem("walletHome", "[]");
+  }
 
   useEffect(() => {
     setWallet(
@@ -30,7 +39,8 @@ export default function Home() {
   }, []);
 
   const [watchlist, setWatchlist] = useState(
-    typeof window !== "undefined" ? localStorage.getItem("watchlistHome") : null
+    typeof window !== "undefined" &&
+      JSON.parse(localStorage.getItem("watchlist"))
   );
 
   return (
@@ -62,7 +72,10 @@ export default function Home() {
                   sectionCrypto && styles.sectionContActive
                 }`}
               >
-                <CardsList data={allCryptoData} inHomeActive={true} />
+                <CardsList
+                  data={allCryptoData.slice(0, 10)}
+                  inHomeActive={true}
+                />
               </div>
               <div className={styles.sectionButton}>
                 <a href="../allCrypto">
@@ -118,8 +131,13 @@ export default function Home() {
                   sectionWatchlist && styles.sectionContActive
                 }`}
               >
-                {watchlist ? (
-                  <CardsList data={watchlist} inHomeActive={true} />
+                {watchlist.length > 0 ? (
+                  <CardsList
+                    data={allCryptoData.filter((crypto) =>
+                      watchlist.includes(crypto.id)
+                    )}
+                    inHomeActive={true}
+                  />
                 ) : (
                   <h2>You don't have any elements in your watchlist.</h2>
                 )}
