@@ -2,7 +2,7 @@ import styles from "./index.module.scss";
 
 import Navbar from "../navbar";
 import Header from "../header";
-import { useState } from "react";
+
 
 const Layout = ({ children, theme }) => {
   
