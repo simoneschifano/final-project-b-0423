@@ -80,8 +80,6 @@ const Header = (theme, status, func) => {
           </a>
         </li>
       </ul>
-      
-      <SwitcherTheme status={status} func={func} theme={theme} />
     </div>
   );
 };

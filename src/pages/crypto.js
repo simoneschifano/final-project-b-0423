@@ -9,6 +9,7 @@ import GlobalModal from "@/components/global_modal";
 import React from "react";
 
 import { MdStars } from "react-icons/md";
+import SwitcherTheme from "@/components/switcher-theme";
 
 export default function cryptoId() {
   const router = useRouter();
@@ -46,8 +47,7 @@ export default function cryptoId() {
   const onHandleOpenModal = () => {
     setIsGlobalModal((prev) => !prev);
   };
-  const [isSwitcherTheme, setIsSwitcherTheme] = useState(false);
-
+  
   console.log(cryptoInfo);
 
   const onHandleStar = () => {
@@ -73,13 +73,16 @@ export default function cryptoId() {
       }
     }
   };
+  
+  const [isSwitcherTheme, setIsSwitcherTheme] = useState(false);
+  const [isLightActive, setLightActive] = useState(false);
   const onHandleChangeTheme = () => {
     setIsSwitcherTheme((prev) => !prev);
   };
   return (
     <div className={styles.Main}>
       <Layout theme={isSwitcherTheme}>
-        <Button text="THEME" className={styles.btn} func={onHandleChangeTheme} />
+        <SwitcherTheme status={isLightActive} func={onHandleChangeTheme} />
         <div className={styles.header}>
           <div className={styles.row}>
             <div className={styles.col}>

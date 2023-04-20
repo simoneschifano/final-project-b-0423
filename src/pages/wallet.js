@@ -6,6 +6,7 @@ import styles from "@/styles/pages/wallet.module.scss";
 import { summArrayValues } from "@/utils/func";
 import { useState, useEffect } from "react";
 import Button from "@/components/button";
+import SwitcherTheme from "@/components/switcher-theme";
 
 export default function Wallet() {
   const mode = "dark_mode";
@@ -24,7 +25,7 @@ export default function Wallet() {
     (item) => (value = item.qty * item.price)
   );
   const [isSwitcherTheme, setIsSwitcherTheme] = useState(false);
-
+  const [isLightActive, setLightActive] = useState(false);
   const onHandleChangeTheme = () => {
     setIsSwitcherTheme((prev) => !prev);
   };
@@ -38,7 +39,7 @@ export default function Wallet() {
       </Head>
       <main className={mode}>
         <Layout theme={isSwitcherTheme}>
-          <Button text="THEME" className={styles.btn} func={onHandleChangeTheme} />
+          <SwitcherTheme status={isLightActive} func={onHandleChangeTheme} />
           <div className={styles.Content}>
             <h2 className={styles.title}> MY WALLET STATUS</h2>
 

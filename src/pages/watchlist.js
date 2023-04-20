@@ -4,10 +4,11 @@ import { useEffect, useState } from "react";
 import CardsList from "@/components/cards_list";
 import styles from "../styles/pages/watchlist.module.scss";
 import Button from "@/components/button";
+import SwitcherTheme from "@/components/switcher-theme";
 
 export default function watchlist() {
   const [isSwitcherTheme, setIsSwitcherTheme] = useState(false);
-
+  const [isLightActive, setLightActive] = useState(false);
   const onHandleChangeTheme = () => {
     setIsSwitcherTheme((prev) => !prev);
   };
@@ -45,7 +46,7 @@ export default function watchlist() {
       </Head>
       <main>
         <Layout theme={isSwitcherTheme}>
-          <Button text="THEME" className={styles.btn} func={onHandleChangeTheme} />
+          <SwitcherTheme status={isLightActive} func={onHandleChangeTheme} />
           <h2> watchlist </h2>
           <div className={styles.watchlist}>
             {stars.length > 0 ? (

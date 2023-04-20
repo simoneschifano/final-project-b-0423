@@ -7,6 +7,7 @@ import BtnFilter from "@/components/btnFilter";
 import styles from "../styles/pages/allCrypto.module.scss";import Button from "@/components/button";
 
 import { Context } from "@/store";
+import SwitcherTheme from "@/components/switcher-theme";
 
 export default function allCrypto() {
   const { state, dispatch } = useContext(Context);
@@ -14,8 +15,9 @@ export default function allCrypto() {
 
   const [loading, setLoading] = useState(false);
   const [filter, setFilter] = useState(false);
-  const [isSwitcherTheme, setIsSwitcherTheme] = useState(false);
   
+  const [isSwitcherTheme, setIsSwitcherTheme] = useState(false);
+  const [isLightActive, setLightActive] = useState(false);
 
   const onHandleChangeTheme = () => {
     setIsSwitcherTheme((prev) => !prev);
@@ -32,7 +34,7 @@ export default function allCrypto() {
         <Layout theme={isSwitcherTheme}>
           <div className={styles.allCryptoHead}>
             <h2> all Crypto </h2>
-            <Button text="THEME" className={styles.btn} func={onHandleChangeTheme} />  
+            <SwitcherTheme status={isLightActive} func={onHandleChangeTheme} />
             <div className={styles.container}>
               <BtnFilter value="Sorting by Rank " setFilter={setFilter} />
             </div>

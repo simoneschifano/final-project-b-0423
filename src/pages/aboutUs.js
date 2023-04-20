@@ -4,9 +4,12 @@ import Image from "next/image";
 import styles from "../styles/pages/aboutUs.module.scss";
 import { useState } from "react";
 import Button from "@/components/button";
+import SwitcherTheme from "@/components/switcher-theme";
 
 export default function aboutUs() {
+  
   const [isSwitcherTheme, setIsSwitcherTheme] = useState(false);
+  const [isLightActive, setLightActive] = useState(false);
 
   const onHandleChangeTheme = () => {
     setIsSwitcherTheme((prev) => !prev);
@@ -22,7 +25,7 @@ export default function aboutUs() {
       </Head>
       <main className={styles.Main}>
         <Layout theme={isSwitcherTheme}>
-          <Button text="THEME" className={styles.btn} func={onHandleChangeTheme} />
+          <SwitcherTheme status={isLightActive} func={onHandleChangeTheme} />
           <h1>About us</h1>
           <div className={styles.content}>
             <div className={styles.aboutCard}>
