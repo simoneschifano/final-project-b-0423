@@ -1,11 +1,10 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { Context } from "@/store";
 import Head from "next/head";
 import Layout from "@/components/layout";
 import { mockUser } from "./api/mockUser";
 import { FcSimCardChip } from "react-icons/fc";
 import styles from "../styles/pages/account.module.scss";
-import Button from "@/components/button";
-import SwitcherTheme from "@/components/switcherTheme";
 
 export default function account() {
   const {
@@ -19,12 +18,8 @@ export default function account() {
     surname,
   } = mockUser;
 
-  const [isSwitcherTheme, setIsSwitcherTheme] = useState(true);
-  const [isLightActive, setLightActive] = useState(true);
+  const { state, dispatch } = useContext(Context);
 
-  const onHandleChangeTheme = () => {
-    setIsSwitcherTheme((prev) => !prev);
-  };
   return (
     <>
       <Head>
@@ -34,7 +29,7 @@ export default function account() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.Main}>
-        <Layout theme={isSwitcherTheme}>
+        <Layout theme={state.modeData}>
           <h2>Hi, {username}!</h2>
           <div className={styles.settingList}>
             <div className={styles.userSettings}>
@@ -113,7 +108,6 @@ export default function account() {
               {/* end card */}
             </div>
           </div>
-          <SwitcherTheme status={isLightActive} func={onHandleChangeTheme} />
         </Layout>
       </main>
     </>

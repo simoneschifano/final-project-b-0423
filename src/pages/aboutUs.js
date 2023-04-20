@@ -2,17 +2,11 @@ import Head from "next/head";
 import Layout from "@/components/layout";
 import Image from "next/image";
 import styles from "../styles/pages/aboutUs.module.scss";
-import { useState } from "react";
-import Button from "@/components/button";
-import SwitcherTheme from "@/components/switcherTheme";
+import { useContext } from "react";
+import { Context } from "@/store";
 
 export default function aboutUs() {
-  const [isSwitcherTheme, setIsSwitcherTheme] = useState(true);
-  const [isLightActive, setLightActive] = useState(true);
-
-  const onHandleChangeTheme = () => {
-    setIsSwitcherTheme((prev) => !prev);
-  };
+  const { state, dispatch } = useContext(Context);
 
   return (
     <>
@@ -23,7 +17,7 @@ export default function aboutUs() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.Main}>
-        <Layout theme={isSwitcherTheme}>
+        <Layout theme={state.modeData}>
           <h1>About us</h1>
           <div className={styles.content}>
             <div className={styles.aboutCard}>
@@ -196,7 +190,6 @@ export default function aboutUs() {
               </div>
             </div>
           </div>
-          <SwitcherTheme status={isLightActive} func={onHandleChangeTheme} />
         </Layout>
       </main>
     </>
