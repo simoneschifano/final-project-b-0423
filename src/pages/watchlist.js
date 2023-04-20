@@ -3,6 +3,7 @@ import Layout from "@/components/layout";
 import { useEffect, useState } from "react";
 import CardsList from "@/components/cards_list";
 import styles from "../styles/pages/watchlist.module.scss";
+import Button from "@/components/button";
 
 export default function watchlist() {
   const [isSwitcherTheme, setIsSwitcherTheme] = useState(false);
