@@ -15,7 +15,6 @@
     <li>Next.js</li>
     <li>CoinGecko API</li>
 
- 
   </ul>
 <hr>
 
@@ -26,8 +25,9 @@
 È infatti possibile:
 <ul>
 <li> Aggiungere una crypto in una whatchlist; </li>
-<li>Visualizzare i dettagli di ogni singola crypto;</li>
-<li>Comprare / vendere una crypto;</li>
+<li> Visualizzare i dettagli di ogni singola crypto ;</li>
+<li> Grafico andamento settimanale di ogni crypto ;</li>
+<li>Comprare una crypto;</li>
 <li>Visualizzare l'allocazione delle crypto in portafoglio (tramite apposito grafico); </li>
 <li>Possibilità di cambiamento del tema dell'app (giorno / notte); </li>
 <li>Possibilità di cambiamento della valuta corrente (eur / usd/ cad / ...); </li>

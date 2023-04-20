@@ -136,7 +136,7 @@ export default function cryptoId() {
                 <div className={styles.HLprice}>
                   <h6>
                     Lowest:
-                    {cryptoInfo?.market_data?.current_price?.low_24h?.eur}€
+                    {cryptoInfo?.market_data?.low_24h?.eur}€
                   </h6>
                   <h6>
                     Hightest:
