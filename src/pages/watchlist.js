@@ -5,6 +5,7 @@ import CardsList from "@/components/cards_list";
 import styles from "../styles/pages/watchlist.module.scss";
 import Button from "@/components/button";
 import SwitcherTheme from "@/components/switcherTheme";
+import { Context } from "@/store";
 
 export default function watchlist() {
   const [isSwitcherTheme, setIsSwitcherTheme] = useState(true);
