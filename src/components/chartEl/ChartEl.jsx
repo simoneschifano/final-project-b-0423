@@ -32,7 +32,6 @@ const ChartEl = ({ prices }) => {
     labels: coinChartData.map((value) => moment(value.x).format("MMM DD")),
     datasets: [
       {
-        label: "Dataset 1",
         data: coinChartData.map((val) => val.y),
         borderColor: `${
           prices[0] > prices[7] ? "rgb(255, 0, 0)" : "rgb(134, 218, 8)"
@@ -42,6 +41,7 @@ const ChartEl = ({ prices }) => {
       },
     ],
   };
+  // console.log(coinChartData[0]);
 
   const options = {
     maintainAspectRatio: false,
@@ -49,18 +49,6 @@ const ChartEl = ({ prices }) => {
     plugins: {
       legend: {
         display: false,
-      },
-    },
-    scales: {
-      x: {
-        grid: {
-          display: false,
-        },
-      },
-      y: {
-        grid: {
-          display: false,
-        },
       },
     },
   };

@@ -2,14 +2,23 @@ import Head from "next/head";
 import Layout from "@/components/layout";
 import { useEffect, useState } from "react";
 import CardsList from "@/components/cards_list";
+import styles from "../styles/pages/watchlist.module.scss";
+import Button from "@/components/button";
 
 export default function watchlist() {
-  const mode = "dark_mode";
+  const [isSwitcherTheme, setIsSwitcherTheme] = useState(false);
+
+  const onHandleChangeTheme = () => {
+    setIsSwitcherTheme((prev) => !prev);
+  };
+
   const [allCrypto, setAllCrypto] = useState([]);
 
   const [coin, setCoin] = useState(
     typeof window !== "undefined"
-      ? JSON.parse(localStorage.getItem("watchlist"))
+      ? localStorage.getItem("watchlist")
+        ? JSON.parse(localStorage.getItem("watchlist"))
+        : []
       : []
   );
   useEffect(() => {
@@ -22,15 +31,9 @@ export default function watchlist() {
   }, []);
 
   let stars = [];
-  if (coin.length > 0) {
+  if (coin) {
     stars = allCrypto.filter((crypto) => coin.includes(crypto.id));
   }
-
-  useEffect(() => {
-    if (typeof windo !== "undefined") {
-      localStorage.setItem("watchlistHome", [...stars]);
-    }
-  }, [stars]);
 
   return (
     <>
@@ -40,11 +43,16 @@ export default function watchlist() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={mode}>
-        <Layout>
+      <main>
+        <Layout theme={isSwitcherTheme}>
+          <Button text="THEME" className={styles.btn} func={onHandleChangeTheme} />
           <h2> watchlist </h2>
-          <div>
-            <CardsList data={stars} />
+          <div className={styles.watchlist}>
+            {stars.length > 0 ? (
+              <CardsList data={stars} />
+            ) : (
+              <h5>Add an element in your watchlist, it will be showed here.</h5>
+            )}
           </div>
         </Layout>
       </main>

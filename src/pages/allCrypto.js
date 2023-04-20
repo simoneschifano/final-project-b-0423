@@ -4,19 +4,22 @@ import CardsList from "@/components/cards_list";
 import Layout from "@/components/layout";
 import Loading from "@/components/loading";
 import BtnFilter from "@/components/btnFilter";
-import styles from "../styles/pages/allCrypto.module.scss";
+import styles from "../styles/pages/allCrypto.module.scss";import Button from "@/components/button";
 
 import { Context } from "@/store";
 
 export default function allCrypto() {
   const { state, dispatch } = useContext(Context);
 
-  const mode = "dark_mode";
-  //manca l'altro useState e il setInterval per il caricamento
-  // const [allCrypto, setAllCrypto] = useState(state.cryptoListData);
+
   const [loading, setLoading] = useState(false);
   const [filter, setFilter] = useState(false);
+  const [isSwitcherTheme, setIsSwitcherTheme] = useState(false);
+  
 
+  const onHandleChangeTheme = () => {
+    setIsSwitcherTheme((prev) => !prev);
+  };
   return (
     <>
       <Head>
@@ -25,10 +28,11 @@ export default function allCrypto() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={mode}>
-        <Layout>
+      <main>
+        <Layout theme={isSwitcherTheme}>
           <div className={styles.allCryptoHead}>
             <h2> all Crypto </h2>
+            <Button text="THEME" className={styles.btn} func={onHandleChangeTheme} />  
             <div className={styles.container}>
               <BtnFilter value="Sorting by Rank " setFilter={setFilter} />
             </div>

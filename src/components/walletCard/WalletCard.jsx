@@ -16,7 +16,7 @@ const WalletCard = (props) => {
           </h1>
         </div>
         <div className={styles.qty}>
-          <h3> Quantity: 2</h3>
+          <h3> Quantity: {coins.qty}</h3>
         </div>
       </div>
       {/* <h3> Quantity: {coins.qty.toFixed(4)}</h3> */}

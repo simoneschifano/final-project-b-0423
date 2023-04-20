@@ -1,7 +1,5 @@
 import { AiFillEuroCircle } from "react-icons/ai";
-
 import styles from "./index.module.scss";
-
 import { useState } from "react";
 
 const GlobalModal = ({ icon, price, id, setIsGlobalModal }) => {
@@ -26,6 +24,8 @@ const GlobalModal = ({ icon, price, id, setIsGlobalModal }) => {
       const updatedQty = {
         id: id,
         qty: qty + prevQty.qty,
+        price: price,
+        icon: icon,
       };
 
       const finalAddWallet = walletInLocalStorage.filter(
@@ -41,9 +41,13 @@ const GlobalModal = ({ icon, price, id, setIsGlobalModal }) => {
     } else {
       localStorage.setItem(
         "wallet",
-        JSON.stringify([...walletInLocalStorage, { id: id, qty: qty }])
+        JSON.stringify([
+          ...walletInLocalStorage,
+          { id: id, qty: qty, price: price, icon: icon },
+        ])
       );
     }
+    closeModal();
   };
 
   const qty = inputValue / price;

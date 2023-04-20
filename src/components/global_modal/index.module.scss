@@ -1,7 +1,6 @@
 .GlobalModal {
   @include flex($justify: center, $align: center);
   position: fixed;
-  z-index: 1;
   top: 0;
   left: 0;
   @include size(100%);
@@ -12,18 +11,20 @@
     left: 0;
     @include size(100%);
     background-color: rgba(0, 0, 0, 0.8);
+    z-index: 2;
   }
   .content {
     @include size(90%, auto);
     text-align: center;
     position: fixed;
     border-radius: 20px;
-    background-color: $background-btn;
+    background-color: var(--btn-background);
     color: $second-color;
     box-shadow: 0px 0px 15px 2px $graph;
     padding: 20px 40px 40px;
     margin-left: 30%;
     max-width: calc(800px - 30%);
+    z-index: 3;
 
     @media screen and (max-width: 900px) {
       max-width: calc(600px - 30%);
@@ -45,12 +46,12 @@
     .form {
       @include flex(column, center, center, 20px, nowrap);
       .input {
-        background-color: $background-btn;
+        background-color: var(--btn-background);
         @include size(100%, 30px);
         border: 0;
-        border-bottom: 1px solid $border-btn;
+        border-bottom: 1px solid var(--btn-border);
         outline: none;
-        color: $background-cards;
+        color: var(--card--background);
         @include space-around(0, 0, 6px);
         cursor: pointer;
       }
@@ -74,12 +75,12 @@
         @include btn($margin-top: 40px);
         border: none;
         color: $graph;
-        background-color: $first-color;
+        background-color: var(--text);
 
         cursor: pointer;
         &:hover {
           background-color: $graph;
-          color: $first-color;
+          color: var(--text);
         }
       }
     }
