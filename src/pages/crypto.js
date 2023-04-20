@@ -74,15 +74,15 @@ export default function cryptoId() {
     }
   };
   
-  const [isSwitcherTheme, setIsSwitcherTheme] = useState(false);
-  const [isLightActive, setLightActive] = useState(false);
+  const [isSwitcherTheme, setIsSwitcherTheme] = useState(true);
+  const [isLightActive, setLightActive] = useState(true);
   const onHandleChangeTheme = () => {
     setIsSwitcherTheme((prev) => !prev);
   };
   return (
     <div className={styles.Main}>
       <Layout theme={isSwitcherTheme}>
-        <SwitcherTheme status={isLightActive} func={onHandleChangeTheme} />
+        
         <div className={styles.header}>
           <div className={styles.row}>
             <div className={styles.col}>
@@ -193,6 +193,7 @@ export default function cryptoId() {
             id={cryptoInfo.id}
           />
         )}
+        <SwitcherTheme status={isLightActive} func={onHandleChangeTheme} />
       </Layout>
     </div>
   );

@@ -16,8 +16,8 @@ export default function allCrypto() {
   const [loading, setLoading] = useState(false);
   const [filter, setFilter] = useState(false);
   
-  const [isSwitcherTheme, setIsSwitcherTheme] = useState(false);
-  const [isLightActive, setLightActive] = useState(false);
+  const [isSwitcherTheme, setIsSwitcherTheme] = useState(true);
+  const [isLightActive, setLightActive] = useState(true);
 
   const onHandleChangeTheme = () => {
     setIsSwitcherTheme((prev) => !prev);
@@ -34,7 +34,7 @@ export default function allCrypto() {
         <Layout theme={isSwitcherTheme}>
           <div className={styles.allCryptoHead}>
             <h2> all Crypto </h2>
-            <SwitcherTheme status={isLightActive} func={onHandleChangeTheme} />
+            
             <div className={styles.container}>
               <BtnFilter value="Sorting by Rank " setFilter={setFilter} />
             </div>
@@ -62,6 +62,7 @@ export default function allCrypto() {
               />
             )}
           </div>
+          <SwitcherTheme status={isLightActive} func={onHandleChangeTheme} />
         </Layout>
       </main>
     </>

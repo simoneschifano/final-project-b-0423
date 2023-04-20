@@ -8,13 +8,14 @@ import SwitcherTheme from "@/components/switcher-theme";
 
 export default function aboutUs() {
   
-  const [isSwitcherTheme, setIsSwitcherTheme] = useState(false);
-  const [isLightActive, setLightActive] = useState(false);
-
+  const [isSwitcherTheme, setIsSwitcherTheme] = useState(true);
+  const [isLightActive, setLightActive] = useState(true);
+  
   const onHandleChangeTheme = () => {
     setIsSwitcherTheme((prev) => !prev);
   };
 
+  
   return (
     <>
       <Head>
@@ -25,7 +26,7 @@ export default function aboutUs() {
       </Head>
       <main className={styles.Main}>
         <Layout theme={isSwitcherTheme}>
-          <SwitcherTheme status={isLightActive} func={onHandleChangeTheme} />
+          
           <h1>About us</h1>
           <div className={styles.content}>
             <div className={styles.aboutCard}>
@@ -198,6 +199,7 @@ export default function aboutUs() {
               </div>
             </div>
           </div>
+          <SwitcherTheme status={isLightActive} func={onHandleChangeTheme} />
         </Layout>
       </main>
     </>

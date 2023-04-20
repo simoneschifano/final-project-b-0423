@@ -6,8 +6,8 @@ import { AiFillHome } from "react-icons/ai";
 import styles from "./index.module.scss";
 import SwitcherTheme from "../switcher-theme";
 
-const Header = (theme, status, func) => {
-  console.log(theme, status, func)
+const Header = () => {
+  
   return (
     <div className={styles.Header}>
       <a className={styles.logo} href="/">

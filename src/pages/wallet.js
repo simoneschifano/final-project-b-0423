@@ -24,8 +24,8 @@ export default function Wallet() {
   const cakePercentualArray = walletInLocalStorage?.map(
     (item) => (value = item.qty * item.price)
   );
-  const [isSwitcherTheme, setIsSwitcherTheme] = useState(false);
-  const [isLightActive, setLightActive] = useState(false);
+  const [isSwitcherTheme, setIsSwitcherTheme] = useState(true);
+  const [isLightActive, setLightActive] = useState(true);
   const onHandleChangeTheme = () => {
     setIsSwitcherTheme((prev) => !prev);
   };
@@ -39,7 +39,6 @@ export default function Wallet() {
       </Head>
       <main className={mode}>
         <Layout theme={isSwitcherTheme}>
-          <SwitcherTheme status={isLightActive} func={onHandleChangeTheme} />
           <div className={styles.Content}>
             <h2 className={styles.title}> MY WALLET STATUS</h2>
 
@@ -64,6 +63,7 @@ export default function Wallet() {
               <h5>Buy a crypto, it will be showed here</h5>
             )}
           </div>
+          <SwitcherTheme status={isLightActive} func={onHandleChangeTheme} />
         </Layout>
       </main>
     </>

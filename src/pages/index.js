@@ -48,11 +48,12 @@ export default function Home() {
     }
 
     //SWITCHER
-    const [isSwitcherTheme, setIsSwitcherTheme] = useState(false);
-    const [isLightActive, setLightActive] = useState(false);
+    const [isSwitcherTheme, setIsSwitcherTheme] = useState(true);
+    const [isLightActive, setLightActive] = useState(true);
     const onHandleChangeTheme = () => {
       setIsSwitcherTheme((prev) => !prev);
-    };
+  };
+  console.log()
   return (
     <>
       <Head>
@@ -63,7 +64,6 @@ export default function Home() {
       </Head>
       <main className={styles.Main}>
         <Layout theme={isSwitcherTheme}>
-          <SwitcherTheme status={isLightActive} func={onHandleChangeTheme} />
           <div className={styles.container}>
             <div
               className={`${styles.section} ${
@@ -157,6 +157,7 @@ export default function Home() {
               </div>
             </div>
           </div>
+          <SwitcherTheme status={isLightActive} func={onHandleChangeTheme} />
         </Layout>
       </main>
     </>

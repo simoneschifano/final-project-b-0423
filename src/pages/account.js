@@ -20,8 +20,8 @@ export default function account() {
     surname,
   } = mockUser;
   
-  const [isSwitcherTheme, setIsSwitcherTheme] = useState(false);
-  const [isLightActive, setLightActive] = useState(false);
+  const [isSwitcherTheme, setIsSwitcherTheme] = useState(true);
+  const [isLightActive, setLightActive] = useState(true);
 
   const onHandleChangeTheme = () => {
     setIsSwitcherTheme((prev) => !prev);
@@ -34,9 +34,9 @@ export default function account() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={mode}>
+      <main className={styles.Main}>
         <Layout theme={isSwitcherTheme}>
-          <SwitcherTheme status={isLightActive} func={onHandleChangeTheme} />
+          
           <h2>Hi, {username}!</h2>
           <div className={styles.settingList}>
             <div className={styles.userSettings}>
@@ -115,6 +115,7 @@ export default function account() {
               {/* end card */}
             </div>
           </div>
+          <SwitcherTheme status={isLightActive} func={onHandleChangeTheme} />
         </Layout>
       </main>
     </>

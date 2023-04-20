@@ -7,8 +7,8 @@ import Button from "@/components/button";
 import SwitcherTheme from "@/components/switcher-theme";
 
 export default function watchlist() {
-  const [isSwitcherTheme, setIsSwitcherTheme] = useState(false);
-  const [isLightActive, setLightActive] = useState(false);
+  const [isSwitcherTheme, setIsSwitcherTheme] = useState(true);
+  const [isLightActive, setLightActive] = useState(true);
   const onHandleChangeTheme = () => {
     setIsSwitcherTheme((prev) => !prev);
   };
@@ -46,7 +46,7 @@ export default function watchlist() {
       </Head>
       <main>
         <Layout theme={isSwitcherTheme}>
-          <SwitcherTheme status={isLightActive} func={onHandleChangeTheme} />
+          
           <h2> watchlist </h2>
           <div className={styles.watchlist}>
             {stars.length > 0 ? (
@@ -55,6 +55,7 @@ export default function watchlist() {
               <h5>Add an element in your watchlist, it will be showed here.</h5>
             )}
           </div>
+          <SwitcherTheme status={isLightActive} func={onHandleChangeTheme} />
         </Layout>
       </main>
     </>
