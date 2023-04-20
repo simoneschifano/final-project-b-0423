@@ -8,11 +8,9 @@ import Button from "@/components/button";
 import { Context } from "@/store";
 
 export default function Home() {
-  const mode = "bg_dark";
   const [sectionCrypto, setSectionCrypto] = useState(true);
   const [sectionWallet, setSectionWallet] = useState(false);
   const [sectionWatchlist, setSectionWatchlist] = useState(false);
-  // const [wallet, setWallet] = useState();
   const onHandleCrypto = () => setSectionCrypto((prev) => !prev);
   const onHandleWallet = () => setSectionWallet((prev) => !prev);
   const onHandleWatchlist = () => setSectionWatchlist((prev) => !prev);
@@ -38,14 +36,15 @@ export default function Home() {
       typeof window !== "undefined" ? localStorage.getItem("watchlistHome") : null
       );
 
-  let walletHome = [];
-  if (wallet) {
-    walletHome = allCryptoData.filter((crypto) => wallet.includes(crypto.id));
-  };
-  let watchlistHome = [];
-  if (watchlist) {
-    watchlistHome = allCryptoData.filter((crypto) => watchlist.includes(crypto.id));
-  };
+   /* let walletHome = [];
+    if (wallet) {
+      walletHome = allCryptoData.filter((crypto) => wallet.includes(crypto.id));
+    } */
+  
+    let watchlistHome = [];
+    if (watchlist) {
+      watchlistHome = allCryptoData.filter((crypto) => watchlist.includes(crypto.id));
+    };
   return (
     <>
       <Head>
@@ -99,6 +98,7 @@ export default function Home() {
               >
                 Wallet
               </label>
+              {/* 
               <div
                 className={`${styles.sectionCont} ${
                   sectionWallet && styles.sectionContActive
@@ -110,6 +110,7 @@ export default function Home() {
                   <h2>You don't have any elements in your wallet.</h2>
                 )}
               </div>
+              */}
               <div className={styles.sectionButton}>
                 <a href="../wallet">
                   <Button text={"Go to wallet"} />
