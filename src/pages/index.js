@@ -104,7 +104,7 @@ export default function Home() {
                   sectionWallet && styles.sectionContActive
                 }`}
               >
-                {walletHome>0 ? (
+                {walletHome.length >0 ? (
                   <CardsList data={walletHome} inHomeActive={true} />
                 ) : (
                   <h2>You don't have any elements in your wallet.</h2>
@@ -135,7 +135,7 @@ export default function Home() {
                   sectionWatchlist && styles.sectionContActive
                 }`}
               >
-                {watchlistHome>0 ? (
+                {watchlistHome.length >0 ? (
                   <CardsList data={watchlistHome} inHomeActive={true} />
                 ) : (
                   <h2>You don't have any elements in your watchlist.</h2>
