@@ -36,7 +36,13 @@
 
 ## Come avviare l'app!
 
-Per prima cosa avvia il server
+Per prima cosa installa il pacchetto npm:
+
+```bash
+npm install
+```
+
+Prosegui avviando il server:
 
 ```bash
 npm run dev
@@ -52,7 +58,7 @@ Infine apri [http://localhost:3000](http://localhost:3000) per visualizzare il r
 
 <ul>
   <li>
-    <a href="https://www.linkedin.com/in/salvatore-bisconti/">
+    <a href="https://www.linkedin.com/in/salvo-bisconti/">
         Salvo Bisconti
     </a>
   </li>

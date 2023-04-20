@@ -40,7 +40,7 @@ export default function aboutUs() {
               <div className={styles.contacts}>
                 <ul>
                   <li>
-                    <a href="https://www.linkedin.com/in/salvatore-bisconti/ ">
+                    <a href="https://www.linkedin.com/in/salvo-bisconti/ ">
                       Linkedin
                     </a>
                   </li>
