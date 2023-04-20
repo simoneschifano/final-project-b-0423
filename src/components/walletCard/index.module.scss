@@ -10,8 +10,13 @@
   cursor: pointer;
 
   .info {
-    width: 100%;
-    @include flex($justify: space-between, $align: center, $gap: 10px);
+    @include flex(
+      $direction: column,
+      $justify: space-between,
+      $align: baseline
+    );
+    width: 50%;
+    // @include flex($justify: space-between, $align: center, $gap: 10px);
 
     .coin {
       @include flex($justify: center, $align: center, $gap: 6px);
@@ -22,7 +27,7 @@
   }
 
   @media screen and (max-width: 700px) {
-    width: 90%;
+    width: 50%;
     position: relative;
     font-size: 0.6rem;
   }
@@ -36,7 +41,7 @@
   }
 
   @media screen and (min-width: 700px) {
-    width: 600px;
+    width: 50%;
     position: relative;
     transition: 0.4s;
 
