@@ -23,28 +23,28 @@ export default function Home() {
     localStorage.getItem("watchlist")
       ? null
       : localStorage.setItem("watchlist", "[]");
-    localStorage.getItem("walletHome")
+    localStorage.getItem("wallet")
       ? null
-      : localStorage.setItem("walletHome", "[]");
+      : localStorage.setItem("wallet", "[]");
   }
 
   const [wallet, setWallet] = useState(
-    typeof window !== "undefined" ? localStorage.getItem("walletHome") : null
+    typeof window !== "undefined" ? localStorage.getItem("wallet") : null
     );
     
     const [watchlist, setWatchlist] = useState(
-      typeof window !== "undefined" ? localStorage.getItem("watchlistHome") : null
+      typeof window !== "undefined" ? localStorage.getItem("watchlist") : null
       );
 
-   /* let walletHome = [];
+    let walletHome = [];
     if (wallet) {
       walletHome = allCryptoData.filter((crypto) => wallet.includes(crypto.id));
-    } */
+    }
   
     let watchlistHome = [];
     if (watchlist) {
       watchlistHome = allCryptoData.filter((crypto) => watchlist.includes(crypto.id));
-    };
+    }
   return (
     <>
       <Head>
@@ -98,19 +98,19 @@ export default function Home() {
               >
                 Wallet
               </label>
-              {/* 
+              
               <div
                 className={`${styles.sectionCont} ${
                   sectionWallet && styles.sectionContActive
                 }`}
               >
-                {wallet ? (
+                {walletHome ? (
                   <CardsList data={walletHome} inHomeActive={true} />
                 ) : (
                   <h2>You don't have any elements in your wallet.</h2>
                 )}
               </div>
-              */}
+             
               <div className={styles.sectionButton}>
                 <a href="../wallet">
                   <Button text={"Go to wallet"} />
@@ -135,7 +135,7 @@ export default function Home() {
                   sectionWatchlist && styles.sectionContActive
                 }`}
               >
-                {watchlist ? (
+                {watchlistHome ? (
                   <CardsList data={watchlistHome} inHomeActive={true} />
                 ) : (
                   <h2>You don't have any elements in your watchlist.</h2>
