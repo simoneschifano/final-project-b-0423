@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Layout from "@/components/layout";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import CardsList from "@/components/cards_list";
 import styles from "../styles/pages/watchlist.module.scss";
 import { Context } from "@/store";

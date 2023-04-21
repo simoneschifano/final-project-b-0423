@@ -20,7 +20,7 @@ export default function Wallet() {
         ? JSON.parse(localStorage.getItem("wallet"))
         : []
     );
-  }, []);
+  }, [setWalletInLocalStorage]);
 
   let value = 0;
   const cakePercentualArray = walletInLocalStorage?.map(

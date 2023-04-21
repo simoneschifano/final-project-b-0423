@@ -1,5 +1,5 @@
 import styles from "./index.module.scss";
-
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 const WalletCard = (props) => {
@@ -7,17 +7,35 @@ const WalletCard = (props) => {
   const coins = data.props;
 
   const router = useRouter();
+  const [walletInlocalStorage, setWalletInlocalStorage] = useState(null);
 
-  const onHandleOpenDetails = () => {
-    localStorage.setItem("crytoID", JSON.stringify(coins.id));
-    router.push({
-      pathname: "crypto",
-      query: { name: coins.id },
-    });
+  useEffect(() => {
+    setWalletInlocalStorage(
+      typeof window !== "undefined"
+        ? JSON.parse(localStorage.getItem("wallet"))
+        : []
+    );
+  }, []);
+
+  // const onHandleOpenDetails = () => {
+  //   router.push({
+  //     pathname: "crypto",
+  //     query: { name: coins.id },
+  //   });
+  // };
+
+  let newLocalStorage = [];
+  const onHandleSell = () => {
+    newLocalStorage = walletInlocalStorage.filter(
+      (crypto) => crypto.id !== coins.id
+    );
+    newLocalStorage.length > 0
+      ? localStorage.setItem("wallet", JSON.stringify(newLocalStorage))
+      : localStorage.removeItem("wallet");
   };
 
   return (
-    <div onClick={onHandleOpenDetails} className={styles.WalletCard}>
+    <div className={styles.WalletCard}>
       <span className={styles.inWallet}>In the wallet</span>
       <div className={styles.info}>
         <div className={styles.coin}>
@@ -27,10 +45,12 @@ const WalletCard = (props) => {
           </h2>
         </div>
         <div className={styles.qty}>
-          <span>Quantity:</span> <span>{coins.qty}</span>
+          <span>OWNED:</span> <span>{coins.qty}</span>
         </div>
+        <button onClick={onHandleSell} className={styles.sell}>
+          SELL
+        </button>
       </div>
-      {/* <h3> Quantity: {coins.qty.toFixed(4)}</h3> */}
     </div>
   );
 };

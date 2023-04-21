@@ -56,16 +56,16 @@
         @include flex($justify: flex-end);
         padding: 2em 0em 2em 0em;
         align-self: baseline;
-        @media screen and (max-width: 350px) {
-          position: absolute;
-          left: 5px;
-          top: -50px;
-        }
-        @media screen and (min-width: 350px) and (max-width: 500px) {
-          position: absolute;
-          left: 15px;
-          top: -50px;
-        }
+        // @media screen and (max-width: 350px) {
+        //   position: absolute;
+        //   left: 5px;
+        //   top: -50px;
+        // }
+        // @media screen and (min-width: 350px) and (max-width: 500px) {
+        //   position: absolute;
+        //   left: 15px;
+        //   top: -50px;
+        // }
       }
     }
   }
@@ -147,6 +147,18 @@
   .Main {
     .header {
       @include flex($justify: space-between, $align: baseline, $gap: 10px);
+
+      .row {
+        @include flex(
+          $direction: column,
+          $align: center,
+          $justify: space-between
+        );
+
+        .btn {
+          padding: 0em 0em 2em 0em;
+        }
+      }
     }
 
     .info {
@@ -165,6 +177,9 @@
               font-size: 0.8rem;
             }
           }
+        }
+        .HLprice {
+          @include flex($direction: column);
         }
       }
     }

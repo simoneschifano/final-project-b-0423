@@ -9,12 +9,12 @@
 ## Tecnologie utilizzate
 
   <ul>
+    <li>Chart.js</li>
+    <li>CoinGecko API</li>
+    <li>Css modules</li>
     <li>HTML</li>
     <li>Sass</li>
-    <li>Css modules</li>
     <li>Next.js</li>
-    <li>CoinGecko API</li>
-
   </ul>
 <hr>
 
@@ -27,7 +27,7 @@
 <li> Aggiungere una crypto in una whatchlist; </li>
 <li> Visualizzare i dettagli di ogni singola crypto ;</li>
 <li> Grafico andamento settimanale di ogni crypto ;</li>
-<li>Comprare una crypto;</li>
+<li>Comprare/vendere crypto;</li>
 <li>Visualizzare l'allocazione delle crypto in portafoglio (tramite apposito grafico); </li>
 <li>Possibilità di cambiamento del tema dell'app (giorno / notte); </li>
 <li>Possibilità di cambiamento della valuta corrente (eur / usd/ cad / ...); </li>
@@ -36,7 +36,13 @@
 
 ## Come avviare l'app!
 
-Per prima cosa avvia il server
+Inizia installando il pacchetto npm:
+
+```bash
+npm install
+```
+
+Prosegui avviando il server:
 
 ```bash
 npm run dev
@@ -52,7 +58,7 @@ Infine apri [http://localhost:3000](http://localhost:3000) per visualizzare il r
 
 <ul>
   <li>
-    <a href="https://www.linkedin.com/in/salvatore-bisconti/">
+    <a href="https://www.linkedin.com/in/salvo-bisconti/">
         Salvo Bisconti
     </a>
   </li>

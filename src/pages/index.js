@@ -36,7 +36,7 @@ export default function Home() {
         ? JSON.parse(localStorage.getItem("wallet"))
         : []
     );
-  }, []);
+  }, [setWallet]);
 
   const [watchlist, setWatchlist] = useState(
     typeof window !== "undefined" ? localStorage.getItem("watchlist") : null

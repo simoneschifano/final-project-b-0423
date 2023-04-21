@@ -2,7 +2,7 @@ import Head from "next/head";
 import Layout from "@/components/layout";
 import Image from "next/image";
 import styles from "../styles/pages/aboutUs.module.scss";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Context } from "@/store";
 
 export default function aboutUs() {
@@ -44,7 +44,7 @@ export default function aboutUs() {
               <div className={styles.contacts}>
                 <ul>
                   <li>
-                    <a href="https://www.linkedin.com/in/salvatore-bisconti/ ">
+                    <a href="https://www.linkedin.com/in/salvo-bisconti/ ">
                       Linkedin
                     </a>
                   </li>
