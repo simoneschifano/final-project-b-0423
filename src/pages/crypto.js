@@ -50,9 +50,11 @@ export default function cryptoId() {
   // useEffect(() => {
   //   GET(`${name}`).then((data) => setCryptoInfo(() => data));
   // }, []);
+
   useEffect(() => {
     dispatch({ type: "SELECTED_ICON", payload: "allCrypto" });
   }, []);
+
   const onHandleOpenModal = () => {
     setIsGlobalModal((prev) => !prev);
   };
@@ -60,8 +62,6 @@ export default function cryptoId() {
   const onHandleStar = () => {
     setPopUpVisibility(true);
     setTimeout(() => setPopUpVisibility(false), 2000);
-    // console.log(popUpVisibility);
-    // console.log(starStatus);
     {
       {
         if (typeof window !== "undefined") {
@@ -94,10 +94,10 @@ export default function cryptoId() {
       <Layout theme={state.modeData}>
         <div className={styles.popup}>
           {popUpVisibility && starStatus ? (
-            <Popup text={`Add '${name}' in your watchlist`} />
+            <Popup text={`'${name}' added in your watchlist`} />
           ) : (
             popUpVisibility && (
-              <Popup text={`Remove '${name}' from your watchlist`} />
+              <Popup text={`'${name}' removed from your watchlist`} />
             )
           )}
         </div>
