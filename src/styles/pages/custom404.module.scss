@@ -1,0 +1,5 @@
+.Custom404{
+    @include flex($align: center, $justify: center, $gap: 10px,$direction:column);
+    height: 100vh;
+
+}

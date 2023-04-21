@@ -1,5 +1,5 @@
 import Head from "next/head";
-
+import styles from "../styles/pages/custom404.module.scss";
 
 const Custom404 = () => {
   return (
@@ -10,9 +10,9 @@ const Custom404 = () => {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/favicon.ico" />
     </Head>
-    <div>
-      <h1>Pagina non trovata</h1>
-      <p>Spiacenti, la pagina che stai cercando non esiste.</p>
+    <div className={styles.Custom404}>
+      <h1>Error 404</h1>
+      <p>Sorry, the page you are looking for does not exist.</p>
     </div>
     </>
   );
