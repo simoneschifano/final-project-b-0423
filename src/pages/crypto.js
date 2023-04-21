@@ -156,8 +156,7 @@ export default function cryptoId() {
                 </h6>
                 <h6>
                   Total supply:
-                  {cryptoInfo.market_data &&
-                    cryptoInfo.market_data.current_price.total_supply}
+                  {cryptoInfo?.market_data?.current_price?.total_supply}
                 </h6>
               </div>
 
