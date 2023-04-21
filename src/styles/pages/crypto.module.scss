@@ -1,6 +1,9 @@
 .Main {
   font-family: $primary-font;
   @include poppins();
+  .popup {
+    @include flex($justify: center);
+  }
   .header {
     @include flex($justify: space-between, $align: baseline, $gap: 10px);
     position: relative;
