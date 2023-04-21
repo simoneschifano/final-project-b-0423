@@ -1,7 +1,7 @@
 .Header {
   @include sideBar();
 
-  z-index: 2;
+  z-index: 3;
 
   color: var(--text);
   height: 100vh;
@@ -66,7 +66,40 @@
     @media screen and (min-width: 992px) {
       line-height: 50px;
     }
+
     li {
+      .selectedPage {
+        color: $graph;
+
+        .svg {
+          .home,
+          .wallet,
+          .allCrypto,
+          .watchList,
+          .aboutIcon {
+            color: $graph;
+          }
+        }
+
+        &:hover {
+          color: var(--text);
+          transition: all 0.55s;
+          text-shadow: 2px 2px 2px var(--card-border);
+          .svg {
+            .home,
+            .wallet,
+            .allCrypto,
+            .watchList,
+            .aboutIcon {
+              color: var(--text);
+              transition: all 0.55s;
+              text-shadow: 2px 2px 2px var(--card-border);
+              animation: spinAround 2s ease infinite;
+            }
+          }
+        }
+      }
+
       a {
         font-size: 12px;
         font-weight: 500;

@@ -7,7 +7,6 @@ import { useState, useEffect, useContext } from "react";
 import Button from "@/components/button";
 import { Context } from "@/store";
 
-
 export default function Home() {
   const [sectionCrypto, setSectionCrypto] = useState(true);
   const [sectionWallet, setSectionWallet] = useState(false);
@@ -28,6 +27,10 @@ export default function Home() {
   }
 
   useEffect(() => {
+    dispatch({ type: "SELECTED_ICON", payload: "home" });
+  }, []);
+
+  useEffect(() => {
     setWallet(
       typeof window !== "undefined"
         ? JSON.parse(localStorage.getItem("wallet"))
@@ -46,7 +49,6 @@ export default function Home() {
     );
   }
 
-  
   return (
     <>
       <Head>
@@ -153,7 +155,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-         {/*  <SwitcherTheme status={isLightActive} func={onHandleChangeTheme} /> */}
+          {/*  <SwitcherTheme status={isLightActive} func={onHandleChangeTheme} /> */}
         </Layout>
       </main>
     </>

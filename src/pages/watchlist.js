@@ -8,6 +8,10 @@ import { Context } from "@/store";
 export default function watchlist() {
   const { state, dispatch } = useContext(Context);
 
+  useEffect(() => {
+    dispatch({ type: "SELECTED_ICON", payload: "watchlist" });
+  }, []);
+
   const [coin, setCoin] = useState(
     typeof window !== "undefined"
       ? localStorage.getItem("watchlist")

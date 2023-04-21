@@ -4,21 +4,24 @@ import { GiTwoCoins } from "react-icons/gi";
 import { FaUsers } from "react-icons/fa";
 import { AiFillHome } from "react-icons/ai";
 import styles from "./index.module.scss";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Context } from "@/store";
 import SwitcherTheme from "../switcherTheme";
 
 const Header = () => {
   // SWITCHER
-   
+
   const { state, dispatch } = useContext(Context);
   const onHandleChangeTheme = () => {
-    !state.modeData ? localStorage.setItem('theme',  'DARK') : localStorage.setItem('theme',  'LIGHT');
+    !state.modeData
+      ? localStorage.setItem("theme", "DARK")
+      : localStorage.setItem("theme", "LIGHT");
     dispatch({
       type: "SET_THEME",
       payload: !state.modeData,
     });
-   };
+  };
+
   return (
     <div className={styles.Header}>
       <a className={styles.logo} href="/">
@@ -47,7 +50,12 @@ const Header = () => {
       <ul className={styles.list}>
         {/* HOME */}
         <li>
-          <a href="/">
+          <a
+            className={`${
+              state.iconSelected === "home" && styles.selectedPage
+            }`}
+            href="/"
+          >
             <span className={styles.svg}>
               <AiFillHome className={styles.home} />
             </span>
@@ -56,7 +64,12 @@ const Header = () => {
         </li>
         {/* WALLET */}
         <li>
-          <a href="../wallet">
+          <a
+            className={`${
+              state.iconSelected === "wallet" && styles.selectedPage
+            }`}
+            href="../wallet"
+          >
             <span className={styles.svg}>
               <BsCreditCardFill className={styles.wallet} />
             </span>
@@ -65,7 +78,12 @@ const Header = () => {
         </li>
         {/* ALL CRYPTO */}
         <li>
-          <a href="../allCrypto">
+          <a
+            className={`${
+              state.iconSelected === "allCrypto" && styles.selectedPage
+            }`}
+            href="../allCrypto"
+          >
             <span className={styles.svg}>
               <GiTwoCoins className={styles.allCrypto} />
             </span>
@@ -74,7 +92,12 @@ const Header = () => {
         </li>
         {/* WATCHLIST */}
         <li>
-          <a href="../watchlist">
+          <a
+            className={`${
+              state.iconSelected === "watchlist" && styles.selectedPage
+            }`}
+            href="../watchlist"
+          >
             <span className={styles.svg}>
               <BsStar className={styles.watchList} />
             </span>
@@ -83,7 +106,12 @@ const Header = () => {
         </li>
         {/* ABOUT US */}
         <li>
-          <a href="../aboutUs">
+          <a
+            className={`${
+              state.iconSelected === "aboutUs" && styles.selectedPage
+            }`}
+            href="../aboutUs"
+          >
             <span className={styles.svg}>
               <FaUsers className={styles.aboutIcon} />
             </span>
@@ -91,7 +119,7 @@ const Header = () => {
           </a>
         </li>
       </ul>
-      <SwitcherTheme status={state.modeData} func={onHandleChangeTheme} /> 
+      <SwitcherTheme status={state.modeData} func={onHandleChangeTheme} />
     </div>
   );
 };
