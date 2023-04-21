@@ -7,6 +7,7 @@ import ChartEl from "@/components/chartEl";
 import styles from "@/styles/pages/crypto.module.scss";
 import Button from "@/components/button";
 import GlobalModal from "@/components/global_modal";
+import Popup from "@/components/popup";
 import React from "react";
 
 import { MdStars } from "react-icons/md";
@@ -17,6 +18,7 @@ export default function cryptoId() {
   const [singleCryptoData, setSingleCryptoData] = useState([]);
   const [isGlobalModal, setIsGlobalModal] = useState(false);
   const [cryptoInfo, setCryptoInfo] = useState(null);
+  const [popUpVisibility, setPopUpVisibility] = useState(false);
 
   if (typeof window !== "undefined") {
     if (localStorage.getItem("watchlist")) {
@@ -41,37 +43,43 @@ export default function cryptoId() {
       GET(`${name}/market_chart?vs_currency=eur&days=7&interval=daily`).then(
         (data) => setSingleCryptoData(data.prices)
       );
-      // GET(`${name}`).then((data) => setCryptoInfo(() => data));
+      GET(`${name}`).then((data) => setCryptoInfo(() => data));
     }
   }, [router.isReady]);
 
-  useEffect(() => {
-    GET(`${name}`).then((data) => setCryptoInfo(() => data));
-  }, []);
+  // useEffect(() => {
+  //   GET(`${name}`).then((data) => setCryptoInfo(() => data));
+  // }, []);
 
   const onHandleOpenModal = () => {
     setIsGlobalModal((prev) => !prev);
   };
 
   const onHandleStar = () => {
-    if (typeof window !== "undefined") {
-      if (watchlist) {
-        if (!!watchlist.find((item) => item === name)) {
-          alert("Crypto rimossa dalla watchlist");
-          localStorage.setItem(
-            "watchlist",
-            JSON.stringify([...watchlist.filter((item) => item !== name)])
-          );
-          setWatchlist((prev) => [...prev.filter((item) => item !== name)]);
-          setStarStatus(() => false);
-        } else {
-          alert("Crypto aggiunta alla watchlist con successo!");
-          localStorage.setItem(
-            "watchlist",
-            JSON.stringify([...watchlist, name])
-          );
-          setWatchlist((prev) => [...prev, name]);
-          setStarStatus(() => true);
+    setPopUpVisibility(true);
+    setTimeout(() => setPopUpVisibility(false), 2000);
+    // console.log(popUpVisibility);
+    // console.log(starStatus);
+    {
+      {
+        if (typeof window !== "undefined") {
+          if (watchlist) {
+            if (!!watchlist.find((item) => item === name)) {
+              localStorage.setItem(
+                "watchlist",
+                JSON.stringify([...watchlist.filter((item) => item !== name)])
+              );
+              setWatchlist((prev) => [...prev.filter((item) => item !== name)]);
+              setStarStatus(() => false);
+            } else {
+              localStorage.setItem(
+                "watchlist",
+                JSON.stringify([...watchlist, name])
+              );
+              setWatchlist((prev) => [...prev, name]);
+              setStarStatus(() => true);
+            }
+          }
         }
       }
     }
@@ -82,6 +90,15 @@ export default function cryptoId() {
   return (
     <main className={styles.Main}>
       <Layout theme={state.modeData}>
+        <div className={styles.popup}>
+          {popUpVisibility && starStatus ? (
+            <Popup text={`Add '${name}' in your watchlist`} />
+          ) : (
+            popUpVisibility && (
+              <Popup text={`Remove '${name}' from your watchlist`} />
+            )
+          )}
+        </div>
         <div className={styles.header}>
           <div className={styles.row}>
             <div className={styles.col}>
@@ -166,7 +183,7 @@ export default function cryptoId() {
             </div>
           </>
         )}
-        {console.log(cryptoInfo?.market_data?.current_price?.market_cap?.eur)}
+        {/* {console.log(cryptoInfo?.market_data?.current_price?.market_cap?.eur)} */}
 
         {isGlobalModal && (
           <GlobalModal
