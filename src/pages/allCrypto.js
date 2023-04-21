@@ -24,13 +24,11 @@ export default function allCrypto() {
   };
 
   useEffect(() => {
-    if (nameFilter !== "") {
-      setFilteredCrypto(
-        state.cryptoListData.filter((item) =>
-          item.id.toLowerCase().includes(nameFilter.toLocaleLowerCase())
-        )
-      );
-    }
+    setFilteredCrypto(
+      state.cryptoListData.filter((item) =>
+        item.id.toLowerCase().includes(nameFilter.toLocaleLowerCase())
+      )
+    );
   }, [nameFilter]);
 
   return (
