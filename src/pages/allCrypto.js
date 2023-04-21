@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import Head from "next/head";
 import CardsList from "@/components/cards_list";
 import Layout from "@/components/layout";
