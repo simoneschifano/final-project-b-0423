@@ -11,6 +11,10 @@ export default function Wallet() {
   const [walletInLocalStorage, setWalletInLocalStorage] = useState();
 
   useEffect(() => {
+    dispatch({ type: "SELECTED_ICON", payload: "wallet" });
+  }, []);
+
+  useEffect(() => {
     setWalletInLocalStorage(
       typeof window !== "undefined"
         ? JSON.parse(localStorage.getItem("wallet"))

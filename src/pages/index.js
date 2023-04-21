@@ -27,6 +27,10 @@ export default function Home() {
   }
 
   useEffect(() => {
+    dispatch({ type: "SELECTED_ICON", payload: "home" });
+  }, []);
+
+  useEffect(() => {
     setWallet(
       typeof window !== "undefined"
         ? JSON.parse(localStorage.getItem("wallet"))

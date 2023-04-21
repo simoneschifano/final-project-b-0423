@@ -10,6 +10,11 @@ export const mainReducer = (state, action) => {
         ...state,
         modeData: action.payload,
       };
+    case "SELECTED_ICON":
+      return {
+        ...state,
+        iconSelected: action.payload,
+      };
     default:
       return state;
   }

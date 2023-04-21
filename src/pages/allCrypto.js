@@ -13,6 +13,10 @@ export default function allCrypto() {
   const [loading, setLoading] = useState(false);
   const [filter, setFilter] = useState(false);
 
+  useEffect(() => {
+    dispatch({ type: "SELECTED_ICON", payload: "allCrypto" });
+  }, []);
+
   return (
     <>
       <Head>

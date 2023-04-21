@@ -8,6 +8,10 @@ import { Context } from "@/store";
 export default function aboutUs() {
   const { state, dispatch } = useContext(Context);
 
+  useEffect(() => {
+    dispatch({ type: "SELECTED_ICON", payload: "aboutUs" });
+  }, []);
+
   return (
     <>
       <Head>

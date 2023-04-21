@@ -46,6 +46,10 @@ export default function cryptoId() {
   }, [router.isReady]);
 
   useEffect(() => {
+    dispatch({ type: "SELECTED_ICON", payload: "allCrypto" });
+  }, []);
+
+  useEffect(() => {
     GET(`${name}`).then((data) => setCryptoInfo(() => data));
   }, []);
 
