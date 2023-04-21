@@ -13,8 +13,20 @@
 
   .container {
     position: absolute;
-    bottom: 15px;
+    bottom: 5px;
     right: 20px;
+    width: 80%;
+    input {
+      border-radius: 8px;
+      padding: 4px;
+      border: 2px solid $light;
+      outline-color: $graph;
+    }
+    @include flex($direction: column, $gap: 8px, $align: center);
+    @media screen and (min-width: 500px) {
+      @include flex($align: center, $justify: space-between);
+      width: 90%;
+    }
   }
 }
 .AllCriptoCard {

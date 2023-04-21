@@ -12,10 +12,26 @@ export default function allCrypto() {
 
   const [loading, setLoading] = useState(false);
   const [filter, setFilter] = useState(false);
+  const [nameFilter, setNameFilter] = useState("");
+  const [filteredCrypto, setFilteredCrypto] = useState(state.cryptoListData);
 
   useEffect(() => {
     dispatch({ type: "SELECTED_ICON", payload: "allCrypto" });
   }, []);
+
+  const onHandleChange = (e) => {
+    setNameFilter(() => e.target.value);
+  };
+
+  useEffect(() => {
+    if (nameFilter !== "") {
+      setFilteredCrypto(
+        state.cryptoListData.filter((item) =>
+          item.id.toLowerCase().includes(nameFilter.toLocaleLowerCase())
+        )
+      );
+    }
+  }, [nameFilter]);
 
   return (
     <>
@@ -31,6 +47,11 @@ export default function allCrypto() {
             <h2> all Crypto </h2>
 
             <div className={styles.container}>
+              <input
+                type="text"
+                placeholder="Search a crypto!"
+                onChange={onHandleChange}
+              />
               <BtnFilter value="Sorting by Rank " setFilter={setFilter} />
             </div>
           </div>
@@ -38,6 +59,13 @@ export default function allCrypto() {
             {filter ? (
               loading ? (
                 <Loading />
+              ) : filteredCrypto.length > 0 ? (
+                <CardsList
+                  data={filteredCrypto.sort(
+                    (a, b) => b.market_cap_rank - a.market_cap_rank
+                  )}
+                  inHomeActive={false}
+                />
               ) : (
                 <CardsList
                   data={state.cryptoListData.sort(
@@ -48,6 +76,13 @@ export default function allCrypto() {
               )
             ) : loading ? (
               <Loading />
+            ) : filteredCrypto.length > 0 ? (
+              <CardsList
+                data={filteredCrypto.sort(
+                  (a, b) => a.market_cap_rank - b.market_cap_rank
+                )}
+                inHomeActive={false}
+              />
             ) : (
               <CardsList
                 data={state.cryptoListData.sort(
