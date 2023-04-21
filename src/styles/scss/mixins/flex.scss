@@ -161,6 +161,7 @@ $four: calc(25% - 17px);
     overflow-y: scroll;
 
     float: right;
+    float: bottom;
     padding: 2em;
 
     @include poppins();
