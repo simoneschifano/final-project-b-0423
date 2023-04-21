@@ -50,7 +50,9 @@ export default function cryptoId() {
   // useEffect(() => {
   //   GET(`${name}`).then((data) => setCryptoInfo(() => data));
   // }, []);
-
+  useEffect(() => {
+    dispatch({ type: "SELECTED_ICON", payload: "allCrypto" });
+  }, []);
   const onHandleOpenModal = () => {
     setIsGlobalModal((prev) => !prev);
   };
@@ -169,8 +171,7 @@ export default function cryptoId() {
                 </h6>
                 <h6>
                   Total supply:
-                  {cryptoInfo.market_data &&
-                    cryptoInfo.market_data.current_price.total_supply}
+                  {cryptoInfo?.market_data?.current_price?.total_supply}
                 </h6>
               </div>
 

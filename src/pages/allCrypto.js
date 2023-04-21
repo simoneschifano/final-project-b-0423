@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import Head from "next/head";
 import CardsList from "@/components/cards_list";
 import Layout from "@/components/layout";
@@ -12,6 +12,10 @@ export default function allCrypto() {
 
   const [loading, setLoading] = useState(false);
   const [filter, setFilter] = useState(false);
+
+  useEffect(() => {
+    dispatch({ type: "SELECTED_ICON", payload: "allCrypto" });
+  }, []);
 
   return (
     <>
