@@ -7,7 +7,6 @@ import { useState, useEffect, useContext } from "react";
 import Button from "@/components/button";
 import { Context } from "@/store";
 
-
 export default function Home() {
   const [sectionCrypto, setSectionCrypto] = useState(true);
   const [sectionWallet, setSectionWallet] = useState(false);
@@ -33,7 +32,7 @@ export default function Home() {
         ? JSON.parse(localStorage.getItem("wallet"))
         : []
     );
-  }, []);
+  }, [setWallet]);
 
   const [watchlist, setWatchlist] = useState(
     typeof window !== "undefined" ? localStorage.getItem("watchlist") : null
@@ -46,7 +45,6 @@ export default function Home() {
     );
   }
 
-  
   return (
     <>
       <Head>
@@ -153,7 +151,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-         {/*  <SwitcherTheme status={isLightActive} func={onHandleChangeTheme} /> */}
+          {/*  <SwitcherTheme status={isLightActive} func={onHandleChangeTheme} /> */}
         </Layout>
       </main>
     </>

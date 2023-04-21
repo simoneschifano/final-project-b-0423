@@ -66,6 +66,7 @@
       .secondInput {
         display: flex;
         align-items: center;
+        pointer-events: none;
 
         .icon {
           @include size(25px);

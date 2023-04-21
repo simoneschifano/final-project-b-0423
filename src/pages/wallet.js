@@ -8,7 +8,6 @@ import { useState, useEffect, useContext } from "react";
 import { Context } from "@/store";
 
 export default function Wallet() {
-  
   const [walletInLocalStorage, setWalletInLocalStorage] = useState();
 
   useEffect(() => {
@@ -17,13 +16,13 @@ export default function Wallet() {
         ? JSON.parse(localStorage.getItem("wallet"))
         : []
     );
-  }, []);
+  }, [setWalletInLocalStorage]);
 
   let value = 0;
   const cakePercentualArray = walletInLocalStorage?.map(
     (item) => (value = item.qty * item.price)
   );
-  
+
   const { state, dispatch } = useContext(Context);
 
   return (
@@ -60,7 +59,6 @@ export default function Wallet() {
               <h5>Buy a crypto, it will be showed here</h5>
             )}
           </div>
-          
         </Layout>
       </main>
     </>
