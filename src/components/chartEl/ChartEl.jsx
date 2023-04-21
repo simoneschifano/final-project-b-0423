@@ -41,7 +41,7 @@ const ChartEl = ({ prices }) => {
       },
     ],
   };
-  console.log(prices[0][1]);
+  // console.log(prices[0][1]);
   const options = {
     maintainAspectRatio: false,
 
