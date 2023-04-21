@@ -137,8 +137,6 @@
       @include size($width: 260px, $height: 150px);
       background: linear-gradient(
         to right bottom,
-        var(--card--background),
-        var(--background),
         #252525,
         #304a31,
         $graph,
