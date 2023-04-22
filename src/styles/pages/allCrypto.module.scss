@@ -16,7 +16,7 @@
     bottom: 5px;
     right: 20px;
     width: 80%;
-    @include flex($direction: column, $gap: 8px, $align: center);
+    @include flex($align: center, $justify: center, $gap: 12px);
 
     input {
       box-shadow: 0 0 5px 0px var(--card-border);
@@ -26,6 +26,15 @@
       outline: none;
       background-color: white;
       color: $background-cards-dark;
+    }
+
+    @media screen and (max-width: 340px) {
+      width: 90%;
+      @include flex($align: center, $justify: flex-end, $gap: 2px);
+
+      input {
+        max-width: 140px;
+      }
     }
 
     @media screen and (min-width: 500px) {
