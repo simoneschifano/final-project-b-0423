@@ -10,15 +10,35 @@
     top: 0;
     left: 0;
     @include size(100%);
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 2;
+  }
+  .text {
+    position: absolute;
+    top: 40vh;
+    left: calc(60vw - 150px);
+    z-index: 2;
+    font-size: 0;
+    text-align: center;
+    color: $graph;
+    text-shadow: 2px 2px 2px var(--card-border);
+    animation: textAnimation 2s linear 0.5s 1 normal forwards;
+    width: 300px;
+    @media screen and (min-width: 800px) {
+      left: calc(60vw - 360px);
+      width: 800px;
+      animation: textAnimationDesk 2s linear 0.5s 1 normal forwards;
+    }
+  }
+  .visibility {
+    display: none;
   }
   .content {
     @include size(90%, auto);
     text-align: center;
     position: fixed;
     border-radius: 20px;
-    background-color: var(--btn-background);
+    background-color: var(--card--background);
     color: $second-color;
     box-shadow: 0px 0px 15px 2px $graph;
     padding: 20px 40px 40px;
@@ -31,8 +51,8 @@
       margin-left: 25%;
     }
     @media screen and (max-width: 700px) {
-      max-width: calc(400px - 10%);
-      margin-left: 25%;
+      max-width: calc(300px - 10%);
+      margin-left: 20%;
     }
 
     @media screen and (max-width: 300px) {
@@ -46,10 +66,10 @@
     .form {
       @include flex(column, center, center, 20px, nowrap);
       .input {
-        background-color: var(--btn-background);
+        background-color: var(--card--background);
         @include size(100%, 30px);
         border: 0;
-        border-bottom: 1px solid var(--btn-border);
+        border-bottom: 1px solid var(--card-border);
         outline: none;
         color: var(--card--background);
         @include space-around(0, 0, 6px);
@@ -85,5 +105,27 @@
         }
       }
     }
+  }
+}
+
+@keyframes textAnimation {
+  from {
+    // transform: translateY(0);
+    font-size: 0;
+  }
+  to {
+    // transform: translateY(50vh);
+    font-size: 1.3rem;
+  }
+}
+
+@keyframes textAnimationDesk {
+  from {
+    // transform: translateY(0);
+    font-size: 0;
+  }
+  to {
+    // transform: translateY(50vh);
+    font-size: 2.2rem;
   }
 }

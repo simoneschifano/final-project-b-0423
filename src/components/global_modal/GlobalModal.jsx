@@ -4,6 +4,7 @@ import styles from "./index.module.scss";
 
 const GlobalModal = ({ icon, price, id, setIsGlobalModal }) => {
   const [inputValue, setInputValue] = useState("");
+  const [contentVisibility, setContentVisibility] = useState(false);
 
   const onHandleInput = (e) => setInputValue(e.target.value);
 
@@ -47,7 +48,8 @@ const GlobalModal = ({ icon, price, id, setIsGlobalModal }) => {
         ])
       );
     }
-    onHandleCloseModal();
+    setContentVisibility(true);
+    setTimeout(() => setIsGlobalModal(false), 5000);
   };
 
   const qty = inputValue / price;
@@ -59,7 +61,11 @@ const GlobalModal = ({ icon, price, id, setIsGlobalModal }) => {
   return (
     <div className={styles.GlobalModal}>
       <div className={styles.overlay} onClick={onHandleCloseModal}></div>
-      <div className={styles.content}>
+      <div
+        className={`${styles.content} ${
+          contentVisibility && styles.visibility
+        }`}
+      >
         <h3 className={styles.title}>Complete your buy</h3>
         <form className={styles.form} onSubmit={onHandleSubmit}>
           <div className={styles.firstInput}>
@@ -85,6 +91,11 @@ const GlobalModal = ({ icon, price, id, setIsGlobalModal }) => {
           <input className={styles.btn} type="submit" value="BUY" />
         </form>
       </div>
+      <h3
+        className={`${styles.text} ${!contentVisibility && styles.visibility}`}
+      >
+        THE CRYPTO IS NOW IN YOUR WALLET!
+      </h3>
     </div>
   );
 };

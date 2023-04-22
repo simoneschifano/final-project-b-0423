@@ -104,7 +104,7 @@ export default function cryptoId() {
         <div className={styles.header}>
           <div className={styles.row}>
             <div className={styles.col}>
-              <h2> {cryptoInfo?.market_cap_rank}</h2>
+              <h2>{cryptoInfo?.market_cap_rank}.</h2>
               <img
                 className={styles.image}
                 src={cryptoInfo?.image && cryptoInfo.image.large}

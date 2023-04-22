@@ -113,8 +113,10 @@ const Header = () => {
             <span className={styles.pageName}>About us</span>
           </a>
         </li>
+        <li>
+          <SwitcherTheme status={state.modeData} func={onHandleChangeTheme} />
+        </li>
       </ul>
-      <SwitcherTheme status={state.modeData} func={onHandleChangeTheme} />
     </div>
   );
 };
