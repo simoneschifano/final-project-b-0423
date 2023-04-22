@@ -5,7 +5,6 @@ const WalletCard = (props) => {
   const data = props;
   const coins = data.props;
   const [walletInlocalStorage, setWalletInlocalStorage] = useState(null);
-
   useEffect(() => {
     setWalletInlocalStorage(
       typeof window !== "undefined"

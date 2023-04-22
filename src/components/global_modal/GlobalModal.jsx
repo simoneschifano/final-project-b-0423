@@ -33,10 +33,10 @@ const GlobalModal = ({ icon, price, id, setIsGlobalModal }) => {
         (wallet) => wallet.id !== id
       );
 
-      finalAddWallet.length > 1
+      finalAddWallet.length > 0
         ? localStorage.setItem(
             "wallet",
-            JSON.stringify([finalAddWallet, updatedQty])
+            JSON.stringify([...finalAddWallet, updatedQty])
           )
         : localStorage.setItem("wallet", JSON.stringify([updatedQty]));
     } else {
