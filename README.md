@@ -65,33 +65,53 @@ Finally open [http://localhost:3000](http://localhost:3000) per visualizzare il 
 
 <ul>
   <li>
- <h2> Salvo Bisconti </h2>
+ Salvo Bisconti :
     <a href="https://www.linkedin.com/in/salvo-bisconti/">
         LinkedIn
     </a>
-    | |
+    | 
         <a href="https://github.com/SalvoBisconti">
         GitHub
     </a>
   </li>
   <li>
+   Sonia Grassia :
     <a href="https://www.linkedin.com/in/sonia-grassia/">
-      Sonia Grassia
+            LinkedIn
+    </a>
+    | 
+        <a href="https://github.com/SoniaGrassia">
+        GitHub
     </a>
   </li>
-  <li>
+  <li> Elisabetta Monaco :
     <a href="https://www.linkedin.com/in/elisabetta-monaco-5869a9109/">
-      Elisabetta Monaco
+                  LinkedIn
+    </a>
+     </a>
+    | 
+        <a href="https://github.com/bennina">
+        GitHub
     </a>
   </li>
-  <li>
-    <a href="">
-      Vincenzo Costantino
+  <li> Vincenzo Costantino :
+    <a href="https://www.linkedin.com/in/vincenzo-costantino-67b624257/">
+                  LinkedIn
+    </a>
+     </a>
+    | 
+        <a href="https://github.com/Vinci97">
+        GitHub
     </a>
   </li>
-  <li>
+  <li> Francesco Coppola :
     <a href="https://www.linkedin.com/in/fra-coppola-5ab6b4257/">
-      Francesco Pio Coppola
+                  LinkedIn
+    </a>
+     </a>
+    | 
+        <a href="https://github.com/Franceschio">
+        GitHub
     </a>
   </li>
 </ul>
