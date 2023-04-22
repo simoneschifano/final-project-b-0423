@@ -1,3 +1,5 @@
+<img width="40%" src="./public/logo.png" alt="Logo"> <br>
+
 ## Descrizione
 
 <p  align="left"> Crypie nasce dall'idea di fornire agli utenti  un'applicazione web che si differenzi dai competitors grazie al suo design unico</p>
