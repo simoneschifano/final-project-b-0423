@@ -31,8 +31,7 @@ const LoginForm = () => {
         onChange={onHandlePassword}
         required
       />
-      <input type="submit" />
-      <Button text="Accedi" />
+      <Button text="Submit" />
     </form>
   );
 };

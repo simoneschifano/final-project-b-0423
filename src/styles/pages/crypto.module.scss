@@ -23,7 +23,7 @@
         }
 
         @media screen and (min-width: 350px) and (max-width: 500px) {
-          @include flex($align: center, $justify: center, $gap: 10px);
+          @include flex($align: center, $justify: flex-start, $gap: 10px);
           width: 100%;
         }
 
@@ -157,8 +157,12 @@
           $align: center,
           $justify: space-between
         );
+        .col {
+          align-self: flex-start;
+        }
 
         .btn {
+          @include flex($justify: flex-start);
           padding: 0em 0em 2em 0em;
         }
       }
