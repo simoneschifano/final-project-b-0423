@@ -1,50 +1,55 @@
-<img width="40%" src="./public/logo.png" alt="Logo"> <br>
+# CRYPIE - Final project, Edgemony's coding bootcamp
 
-## Descrizione
+<p align="center" width="100%">
+<img width="30%" src="./public/logo.png" alt="Logo"> <br>
+</p>
 
-<p  align="left"> Crypie nasce dall'idea di fornire agli utenti  un'applicazione web che si differenzi dai competitors grazie al suo design unico</p>
-   <p align="left" > Utilizzando l'API di <a style='color: rgb(255, 0, 230); text-decoration: none'href='https://www.coingecko.com/'     target='_blank' >CoinGecko</a> permette agli utenti di visualizzare una vasta gamma di cryptovalute. 
+## Description
+
+<p  align="left"> Crypie was born from the idea of providing users with a web application that differs from competitors thanks to its unique design</p>
+   <p align="left" > Using  <a style='color: rgb(255, 0, 230); text-decoration: none'href='https://www.coingecko.com/'     target='_blank' >CoinGecko</a>' API allows users to view a wide range of cryptocurrencies.  
    <br>
-   <p> L'app è stata progettata nell'ottica del mobile first, seguendo i processi di UI/UX desing.  </p>
+   <p> The app was designed with mobile first in mind, following the UI/UX desing process.  </p>
 <hr>
 
-## Tecnologie utilizzate
+## Used technologies:
 
   <ul>
     <li>Chart.js</li>
     <li>CoinGecko API</li>
     <li>Css modules</li>
     <li>HTML</li>
+        <li>Next.js</li>
+      <li>React.js</li>
     <li>Sass</li>
-    <li>Next.js</li>
+
   </ul>
 <hr>
 
-## Funzionalità
+## Features
 
-<p  align="left"> L'app offre all'utente la possibilità di effettuare delle operazioni su una vasta selezione di cryptovalute.
+<p  align="left">The app gives the user the ability to perform transactions on a wide selection of cryptocurrencies.
 <br>
-È infatti possibile:
+It's possible:
 <ul>
-<li> Aggiungere una crypto in una whatchlist; </li>
-<li> Visualizzare i dettagli di ogni singola crypto ;</li>
-<li> Grafico andamento settimanale di ogni crypto ;</li>
-<li>Comprare/vendere crypto;</li>
-<li>Visualizzare l'allocazione delle crypto in portafoglio (tramite apposito grafico); </li>
-<li>Possibilità di cambiamento del tema dell'app (giorno / notte); </li>
-<li>Possibilità di cambiamento della valuta corrente (eur / usd/ cad / ...); </li>
+<li> Add a crypto in a whatchlist; </li>
+<li> View details of each individual crypto ;</li>
+<li> Weekly chart performance of each crypto ;</li>
+<li>But/sell a crypto;</li>
+<li>Wallet page with chart ; </li>
+<li>Two different theme (light - night) ; </li>
 </ul>
 <hr>
 
-## Come avviare l'app!
+## How to run it!
 
-Inizia installando il pacchetto npm:
+For first install npm package:
 
 ```bash
 npm install
 ```
 
-Prosegui avviando il server:
+Continue by starting the server:
 
 ```bash
 npm run dev
@@ -52,16 +57,21 @@ npm run dev
 yarn dev
 ```
 
-Infine apri [http://localhost:3000](http://localhost:3000) per visualizzare il risultato
+Finally open [http://localhost:3000](http://localhost:3000) per visualizzare il risultato
 
 <hr>
 
-## Il nostro team
+## Our team
 
 <ul>
   <li>
+ <h2> Salvo Bisconti </h2>
     <a href="https://www.linkedin.com/in/salvo-bisconti/">
-        Salvo Bisconti
+        LinkedIn
+    </a>
+    | |
+        <a href="https://github.com/SalvoBisconti">
+        GitHub
     </a>
   </li>
   <li>
