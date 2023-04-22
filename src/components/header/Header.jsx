@@ -48,7 +48,6 @@ const Header = () => {
         </svg>
       </a>
       <ul className={styles.list}>
-        {/* HOME */}
         <li>
           <a
             className={`${
@@ -62,7 +61,6 @@ const Header = () => {
             <span className={styles.pageName}>Home</span>
           </a>
         </li>
-        {/* WALLET */}
         <li>
           <a
             className={`${
@@ -76,7 +74,6 @@ const Header = () => {
             <span className={styles.pageName}>Wallet</span>
           </a>
         </li>
-        {/* ALL CRYPTO */}
         <li>
           <a
             className={`${
@@ -90,7 +87,6 @@ const Header = () => {
             <span className={styles.pageName}>All crypto</span>
           </a>
         </li>
-        {/* WATCHLIST */}
         <li>
           <a
             className={`${
@@ -104,7 +100,6 @@ const Header = () => {
             <span className={styles.pageName}>Watchlist</span>
           </a>
         </li>
-        {/* ABOUT US */}
         <li>
           <a
             className={`${
