@@ -15,12 +15,13 @@ export default function Wallet() {
   }, []);
 
   useEffect(() => {
-    setWalletInLocalStorage(
+    const Storage =(
       typeof window !== "undefined"
         ? JSON.parse(localStorage.getItem("wallet"))
         : []
     );
-  }, [setWalletInLocalStorage]);
+    setWalletInLocalStorage(Storage)
+  }, []);
 
   let value = 0;
   const cakePercentualArray = walletInLocalStorage?.map(
