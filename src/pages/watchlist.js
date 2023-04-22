@@ -33,7 +33,7 @@ export default function watchlist() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.Main}>
-        <Layout theme={state.modeData}>
+        <Layout>
           <h2> watchlist </h2>
           <div className={styles.watchlist}>
             {stars.length > 0 ? (

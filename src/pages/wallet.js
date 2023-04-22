@@ -38,7 +38,7 @@ export default function Wallet() {
         <link rel="icon" href="/logo.png" />
       </Head>
       <main className={styles.Main}>
-        <Layout theme={state.modeData}>
+        <Layout>
           <div className={styles.Content}>
             <h2 className={styles.title}> MY WALLET STATUS</h2>
 

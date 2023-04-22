@@ -29,7 +29,7 @@ export default function account() {
         <link rel="icon" href="/logo.png" />
       </Head>
       <main className={styles.Main}>
-        <Layout theme={state.modeData}>
+        <Layout>
           <h2>Hi, {username}!</h2>
           <div className={styles.settingList}>
             <div className={styles.userSettings}>

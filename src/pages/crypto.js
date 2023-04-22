@@ -47,10 +47,6 @@ export default function cryptoId() {
     }
   }, [router.isReady]);
 
-  // useEffect(() => {
-  //   GET(`${name}`).then((data) => setCryptoInfo(() => data));
-  // }, []);
-
   useEffect(() => {
     dispatch({ type: "SELECTED_ICON", payload: "allCrypto" });
   }, []);
@@ -91,7 +87,7 @@ export default function cryptoId() {
 
   return (
     <main className={styles.Main}>
-      <Layout theme={state.modeData}>
+      <Layout>
         <div className={styles.popup}>
           {popUpVisibility && starStatus ? (
             <Popup text={`'${name}' added in your watchlist`} />
@@ -171,7 +167,7 @@ export default function cryptoId() {
                 </h6>
                 <h6>
                   Total supply:
-                  {cryptoInfo?.market_data?.current_price?.total_supply}
+                  {cryptoInfo?.market_data?.total_supply}
                 </h6>
               </div>
 

@@ -40,7 +40,7 @@
     border-radius: 20px;
     background-color: var(--card--background);
     color: $second-color;
-    box-shadow: 0px 0px 15px 2px $graph;
+    box-shadow: 0px 0px 6px 2px $graph;
     padding: 20px 40px 40px;
     margin-left: 30%;
     max-width: calc(800px - 30%);
@@ -71,7 +71,7 @@
         border: 0;
         border-bottom: 1px solid var(--card-border);
         outline: none;
-        color: var(--card--background);
+        color: var(--text);
         @include space-around(0, 0, 6px);
         cursor: text;
       }
@@ -80,7 +80,7 @@
         align-items: center;
 
         .icon {
-          @include size(25px);
+          @include size(40px);
         }
       }
       .secondInput {
@@ -89,14 +89,14 @@
         pointer-events: none;
 
         .icon {
-          @include size(25px);
+          width: 40px;
         }
       }
       .btn {
         @include btn($margin-top: 40px);
         border: none;
-        color: $graph;
-        background-color: var(--text);
+        color: var(--card--background);
+        background-color: $graph;
 
         cursor: pointer;
         &:hover {

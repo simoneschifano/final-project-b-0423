@@ -58,7 +58,7 @@ export default function Home() {
         <link rel="icon" href="/logo.png" />
       </Head>
       <main className={styles.Main}>
-        <Layout theme={state.modeData}>
+        <Layout>
           <div className={styles.container}>
             <div
               className={`${styles.section} ${
@@ -155,7 +155,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-          {/*  <SwitcherTheme status={isLightActive} func={onHandleChangeTheme} /> */}
         </Layout>
       </main>
     </>

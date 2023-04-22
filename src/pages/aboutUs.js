@@ -21,7 +21,7 @@ export default function aboutUs() {
         <link rel="icon" href="/logo.png" />
       </Head>
       <main className={styles.Main}>
-        <Layout theme={state.modeData}>
+        <Layout>
           <h1>About us</h1>
           <div className={styles.content}>
             <div className={styles.aboutCard}>

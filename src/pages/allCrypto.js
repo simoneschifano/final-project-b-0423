@@ -41,7 +41,7 @@ export default function allCrypto() {
         <link rel="icon" href="/logo.png" />
       </Head>
       <main className={styles.Main}>
-        <Layout theme={state.modeData}>
+        <Layout>
           <div className={styles.allCryptoHead}>
             <h2> all Crypto </h2>
 

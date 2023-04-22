@@ -30,7 +30,7 @@ const GlobalModal = ({ icon, price, id, setIsGlobalModal }) => {
       };
 
       const finalAddWallet = walletInLocalStorage.filter(
-        (wallet) => wallet.id === id
+        (wallet) => wallet.id !== id
       );
 
       finalAddWallet.length > 1
@@ -66,7 +66,7 @@ const GlobalModal = ({ icon, price, id, setIsGlobalModal }) => {
           contentVisibility && styles.visibility
         }`}
       >
-        <h3 className={styles.title}>Complete your buy</h3>
+        <h3 className={styles.title}>Set your buy</h3>
         <form className={styles.form} onSubmit={onHandleSubmit}>
           <div className={styles.firstInput}>
             <AiFillEuroCircle className={styles.icon} />
@@ -75,7 +75,7 @@ const GlobalModal = ({ icon, price, id, setIsGlobalModal }) => {
               className={styles.input}
               onChange={onHandleInput}
               type="number"
-              placeholder="price"
+              placeholder="value"
               required
             />
           </div>
