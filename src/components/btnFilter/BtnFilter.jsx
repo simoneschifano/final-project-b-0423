@@ -13,7 +13,7 @@ const BtnFilter = (prop) => {
 
   return (
     <div className={styles.BtnFilter} onClick={onHandleSorting}>
-      {prop.value}
+      <span className={styles.value}>{prop.value}</span>
       {arrowState ? (
         <HiBarsArrowDown className={styles.icon} />
       ) : (
