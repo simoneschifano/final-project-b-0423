@@ -23,7 +23,7 @@
       background-color: white;
       box-shadow: 0 0 5px 0px var(--card-border);
       border-radius: 24px;
-      padding: 6px;
+      padding: 6px 8px 6px 8px;
       @include flex($align: center);
 
       input {
@@ -31,7 +31,7 @@
         outline: none;
         background-color: white;
         color: $background-cards-dark;
-        max-width: 130px;
+        max-width: 140px;
       }
 
       img {
