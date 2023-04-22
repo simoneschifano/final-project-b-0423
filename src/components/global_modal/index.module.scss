@@ -80,7 +80,7 @@
         align-items: center;
 
         .icon {
-          @include size(40px);
+          @include size(50px);
         }
       }
       .secondInput {
@@ -89,7 +89,7 @@
         pointer-events: none;
 
         .icon {
-          width: 40px;
+          @include size(40px);
         }
       }
       .btn {
