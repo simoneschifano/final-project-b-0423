@@ -157,7 +157,6 @@ $four: calc(25% - 17px);
     @include container();
 
     height: calc(100vh - 82px);
-    margin-top: 82px;
     overflow-y: scroll;
 
     float: right;
