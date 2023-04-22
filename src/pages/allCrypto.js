@@ -45,11 +45,17 @@ export default function allCrypto() {
             <h2> all Crypto </h2>
 
             <div className={styles.container}>
-              <input
-                type="text"
-                placeholder="Search a crypto!"
-                onChange={onHandleChange}
-              />
+              <div className={styles.search}>
+                <input
+                  type="text"
+                  placeholder="Search a crypto!"
+                  onChange={onHandleChange}
+                />
+                <img
+                  src="https://img.icons8.com/ios/512/search.png"
+                  alt="search"
+                />
+              </div>
               <BtnFilter value="Sorting by Rank " setFilter={setFilter} />
             </div>
           </div>
