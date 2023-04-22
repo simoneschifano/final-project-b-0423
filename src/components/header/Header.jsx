@@ -4,7 +4,7 @@ import { GiTwoCoins } from "react-icons/gi";
 import { FaUsers } from "react-icons/fa";
 import { AiFillHome } from "react-icons/ai";
 import styles from "./index.module.scss";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { Context } from "@/store";
 import SwitcherTheme from "../switcherTheme";
 
@@ -12,13 +12,12 @@ const Header = () => {
   // SWITCHER
 
   const { state, dispatch } = useContext(Context);
+
   const onHandleChangeTheme = () => {
-    !state.modeData
-      ? localStorage.setItem("theme", "DARK")
-      : localStorage.setItem("theme", "LIGHT");
+    localStorage.setItem("theme", JSON.stringify(!state?.modeData));
     dispatch({
       type: "SET_THEME",
-      payload: !state.modeData,
+      payload: !state?.modeData,
     });
   };
 

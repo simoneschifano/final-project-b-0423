@@ -1,12 +1,9 @@
 import styles from "./index.module.scss";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 
 const WalletCard = (props) => {
   const data = props;
   const coins = data.props;
-
-  const router = useRouter();
   const [walletInlocalStorage, setWalletInlocalStorage] = useState(null);
 
   useEffect(() => {
@@ -16,13 +13,6 @@ const WalletCard = (props) => {
         : []
     );
   }, []);
-
-  // const onHandleOpenDetails = () => {
-  //   router.push({
-  //     pathname: "crypto",
-  //     query: { name: coins.id },
-  //   });
-  // };
 
   let newLocalStorage = [];
   const onHandleSell = () => {
