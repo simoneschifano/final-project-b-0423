@@ -12,12 +12,12 @@ const CakeChart = ({ chartData, cakePercentualArray }) => {
   );
 
   const data = {
-    labels: chartData.map((item) => item.id.toUpperCase()),
+    labels: chartData?.map((item) => item?.id.toUpperCase()),
 
     datasets: [
       {
         label: "Value €",
-        data: cakePercentualArray.map((item) => item),
+        data: cakePercentualArray?.map((item) => item),
         backgroundColor: colorsArray,
       },
     ],
