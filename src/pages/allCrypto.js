@@ -6,6 +6,7 @@ import Loading from "@/components/loading";
 import BtnFilter from "@/components/btnFilter";
 import styles from "../styles/pages/allCrypto.module.scss";
 import { Context } from "@/store";
+import { BsSearch } from "react-icons/bs";
 
 export default function allCrypto() {
   const { state, dispatch } = useContext(Context);
@@ -46,14 +47,11 @@ export default function allCrypto() {
 
             <div className={styles.container}>
               <div className={styles.search}>
+                <BsSearch className={styles.searchIcon} />
                 <input
                   type="text"
-                  placeholder="Search a crypto!"
+                  placeholder="Search a crypto..."
                   onChange={onHandleChange}
-                />
-                <img
-                  src="https://img.icons8.com/ios/512/search.png"
-                  alt="search"
                 />
               </div>
               <BtnFilter value="Sorting by Rank " setFilter={setFilter} />
