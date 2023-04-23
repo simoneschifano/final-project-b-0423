@@ -1,7 +1,7 @@
 # CRYPIE - Edgemony Final project
 
 <p align="center" width="100%">
-<img width="30%" src="./public/logo.png" alt="Logo"> <br>
+<img width="20%" src="./public/logo.png" alt="Logo"> <br>
 </p>
 
 ## Description

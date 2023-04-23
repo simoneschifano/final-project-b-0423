@@ -6,6 +6,7 @@ import { AiFillHome } from "react-icons/ai";
 import styles from "./index.module.scss";
 import { useContext } from "react";
 import { Context } from "@/store";
+import Link from "next/link";
 import SwitcherTheme from "../switcherTheme";
 
 const Header = () => {
@@ -23,10 +24,10 @@ const Header = () => {
 
   return (
     <div className={styles.Header}>
-      <a className={styles.logo} href="/">
+      <Link className={styles.logo} href="/">
         Crypie
-      </a>
-      <a className={styles.logo__mobile} href="/">
+      </Link>
+      <Link className={styles.logo__mobile} href="/">
         <svg
           id="logo-86"
           width="40"
@@ -45,10 +46,10 @@ const Header = () => {
             d="M10 5.16562e-07C10 1.31322 9.74135 2.61358 9.2388 3.82683C8.73625 5.04009 7.99966 6.14248 7.07107 7.07107C6.14249 7.99966 5.0401 8.73625 3.82684 9.2388C2.61358 9.74134 1.31322 10 5.4439e-06 10L5.00679e-06 20C2.62644 20 5.22716 19.4827 7.65368 18.4776C10.0802 17.4725 12.285 15.9993 14.1421 14.1421C15.9993 12.285 17.4725 10.0802 18.4776 7.65367C19.4827 5.22715 20 2.62643 20 -3.81469e-06L10 5.16562e-07Z"
           ></path>
         </svg>
-      </a>
+      </Link>
       <ul className={styles.list}>
         <li>
-          <a
+          <Link
             className={`${
               state.iconSelected === "home" && styles.selectedPage
             }`}
@@ -58,10 +59,10 @@ const Header = () => {
               <AiFillHome className={styles.home} />
             </span>
             <span className={styles.pageName}>Home</span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a
+          <Link
             className={`${
               state.iconSelected === "wallet" && styles.selectedPage
             }`}
@@ -71,10 +72,10 @@ const Header = () => {
               <BsCreditCardFill className={styles.wallet} />
             </span>
             <span className={styles.pageName}>Wallet</span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a
+          <Link
             className={`${
               state.iconSelected === "allCrypto" && styles.selectedPage
             }`}
@@ -84,10 +85,10 @@ const Header = () => {
               <GiTwoCoins className={styles.allCrypto} />
             </span>
             <span className={styles.pageName}>All crypto</span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a
+          <Link
             className={`${
               state.iconSelected === "watchlist" && styles.selectedPage
             }`}
@@ -97,10 +98,10 @@ const Header = () => {
               <BsStar className={styles.watchList} />
             </span>
             <span className={styles.pageName}>Watchlist</span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a
+          <Link
             className={`${
               state.iconSelected === "aboutUs" && styles.selectedPage
             }`}
@@ -110,7 +111,7 @@ const Header = () => {
               <FaUsers className={styles.aboutIcon} />
             </span>
             <span className={styles.pageName}>About us</span>
-          </a>
+          </Link>
         </li>
         <li>
           <SwitcherTheme status={state.modeData} func={onHandleChangeTheme} />

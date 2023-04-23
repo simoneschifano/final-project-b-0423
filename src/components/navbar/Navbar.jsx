@@ -1,25 +1,26 @@
 import styles from "./index.module.scss";
 import { VscAccount } from "react-icons/vsc";
 import { FiLogOut } from "react-icons/fi";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
     <div className={styles.Navbar}>
       <ul>
         <li>
-          <a href="../account">
+          <Link href="../account">
             <span>
               <VscAccount className={styles.icon} />
             </span>
             ACCOUNT
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="../login">
+          <Link href="../login">
             <span>
               <FiLogOut className={styles.icon} />
             </span>
-          </a>
+          </Link>
         </li>
       </ul>
     </div>
