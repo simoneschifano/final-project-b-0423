@@ -1,17 +1,17 @@
-// import SwitcherTheme from "../switcher-Theme";
-import { BsCreditCardFill, BsStar } from "react-icons/bs";
-import { GiTwoCoins } from "react-icons/gi";
 import { FaUsers } from "react-icons/fa";
-import { AiFillHome } from "react-icons/ai";
 import styles from "./index.module.scss";
 import { useContext } from "react";
 import { Context } from "@/store";
 import Link from "next/link";
 import SwitcherTheme from "../switcherTheme";
 
-const Header = () => {
-  // SWITCHER
+import { TbWallet } from "react-icons/tb";
+import { TbCoins } from "react-icons/tb";
+import { FiStar } from "react-icons/fi";
+import { HiOutlineHome } from "react-icons/hi";
+import { FiUsers } from "react-icons/fi";
 
+const Header = () => {
   const { state, dispatch } = useContext(Context);
 
   const onHandleChangeTheme = () => {
@@ -56,7 +56,7 @@ const Header = () => {
             href="/"
           >
             <span className={styles.svg}>
-              <AiFillHome className={styles.home} />
+              <HiOutlineHome className={styles.home} />
             </span>
             <span className={styles.pageName}>Home</span>
           </Link>
@@ -69,7 +69,7 @@ const Header = () => {
             href="../wallet"
           >
             <span className={styles.svg}>
-              <BsCreditCardFill className={styles.wallet} />
+              <TbWallet className={styles.wallet} />
             </span>
             <span className={styles.pageName}>Wallet</span>
           </Link>
@@ -82,7 +82,7 @@ const Header = () => {
             href="../allCrypto"
           >
             <span className={styles.svg}>
-              <GiTwoCoins className={styles.allCrypto} />
+              <TbCoins className={styles.allCrypto} />
             </span>
             <span className={styles.pageName}>All crypto</span>
           </Link>
@@ -95,7 +95,7 @@ const Header = () => {
             href="../watchlist"
           >
             <span className={styles.svg}>
-              <BsStar className={styles.watchList} />
+              <FiStar className={styles.watchList} />
             </span>
             <span className={styles.pageName}>Watchlist</span>
           </Link>
@@ -108,7 +108,7 @@ const Header = () => {
             href="../aboutUs"
           >
             <span className={styles.svg}>
-              <FaUsers className={styles.aboutIcon} />
+              <FiUsers className={styles.aboutIcon} />
             </span>
             <span className={styles.pageName}>About us</span>
           </Link>

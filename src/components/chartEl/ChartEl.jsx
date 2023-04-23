@@ -35,13 +35,10 @@ const ChartEl = ({ prices }) => {
         data: coinChartData.map((val) => val.y),
         borderColor: `${
           prices[0] > prices[7] ? "rgb(255, 0, 0)" : "rgb(134, 218, 8)"
-          // CORRETTO:
-          // prices[0][1] > prices[7][1] ? "rgb(255, 0, 0)" : "rgb(134, 218, 8)"
         }`,
       },
     ],
   };
-  // console.log(prices[0][1]);
   const options = {
     maintainAspectRatio: false,
 

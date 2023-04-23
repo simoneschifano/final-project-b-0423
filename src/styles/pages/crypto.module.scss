@@ -12,8 +12,8 @@
       @include flex($direction: row, $align: center, $justify: space-between);
       width: 100%;
 
-      .backButton{
-        @include flex($align: center,$justify:center);
+      .backButton {
+        @include flex($align: center, $justify: center);
         @include poppins();
         background-color: var(--btn-background);
         color: var(--btn-text);
@@ -30,7 +30,7 @@
           box-shadow: 0 0 4px 2px $graph;
           transition: all 0.55s;
         }
-        .arrow{
+        .arrow {
           width: 50%;
           height: 100%;
         }
@@ -165,6 +165,10 @@
     font-size: 0.8rem;
     text-transform: none;
     overflow-y: scroll;
+
+    a {
+      color: $graph;
+    }
   }
 }
 

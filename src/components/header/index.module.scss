@@ -43,7 +43,6 @@
       }
     }
     &:hover {
-      color: $graph;
       transition: all 0.55s;
       text-shadow: 2px 2px 2px var(--card-border);
     }
@@ -69,21 +68,22 @@
 
     li {
       .selectedPage {
-        color: $graph;
-
         .svg {
           .home,
           .wallet,
           .allCrypto,
           .watchList,
           .aboutIcon {
-            color: $graph;
-            transform: scale(1.2);
+            color: var(--btn-background);
+            fill: var(--btn-background);
+            transform: scale(1.5);
           }
+        }
+        span {
+          font-weight: bold;
         }
 
         &:hover {
-          color: var(--text);
           transition: all 0.55s;
           text-shadow: 2px 2px 2px var(--card-border);
           .svg {
@@ -129,9 +129,7 @@
             .allCrypto,
             .watchList,
             .aboutIcon {
-              color: $graph;
               transition: all 0.55s;
-              // animation: spinAround 2s linear;
             }
           }
           .home,
@@ -150,7 +148,6 @@
           }
         }
         &:hover {
-          color: $graph;
           transition: all 0.55s;
           text-shadow: 2px 2px 2px var(--card-border);
           .svg {
@@ -159,7 +156,6 @@
             .allCrypto,
             .watchList,
             .aboutIcon {
-              color: $graph;
               transition: all 0.55s;
               animation: spinAround 2s ease infinite;
             }

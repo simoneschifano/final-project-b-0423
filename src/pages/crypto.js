@@ -9,7 +9,7 @@ import Button from "@/components/button";
 import GlobalModal from "@/components/global_modal";
 import Popup from "@/components/popup";
 import React from "react";
-import {AiOutlineArrowLeft} from "react-icons/ai";
+import { AiOutlineArrowLeft } from "react-icons/ai";
 
 import { MdStars } from "react-icons/md";
 
@@ -103,8 +103,11 @@ export default function cryptoId() {
         </div>
         <div className={styles.header}>
           <div className={styles.row}>
-            <button onClick={handleBackButtonClick} className={styles.backButton}>
-              <AiOutlineArrowLeft className={styles.arrow}/>
+            <button
+              onClick={handleBackButtonClick}
+              className={styles.backButton}
+            >
+              <AiOutlineArrowLeft className={styles.arrow} />
             </button>
             <div className={styles.col}>
               <h2>{cryptoInfo?.market_cap_rank}.</h2>
@@ -183,11 +186,13 @@ export default function cryptoId() {
               </div>
             </div>
             <div className={styles.description}>
-              <h5> {cryptoInfo.description?.en}</h5>
+              <h3>Description:</h3>
+              <p
+                dangerouslySetInnerHTML={{ __html: cryptoInfo.description?.en }}
+              ></p>
             </div>
           </>
         )}
-        {/* {console.log(cryptoInfo?.market_data?.current_price?.market_cap?.eur)} */}
 
         {isGlobalModal && (
           <GlobalModal

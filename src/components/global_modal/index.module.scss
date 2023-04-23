@@ -89,7 +89,7 @@
         pointer-events: none;
 
         .icon {
-          @include size(40px);
+          @include size(35px);
         }
       }
       .btn {
@@ -110,22 +110,18 @@
 
 @keyframes textAnimation {
   from {
-    // transform: translateY(0);
     font-size: 0;
   }
   to {
-    // transform: translateY(50vh);
     font-size: 1.3rem;
   }
 }
 
 @keyframes textAnimationDesk {
   from {
-    // transform: translateY(0);
     font-size: 0;
   }
   to {
-    // transform: translateY(50vh);
     font-size: 2.2rem;
   }
 }

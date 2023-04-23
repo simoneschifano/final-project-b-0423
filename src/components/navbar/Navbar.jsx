@@ -16,7 +16,7 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link href="../login">
+          <Link href="/">
             <span>
               <FiLogOut className={styles.icon} />
             </span>
