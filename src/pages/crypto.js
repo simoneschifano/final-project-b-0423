@@ -9,6 +9,7 @@ import Button from "@/components/button";
 import GlobalModal from "@/components/global_modal";
 import Popup from "@/components/popup";
 import React from "react";
+import {AiOutlineArrowLeft} from "react-icons/ai";
 
 import { MdStars } from "react-icons/md";
 
@@ -84,6 +85,9 @@ export default function cryptoId() {
   };
 
   const { state, dispatch } = useContext(Context);
+  const handleBackButtonClick = () => {
+    window.history.back();
+  };
 
   return (
     <main className={styles.Main}>
@@ -99,6 +103,9 @@ export default function cryptoId() {
         </div>
         <div className={styles.header}>
           <div className={styles.row}>
+            <button onClick={handleBackButtonClick} className={styles.backButton}>
+              <AiOutlineArrowLeft className={styles.arrow}/>
+            </button>
             <div className={styles.col}>
               <h2>{cryptoInfo?.market_cap_rank}.</h2>
               <img

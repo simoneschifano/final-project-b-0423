@@ -13,6 +13,9 @@ const Custom404 = () => {
       <div className={styles.Custom404}>
         <h1>Error 404</h1>
         <p>Sorry, the page you are looking for does not exist.</p>
+          <a className={styles.home404} href="/">
+            back to home page
+          </a>
       </div>
     </>
   );

@@ -12,6 +12,26 @@
       @include flex($direction: row, $align: center, $justify: space-between);
       width: 100%;
 
+      .backButton{
+        @include flex($align: center,$justify:center);
+        @include poppins();
+        background-color: var(--btn-background);
+        color: var(--btn-text);
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        transition: all 0.55s;
+        height: 30px;
+        width: 30px;
+        &:hover {
+          box-shadow: 0 0 4px 2px $graph;
+          transition: all 0.55s;
+        }
+        .arrow{
+          width: 50%;
+          height: 100%;
+        }
+      }
       .col {
         width: 50%;
         @include flex($align: center, $gap: 14px);
@@ -26,7 +46,6 @@
           @include flex($align: center, $justify: flex-start, $gap: 10px);
           width: 100%;
         }
-
         h2 {
           font-size: 18px;
         }
