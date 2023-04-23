@@ -9,26 +9,32 @@ import { Context } from "@/store";
 
 export default function Wallet() {
   const [walletInLocalStorage, setWalletInLocalStorage] = useState();
+  const { state, dispatch } = useContext(Context);
 
   useEffect(() => {
     dispatch({ type: "SELECTED_ICON", payload: "wallet" });
   }, []);
 
+  // useEffect(() => {
+  //   const Storage =
+  //     typeof window !== "undefined"
+  //       ? JSON.parse(localStorage.getItem("wallet"))
+  //       : [];
+  //   setWalletInLocalStorage(Storage);
+  // }, []);
+
   useEffect(() => {
-    const Storage =(
+    setWalletInLocalStorage(
       typeof window !== "undefined"
         ? JSON.parse(localStorage.getItem("wallet"))
         : []
     );
-    setWalletInLocalStorage(Storage)
   }, []);
 
   let value = 0;
   const cakePercentualArray = walletInLocalStorage?.map(
     (item) => (value = item.qty * item.price)
   );
-
-  const { state, dispatch } = useContext(Context);
 
   return (
     <>

@@ -1,13 +1,31 @@
 import styles from "./index.module.scss";
-
+import { useEffect, useState } from "react";
 const WalletCard = (props) => {
   const data = props;
   const coins = data.props;
-  
+
+  // let newLocalStorage = [];
+  // const onHandleSell = () => {
+  //   const Storage = typeof window !== "undefined" ? JSON.parse(localStorage.getItem("wallet")) : [];
+  //   newLocalStorage = Storage.filter((crypto) => crypto.id !== coins.id);
+  //   newLocalStorage.length > 0
+  //     ? localStorage.setItem("wallet", JSON.stringify(newLocalStorage))
+  //     : localStorage.removeItem("wallet");
+  // };
+  const [walletInlocalStorage, setWalletInlocalStorage] = useState(null);
+  useEffect(() => {
+    setWalletInlocalStorage(
+      typeof window !== "undefined"
+        ? JSON.parse(localStorage.getItem("wallet"))
+        : []
+    );
+  }, []);
+
   let newLocalStorage = [];
   const onHandleSell = () => {
-    const Storage = typeof window !== "undefined" ? JSON.parse(localStorage.getItem("wallet")) : [];
-    newLocalStorage = Storage.filter((crypto) => crypto.id !== coins.id);
+    newLocalStorage = walletInlocalStorage.filter(
+      (crypto) => crypto.id !== coins.id
+    );
     newLocalStorage.length > 0
       ? localStorage.setItem("wallet", JSON.stringify(newLocalStorage))
       : localStorage.removeItem("wallet");
