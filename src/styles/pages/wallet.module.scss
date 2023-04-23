@@ -6,7 +6,12 @@
   }
 
   .chartArea {
-    @include flex($direction: column, $justify: center, $align: center);
+    @include flex(
+      $direction: column,
+      $justify: center,
+      $align: center,
+      $gap: 15px
+    );
     height: 60vh;
     width: 60vw;
     background-color: var(--card--background);
@@ -17,11 +22,21 @@
     margin-left: 7vw;
     margin-bottom: 30px;
     padding: 20px;
+    text-align: center;
+
+    @media screen and (max-width: 500px) {
+      margin-left: 0px;
+    }
 
     .walletValue {
-      align-self: flex-end;
       padding: 20px;
       padding-top: 10px;
+      text-align: center;
+
+      @media screen and (max-width: 450px) {
+        padding-left: 20px;
+        font-size: 12px;
+      }
     }
   }
   h5 {
