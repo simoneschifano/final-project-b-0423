@@ -49,7 +49,8 @@ export default function Wallet() {
                     chartData={walletInLocalStorage}
                   />
                   <h3 className={styles.walletValue}>
-                    WALLET VALUE: € {summArrayValues(cakePercentualArray)}
+                    WALLET VALUE: €
+                    {summArrayValues(cakePercentualArray).toFixed(2)}
                   </h3>
                 </div>
 
