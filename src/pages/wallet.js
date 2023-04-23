@@ -15,20 +15,12 @@ export default function Wallet() {
     dispatch({ type: "SELECTED_ICON", payload: "wallet" });
   }, []);
 
-  // useEffect(() => {
-  //   const Storage =
-  //     typeof window !== "undefined"
-  //       ? JSON.parse(localStorage.getItem("wallet"))
-  //       : [];
-  //   setWalletInLocalStorage(Storage);
-  // }, []);
-
   useEffect(() => {
-    setWalletInLocalStorage(
+    const Storage =
       typeof window !== "undefined"
         ? JSON.parse(localStorage.getItem("wallet"))
-        : []
-    );
+        : [];
+    setWalletInLocalStorage(Storage);
   }, []);
 
   let value = 0;

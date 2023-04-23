@@ -2,19 +2,24 @@ import styles from "./index.module.scss";
 import WalletCard from "../walletCard";
 import { useEffect, useState } from "react";
 
-const WalletList = ({ data, inHomeActive }) => {
-  // const [walletInLocalStorage, setWalletInLocalStorage] = useState();
+const WalletList = ({ inHomeActive }) => {
+  const [walletInLocalStorage, setWalletInLocalStorage] = useState();
+  const [refresh, setRefresh] = useState(false);
 
-  // const WalletCoins = () =>{
-  //   const storedCoins = typeof window !== "undefined"
-  //     ? JSON.parse(localStorage.getItem("wallet"))
-  //     : [];
-  //     setWalletInLocalStorage(storedCoins);
-  // };
+  const WalletCoins = () => {
+    const storedCoins = typeof window !== "undefined"
+      ? JSON.parse(localStorage.getItem("wallet"))
+      : [];
+    setWalletInLocalStorage(storedCoins);
+  };
 
-  // useEffect(() => {
-  //   WalletCoins();
-  // }, [walletInLocalStorage]);
+  useEffect(() => {
+    WalletCoins();
+  }, [refresh]);
+
+  const onSell = () => {
+    setRefresh(!refresh);
+  };
 
   return (
     <div
@@ -22,8 +27,8 @@ const WalletList = ({ data, inHomeActive }) => {
         inHomeActive && styles.walletListHome
       }`}
     >
-      {data?.map((item) => (
-        <WalletCard props={item} key={item.id} />
+      {walletInLocalStorage?.map((item) => (
+        <WalletCard props={item} key={item.id} onSell={onSell} />
       ))}
     </div>
   );
