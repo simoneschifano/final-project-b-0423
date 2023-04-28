@@ -38,7 +38,7 @@ It's possible:
 <li> Weekly chart performance of each crypto ;</li>
 <li>But/sell a crypto;</li>
 <li>Wallet page with chart ; </li>
-<li>Two different theme (light - night) ; </li>
+<li>Two different themes (light - night) ; </li>
 </ul>
 <hr>
 
