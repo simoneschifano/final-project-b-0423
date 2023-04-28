@@ -58,7 +58,7 @@ npm run dev
 yarn dev
 ```
 
-Finally open [http://localhost:3000](http://localhost:3000) per visualizzare il risultato
+Finally open [http://localhost:3000](http://localhost:3000)
 
 <hr>
 
